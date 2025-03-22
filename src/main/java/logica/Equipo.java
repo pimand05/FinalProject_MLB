@@ -1,4 +1,4 @@
-package model;
+package logica;
 
 public class Equipo {
 }
