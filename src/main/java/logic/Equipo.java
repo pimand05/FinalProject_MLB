@@ -9,16 +9,14 @@ public class Equipo {
     private int juegosGanados;
     private int juegosPerdidos;
     private ArrayList<Jugador> jugadores;
-    private ArrayList<Juego> juegosjugados;
+    private ArrayList<Partido> partidosJugados;
 
-    public Equipo(String nombre, String estadio, Boolean calificado, int juegosGanados, int juegosPerdidos, ArrayList<Jugador> jugadores, ArrayList<Juego> juegosjugados) {
+    public Equipo(String nombre, String estadio, Boolean calificado, int juegosGanados, int juegosPerdidos) {
         this.nombre = nombre;
         this.estadio = estadio;
         this.calificado = calificado;
         this.juegosGanados = juegosGanados;
         this.juegosPerdidos = juegosPerdidos;
-        this.jugadores = jugadores;
-        this.juegosjugados = juegosjugados;
     }
 
     public String getNombre() {
@@ -69,13 +67,25 @@ public class Equipo {
         this.jugadores = jugadores;
     }
 
-    public ArrayList<Juego> getJuegosjugados() {
-        return juegosjugados;
+    public ArrayList<Partido> getPartidosJugados() {
+        return partidosJugados;
     }
 
-    public void setJuegosjugados(ArrayList<Juego> juegosjugados) {
-        this.juegosjugados = juegosjugados;
+    //metodos
+
+    public void setJuegosjugados(ArrayList<Partido> partidosJugados) {
+        this.partidosJugados = partidosJugados;
     }
 
+    public void addJugador(Jugador jugador) {
+        jugadores.add(jugador);
+    }
 
+    public void removeJugador(Jugador jugador) {
+        jugadores.remove(jugador);
+    }
+
+    public void addPartido(Partido partido) {
+        partidosJugados.add(partido);
+    }
 }
