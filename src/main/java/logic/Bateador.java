@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Bateador extends Jugador {
     private String posicion;
-    private EstadististicasBateador stats;
+    private EstadisticasBateador stats;
 
     public Bateador(String nombre, LocalDate fNacimiento, float altura, ArrayList<Lesion> historialLesiones,
                     String posicion, EstadisticasBateador stats) {
@@ -26,3 +26,4 @@ public class Bateador extends Jugador {
     public void actualizarEstadisticas(Partido partido) {
 
     }
+}
