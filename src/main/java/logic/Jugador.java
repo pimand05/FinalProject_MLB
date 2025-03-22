@@ -5,7 +5,7 @@ import logic.Lesion;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Jugador {
+public abstract class Jugador {
     protected String nombre;
     protected LocalDate fNacimiento;
     protected float altura;
