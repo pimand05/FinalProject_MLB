@@ -7,6 +7,7 @@ public class EstadisticasBateador {
     private int carreras;
     private int juegosJugados;
 
+    //Constructor
     public EstadisticasBateador(float promedioBateo, int hits, int homeRuns, int carreras, int juegosJugados) {
         this.promedioBateo = promedioBateo;
         this.hits = hits;
@@ -15,6 +16,7 @@ public class EstadisticasBateador {
         this.juegosJugados = juegosJugados;
     }
 
+    //Setters y Getters
     public float getPromedioBateo() {
         return promedioBateo;
     }

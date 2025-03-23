@@ -11,6 +11,7 @@ public class Equipo {
     private ArrayList<Jugador> jugadores;
     private ArrayList<Partido> partidosJugados;
 
+    //Constructor
     public Equipo(String nombre, String estadio, Boolean calificado, int juegosGanados, int juegosPerdidos) {
         this.nombre = nombre;
         this.estadio = estadio;
@@ -19,6 +20,7 @@ public class Equipo {
         this.juegosPerdidos = juegosPerdidos;
     }
 
+    //Getters y Setters
     public String getNombre() {
         return nombre;
     }
