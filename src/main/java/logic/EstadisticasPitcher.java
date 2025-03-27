@@ -4,6 +4,7 @@ public class EstadisticasPitcher {
     private int entradasLanzadas;
     private int ponchesLanzados;
     private int juegosJugados;
+    private int carrerasLimpiasPermitidas;
 
     //Constructor
     public EstadisticasPitcher(int entradasLanzadas, int ponchesLanzados, int juegosJugados) {
@@ -44,6 +45,10 @@ public class EstadisticasPitcher {
 
     public void incrementarponchesLanzados() {
         ponchesLanzados++; //crear metodo para incrementar ponches lanzados
+    }
+
+    public double calcularERA() {
+        return (carrerasLimpiasPermitidas / (double) entradasLanzadas) * 9;
     }
 }
 
