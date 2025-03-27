@@ -7,12 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="798.0" prefWidth="1157.0" styleClass="Container_Main" stylesheets="@../Style/ViewMain.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMainView">
    <children>
-      <BorderPane layoutX="377.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
@@ -36,7 +38,8 @@
                   <ImageView fitHeight="83.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/Logo_MLB.png" />
-                     </image></ImageView>
+                     </image>
+                  </ImageView>
                   <Separator prefHeight="1.0" prefWidth="4.0" visible="false" />
                </children>
             </HBox>
@@ -44,7 +47,7 @@
          <center>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="648.0" fitWidth="1128.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="566.0" fitWidth="1076.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Photos/Backgorund_Photo.png" />
                      </image>
@@ -53,5 +56,16 @@
             </HBox>
          </center>
       </BorderPane>
+      <AnchorPane prefHeight="798.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="863.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="798.0" prefWidth="322.0" styleClass="container" stylesheets="@../Style/MenuExpand.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-28.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane prefHeight="121.0" prefWidth="322.0" />
+                  <Pane prefHeight="121.0" prefWidth="322.0" />
+                  <Pane prefHeight="121.0" prefWidth="322.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

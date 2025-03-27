@@ -57,4 +57,25 @@ public class EstadisticasBateador {
         this.juegosJugados = juegosJugados;
     }
 
+    //Metodos
+    public void incrementarHits() {
+        hits++;
+    }
+
+    public void incrementarHomeRuns() {
+        homeRuns++;
+    }
+
+    public void incrementarCarreras() {
+        carreras++;
+    }
+
+    public void incrementarJuegosJugados() {
+        juegosJugados++;
+    }
+
+    public void calcularPromedioBateo() {
+        promedioBateo = hits / juegosJugados;
+    }
+
 }

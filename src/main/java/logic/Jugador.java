@@ -34,6 +34,8 @@ public abstract class Jugador {
             return historialLesiones;
         }
 
+
+
     // Método abstracto que debe implementar cada subclase
     public abstract void actualizarEstadisticas(Partido partido);
 }

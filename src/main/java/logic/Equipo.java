@@ -1,6 +1,7 @@
 package logic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Equipo {
     private String nombre;
@@ -10,6 +11,8 @@ public class Equipo {
     private int juegosPerdidos;
     private ArrayList<Jugador> jugadores;
     private ArrayList<Partido> partidosJugados;
+    HashMap<Integer, Bateador> lineup;
+    HashMap<Integer, Pitcher> relevistas;
 
     //Constructor
     public Equipo(String nombre, String estadio, Boolean calificado, int juegosGanados, int juegosPerdidos) {
@@ -89,5 +92,62 @@ public class Equipo {
 
     public void addPartido(Partido partido) {
         partidosJugados.add(partido);
+    }
+
+    public Jugador getJugador(int turno) {
+        return lineup.get(turno);
+    }
+
+    public void setLineup(HashMap<Integer, Bateador> lineup) {
+        this.lineup = lineup;
+    }
+
+    public void setPartidosJugados(ArrayList<Partido> partidosJugados) {
+        this.partidosJugados = partidosJugados;
+    }
+
+    public HashMap<Integer, Bateador> getLineup() {
+        return lineup;
+    }
+
+    public void setRelevistas(HashMap<Integer, Pitcher> relevistas) {
+        this.relevistas = relevistas;
+    }
+
+    public void settingLineup() {
+        int i = 1;
+        for (Jugador jugador : jugadores) {
+            if (i > 9) break;
+            if (jugador instanceof Bateador bateador && !(bateador.isLesionado())) {
+                lineup.put(i, bateador);
+            }
+            i++;
+
+        }
+        setLineup(lineup);
+    }
+
+    public Pitcher getPitcher() {
+        Pitcher pitcher = null;
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Pitcher) {
+                pitcher = (Pitcher) jugador;
+                break;
+            }
+        }
+        return pitcher;
+    }
+
+    public void getRelevistas() {
+        int i = 1;
+        for (Jugador jugador : jugadores) {
+            if (i > 5) break;
+            if (jugador instanceof Pitcher pitcher) {
+                relevistas.put(i, pitcher);
+            }
+            i++;
+
+        }
+        setRelevistas(relevistas);
     }
 }

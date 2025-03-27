@@ -1,0 +1,14 @@
+.Container_Main {
+    -fx-background-color: #242387;
+}
+
+
+.panelColor{
+    -fx-background-color: #009cc0;
+}
+
+.Stack_Image{
+    -fx-background-color: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 12;
+}

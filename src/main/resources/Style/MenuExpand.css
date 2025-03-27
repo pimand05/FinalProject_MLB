@@ -1,0 +1,23 @@
+.container{
+    -fx-background-color: #ffff;
+    -fx-background-radius: 13;
+}
+
+.menu-button {
+    -fx-background-color: #A0A0A0;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 15px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);
+    -fx-transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+    -fx-background-color: #C0C0C0;
+}
+
+.menu-label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}

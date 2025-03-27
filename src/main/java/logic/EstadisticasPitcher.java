@@ -37,5 +37,13 @@ public class EstadisticasPitcher {
         this.juegosJugados = juegosJugados;
     }
 
+    //Metodos
+    public float promedioPonches() {
+        return (float) ponchesLanzados / entradasLanzadas;
+    }
+
+    public void incrementarponchesLanzados() {
+        ponchesLanzados++;
+    }
 }
 
