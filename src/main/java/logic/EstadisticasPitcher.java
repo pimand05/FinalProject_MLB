@@ -43,7 +43,7 @@ public class EstadisticasPitcher {
     }
 
     public void incrementarponchesLanzados() {
-        ponchesLanzados++;
+        ponchesLanzados++; //crear metodo para incrementar ponches lanzados
     }
 }
 
