@@ -9,12 +9,12 @@ import java.util.List;
 public class SerieMundial {
 
     private static SerieMundial instance = null;
-    ArrayList<Partido> partidos;
+    ArrayList<Calendario> temporadas;
     ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
 
     private SerieMundial() {
-        partidos = new ArrayList<>();
+        temporadas = new ArrayList<>();
         jugadores = new ArrayList<>();
         equipos = new ArrayList<>();
     }
@@ -30,8 +30,8 @@ public class SerieMundial {
         return jugadores;
     }
 
-    public ArrayList<Partido> getPartidos() {
-        return partidos;
+    public ArrayList<Partido> gettemporadas() {
+        return temporadas;
     }
 
     public ArrayList<Equipo> getEquipos() {
@@ -39,7 +39,7 @@ public class SerieMundial {
     }
 
     public void addPartido(Partido p) {
-        partidos.add(p);
+        temporadas.add(p);
     }
 
     public void addJugador(Jugador j) {
@@ -56,7 +56,7 @@ public class SerieMundial {
         }
 
         Calendario calendario = new Calendario(equipos, fechaInicio);
-        partidos.addAll(calendario.getPartidos());
+        temporadas.addAll(calendario.gettemporadas());
     }
 
     // Métodos de Búsqueda
