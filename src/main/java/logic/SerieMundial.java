@@ -9,6 +9,7 @@ import java.util.List;
 public class SerieMundial {
 
     private static SerieMundial instance = null;
+    private static int calendarioCantidad = 0;
     ArrayList<Calendario> temporadas;
     ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
@@ -134,6 +135,10 @@ public class SerieMundial {
 //            }
 //        });
         return pitchers;
+    }
+
+    public void calendarioCreado() {
+        calendarioCantidad++;
     }
 
 
