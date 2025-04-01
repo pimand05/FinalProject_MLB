@@ -78,7 +78,7 @@ public class AppMain extends Application {
         }
     }
 
-    public static void changeScene(Stage stage, String fxmlPath, String title, boolean resizable) {
+    public static void changeScene(Stage stage, String fxmlPath, String title, boolean resizable) { /// aqui se cambia la escena
         try {
             FXMLLoader loader = new FXMLLoader(AppMain.class.getResource(fxmlPath));
             AnchorPane pane = loader.load();
