@@ -11,13 +11,14 @@ public class Pitcher extends Jugador {
     private EstadisticasPitcher stats;
     private int turnos = 0;
 
-    public Pitcher(String nombre, LocalDate fNacimiento, float altura, ArrayList<Lesion> historialLesiones, float efectivas, String tipoDeLanzador, boolean esZurdo, ArrayList<String> listaPicheos, EstadisticasPitcher stats) {
-        super(nombre, fNacimiento, altura, historialLesiones);
+    public Pitcher(String nombre, LocalDate fNacimiento, float altura, int numJugador, float efectivas, String tipoDeLanzador, boolean esZurdo, ArrayList<String> listaPicheos, EstadisticasPitcher stats, int turnos) {
+        super(nombre, fNacimiento, altura, numJugador);
         this.efectivas = efectivas;
         this.tipoDeLanzador = tipoDeLanzador;
         this.esZurdo = esZurdo;
         this.listaPicheos = listaPicheos;
         this.stats = stats;
+        this.turnos = turnos;
     }
 
     public float getEfectivas() {

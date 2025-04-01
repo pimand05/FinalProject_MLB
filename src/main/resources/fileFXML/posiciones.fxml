@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="1164.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerPosiciones">
+   <children>
+      <ImageView fitHeight="655.0" fitWidth="1198.0" layoutX="148.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../Photos/Posiciones.png" />
+         </image></ImageView>
+      <Pane fx:id="panelSS" layoutX="295.0" layoutY="197.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="ImageSS" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVGSS" text="Label" />
+                        <Label fx:id="lblHitSS" text="Label" />
+                        <Label fx:id="lblHRSS" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumeroSS" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombreSS" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="SS" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panel3B" layoutX="22.0" layoutY="325.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="Image3B" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVG3B" text="Label" />
+                        <Label fx:id="lblHit3B" text="Label" />
+                        <Label fx:id="lblHR3B" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumero3B" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombre3B" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="3B" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panel1B" layoutX="923.0" layoutY="307.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="Image1B" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVG1B" text="Label" />
+                        <Label fx:id="lblHit1B" text="Label" />
+                        <Label fx:id="lblHR1B" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumero1B" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombre1B" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="1B" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panelLF" layoutX="26.0" layoutY="78.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="ImageLF" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVGLF" text="Label" />
+                        <Label fx:id="lblHitLF" text="Label" />
+                        <Label fx:id="lblHRLF" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumeroLF" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombreLF" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="LF" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panelCF" layoutX="478.0" layoutY="14.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="ImageCF" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVGCF" text="Label" />
+                        <Label fx:id="lblHitCF" text="Label" />
+                        <Label fx:id="lblHRCF" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumeroCF" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombreCF" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="CF" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panelRF" layoutX="925.0" layoutY="70.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="ImageRF" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVGRF" text="Label" />
+                        <Label fx:id="lblHitRF" text="Label" />
+                        <Label fx:id="lblHRRF" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumeroRF" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombreRF" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="RF" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panelP" layoutX="481.0" layoutY="335.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="ImageP" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVGP" text="Label" />
+                        <Label fx:id="lblHitP" text="Label" />
+                        <Label fx:id="lblHRP" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumeroP" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombreP" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="P" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panelC" layoutX="492.0" layoutY="548.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="ImageC" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVGC" text="Label" />
+                        <Label fx:id="lblHitC" text="Label" />
+                        <Label fx:id="lblHRC" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumeroC" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombreC" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="C" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="panel2B" layoutX="660.0" layoutY="193.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../Style/Posiciones.css">
+         <children>
+            <ImageView fx:id="Image2B" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/PersonIcon.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="44.0" spacing="5.0">
+                     <children>
+                        <Label text="AVG:" />
+                        <Label text="HIT:" />
+                        <Label text="HR:" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="72.0" prefWidth="84.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lblAVG2B" text="Label" />
+                        <Label fx:id="lblHit2B" text="Label" />
+                        <Label fx:id="lblHR2B" text="Label" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="73.0" prefHeight="30.0" prefWidth="124.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lblNumero2B" text="23" textAlignment="CENTER" translateX="5.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNombre2B" text="Juan Soto" />
+               </children>
+            </HBox>
+            <Label layoutX="1.0" layoutY="6.0" text="2B" translateX="1.0" translateY="-4.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

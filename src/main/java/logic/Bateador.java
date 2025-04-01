@@ -9,11 +9,11 @@ public class Bateador extends Jugador {
     private int turnos = 0;
     private boolean lesionado = false;
 
-    public Bateador(String nombre, LocalDate fNacimiento, float altura, ArrayList<Lesion> historialLesiones,
-                    String posicion, EstadisticasBateador stats) {
-        super(nombre, fNacimiento, altura, historialLesiones);
+    public Bateador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String posicion, int turnos, boolean lesionado) {
+        super(nombre, fNacimiento, altura, numJugador);
         this.posicion = posicion;
-        this.stats = stats;
+        this.turnos = turnos;
+        this.lesionado = lesionado;
     }
 
     public String getPosicion() {

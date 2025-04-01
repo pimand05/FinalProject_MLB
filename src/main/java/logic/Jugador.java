@@ -10,13 +10,13 @@ public abstract class Jugador {
     protected LocalDate fNacimiento;
     protected float altura;
     protected ArrayList<Lesion> historialLesiones;
+    protected int numJugador;
 
-    public Jugador(String nombre, LocalDate fNacimiento, float altura, ArrayList<Lesion> historialLesiones) {
-        super();
+    public Jugador(String nombre, LocalDate fNacimiento, float altura, int numJugador) {
         this.nombre = nombre;
         this.fNacimiento = fNacimiento;
         this.altura = altura;
-        this.historialLesiones = historialLesiones != null ? historialLesiones : new ArrayList<>();
+        this.numJugador = numJugador;
     }
 
     public String getNombre() {
@@ -34,7 +34,25 @@ public abstract class Jugador {
             return historialLesiones;
         }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public void setfNacimiento(LocalDate fNacimiento) {
+        this.fNacimiento = fNacimiento;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+
+    public int getNumJugador() {
+        return numJugador;
+    }
+
+    public void setNumJugador(int numJugador) {
+        this.numJugador = numJugador;
+    }
 
     // Método abstracto que debe implementar cada subclase
     public abstract void actualizarEstadisticas(Partido partido);

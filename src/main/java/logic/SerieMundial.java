@@ -9,13 +9,12 @@ import java.util.List;
 public class SerieMundial {
 
     private static SerieMundial instance = null;
-    private static int calendarioCantidad = 0;
-    ArrayList<Calendario> temporadas;
+    ArrayList<Calendario> partidos;
     ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
 
     private SerieMundial() {
-        temporadas = new ArrayList<>();
+        partidos = new ArrayList<>();
         jugadores = new ArrayList<>();
         equipos = new ArrayList<>();
     }
@@ -31,16 +30,16 @@ public class SerieMundial {
         return jugadores;
     }
 
-    public ArrayList<Partido> gettemporadas() {
-        return temporadas;
+    public ArrayList<Calendario> getCalendarios() {
+        return partidos;
     }
 
     public ArrayList<Equipo> getEquipos() {
         return equipos;
     }
 
-    public void addPartido(Partido p) {
-        temporadas.add(p);
+    public void addCalendario(Calendario c) {
+        partidos.add(c);
     }
 
     public void addJugador(Jugador j) {
@@ -57,7 +56,7 @@ public class SerieMundial {
         }
 
         Calendario calendario = new Calendario(equipos, fechaInicio);
-        temporadas.addAll(calendario.gettemporadas());
+      //  partidos.addAll(calendario.getPartidos());
     }
 
     // Métodos de Búsqueda
@@ -83,7 +82,6 @@ public class SerieMundial {
     //Bateadores Con Mas Carreras
     public List<Bateador> ordenarBateadoresPorCarreras() {
         List<Bateador> bateadores = new ArrayList<>();
-
         for (Jugador j : jugadores) {
             if (j instanceof Bateador) {
                 bateadores.add((Bateador)j);
@@ -98,7 +96,6 @@ public class SerieMundial {
 
         return bateadores;
     }
-
 
     //Bateadores Con Mayor AVG
     public List<Bateador> ordenarBateadoresPorAvg() {
@@ -122,7 +119,6 @@ public class SerieMundial {
     // Pitchers Con Mayor Efectividad
     public List<Pitcher> ordenarPitchersPorEfectividad() {
         List<Pitcher> pitchers = new ArrayList<>();
-
         for (Jugador j : jugadores) {
             if (j instanceof Pitcher) {
                 pitchers.add((Pitcher)j);
@@ -134,11 +130,7 @@ public class SerieMundial {
 //                return Float.compare(p2.getStats().getEfectivas, p1.getStats().getEfectivas());
 //            }
 //        });
-        return pitchers;
-    }
-
-    public void calendarioCreado() {
-        calendarioCantidad++;
+       return pitchers;
     }
 
 

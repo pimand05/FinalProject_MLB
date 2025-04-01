@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Calendario {
+
+    private static Calendario instance = null;
     private List<Partido> partidos;
 
     public Calendario(List<Equipo> equipos, LocalDate fechaInicio) {
@@ -14,6 +16,13 @@ public class Calendario {
 
     public List<Partido> getPartidos() {
         return partidos;
+    }
+
+    public static Calendario getInstance(List<Equipo> equipos, LocalDate fechaInicio) {
+        if (instance == null) {
+            instance = new Calendario(equipos, fechaInicio);
+        }
+        return instance;
     }
 
     private List<Partido> generarCalendario(List<Equipo> equipos, LocalDate fechaInicio) {
@@ -44,4 +53,7 @@ public class Calendario {
 
         return calendario;
     }
+
+
+
 }
