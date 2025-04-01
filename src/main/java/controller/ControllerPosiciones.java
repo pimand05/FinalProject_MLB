@@ -55,11 +55,12 @@ public class ControllerPosiciones implements Initializable {
         panel.setOpacity(0.0);
 
         // Creamos una transición de fade de 1 segundo (ajusta la duración si lo deseas)
-        FadeTransition fade = new FadeTransition(Duration.seconds(1.2), panel);
+        FadeTransition fade = new FadeTransition(Duration.seconds(1.5), panel);
         fade.setFromValue(0.0);  // Comienza totalmente invisible
         fade.setToValue(1.0);    // Termina totalmente visible
         fade.play();
     }
+
 
     /*
     private void addJugadoresAutomaticamente(String a, Jugador jugador) {
@@ -132,8 +133,8 @@ public class ControllerPosiciones implements Initializable {
                 lblNombreP.setText(pitcher.getNombre());
                 lblNumeroP.setText(String.valueOf(pitcher.getNumJugador()));
                 lblAVGP.setText(pitcher.getEfectivas() + "prom");
-                lblHitP.setText(String.valueOf(pitcher.getStats().getHits()));
-                lblHRP.setText(String.valueOf(pitcher.getStats().getHomeRuns()));
+                //lblHitP.setText(String.valueOf(pitcher.getStats().));
+                //lblHRP.setText(String.valueOf(pitcher.getStats().getHomeRuns()));
                 ImageP.setImage(getImageRoute(null,pitcher));
                 break;
             case "C":
@@ -146,6 +147,7 @@ public class ControllerPosiciones implements Initializable {
                 break;
         }
     }
+
      */
 
     private Image getImageRoute(Bateador bateador, Pitcher pitcher) {

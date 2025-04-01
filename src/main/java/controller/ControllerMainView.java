@@ -5,9 +5,11 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import utility.Paths;
 
@@ -16,14 +18,11 @@ import java.util.ResourceBundle;
 
 public class ControllerMainView implements Initializable {
 
-    @FXML
-    private StackPane btnMenuClose;
+    @FXML private StackPane btnMenuClose;
 
-    @FXML
-    private StackPane btnOpenMenu;
+    @FXML private StackPane btnOpenMenu;
 
-    @FXML
-    private AnchorPane slideMenu;
+    @FXML private AnchorPane slideMenu;
 
     @FXML
     void closeMenu(MouseEvent event) {
@@ -69,7 +68,9 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openEquipo(ActionEvent event) {
-        AppMain.app.openNewStage(Paths.POSICIONES, "Posiciones", false);
+        //AppMain.app.openNewStage(Paths.POSICIONES, "Posiciones", false, Paths.ICONMAIN);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        AppMain.changeScene(stage, Paths.POSICIONES, "Posiciones",false);
     }
 
     @FXML
@@ -79,6 +80,7 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openTorneo(ActionEvent event) {
+        AppMain.app.openNewStage(Paths.CALENDARIO, "Calendario", false, Paths.ICONMAIN);
 
     }
 
