@@ -9,7 +9,7 @@ import java.util.List;
 public class SerieMundial {
 
     private static SerieMundial instance = null;
-    ArrayList<Calendario> partidos;
+    ArrayList<Temporada> partidos;
     ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
 
@@ -30,7 +30,7 @@ public class SerieMundial {
         return jugadores;
     }
 
-    public ArrayList<Calendario> getCalendarios() {
+    public ArrayList<Temporada> getCalendarios() {
         return partidos;
     }
 
@@ -38,13 +38,13 @@ public class SerieMundial {
         return equipos;
     }
 
-    public void addCalendario(Calendario c) {
+    public void addCalendario(Temporada c) {
         partidos.add(c);
     }
 
-    public void addJugador(Jugador j) {
-        jugadores.add(j);
-    }
+//    public void addJugador(Jugador j) {
+//        jugadores.add(j);
+//    }
 
     public void addEquipo(Equipo e) {
         equipos.add(e);
@@ -55,7 +55,7 @@ public class SerieMundial {
             throw new IllegalStateException("Se necesitan al menos 2 equipos para generar un calendario");
         }
 
-        Calendario calendario = new Calendario(equipos, fechaInicio);
+        Temporada calendario = new Temporada(equipos, fechaInicio);
       //  partidos.addAll(calendario.getPartidos());
     }
 

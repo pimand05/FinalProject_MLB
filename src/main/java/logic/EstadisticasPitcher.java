@@ -5,12 +5,17 @@ public class EstadisticasPitcher {
     private int ponchesLanzados;
     private int juegosJugados;
     private int carrerasLimpiasPermitidas;
+    private float efectivas;
 
     //Constructor
-    public EstadisticasPitcher(int entradasLanzadas, int ponchesLanzados, int juegosJugados) {
+
+
+    public EstadisticasPitcher(int entradasLanzadas, int ponchesLanzados, int juegosJugados, int carrerasLimpiasPermitidas, float efectivas) {
         this.entradasLanzadas = entradasLanzadas;
         this.ponchesLanzados = ponchesLanzados;
         this.juegosJugados = juegosJugados;
+        this.carrerasLimpiasPermitidas = carrerasLimpiasPermitidas;
+        this.efectivas = efectivas;
     }
 
     //Setters y Getters

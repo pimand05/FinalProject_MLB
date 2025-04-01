@@ -3,6 +3,7 @@ package logic;
 import logic.Lesion;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 public abstract class Jugador {
@@ -52,6 +53,11 @@ public abstract class Jugador {
 
     public void setNumJugador(int numJugador) {
         this.numJugador = numJugador;
+    }
+
+    // Método para calcular edad
+    public int getEdad() {
+        return Period.between(fNacimiento, LocalDate.now()).getYears();
     }
 
     // Método abstracto que debe implementar cada subclase

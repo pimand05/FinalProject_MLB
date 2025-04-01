@@ -2,6 +2,8 @@ package logic;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Equipo {
     private String nombre;
@@ -11,8 +13,12 @@ public class Equipo {
     private int juegosPerdidos;
     private ArrayList<Jugador> jugadores;
     private ArrayList<Partido> partidosJugados;
-    HashMap<Integer, Bateador> lineup;
-    HashMap<Integer, Pitcher> relevistas;
+
+    //Manejos de los Partidos
+    private int bateadorActualIndex = 1;
+    private Pitcher pitcherActual;
+    private Map<Integer, Bateador> lineup = new HashMap<>();
+    private List<Pitcher> relevistas = new ArrayList<>();
 
     //Constructor
     public Equipo(String nombre, String estadio, Boolean calificado, int juegosGanados, int juegosPerdidos) {
@@ -106,48 +112,131 @@ public class Equipo {
         this.partidosJugados = partidosJugados;
     }
 
-    public HashMap<Integer, Bateador> getLineup() {
-        return lineup;
-    }
+//    public HashMap<Integer, Bateador> getLineup() {
+//        return lineup;
+//    }
 
-    public void setRelevistas(HashMap<Integer, Pitcher> relevistas) {
-        this.relevistas = relevistas;
-    }
-
-    public void settingLineup() {
-        int i = 1;
-        for (Jugador jugador : jugadores) {
-            if (i > 9) break;
-            if (jugador instanceof Bateador bateador && !(bateador.isLesionado())) {
-                lineup.put(i, bateador);
-            }
-            i++;
-
+    public Bateador getBateadorActual() {
+        if (lineup.isEmpty()) {
+            throw new IllegalStateException("El lineup no ha sido configurado");
         }
-        setLineup(lineup);
+        return lineup.get(bateadorActualIndex);
     }
 
-    public Pitcher getPitcher() {
-        Pitcher pitcher = null;
-        for (Jugador jugador : jugadores) {
-            if (jugador instanceof Pitcher) {
-                pitcher = (Pitcher) jugador;
-                break;
-            }
-        }
-        return pitcher;
+    public void avanzarBateador() {
+        bateadorActualIndex = (bateadorActualIndex % 9) + 1;
+
     }
 
-    public void getRelevistas() {
-        int i = 1;
-        for (Jugador jugador : jugadores) {
-            if (i > 5) break;
-            if (jugador instanceof Pitcher pitcher) {
-                relevistas.put(i, pitcher);
-            }
-            i++;
-
+    public Pitcher getPitcherActual() {
+        if (pitcherActual == null || pitcherActual.getStats().getEntradasLanzadas() > 100) {
+            cambiarPitcher();
         }
-        setRelevistas(relevistas);
+        return pitcherActual;
+    }
+
+    private void cambiarPitcher() {
+        if (!relevistas.isEmpty()) {
+            pitcherActual = relevistas.remove(0);
+        } else {
+            throw new IllegalStateException("No hay relevistas disponibles");
+        }
+    }
+
+    public void configurarLineup(List<Bateador> bateadores) {
+        if (bateadores == null) {
+            throw new IllegalArgumentException("La lista de bateadores no puede ser nula");
+        }
+        if (bateadores.size() < 9) {
+            throw new IllegalArgumentException("Se necesitan al menos 9 bateadores");
+        }
+        if (bateadores.contains(null)) {
+            throw new IllegalArgumentException("La lista de bateadores no puede contener valores nulos");
+        }
+
+        lineup.clear();
+        for (int i = 0; i < 9; i++) {
+            lineup.put(i+1, bateadores.get(i));
+        }
+        bateadorActualIndex = 1; // Resetear el índice
+    }
+
+    public void agregarRelevista(Pitcher pitcher) {
+        if (pitcher == null) {
+            throw new IllegalArgumentException("El pitcher no puede ser nulo");
+        }
+
+        relevistas.add(pitcher);
+        if (pitcherActual == null) {
+            pitcherActual = pitcher;
+        }
+    }
+
+    public int getCarrerasTotales() {
+        int total = 0;
+        for (Bateador b : lineup.values()) {
+            total += b.getStats().getCarreras();
+        }
+        return total;
+    }
+
+    public int getHitsTotales() {
+        int total = 0;
+        for (Bateador b : lineup.values()) {
+            total += b.getStats().getHits();
+        }
+        return total;
+    }
+
+    // Método para buscar jugador por nombre
+    public Jugador buscarJugador(String nombre) {
+        return jugadores.stream()
+              .filter(j -> j.getNombre().equalsIgnoreCase(nombre))
+              .findFirst()
+              .orElse(null);
+    }
+
+    // Método para obtener todos los bateadores
+    public List<Bateador> getBateadores() {
+        List<Bateador> bateadores = new ArrayList<>();
+        for (Jugador j : jugadores) {
+            if (j instanceof Bateador) {
+                bateadores.add((Bateador) j);
+            }
+        }
+        return bateadores;
+    }
+
+    // Método para obtener todos los pitchers
+    public List<Pitcher> getPitchers() {
+        List<Pitcher> pitchers = new ArrayList<>();
+        for (Jugador j : jugadores) {
+            if (j instanceof Pitcher) {
+                pitchers.add((Pitcher) j);
+            }
+        }
+        return pitchers;
+    }
+
+    public void configurarEquipo() {
+        List<Bateador> bateadores = getBateadores();
+        List<Pitcher> pitchers = getPitchers();
+
+        if (bateadores.size() < 9) {
+            throw new IllegalStateException("No hay suficientes bateadores (se necesitan al menos 9)");
+        }
+
+        if (pitchers.isEmpty()) {
+            throw new IllegalStateException("No hay pitchers en el equipo");
+        }
+
+        // Configurar lineup con los primeros 9 bateadores
+        configurarLineup(bateadores.subList(0, 9));
+
+        // Configurar pitchers (el primero como abridor, los demás como relevistas)
+        pitcherActual = pitchers.get(0);
+        if (pitchers.size() > 1) {
+            relevistas.addAll(pitchers.subList(1, pitchers.size()));
+        }
     }
 }
