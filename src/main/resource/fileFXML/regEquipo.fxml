@@ -24,7 +24,7 @@
          <bottom>
             <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="722.0" spacing="10.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER_LEFT">
                <children>
-                  <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#registrarEquipo" prefHeight="25.0" prefWidth="70.0" stylesheets="@../Style/RegEquipo.css" text="Registrar" />
+                  <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#registrarEquipo" prefHeight="25.0" prefWidth="70.0" stylesheets="@../style/RegEquipo.css" text="Registrar" />
                </children>
                <padding>
                   <Insets right="20.0" />
@@ -37,14 +37,14 @@
          <center>
             <HBox prefHeight="315.0" prefWidth="717.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="357.0" prefWidth="268.0" spacing="35.0" styleClass="panel" stylesheets="@../Style/RegEquipo.css">
+                  <VBox alignment="TOP_CENTER" prefHeight="357.0" prefWidth="268.0" spacing="35.0" styleClass="panel" stylesheets="@../style/RegEquipo.css">
                      <children>
                         <Label alignment="CENTER" text="Logo del Equipo">
                            <font>
                               <Font size="23.0" />
                            </font>
                         </Label>
-                        <StackPane fx:id="stackLogo" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="178.0" prefWidth="179.0" styleClass="cointerner-drag" stylesheets="@../Style/RegEquipo.css">
+                        <StackPane fx:id="stackLogo" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="178.0" prefWidth="179.0" styleClass="cointerner-drag" stylesheets="@../style/RegEquipo.css">
                            <children>
                               <Label fx:id="lblLogo" opacity="0.47" text="Arrastre el logo aqui">
                                  <font>
@@ -164,11 +164,11 @@
             </HBox>
          </center>
          <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="600.0" spacing="20.0" styleClass="cointerner-title" stylesheets="@../Style/RegEquipo.css" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="600.0" spacing="20.0" styleClass="cointerner-title" stylesheets="@../style/RegEquipo.css" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="47.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Picture/TeamIcon.png" />
+                        <Image url="@../picture/TeamIcon.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" text="Registro de Equipo">

@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Pitcher extends Jugador  implements Serializable {
-    // private float efectivas; Se pasa a Estadisticas Pitcher
-    private String tipoDeLanzador;//Abridor o relevista
+    private String tipoDeLanzador; //Abridor o relevista
     private static final long serialVersionUID = 1L;
     private boolean esZurdo;
     private ArrayList<String> listaPicheos;
@@ -19,10 +18,6 @@ public class Pitcher extends Jugador  implements Serializable {
         this.esZurdo = esZurdo;
         this.listaPicheos = listaPicheos;
     }
-
-    //    public float getEfectivas() {
-//        return efectivas;
-//    }
 
     public String getTipoDeLanzador() {
         return tipoDeLanzador;

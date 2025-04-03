@@ -20,9 +20,9 @@ public class Paths {
 
 
     //MainApp
-    public static final String ICONMAIN = "/Picture/BaseballIcon.png";
-    public static final String VIDEOINTRO = "/Video/VideoIntro.mp4";
-    public static final String VIDEOINTRO2 = "/Video/VideoIntroCopy.mp4";
+    public static final String ICONMAIN = "/picture/BaseballIcon.png";
+    public static final String VIDEOINTRO = "/video/VideoIntro.mp4";
+    public static final String VIDEOINTRO2 = "/video/VideoIntro2.mp4";
 
 
 }

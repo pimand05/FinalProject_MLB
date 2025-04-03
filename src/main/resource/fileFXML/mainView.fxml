@@ -13,18 +13,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="798.0" prefWidth="1321.0" styleClass="Container_Main" stylesheets="@../Style/ViewMain.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMainView">
+<AnchorPane prefHeight="798.0" prefWidth="1321.0" styleClass="Container_Main" stylesheets="@../style/ViewMain.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMainView">
    <children>
       <BorderPane layoutX="377.0" layoutY="200.0" prefHeight="1130.0" prefWidth="673.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Separator halignment="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="15.0" visible="false" />
-                  <StackPane fx:id="btnOpenMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openMenu" prefHeight="48.0" prefWidth="66.0" styleClass="Stack_Image" stylesheets="@../Style/ViewMain.css">
+                  <StackPane fx:id="btnOpenMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openMenu" prefHeight="48.0" prefWidth="66.0" styleClass="Stack_Image" stylesheets="@../style/ViewMain.css">
                      <children>
                         <ImageView fitHeight="53.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Picture/MenuLogo.png" />
+                              <Image url="@../picture/MenuLogo.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -41,7 +41,7 @@
                   <Separator prefHeight="0.0" prefWidth="295.0" visible="false" />
                   <ImageView fitHeight="83.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Picture/Logo_MLB.png" />
+                        <Image url="@../picture/Logo_MLB.png" />
                      </image></ImageView>
                   <Separator prefHeight="1.0" prefWidth="4.0" visible="false" />
                </children>
@@ -52,24 +52,24 @@
                <children>
                   <ImageView fitHeight="593.0" fitWidth="1305.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-20.0">
                      <image>
-                        <Image url="@../Picture/Fondo.png" />
+                        <Image url="@../picture/Fondo.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
          </center>
       </BorderPane>
-      <AnchorPane fx:id="slideMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="380.0" styleClass="container" stylesheets="@../Style/MenuExpand.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="slideMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="380.0" styleClass="container" stylesheets="@../style/MenuExpand.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="TOP_CENTER" layoutY="-5.0" prefHeight="803.0" prefWidth="423.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="421.0" spacing="200.0" styleClass="menu-button" stylesheets="@../Style/MenuExpand.css">
+                  <HBox prefHeight="100.0" prefWidth="421.0" spacing="200.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css">
                      <children>
-                        <StackPane fx:id="btnMenuClose" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeMenu" prefHeight="48.0" prefWidth="66.0" styleClass="Stack_Image" stylesheets="@../Style/ViewMain.css">
+                        <StackPane fx:id="btnMenuClose" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeMenu" prefHeight="48.0" prefWidth="66.0" styleClass="Stack_Image" stylesheets="@../style/ViewMain.css">
                            <children>
                               <ImageView fitHeight="53.0" fitWidth="81.0" onMouseClicked="#openMenu" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Picture/MenuLogo.png" />
+                                    <Image url="@../picture/MenuLogo.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -79,66 +79,66 @@
                         </StackPane>
                         <ImageView fitHeight="74.0" fitWidth="71.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" translateY="5.0">
                            <image>
-                              <Image url="@../Picture/BaseballIcon.png" />
+                              <Image url="@../picture/BaseballIcon.png" />
                            </image>
                         </ImageView>
                      </children></HBox>
-                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openTorneo" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../Style/MenuExpand.css" text="  Torneo" textFill="WHITE">
+                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openTorneo" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Torneo" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="36.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="84.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Picture/TrofeoIcon.png" />
+                              <Image url="@../picture/TrofeoIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openEquipo" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../Style/MenuExpand.css" text="  Equipo" textFill="WHITE">
+                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openEquipo" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Equipo" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="36.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="84.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Picture/TeamIcon.png" />
+                              <Image url="@../picture/TeamIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openJugadores" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../Style/MenuExpand.css" text=" Jugadores" textFill="WHITE">
+                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openJugadores" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text=" Jugadores" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="36.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="84.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" translateY="-5.0">
                            <image>
-                              <Image url="@../Picture/PersonIcon.png" />
+                              <Image url="@../picture/PersonIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openDashboard" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../Style/MenuExpand.css" text="  Dashboard" textFill="WHITE">
+                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openDashboard" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Dashboard" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="36.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="79.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" translateX="2.0">
                            <image>
-                              <Image url="@../Picture/DashBoardIcon.png" />
+                              <Image url="@../picture/DashBoardIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openAbout" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../Style/MenuExpand.css" text="   About" textFill="WHITE">
+                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openAbout" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="   About" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="36.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="66.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Picture/InformationIcon.png" />
+                              <Image url="@../picture/InformationIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
