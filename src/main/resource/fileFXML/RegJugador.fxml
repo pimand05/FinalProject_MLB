@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="447.0" prefWidth="662.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegJugador">
+    <center>
+        <Pane prefHeight="328.0" prefWidth="344.0" style="-fx-border-radius: 20;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="36.0" layoutY="40.0" prefHeight="17.0" prefWidth="65.0" text="Nombre:" />
+                <Label layoutX="36.0" layoutY="82.0" prefHeight="17.0" prefWidth="113.0" text="Fecha Nacimiento:" />
+                <Label layoutX="36.0" layoutY="128.0" text="Número:" />
+                <RadioButton fx:id="rbBateador" layoutX="148.0" layoutY="167.0" mnemonicParsing="false" text="Bateador" />
+                <RadioButton fx:id="rbPitcher" layoutX="237.0" layoutY="167.0" mnemonicParsing="false" text="Pitcher" />
+                <TextField fx:id="txtNombre" layoutX="93.0" layoutY="36.0" prefHeight="25.0" prefWidth="209.0" />
+                <DatePicker fx:id="calFecNacim" layoutX="142.0" layoutY="78.0" prefHeight="25.0" prefWidth="160.0" promptText="D/M/YYYY" />
+                <Spinner fx:id="spnNumero" layoutX="93.0" layoutY="125.0" prefHeight="25.0" prefWidth="79.0" />
+                <Pane fx:id="infoBateador" layoutX="36.0" layoutY="214.0" prefHeight="46.0" prefWidth="276.0">
+                    <children>
+                        <Label layoutY="10.0" prefHeight="17.0" prefWidth="80.0" text="Posición:" />
+                        <ComboBox fx:id="cmbPosicion" layoutX="110.0" layoutY="6.0" prefHeight="25.0" prefWidth="159.0" />
+                    </children>
+                </Pane>
+                <Pane fx:id="infoPitcher" layoutX="34.0" layoutY="216.0" prefHeight="117.0" prefWidth="281.0">
+                    <children>
+                        <Label layoutX="1.0" layoutY="9.0" prefHeight="17.0" prefWidth="128.0" text="Tipo de Lanzador:" />
+                        <Label layoutY="50.0" prefHeight="17.0" prefWidth="128.0" text="Mano Dominante:" />
+                        <RadioButton fx:id="rdbIzquierda" layoutX="117.0" layoutY="51.0" mnemonicParsing="false" text="Izquierda" />
+                        <RadioButton fx:id="rdbDerecha" layoutX="202.0" layoutY="52.0" mnemonicParsing="false" text="Derecha" />
+                        <Label layoutY="90.0" prefHeight="17.0" prefWidth="128.0" text="Tipos de Pitcheos:" />
+                        <ListView fx:id="listViewTiposPicheos" layoutX="113.0" layoutY="86.0" prefHeight="27.0" prefWidth="160.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Recta" />
+                                    <String fx:value="Curva" />
+                                    <String fx:value="Slider" />
+                                    <String fx:value="Changeup" />
+                                    <String fx:value="Splitter" />
+                                </FXCollections>
+                            </items>
+                        </ListView>
+                        <ComboBox fx:id="cmbTipoLanzador" layoutX="113.0" layoutY="4.0" prefHeight="25.0" prefWidth="159.0" />
+                    </children>
+                </Pane>
+                <Label layoutX="33.0" layoutY="167.0" prefHeight="17.0" prefWidth="106.0" text="Posición Principal:" />
+                <Label layoutX="189.0" layoutY="129.0" text="Altura (m):" />
+                <TextField fx:id="txtAltura" layoutX="250.0" layoutY="125.0" prefHeight="25.0" prefWidth="52.0" />
+                <VBox layoutX="367.0" layoutY="23.0" prefHeight="312.0" prefWidth="256.0">
+                    <children>
+                        <TableView fx:id="tablaEquipos" prefHeight="274.0" prefWidth="256.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);;">
+                            <columns>
+                                <TableColumn fx:id="colLogo" prefWidth="75.0" text="Logo" />
+                                <TableColumn fx:id="colEquipo" prefWidth="180.0" text="Nombre" />
+                            </columns>
+                        </TableView>
+                        <Pane prefHeight="38.0" prefWidth="256.0">
+                            <children>
+                                <Button fx:id="btnSelecEquipo" layoutX="66.0" layoutY="8.0" mnemonicParsing="false" onAction="#selecEquipo" style="-fx-padding: 3 12; -fx-background-radius: 20; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Seleccionar Equipo" />
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+                <Region layoutX="24.0" layoutY="202.0" prefHeight="200.0" prefWidth="47.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 290;" />
+                <Region layoutX="179.0" layoutY="178.0" maxHeight="70.0" prefHeight="70.0" prefWidth="300.0" rotate="90.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 320;" />
+            </children>
+        </Pane>
+    </center>
+    <top>
+        <Pane fx:id="tituloPanel" prefHeight="46.0" prefWidth="662.0" style="-fx-background-color: linear-gradient(to right, #23229f 0%, #121144 100%);; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="titulo" layoutX="247.0" layoutY="8.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 0, 1, 1);" text="Registrar Jugador" textFill="WHITE" />
+            </children>
+        </Pane>
+    </top>
+    <bottom>
+        <HBox prefHeight="43.0" prefWidth="662.0" style="-fx-alignment: center_right; -fx-spacing: 10; -fx-padding: 5 5 5 70; -fx-border-color: linear-gradient(to right, #3331c2, #121144);" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnRegistrar" mnemonicParsing="false" style="-fx-padding: 4 16; -fx-background-radius: 20; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Registrar" />
+                <Button fx:id="btnCancelar" cancelButton="true" mnemonicParsing="false" style="-fx-padding: 4 16; -fx-border-radius: 20; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);;" text="Cancelar" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

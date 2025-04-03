@@ -247,6 +247,44 @@ public class Equipo  implements Serializable {
         return total;
     }
 
+    public Bateador cambiarBateadorLesionado() {
+        int intentos = 0;
+        int indiceInicial = bateadorActualIndex;
+
+        do {
+            avanzarBateador();
+            Bateador posibleReemplazo = lineup.get(bateadorActualIndex);
+
+            if (posibleReemplazo != null && !posibleReemplazo.getLesion().isActiva()) {
+                return posibleReemplazo;
+            }
+
+            intentos++;
+        } while (intentos < 8 && bateadorActualIndex != indiceInicial);
+
+        return null;
+    }
+
+    public Pitcher cambiarPitcherLesionado() {
+        List<Pitcher> relevistasDisponibles = new ArrayList<>(relevistas);
+
+        for (Pitcher relevista : relevistasDisponibles) {
+            if (relevista != null && !relevista.getLesion().isActiva()) {
+                relevistas.remove(relevista);
+                Pitcher antiguoPitcher = pitcherActual;
+                pitcherActual = relevista;
+
+                if (antiguoPitcher != null && !antiguoPitcher.getLesion().isActiva()) {
+                    relevistas.add(antiguoPitcher);
+                }
+
+                return relevista;
+            }
+        }
+
+        return null; // No hay relevistas disponibles
+    }
+
     // Método para buscar jugador por nombre
     public Jugador buscarJugador(String nombre) {
         return jugadores.stream()
@@ -254,6 +292,19 @@ public class Equipo  implements Serializable {
               .findFirst()
               .orElse(null);
     }
+
+    // buscarJugador alt
+    /*
+    public Jugador buscarJugador(String nombre) {
+        for (Jugador jugador : jugadores) {
+            if (jugador.getNombre().equalsIgnoreCase(nombre)) {
+                return jugador;
+            }
+        }
+        return null;
+    }
+     */
+
 
     // Método para obtener todos los bateadores
     public List<Bateador> getBateadores() {

@@ -12,8 +12,6 @@ public class EstadisticasPitcher implements Serializable  {
     private float efectivas;
 
     //Constructor
-
-
     public EstadisticasPitcher(int entradasLanzadas, int ponchesLanzados, int juegosJugados, int carrerasLimpiasPermitidas, float efectivas) {
         this.entradasLanzadas = entradasLanzadas;
         this.ponchesLanzados = ponchesLanzados;
@@ -55,7 +53,21 @@ public class EstadisticasPitcher implements Serializable  {
         this.basePorBola = basePorBola;
     }
 
+    public int getCarrerasLimpiasPermitidas() {
+        return carrerasLimpiasPermitidas;
+    }
 
+    public void setCarrerasLimpiasPermitidas(int carrerasLimpiasPermitidas) {
+        this.carrerasLimpiasPermitidas = carrerasLimpiasPermitidas;
+    }
+
+    public float getEfectivas() {
+        return efectivas;
+    }
+
+    public void setEfectivas(float efectivas) {
+        this.efectivas = efectivas;
+    }
 
     //Metodos
     public float promedioPonches() {

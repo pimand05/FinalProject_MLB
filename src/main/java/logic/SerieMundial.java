@@ -14,14 +14,16 @@ public class SerieMundial implements Serializable {
 
     private static SerieMundial instance = null;
     private static final long serialVersionUID = 1L;
-    ArrayList<Temporada> partidos;
+    ArrayList<Temporada> temporadas;
     ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
+    private int temporadaActualIndex;  // Para llevar control de la temporada actual
 
     private SerieMundial() {
-        partidos = new ArrayList<>();
+        temporadas = new ArrayList<>();
         jugadores = new ArrayList<>();
         equipos = new ArrayList<>();
+        temporadaActualIndex = -1;
     }
 
     public static SerieMundial getInstance() {
@@ -38,7 +40,7 @@ public class SerieMundial implements Serializable {
     }
 
     public ArrayList<Temporada> getCalendarios() {
-        return partidos;
+        return temporadas;
     }
 
     public ArrayList<Equipo> getEquipos() {
@@ -46,7 +48,7 @@ public class SerieMundial implements Serializable {
     }
 
     public void addCalendario(Temporada c) {
-        partidos.add(c);
+        temporadas.add(c);
     }
 
 
@@ -63,13 +65,23 @@ public class SerieMundial implements Serializable {
         equipos.add(e);
     }
 
-    public void generarCalendario(LocalDate fechaInicio) {
+
+    // Método para iniciar una nueva temporada
+    public void iniciarNuevaTemporada(LocalDate fechaInicio) {
         if (equipos.size() < 2) {
             throw new IllegalStateException("Se necesitan al menos 2 equipos para generar un calendario");
         }
 
-        Temporada calendario = new Temporada(equipos, fechaInicio);
-      //  partidos.addAll(calendario.getPartidos());
+        Temporada nuevaTemporada = new Temporada(equipos, fechaInicio);
+        temporadas.add(nuevaTemporada);
+        temporadaActualIndex = temporadas.size() - 1;  // Establece como temporada actual
+    }
+
+    public Temporada getTemporadaActual() {
+        if (temporadaActualIndex >= 0 && temporadaActualIndex < temporadas.size()) {
+            return temporadas.get(temporadaActualIndex);
+        }
+        return null;
     }
 
     // Métodos de Búsqueda
@@ -86,6 +98,15 @@ public class SerieMundial implements Serializable {
         for (Jugador jugador: jugadores) {
             if (jugador.getNombre().equalsIgnoreCase(nombreBuscado)) {
                 return jugador;
+            }
+        }
+        return null;
+    }
+
+    public Equipo buscarEquipoDelJugador(Jugador jugador) {
+        for (Equipo equipo : equipos) {
+            if (equipo.getJugadores().contains(jugador)) {
+                return equipo;
             }
         }
         return null;

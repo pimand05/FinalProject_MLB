@@ -5,8 +5,10 @@ public enum COMENTARIOS {
     HOMERUN("ha conectado un cuadrangular!!!"),
     PONCHE("out! se ha ponchado"),
     BASExBOLA("ha recibido una base por bola"),
-    STRIKE("strike"),
-    BOLA("bola"),
+    OUT("batazo capturado"),
+    ERROR("Error de"),
+    STRIKE("ha recibido un strike"),
+    BOLA("ha recibido una bola"),
     FLY("out! ha conectado un fly");
 
     private final String mensaje;

@@ -1,21 +1,22 @@
 package logic;
 
-import java.io.Serializable;
+import utility.LesionTipo;
 import java.time.LocalDate;
 
-public class Lesion  implements Serializable  {
-    private static final long serialVersionUID = 1L;
-    private String tipo;
+public class Lesion {
+    private LesionTipo tipo;
     private LocalDate fecInicio;
     private LocalDate finEstimada;
     private int diasRecuperacion;
+    private boolean activa;
 
-    public Lesion(String tipo, LocalDate fecInicio, LocalDate finEstimada, int diasRecuperacion) {
+    public Lesion(LesionTipo tipo) {
         super();
-        this.tipo = tipo;
-        this.fecInicio = fecInicio;
-        this.finEstimada = finEstimada;
-        this.diasRecuperacion = diasRecuperacion;
+        this.tipo = LesionTipo.NINGUNA;
+        this.fecInicio = LocalDate.now();
+        this.finEstimada = fecInicio.plusDays(diasRecuperacion);
+        this.diasRecuperacion = calcularDiasRecuperacion();
+        this.activa = false;
     }
 
     public LocalDate getFinEstimada() {
@@ -26,7 +27,7 @@ public class Lesion  implements Serializable  {
         this.finEstimada = finEstimada;
     }
 
-    public String getTipo() {
+    public LesionTipo getTipo() {
         return tipo;
     }
 
@@ -37,4 +38,19 @@ public class Lesion  implements Serializable  {
     public int getDiasRecuperacion() {
         return diasRecuperacion;
     }
+
+    public boolean isActiva() {
+        return activa;
+    }
+
+    public void marcarComoCurada() {
+        this.activa = false;
+    }
+
+    private int calcularDiasRecuperacion() {
+        // Variación de +/- 10% del tiempo base
+        int variacion = (int)(tipo.getDiasRecuperacionBase() * 0.1 * (Math.random() > 0.5 ? 1 : -1));
+        return Math.max(1, tipo.getDiasRecuperacionBase() + variacion); // Mínimo 1 día
+    }
+
 }

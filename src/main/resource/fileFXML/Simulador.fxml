@@ -5,16 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1120.0" style="-fx-background-color: linear-gradient(to left, #1d1d1d, #3a1d63, #1a1a3c);" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerSimulador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="991.0" style="-fx-background-color: #03030B;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerSimulador">
     <children>
-        <Pane prefHeight="573.0" prefWidth="1120.0">
+        <Pane prefHeight="735.0" prefWidth="991.0">
             <children>
+                <!-- Panel superior con información del partido -->
                 <Pane layoutX="104.0" layoutY="127.0" prefHeight="26.0" prefWidth="556.0" style="-fx-background-color: lightgray;">
                     <children>
                         <Label fx:id="fechaLabel" layoutX="17.0" layoutY="4.0" text="XX/XX/XXX" />
                         <Label fx:id="estadioLabel" layoutX="418.0" layoutY="5.0" text="Estadio" />
                     </children>
                 </Pane>
+
+                <!-- Panel principal de juego -->
                 <Pane layoutX="104.0" layoutY="152.0" prefHeight="94.0" prefWidth="556.0" style="-fx-background-color: white;">
                     <children>
                         <Label fx:id="inningLabel" layoutX="450.0" layoutY="20.0" text="INNING" />
@@ -22,6 +25,7 @@
                         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="18.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="equipoVisitanteLabel" layoutX="52.0" layoutY="33.0" text="San Diego Padres" />
                         <Label fx:id="equipoLocalLabel" layoutX="52.0" layoutY="59.0" text="New York Mets" />
+
                         <GridPane alignment="CENTER" layoutX="233.0" layoutY="3.0" prefHeight="77.0" prefWidth="67.0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="16.0" />
@@ -45,8 +49,10 @@
                                 <Label fx:id="erroresLocalLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                             </children>
                         </GridPane>
+
                         <Line endX="-100.0" endY="65.0" layoutX="402.0" layoutY="16.0" startX="-100.0" stroke="#8d8888" />
                         <Label fx:id="bolasStrikesLabel" layoutX="440.0" layoutY="42.0" text="0 - 0" />
+
                         <Pane layoutX="310.0" layoutY="14.0" prefHeight="66.0" prefWidth="94.0">
                             <children>
                                 <Rectangle fx:id="primeraBase" arcHeight="7.0" arcWidth="7.0" fill="WHITE" height="27.0" layoutX="53.0" layoutY="26.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="27.0" />
@@ -54,23 +60,26 @@
                                 <Rectangle fx:id="segundaBase" arcHeight="7.0" arcWidth="10.0" fill="WHITE" height="27.0" layoutX="32.0" layoutY="5.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" width="27.0" />
                             </children>
                         </Pane>
+
                         <Label fx:id="outsLabel" layoutX="484.0" layoutY="42.0" text="0 OUT" />
                     </children>
                 </Pane>
+
+                <!-- Panel de estadísticas por inning -->
                 <Pane fx:id="tablero" layoutX="77.0" layoutY="278.0" prefHeight="152.0" prefWidth="616.0">
                     <children>
                         <GridPane layoutX="25.0" layoutY="17.0" prefHeight="118.0" prefWidth="556.0" style="-fx-background-color: LIGHTGRAY;">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.79998779296875" minWidth="10.0" prefWidth="99.20001220703125" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.20001220703125" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.20001220703125" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.20001220703125" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.20001220703125" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.20001220703125" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.20001220703125" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.2000244140625" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.2000244140625" minWidth="10.0" prefWidth="47.20002441406251" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.2000244140625" minWidth="10.0" prefWidth="47.20002441406251" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.8" minWidth="10.0" prefWidth="99.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.2" minWidth="10.0" prefWidth="47.2" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.2" minWidth="10.0" prefWidth="47.2" />
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -87,58 +96,70 @@
                                 <Label prefHeight="40.0" prefWidth="48.0" style="-fx-alignment: center; -fx-background-color: lightgray;" text="7" textAlignment="CENTER" GridPane.columnIndex="7" />
                                 <Label prefHeight="34.0" prefWidth="48.0" style="-fx-alignment: center; -fx-background-color: lightgray;" text="8" textAlignment="CENTER" GridPane.columnIndex="8" />
                                 <Label prefHeight="38.0" prefWidth="48.0" style="-fx-alignment: center; -fx-background-color: lightgray;" text="9" textAlignment="CENTER" GridPane.columnIndex="9" />
+
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: LIGHTGRAY;" GridPane.rowIndex="1">
                                     <children>
                                         <ImageView fx:id="logoTabEquipoVis" fitHeight="30.0" fitWidth="32.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
                                         <Label fx:id="equipoTabVisit" layoutX="35.0" layoutY="11.0" text="SD Padres" />
                                     </children>
                                 </Pane>
+
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: LIGHTGRAY;" GridPane.rowIndex="2">
                                     <children>
                                         <ImageView fx:id="logoTabEquipoLocal" fitHeight="26.0" fitWidth="25.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
                                         <Label fx:id="equipoTabLocal" layoutX="35.0" layoutY="9.0" text="NY Mets" />
                                     </children>
                                 </Pane>
+
+                                <!-- Labels para estadísticas de visitante -->
                                 <Label fx:id="primerVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <Label fx:id="segundoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Label fx:id="tercerVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <Label fx:id="cuartoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                <Label fx:id="quintoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                <Label fx:id="sextoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                <Label fx:id="septimoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                                <Label fx:id="octavoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                <Label fx:id="novenoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+
+                                <!-- Labels para estadísticas de local -->
                                 <Label fx:id="primerLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                 <Label fx:id="segundoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                <Label fx:id="tercerVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                 <Label fx:id="tercerLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                <Label fx:id="cuartoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                                 <Label fx:id="cuartoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                                <Label fx:id="quintoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                                 <Label fx:id="quintoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                                <Label fx:id="sextoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="1" />
                                 <Label fx:id="sextoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                                <Label fx:id="septimoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                                 <Label fx:id="septimoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-                                <Label fx:id="novenoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="9" GridPane.rowIndex="2" />
-                                <Label fx:id="novenoVisitante" layoutX="110.0" layoutY="40.0" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="9" GridPane.rowIndex="1" />
                                 <Label fx:id="octavoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-                                <Label fx:id="octavoVisitante" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                <Label fx:id="novenoLocal" prefHeight="39.0" prefWidth="74.0" style="-fx-alignment: center; -fx-background-color: white;" text="0" textAlignment="CENTER" GridPane.columnIndex="9" GridPane.rowIndex="2" />
                             </children>
                         </GridPane>
                     </children>
                 </Pane>
-                <ScrollPane hbarPolicy="NEVER" layoutX="722.0" layoutY="127.0" prefHeight="289.0" prefWidth="287.0">
-                    <content>
-                        <AnchorPane prefHeight="289.0" prefWidth="285.0">
+
+                <!-- Panel de controles -->
+                <Pane layoutX="709.0" layoutY="127.0" prefHeight="289.0" prefWidth="210.0">
+                    <children>
+                        <Label layoutX="37.0" layoutY="202.0" text="Velocidad:" textFill="WHITE" />
+                        <Slider fx:id="sliderVelocidad" layoutX="37.0" layoutY="230.0" max="3.0" min="0.5" value="1.0" />
+
+                        <VBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="33.0" prefHeight="139.0" prefWidth="100.0" style="-fx-spacing: 20;">
                             <children>
-                                <TextArea fx:id="comentariosArea" editable="false" prefHeight="289.0" prefWidth="281.0" />
+                                <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#iniciarSimulacion" prefHeight="26.0" prefWidth="94.0" text="[▶] Iniciar" />
+                                <Button fx:id="btnPausar" mnemonicParsing="false" onAction="#pausarSimulacion" prefHeight="26.0" prefWidth="94.0" text="[⏸] Pausar" />
+                                <Button fx:id="btnReanudar" mnemonicParsing="false" onAction="#reanudarSimulacion" prefHeight="26.0" prefWidth="94.0" text="[↻] Reanudar" />
                             </children>
-                        </AnchorPane>
+                        </VBox>
+                    </children>
+                </Pane>
+
+                <!-- Panel de comentarios (simplificado según la nueva estructura) -->
+                <ScrollPane fx:id="scrollComentarios" hbarPolicy="NEVER" layoutX="104.0" layoutY="460.0" prefHeight="200.0" prefWidth="801.0" style="-fx-background: black;">
+                    <content>
+                        <VBox fx:id="vboxComentarios" style="-fx-background-color: black;" />
                     </content>
                 </ScrollPane>
-                <HBox layoutX="340.0" layoutY="461.0" prefHeight="26.0" prefWidth="240.0" style="-fx-spacing: 20;">
-                    <children>
-                        <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#iniciarSimulacion" prefHeight="26.0" prefWidth="59.0" text="Iniciar" />
-                        <Button fx:id="btnPausar" mnemonicParsing="false" onAction="#pausarSimulacion" prefHeight="26.0" prefWidth="58.0" text="Pausar" />
-                        <Button fx:id="btnReanudar" mnemonicParsing="false" onAction="#reanudarSimulacion" prefHeight="26.0" prefWidth="69.0" text="Reanudar" />
-                    </children>
-                </HBox>
-                <Slider fx:id="sliderVelocidad" layoutX="590.0" layoutY="474.0" />
-                <Label layoutX="632.0" layoutY="448.0" text="Velocidad:" textFill="WHITE" />
-            </children></Pane>
+            </children>
+        </Pane>
     </children>
 </AnchorPane>

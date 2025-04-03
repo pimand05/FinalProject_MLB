@@ -8,6 +8,9 @@ public class Paths {
     public static final String CALENDARIO = "/fileFXML/Calendario.fxml";
     public static final String SIMULADOR = "/fileFXML/Simulador.fxml";
     public static final String RGEQUIPO = "/fileFXML/regEquipo.fxml";
+    public static final String TABLAPOSICIONES = "/fileFXML/TablaPosiciones.fxml";
+    public static final String REGJUGADOR = "/fileFXML/RegJugador.fxml";
+    public static final String STATSJUGADORES = "/fileFXML/StatsJugadores.fxml";
 
 
     public static final String INSTANCIA = "src/main/Resource/Text/instancia.dar";

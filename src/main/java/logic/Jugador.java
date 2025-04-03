@@ -16,6 +16,7 @@ public abstract class Jugador implements Serializable {
     protected int numJugador;
     protected String imagenRoute;
     protected transient Image image;
+    protected Lesion lesion;
 
     public Jugador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String imagenRoute) {
         this.nombre = nombre;
@@ -23,6 +24,7 @@ public abstract class Jugador implements Serializable {
         this.altura = altura;
         this.numJugador = numJugador;
         this.imagenRoute = imagenRoute;
+        this.lesion = new Lesion(null);
     }
 
     public String getNombre() {
@@ -54,6 +56,10 @@ public abstract class Jugador implements Serializable {
 
     public int getNumJugador() {
         return numJugador;
+    }
+
+    public Lesion getLesion() {
+        return lesion;
     }
 
     public void setNumJugador(int numJugador) {

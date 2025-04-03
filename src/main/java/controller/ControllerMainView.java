@@ -67,7 +67,7 @@ public class ControllerMainView implements Initializable {
     @FXML
     void openEquipo(ActionEvent event) {
        //AppMain.app.start(new Stage());
-        AppMain.app.openNewStage(Paths.RGEQUIPO, "Registrar Equipo", false, Paths.ICONMAIN,true);
+        AppMain.app.openNewStage(Paths.RGEQUIPO, "Registrar Equipo", false, Paths.ICONMAIN);
 
     }
 
@@ -78,7 +78,7 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openTorneo(ActionEvent event) {
-        //AppMain.app.openNewStage(Paths.CALENDARIO, "Calendario", false, Paths.ICONMAIN);
+        AppMain.app.openNewStage(Paths.CALENDARIO, "Calendario", false, Paths.ICONMAIN);
 
     }
 

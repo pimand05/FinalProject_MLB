@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerStatsJugador">
+    <children>
+        <Pane fx:id="contenedorBateador" layoutY="-1.0" prefHeight="544.0" prefWidth="770.0">
+            <children>
+                <Pane prefHeight="180.0" prefWidth="770.0" style="-fx-background-color: #8f2228;">
+                    <children>
+                        <ImageView fx:id="logoEquipo" fitHeight="75.0" fitWidth="67.0" layoutX="39.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="nombreBateador" layoutX="333.0" layoutY="106.0" text="NOMBRE" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="infoBateador" layoutX="333.0" layoutY="80.0" text="EQUIPO | # |POSICION" textFill="WHITE">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="fotoBateador" fitHeight="150.0" fitWidth="200.0" layoutX="106.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </Pane>
+                <TableView fx:id="tablaStatsBateador" layoutX="197.0" layoutY="327.0" prefHeight="92.0" prefWidth="377.0" stylesheets="@../Style/Tablas.css">
+                    <columns>
+                        <TableColumn fx:id="colJuegosBateador" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="J" />
+                        <TableColumn fx:id="colCarreras" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="C" />
+                        <TableColumn fx:id="colHitsBateador" editable="false" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="H" />
+                        <TableColumn fx:id="colHomeRunsBateador" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="HR" />
+                        <TableColumn fx:id="colAvgBateador" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="AVG" />
+                    </columns>
+                </TableView>
+                <Pane layoutX="-1.0" layoutY="180.0" prefHeight="92.0" prefWidth="486.0" style="-fx-border-color: #8f2228;">
+                    <children>
+                        <Label layoutX="107.0" layoutY="29.0" text="AVG">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="351.0" layoutY="26.0" text="HR">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="237.0" layoutY="26.0" text="C">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="183.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="308.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
+                        <Label fx:id="avgBateador" layoutX="99.0" layoutY="49.0" text="00.00">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="carrerasBateador" layoutX="232.0" layoutY="49.0" text="00">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="homeRunsBateador" layoutX="351.0" layoutY="49.0" text="00">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="484.0" layoutY="180.0" prefHeight="46.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                    <children>
+                        <Label fx:id="fechaNacBateador" layoutX="112.0" layoutY="13.0" text="xx/xx/xxxx">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="484.0" layoutY="225.0" prefHeight="47.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                    <children>
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="141.0" layoutY="-5.0" startX="2.20001220703125" startY="5.4000091552734375" stroke="#8f2228" />
+                        <Label fx:id="edadBateador" layoutX="50.0" layoutY="13.0" text="xx años">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="alturaBateador" layoutX="197.0" layoutY="13.0" text="x'xx&quot; ">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane fx:id="contenedorPitcher" prefHeight="544.0" prefWidth="770.0">
+            <children>
+                <Pane prefHeight="180.0" prefWidth="770.0" style="-fx-background-color: #8f2228;">
+                    <children>
+                        <ImageView fitHeight="150.0" fitWidth="155.0" layoutX="104.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="nombrePitcher" layoutX="333.0" layoutY="106.0" text="NOMBRE" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="infoPitcher" layoutX="333.0" layoutY="80.0" text="EQUIPO | # | TIPOLANZADOR" textFill="WHITE">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <TableView fx:id="tablaStatsPitcher" layoutX="197.0" layoutY="328.0" prefHeight="92.0" prefWidth="377.0" stylesheets="@../Style/Tablas.css">
+                    <columns>
+                        <TableColumn fx:id="colJuegosPitcher" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="J" />
+                        <TableColumn fx:id="colEntradasLan" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="IP" />
+                        <TableColumn fx:id="colPonchesLan" editable="false" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="SO" />
+                        <TableColumn fx:id="colEfectivas" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="ERA" />
+                        <TableColumn fx:id="colCarrerasLimp" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="ER" />
+                    </columns>
+                </TableView>
+                <Pane layoutX="-1.0" layoutY="180.0" prefHeight="92.0" prefWidth="486.0" style="-fx-border-color: #8f2228;">
+                    <children>
+                        <Label layoutX="107.0" layoutY="29.0" text="ERA">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="353.0" layoutY="26.0" text="ER">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="233.0" layoutY="26.0" text="SO">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="183.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="308.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
+                        <Label fx:id="labelEraPit" layoutX="98.0" layoutY="49.0" text="00.00">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="labelPonchesPit" layoutX="232.0" layoutY="49.0" text="00">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="labelCarrerasLimpias" layoutX="351.0" layoutY="49.0" text="00">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="484.0" layoutY="180.0" prefHeight="46.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                    <children>
+                        <Label fx:id="fechaNacimPit" layoutX="112.0" layoutY="13.0" text="xx/xx/xxxx">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="484.0" layoutY="225.0" prefHeight="47.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                    <children>
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="141.0" layoutY="-5.0" startX="2.20001220703125" startY="5.4000091552734375" stroke="#8f2228" />
+                        <Label fx:id="edadPitcher" layoutX="50.0" layoutY="13.0" text="xx años">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="alturaPitcher" layoutX="197.0" layoutY="13.0" text="x'xx&quot; ">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
