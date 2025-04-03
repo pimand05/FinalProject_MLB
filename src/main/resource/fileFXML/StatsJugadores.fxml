@@ -117,7 +117,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <TableView fx:id="tablaStatsPitcher" layoutX="197.0" layoutY="328.0" prefHeight="92.0" prefWidth="377.0" stylesheets="@../Style/Tablas.css">
+                <TableView fx:id="tablaStatsPitcher" layoutX="197.0" layoutY="328.0" prefHeight="92.0" prefWidth="377.0" stylesheets="@../style/Tablas.css">
                     <columns>
                         <TableColumn fx:id="colJuegosPitcher" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="J" />
                         <TableColumn fx:id="colEntradasLan" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="IP" />

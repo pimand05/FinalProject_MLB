@@ -1,0 +1,88 @@
+/* Estilo principal para el fondo */
+.root {
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Degradado moderno para el título/header */
+.titulo-panel {
+    -fx-background-color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);
+}
+
+.titulo-texto {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 0, 1, 1);
+}
+
+/* Estilos modernos para botones */
+.boton-moderno {
+    -fx-background-color: linear-gradient(to bottom, #4776E6 0%, #8E54E9 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+.boton-moderno:hover {
+    -fx-background-color: linear-gradient(to bottom, #3a64d6 0%, #7d47d9 100%);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+
+.boton-moderno:pressed {
+    -fx-background-color: linear-gradient(to bottom, #2a54c6 0%, #6c37c9 100%);
+    -fx-translate-y: 1px;
+}
+
+/* Estilos para tablas modernas */
+.tabla-moderna {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);
+}
+
+.tabla-moderna .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #f8f8f8 0%, #e8e8e8 100%);
+    -fx-background-radius: 5px 5px 0 0;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.tabla-moderna .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 8px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555;
+}
+
+.tabla-moderna .table-cell {
+    -fx-padding: 8px;
+    -fx-border-color: transparent transparent #f0f0f0 transparent;
+}
+
+.tabla-moderna .table-row-cell:filled:hover {
+    -fx-background-color: #f5f5ff;
+}
+
+.tabla-moderna .table-row-cell:filled:selected {
+    -fx-background-color: #e0e0ff;
+}
+
+.tabla-moderna .table-row-cell:odd:filled {
+    -fx-background-color: #fafafa;
+}
+
+/* Estilo para celdas con imágenes */
+.celda-con-imagen {
+    -fx-alignment: center;
+    -fx-padding: 5px;
+}

@@ -1,0 +1,152 @@
+/* Estilos generales */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Encabezado */
+.header-container {
+    -fx-background-color: linear-gradient(to right, #360a69 0%, #12387a 100%);
+    -fx-padding: 15;
+    -fx-alignment: center;
+}
+
+.title-label {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.date-label {
+    -fx-text-fill: #bdc3c7;
+    -fx-font-size: 14px;
+}
+
+/* Filtros */
+.filter-box {
+    -fx-padding: 10 0 0 0;
+    -fx-alignment: center;
+    -fx-spacing: 15;
+}
+
+/* Calendario */
+.calendar-grid {
+    -fx-hgap: 5;
+    -fx-vgap: 5;
+    -fx-padding: 10;
+}
+
+.calendar-header {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+    -fx-padding: 5;
+}
+
+/* Celdas normales */
+.calendar-cell {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 3;
+    -fx-padding: 5;
+    -fx-min-width: 100;
+    -fx-min-height: 80;
+}
+
+.calendar-cell:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Celda seleccionada */
+.calendar-cell:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2px;
+}
+
+/* Celda del día actual */
+.calendar-cell-today {
+    -fx-background-color: #e3f2fd;
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3;
+}
+
+.calendar-cell-today:selected {
+    -fx-background-color: #bbdefb;
+    -fx-border-color: #0d47a1;
+}
+
+.calendar-day {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.calendar-day-today {
+    -fx-text-fill: #2196F3;
+    -fx-font-weight: bold;
+}
+
+/* Partidos en el calendario */
+.partido-label {
+    -fx-font-size: 0.8em;
+    -fx-padding: 2 0;
+}
+
+.partido-label-today {
+    -fx-text-fill: #2196F3;
+    -fx-font-weight: bold;
+}
+
+/* Tabla de partidos */
+.partidos-table {
+    -fx-padding: 10;
+}
+
+/* Celdas de la tabla */
+.table-cell {
+    -fx-padding: 5 10;
+}
+
+/* Fila seleccionada en la tabla */
+.table-row-cell:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-font-weight: bold;
+}
+
+/* Fila del día actual en la tabla */
+.table-row-cell:today {
+    -fx-background-color: #e3f2fd;
+}
+
+.table-row-cell:today:selected {
+    -fx-background-color: #bbdefb;
+}
+
+/* Columna VS */
+.vs-column {
+    -fx-alignment: center;
+    -fx-pref-width: 30;
+}
+
+/* Botones */
+.button {
+    -fx-background-radius: 4;
+    -fx-padding: 5 10;
+    -fx-font-size: 12px;
+}
+
+.primary-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1976D2;
+}
+
+/* Efectos de hover */
+.hover-effect:hover {
+    -fx-background-color: derive(-fx-base, -10%);
+}

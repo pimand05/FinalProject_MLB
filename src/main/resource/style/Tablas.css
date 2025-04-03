@@ -1,0 +1,92 @@
+/* Estilos generales para las tablas */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+/* Encabezados de columnas */
+.table-view .column-header {
+    -fx-background-color: #8f2228;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+/* Celdas de la tabla */
+.table-view .table-cell {
+    -fx-alignment: center;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0.5;
+    -fx-padding: 5 10 5 10;
+}
+
+/* Filas alternadas para mejor legibilidad */
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-row-cell:even {
+    -fx-background-color: white;
+}
+
+/* Resaltar fila seleccionada */
+.table-row-cell:selected {
+    -fx-background-color: #d7e3fc;
+    -fx-text-fill: black;
+}
+
+/* Scrollbar de la tabla */
+.table-view .scroll-bar:horizontal .increment-arrow,
+.table-view .scroll-bar:horizontal .decrement-arrow,
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button {
+    -fx-padding: 0;
+}
+
+/* Ajustar el ancho de las columnas */
+.table-view .column-resize-line {
+    -fx-background-color: #8f2228;
+}
+
+/* Estilo para las celdas de promedio (AVG y ERA) */
+.avg-cell {
+    -fx-font-weight: bold;
+    -fx-text-fill: #8f2228;
+}
+
+/* Para hacer las tablas más compactas */
+.table-view {
+    -fx-font-size: 12px;
+}
+
+/* Color al pasar el ratón */
+.table-row-cell:hover {
+    -fx-background-color: #8f2228;
+}
+
+/* Bordes redondeados */
+.table-view {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #8f2228;
+    -fx-border-width: 1;
+}
+
+/* Centrar el contenido de la tabla */
+.table-view *.scroll-bar *.increment-button,
+.table-view *.scroll-bar *.decrement-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: null;
+}
+.table-view .column-header-background {
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 0;
+}
