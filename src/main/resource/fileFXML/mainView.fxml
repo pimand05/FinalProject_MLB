@@ -50,7 +50,7 @@
          <center>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="593.0" fitWidth="1305.0" pickOnBounds="true" preserveRatio="true" translateX="20.0">
+                  <ImageView fitHeight="593.0" fitWidth="1305.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-20.0">
                      <image>
                         <Image url="@../Picture/Fondo.png" />
                      </image>
