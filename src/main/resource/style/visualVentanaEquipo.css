@@ -1,0 +1,62 @@
+
+#nameColumn{
+    -fx-background-color: rgb(98, 95, 95);
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+#imageColumn{
+    -fx-background-color: rgb(98, 95, 95);
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+#estadioColumn{
+    -fx-background-color: rgb(98, 95, 95);
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+#ciudadColumn{
+    -fx-background-color: rgb(98, 95, 95);
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-background-color: rgb(5, 11, 37);
+    -fx-border-color: rgb(0, 0, 0);
+}
+
+.buttonEquipo{
+    -fx-background-color: rgba(118, 24, 155, 0.59);
+    -fx-text-fill: white;
+    -fx-border-color: #ffffff;
+}
+
+.custom-tableView{
+    -fx-background-color: rgb(5, 11, 37);
+    -fx-text-fill: black;
+    -fx-font-size: 22px;
+    -fx-border-color: rgb(255, 255, 255);
+}
+
+#panelSearch{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-text-fill: black;
+    -fx-font-size: 22px;
+    -fx-border-color: rgb(255, 255, 255);
+}

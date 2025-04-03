@@ -1,0 +1,70 @@
+#background{
+    -fx-background-color: #111111;
+}
+
+#nameColumn{
+    -fx-background-color: rgb(176, 172, 172);
+    -fx-text-fill: black;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+#posicionColumn{
+    -fx-background-color: rgb(176, 172, 172);
+    -fx-text-fill: black;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+#equipoColumn{
+    -fx-background-color: rgb(176, 172, 172);
+    -fx-text-fill: black;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+#numeroColumn{
+    -fx-background-color: rgb(176, 172, 172);
+    -fx-text-fill: black;
+    -fx-text: black;
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-padding: -1px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-background-color: rgb(5, 11, 37);
+    -fx-border-color: rgb(0, 0, 0);
+}
+
+.buttonEquipo{
+    -fx-background-color: rgba(118, 24, 155, 0.59);
+    -fx-text-fill: white;
+    -fx-border-color: #ffffff;
+}
+
+.custom-tableView{
+    -fx-background-color: rgb(5, 11, 37);
+    -fx-text-fill: black;
+    -fx-font-size: 22px;
+    -fx-border-color: rgb(255, 255, 255);
+}
+
+.panelSearch{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-text-fill: black;
+    -fx-font-size: 22px;
+    -fx-border-color: rgb(255, 255, 255);
+}
+
+.buttonEquipo{
+    -fx-background-color: rgba(96, 176, 107, 0.59);
+    -fx-text-fill: white;
+    -fx-border-color: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill:"white";
+}
