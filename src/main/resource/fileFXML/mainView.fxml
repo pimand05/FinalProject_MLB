@@ -79,7 +79,7 @@
                         </StackPane>
                         <ImageView fitHeight="74.0" fitWidth="71.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" translateY="5.0">
                            <image>
-                              <Image url="@../Picture/PosibleBaseball.png" />
+                              <Image url="@../Picture/BaseballIcon.png" />
                            </image>
                         </ImageView>
                      </children></HBox>
