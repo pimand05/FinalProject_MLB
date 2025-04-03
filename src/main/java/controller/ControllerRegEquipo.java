@@ -76,7 +76,7 @@ public class ControllerRegEquipo implements Initializable {
             String ruta = Paths.EQUIPODF;
 
             if (imagenTemporal != null)
-                ruta = GuardarImagen.guardar(imagenTemporal, nombre.trim().replaceAll("\\s+", "_"),Paths.FOLDEREQUIPO);
+                ruta = GuardarImagen.guardar(imagenTemporal, "logo_"+nombre.trim().replaceAll("\\s+", "_"),Paths.FOLDEREQUIPO+nombre.trim().replaceAll("\\s+", "_"));
             Equipo equipo = new Equipo(
                     txtNombre.getText(),
                     txtEstadio.getText(),

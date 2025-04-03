@@ -14,7 +14,8 @@ public class Paths {
 
 
     //Equipo
-    public static final String FOLDEREQUIPO = "src/main/Resource/Picture/imagenes_equipos";
+    public static final String FOLDEREQUIPO = "src/main/Resource/Picture/";
+    public static final String FOLDERJUGADOR = "src/main/Resource/Picture/";
     public static final String EQUIPODF = "src/main/Resource/Picture/DefaultIcon.png";
 
 
