@@ -23,7 +23,7 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
             </TableView>
-            <Button layoutX="801.0" layoutY="17.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="309.0" styleClass="buttonEquipo" stylesheets="@../style/visualVentanaJugador.css" text="(+) CREAR JUGADOR" />
+            <Button fx:id="btnCrearJugador" layoutX="801.0" layoutY="17.0" mnemonicParsing="false" onAction="#openCrearJugador" prefHeight="74.0" prefWidth="309.0" styleClass="buttonEquipo" stylesheets="@../style/visualVentanaJugador.css" text="(+) CREAR JUGADOR" />
             <Pane layoutX="44.0" layoutY="17.0" prefHeight="74.0" prefWidth="734.0" styleClass="panelSearch" stylesheets="@../style/visualVentanaJugador.css">
                 <children>
                     <TextField fx:id="searchBar" prefHeight="75.0" prefWidth="734.0" promptText="Ingrese un Jugador">

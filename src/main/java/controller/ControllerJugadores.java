@@ -1,17 +1,23 @@
 package controller;
 
+import application.AppMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.Stage;
 import logic.Jugador;
+import utility.Paths;
 
 public class ControllerJugadores {
 
+    @FXML
+    public Button btnCrearJugador;
     @FXML
     private TableView<Jugador> tableView;
 
@@ -52,6 +58,10 @@ public class ControllerJugadores {
         positionColumn.setCellValueFactory(new PropertyValueFactory<>("position"));
         equipoColumn.setCellValueFactory(new PropertyValueFactory<>("equipo"));
         //tableView.setItems(getPlayers());
+    }
+
+    public void openCrearJugador(ActionEvent actionEvent) {
+        AppMain.app.loadStage(new Stage(), Paths.REGJUGADOR, "Crear Jugador", false, Paths.ICONMAIN);
     }
 
     /*private ObservableList<Player> getPlayers() {

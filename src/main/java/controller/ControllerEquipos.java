@@ -1,16 +1,20 @@
 package controller;
 
+import application.AppMain;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import logic.Equipo;
+import utility.Paths;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,6 +23,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerEquipos implements Initializable {
+    @FXML
+    public Button btnCrearEquipo;
 
     /*private final ObservableList<Team> equipos = FXCollections.observableArrayList(
             new Team("Yankees", "New York", "Yankee Stadium"), new Team("Mets", "New York", "Citi Field"),
@@ -72,6 +78,10 @@ public class ControllerEquipos implements Initializable {
         if (selectedTeam != null) {
             System.out.println("Equipo seleccionado: " + selectedTeam.getNombre());
         }
+    }
+
+    public void openCrearEquipo(ActionEvent actionEvent) {
+        AppMain.app.loadStage(new Stage(), Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
     }
 
     /*private ObservableList<Equipo> searchList(String searchWords) {
