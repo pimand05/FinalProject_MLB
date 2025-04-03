@@ -3,10 +3,14 @@ package logic;
 import utility.COMENTARIOS;
 import utility.InningKey;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Partido {
+public class Partido  implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     // Constantes para rangos de acciones
     private static final int STRIKE_MIN = 1;
     private static final int STRIKE_MAX = 15;

@@ -1,0 +1,33 @@
+.cointerner-drag {
+    -fx-background-color: #a7a5a5;
+    -fx-font-size: 20px;
+    -fx-background-radius: 2;
+}
+
+.cointerner-drag:hover {
+    -fx-background-color: #cccccc;
+    -fx-font-size: 20px;
+    -fx-background-radius: 3;
+}
+
+.cointerner-title {
+    -fx-background-color: #dcdcdc;
+    -fx-font-size: 20px;
+    -fx-background-radius: 3;
+    -fx-border-color: #000000;
+}
+
+.panel{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 3;
+    -fx-border-color: #000000;
+}
+
+.button{
+    -fx-background-color: #dcdcdc;
+    -fx-background-radius: 100;
+}
+
+.button:pressed {
+    -fx-background-color: #817e7e;
+}

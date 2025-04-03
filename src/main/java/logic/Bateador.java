@@ -1,19 +1,19 @@
 package logic;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Bateador extends Jugador {
+public class Bateador extends Jugador implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String posicion;
     private EstadisticasBateador stats;
     private int turnos = 0;
     private boolean lesionado = false;
 
-    public Bateador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String posicion, int turnos, boolean lesionado) {
-        super(nombre, fNacimiento, altura, numJugador);
+    public Bateador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String imagenRoute, String posicion) {
+        super(nombre, fNacimiento, altura, numJugador, imagenRoute);
         this.posicion = posicion;
-        this.turnos = turnos;
-        this.lesionado = lesionado;
     }
 
     public String getPosicion() {

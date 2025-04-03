@@ -1,27 +1,26 @@
 package logic;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Pitcher extends Jugador {
+public class Pitcher extends Jugador  implements Serializable {
     // private float efectivas; Se pasa a Estadisticas Pitcher
-    private String tipoDeLanzador; //Abridor o relevista
+    private String tipoDeLanzador;//Abridor o relevista
+    private static final long serialVersionUID = 1L;
     private boolean esZurdo;
     private ArrayList<String> listaPicheos;
     private EstadisticasPitcher stats;
     private int turnos = 0;
 
-    public Pitcher(String nombre, LocalDate fNacimiento, float altura, int numJugador, float efectivas, String tipoDeLanzador, boolean esZurdo, ArrayList<String> listaPicheos, EstadisticasPitcher stats, int turnos) {
-        super(nombre, fNacimiento, altura, numJugador);
-        //this.efectivas = efectivas;
+    public Pitcher(String nombre, LocalDate fNacimiento, float altura, int numJugador, String imagenRoute, String tipoDeLanzador, boolean esZurdo, ArrayList<String> listaPicheos) {
+        super(nombre, fNacimiento, altura, numJugador, imagenRoute);
         this.tipoDeLanzador = tipoDeLanzador;
         this.esZurdo = esZurdo;
         this.listaPicheos = listaPicheos;
-        this.stats = new EstadisticasPitcher(0,0,0, 0, 0);
-        this.turnos = turnos;
     }
 
-//    public float getEfectivas() {
+    //    public float getEfectivas() {
 //        return efectivas;
 //    }
 

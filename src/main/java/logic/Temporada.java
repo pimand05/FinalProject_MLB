@@ -1,13 +1,15 @@
 package logic;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Temporada {
+public class Temporada implements Serializable {
 
     private static Temporada instance = null;
+    private static final long serialVersionUID = 1L;
     private ArrayList<Partido> partidos;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;

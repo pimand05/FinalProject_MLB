@@ -1,32 +1,48 @@
 package logic;
 
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+
+import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Equipo {
+public class Equipo  implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nombre;
     private String estadio;
+    private String ciudad;
+    private String historia;
     private Boolean calificado;
     private int juegosGanados;
     private int juegosPerdidos;
+    private String  colorPrimario;
+    private String colorSecundario;
+    private String rutaLogo;
+    private transient Image logo;
     private ArrayList<Jugador> jugadores;
     private ArrayList<Partido> partidosJugados;
 
     //Manejos de los Partidos
     private int bateadorActualIndex = 1;
     private Pitcher pitcherActual;
-    private Map<Integer, Bateador> lineup = new HashMap<>();
+    private HashMap<Integer, Bateador> lineup = new HashMap<>();
     private List<Pitcher> relevistas = new ArrayList<>();
 
     //Constructor
-    public Equipo(String nombre, String estadio, Boolean calificado, int juegosGanados, int juegosPerdidos) {
+
+
+    public Equipo(String nombre, String estadio, String ciudad, String historia, String colorPrimario, String colorSecundario, String rutaLogo) {
         this.nombre = nombre;
         this.estadio = estadio;
-        this.calificado = calificado;
-        this.juegosGanados = juegosGanados;
-        this.juegosPerdidos = juegosPerdidos;
+        this.ciudad = ciudad;
+        this.colorPrimario = colorPrimario;
+        this.colorSecundario = colorSecundario;
+        this.historia = historia;
+        this.rutaLogo = rutaLogo;
     }
 
     //Getters y Setters
@@ -82,6 +98,50 @@ public class Equipo {
         return partidosJugados;
     }
 
+    public String getColorPrimario() {
+        return colorPrimario;
+    }
+
+    public void setColorPrimario(String colorPrimario) {
+        this.colorPrimario = colorPrimario;
+    }
+
+    public String getColorSecundario() {
+        return colorSecundario;
+    }
+
+    public void setColorSecundario(String colorSecundario) {
+        this.colorSecundario = colorSecundario;
+    }
+
+    public String getrutaLogo() {
+        return rutaLogo;
+    }
+
+    public void setrutaLogo(String rutaLogo) {
+        this.rutaLogo = rutaLogo;
+    }
+
+    public int getBateadorActualIndex() {
+        return bateadorActualIndex;
+    }
+
+    public void setBateadorActualIndex(int bateadorActualIndex) {
+        this.bateadorActualIndex = bateadorActualIndex;
+    }
+
+    public void setPitcherActual(Pitcher pitcherActual) {
+        this.pitcherActual = pitcherActual;
+    }
+
+    public HashMap<Integer, Bateador> getLineup() {
+        return lineup;
+    }
+
+    public List<Pitcher> getRelevistas() {
+        return relevistas;
+    }
+
     //metodos
 
     public void setJuegosjugados(ArrayList<Partido> partidosJugados) {
@@ -125,7 +185,6 @@ public class Equipo {
 
     public void avanzarBateador() {
         bateadorActualIndex = (bateadorActualIndex % 9) + 1;
-
     }
 
     public Pitcher getPitcherActual() {
@@ -238,5 +297,9 @@ public class Equipo {
         if (pitchers.size() > 1) {
             relevistas.addAll(pitchers.subList(1, pitchers.size()));
         }
+    }
+
+    public Image getLogo(String ruta) {
+        return new Image(new File(ruta).toURI().toString());
     }
 }

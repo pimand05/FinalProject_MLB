@@ -1,11 +1,14 @@
 package logic;
 
-public class EstadisticasBateador {
+import java.io.Serializable;
+
+public class EstadisticasBateador implements Serializable  {
+    private static final long serialVersionUID = 1L;
     private float promedioBateo;
-    private int hits;
-    private int homeRuns;
-    private int carreras;
-    private int juegosJugados;
+    private int hits = 0;
+    private int homeRuns = 0;
+    private int carreras = 0;
+    private int juegosJugados = 0;
 
     //Constructor
     public EstadisticasBateador(float promedioBateo, int hits, int homeRuns, int carreras, int juegosJugados) {

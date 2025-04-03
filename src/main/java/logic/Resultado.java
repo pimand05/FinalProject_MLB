@@ -1,7 +1,10 @@
 package logic;
 
-public class Resultado {
+import java.io.Serializable;
 
+public class Resultado  implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private int hitsLocal;
     private int hitsVisitante;
     private int carrerasLocal;

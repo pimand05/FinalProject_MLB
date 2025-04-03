@@ -1,9 +1,13 @@
 package logic;
 
-public class EstadisticasPitcher {
+import java.io.Serializable;
+
+public class EstadisticasPitcher implements Serializable  {
+    private static final long serialVersionUID = 1L;
     private int entradasLanzadas;
     private int ponchesLanzados;
     private int juegosJugados;
+    private int basePorBola;
     private int carrerasLimpiasPermitidas;
     private float efectivas;
 
@@ -43,6 +47,16 @@ public class EstadisticasPitcher {
         this.juegosJugados = juegosJugados;
     }
 
+    public int getBasePorBola() {
+        return basePorBola;
+    }
+
+    public void setBasePorBola(int basePorBola) {
+        this.basePorBola = basePorBola;
+    }
+
+
+
     //Metodos
     public float promedioPonches() {
         return (float) ponchesLanzados / entradasLanzadas;
@@ -52,8 +66,8 @@ public class EstadisticasPitcher {
         ponchesLanzados++; //crear metodo para incrementar ponches lanzados
     }
 
-    public double calcularERA() {
-        return (carrerasLimpiasPermitidas / (double) entradasLanzadas) * 9;
+    public Float calcularERA() {
+        return (carrerasLimpiasPermitidas / (float) entradasLanzadas) * 9;
     }
 }
 

@@ -1,14 +1,19 @@
 package logic;
 
+import utility.Paths;
+import utility.Persistencia;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class SerieMundial {
+public class SerieMundial implements Serializable {
 
     private static SerieMundial instance = null;
+    private static final long serialVersionUID = 1L;
     ArrayList<Temporada> partidos;
     ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
@@ -21,7 +26,9 @@ public class SerieMundial {
 
     public static SerieMundial getInstance() {
         if (instance == null) {
-            instance = new SerieMundial();
+            instance = Persistencia.cargarObjeto(Paths.INSTANCIA);
+            if (instance == null)
+                instance = new SerieMundial();
         }
         return instance;
     }
@@ -40,6 +47,12 @@ public class SerieMundial {
 
     public void addCalendario(Temporada c) {
         partidos.add(c);
+    }
+
+
+    // Método para guardar la instancia de SerieMundial
+    public void guardar() {
+        Persistencia.guardarObjeto(this, Paths.INSTANCIA);
     }
 
 //    public void addJugador(Jugador j) {
@@ -156,5 +169,7 @@ public class SerieMundial {
 //        }
 //        return lista.subList(0, cantidad);
 //    }
+
+
 
 }
