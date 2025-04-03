@@ -35,10 +35,6 @@ public class Pitcher extends Jugador  implements Serializable {
         return stats;
     }
 
-//    public void setEfectivas(float efectivas) {
-//        this.efectivas = efectivas;
-//    }
-
     public void setTipoDeLanzador(String tipoDeLanzador) {
         this.tipoDeLanzador = tipoDeLanzador;
     }
