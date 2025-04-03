@@ -21,10 +21,12 @@ import java.util.Objects;
 public class AppMain extends Application {
     public static AppMain app;
     public static boolean video = false;
+    private Stage stage;
     //Funcion para iniciar la aplicación (default).
     @Override
     public void start(Stage primaryStage) {
         app = this;
+        this.stage = primaryStage;
         if (video) {
             playIntroVideo(primaryStage);
         } else {
@@ -161,6 +163,10 @@ public class AppMain extends Application {
             loadStage(stage, Paths.MAIN, "SERIE MUNDIAL", true, Paths.ICONMAIN);
         });
         mediaPlayer.play();
+    }
+
+    public void loadHomeStage() {
+        app.loadStage(stage, Paths.MAIN, "SERIE MUNDIAL", true, Paths.ICONMAIN);
     }
 
     public static void main(String[] args) {

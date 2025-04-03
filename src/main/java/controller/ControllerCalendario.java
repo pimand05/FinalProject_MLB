@@ -1,5 +1,6 @@
 package controller;
 
+import application.AppMain;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -9,9 +10,11 @@ import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -316,5 +319,9 @@ public class ControllerCalendario {
       // Cambiar el mes sumando o restando el valor de incremento
       fechaActual = fechaActual.plusMonths(incremento);
       generarVistaCalendario();
+   }
+
+   public void goHome(MouseEvent mouseEvent) {
+        AppMain.app.loadHomeStage();
    }
 }
