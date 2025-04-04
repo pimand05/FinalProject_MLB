@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
+import logic.Equipo;
 import logic.Jugador;
 import logic.SerieMundial;
 import utility.Paths;
