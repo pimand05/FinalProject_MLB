@@ -110,7 +110,62 @@
       "colorPrimario": "0xffffffff",
       "colorSecundario": "0xffffffff",
       "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
-      "jugadores": [],
+      "jugadores": [
+        {
+          "tipo": "Bateador",
+          "posicion": "1B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Alejandro",
+          "fNacimiento": "2025-04-22",
+          "altura": 1.67,
+          "numJugador": 3,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-04",
+            "finEstimada": "2025-04-04",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "2B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Diego",
+          "fNacimiento": "2025-04-16",
+          "altura": 1.67,
+          "numJugador": 1,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-04",
+            "finEstimada": "2025-04-04",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "3B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Robert",
+          "fNacimiento": "2025-04-23",
+          "altura": 1.7,
+          "numJugador": 1,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-04",
+            "finEstimada": "2025-04-04",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        }
+      ],
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []
@@ -125,7 +180,62 @@
       "colorPrimario": "0xffffffff",
       "colorSecundario": "0xffffffff",
       "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
-      "jugadores": [],
+      "jugadores": [
+        {
+          "tipo": "Bateador",
+          "posicion": "3B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Miguel",
+          "fNacimiento": "2025-04-07",
+          "altura": 1.67,
+          "numJugador": 3,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-04",
+            "finEstimada": "2025-04-04",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "2B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Matias",
+          "fNacimiento": "2025-04-08",
+          "altura": 1.8,
+          "numJugador": 1,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-04",
+            "finEstimada": "2025-04-04",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "1B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Santiago",
+          "fNacimiento": "2025-04-22",
+          "altura": 1.8,
+          "numJugador": 1,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-04",
+            "finEstimada": "2025-04-04",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        }
+      ],
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []
