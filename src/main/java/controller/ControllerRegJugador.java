@@ -183,7 +183,7 @@ public class ControllerRegJugador {
             equipoJugador.setJugadores(new ArrayList<>());
          }
 
-         String ruta = Paths.FOLDERJUGADOR;
+         //String ruta = Paths.FOLDERJUGADOR;
 
          // Crear jugador según tipo seleccionado
          Jugador jugador;
@@ -191,7 +191,9 @@ public class ControllerRegJugador {
          float altura = Float.parseFloat(txtAltura.getText());
          LocalDate fechaNacimiento = calFecNacim.getValue();
          int numero = spnNumero.getValue();
-         ruta = GuardarImagen.guardar(imagenTemporal, "foto_"+nombre.trim().replaceAll("\\s+", "_"),Paths.FOLDERJUGADOR+nombre.trim().replaceAll("\\s+", "_"));
+         String ruta = Paths.getJugadoresFolderForEquipo(equipoJugador.getNombre(), nombre);
+         String rutaImagen = GuardarImagen.guardar(imagenTemporal, "foto_" + nombre.trim().replaceAll("\\s+", "_"), ruta);
+         //ruta = GuardarImagen.guardar(imagenTemporal, "foto_"+nombre.trim().replaceAll("\\s+", "_"),Paths.FOLDERJUGADOR+nombre.trim().replaceAll("\\s+", "_"));
 
          if (rbBateador.isSelected()) {
             String posicion = cmbPosicion.getValue();

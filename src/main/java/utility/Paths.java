@@ -1,5 +1,7 @@
 package utility;
 
+import logic.Jugador;
+
 public class Paths {
 
     //Views
@@ -23,6 +25,9 @@ public class Paths {
     public static final String FOLDERJUGADOR = "src/main/Resource/Picture/";
     public static final String EQUIPODF = "src/main/Resource/Picture/DefaultIcon.png";
 
+    public static String getJugadoresFolderForEquipo(String nombreEquipo, String nombreJugador) {
+        return "src/main/Resource/Picture/" + nombreEquipo.trim().replaceAll("\s+", "_") + "/Jugadores/" + nombreJugador.trim().replaceAll("\s+", "_");
+    }
 
     //MainApp
     public static final String ICONMAIN = "/picture/BaseballIcon.png";
