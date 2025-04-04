@@ -4,26 +4,31 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTablaPosiciones">
-    <top>
-        <Pane prefHeight="53.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #23229f 0%, #121144 100%);" BorderPane.alignment="CENTER">
-            <children>
-                <Label layoutX="91.0" layoutY="13.0" style="-fx-font-weight: bold;" text="Tabla de Posiciones" textFill="WHITE">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-    </top>
-    <center>
-        <TableView fx:id="tablaPosiciones" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <columns>
-                <TableColumn fx:id="colEquipo" prefWidth="108.79998779296875" text="Equipo" />
-                <TableColumn fx:id="colGanados" prefWidth="80.00006103515625" text="Ganados" />
-                <TableColumn fx:id="colPerdidos" prefWidth="79.199951171875" text="Perdidos" />
-                <TableColumn fx:id="colDiferencia" prefWidth="79.20001220703125" text="Diferencia" />
-            </columns>
-        </TableView>
-    </center>
-</BorderPane>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTablaPosiciones">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="348.0">
+          <top>
+              <Pane prefHeight="53.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #23229f 0%, #121144 100%);" BorderPane.alignment="CENTER">
+                  <children>
+                      <Label layoutX="91.0" layoutY="13.0" style="-fx-font-weight: bold;" text="Tabla de Posiciones" textFill="WHITE">
+                          <font>
+                              <Font size="18.0" />
+                          </font>
+                      </Label>
+                  </children>
+              </Pane>
+          </top>
+          <center>
+              <TableView fx:id="tablaPosiciones" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <columns>
+                      <TableColumn fx:id="colEquipo" prefWidth="108.79998779296875" text="Equipo" />
+                      <TableColumn fx:id="colGanados" prefWidth="80.00006103515625" text="Ganados" />
+                      <TableColumn fx:id="colPerdidos" prefWidth="79.199951171875" text="Perdidos" />
+                      <TableColumn fx:id="colDiferencia" prefWidth="79.20001220703125" text="Diferencia" />
+                  </columns>
+              </TableView>
+          </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

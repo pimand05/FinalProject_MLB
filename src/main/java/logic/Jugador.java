@@ -1,6 +1,7 @@
 package logic;
 
 import javafx.scene.image.Image;
+import utility.LesionTipo;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -76,6 +77,21 @@ public abstract class Jugador implements Serializable {
 
     public void setImage(String imagenRoute) {
         this.foto = new Image(imagenRoute);
+    }
+
+    // Metodos para manejar las lesiones
+    public boolean puedeJugar() {
+        return lesion == null || !lesion.isActiva();
+    }
+
+    public void aplicarLesion(LesionTipo tipo) {
+        this.lesion = new Lesion(tipo);
+    }
+
+    public void curarLesion() {
+        if (lesion != null) {
+            lesion.marcarComoCurada();
+        }
     }
 
     // Método para calcular edad

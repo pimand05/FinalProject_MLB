@@ -7,6 +7,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -15,8 +19,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import logic.Partido;
-import logic.Temporada;
+import logic.*;
+
+import java.awt.*;
+import java.io.File;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class ControllerSimulador {
    @FXML private Label fechaLabel, estadioLabel;
@@ -33,6 +41,8 @@ public class ControllerSimulador {
    @FXML private Slider sliderVelocidad;
    @FXML private VBox vboxComentarios;
    @FXML private ScrollPane scrollComentarios;
+   @FXML private ImageView logoEquipoVis, logoEquipoLocal;
+   @FXML private ImageView logoTabEquipoVis, logoTabEquipoLocal;
 
    private int currentDisplayedInning = 0;
    private boolean currentDisplayedTopInning = true;
@@ -43,6 +53,7 @@ public class ControllerSimulador {
    public void setPartido(Partido partido) {
       this.partido = partido;
    }
+
 
    @FXML
    public void initialize() {
@@ -101,7 +112,7 @@ public class ControllerSimulador {
       if (partido == null || partido.isPartidoTerminado()) return;
       if (timeline != null && timeline.getStatus() == Animation.Status.RUNNING) return;
 
-      agregarNuevoPanelInning(1, true); // Agregar el primer inning
+      agregarNuevoPanelInning(1, true);
 
       double velocidadInicial = 1.0;
       sliderVelocidad.setValue(velocidadInicial);

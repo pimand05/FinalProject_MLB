@@ -12,10 +12,19 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import logic.*;
+import utility.GuardarImagen;
+import utility.Paths;
 
+import java.io.File;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,6 +47,12 @@ public class ControllerRegJugador {
    @FXML private Button btnRegistrar;
    @FXML private Button btnCancelar;
    @FXML private Button btnSelecEquipo;
+   @FXML private Label lblFoto;
+   @FXML private StackPane stackFoto;
+
+   // Manejo de Imagen
+   private String stackPane;
+   private File imagenTemporal = null;
 
    //Elementos Tabla
    @FXML private TableView<rowEquipo> tablaEquipos;
@@ -48,6 +63,46 @@ public class ControllerRegJugador {
    private ToggleGroup manoGroup;
 
    SerieMundial serie = SerieMundial.getInstance();
+
+   @FXML
+   void handleDragOver(DragEvent event) {
+      Dragboard db = event.getDragboard();
+      if (db.hasFiles()) {
+         event.acceptTransferModes(TransferMode.COPY);
+      }
+      event.consume();
+   }
+
+   @FXML
+   void handleDragDropped(DragEvent event) {
+      Dragboard db = event.getDragboard();
+      boolean success = false;
+      if (db.hasFiles()) {
+         imagenTemporal = db.getFiles().getFirst(); // Obtenemos el primer archivo (se puede extender para múltiples archivos)
+         mostrarImagen(imagenTemporal);
+         success = true;
+      }
+      event.setDropCompleted(success);
+      event.consume();
+   }
+
+   private void mostrarImagen(File file) {
+      Image image = new Image(file.toURI().toString());
+      showPane(image);
+   }
+
+   private void showPane(Image image) {
+      String imageUrl = image.getUrl();
+      stackFoto.setStyle(
+            "-fx-background-image: url('" + imageUrl + "');" +
+                  "-fx-background-size: contain;" +
+                  "-fx-background-position: center center;" +
+                  "-fx-background-color: white;"  +
+                  "-fx-background-repeat: no-repeat;"
+      );
+      lblFoto.setVisible(false);
+   }
+
 
    @FXML
    public void initialize() {
@@ -124,12 +179,15 @@ public class ControllerRegJugador {
             return;
          }
 
+         String ruta = Paths.FOLDERJUGADOR;
+
          // Crear jugador según tipo seleccionado
          Jugador jugador;
          String nombre = txtNombre.getText();
          float altura = Float.parseFloat(txtAltura.getText());
          LocalDate fechaNacimiento = calFecNacim.getValue();
          int numero = spnNumero.getValue();
+         ruta = GuardarImagen.guardar(imagenTemporal, "foto_"+nombre.trim().replaceAll("\\s+", "_"),Paths.FOLDERJUGADOR+nombre.trim().replaceAll("\\s+", "_"));
 
          if (rbBateador.isSelected()) {
             String posicion = cmbPosicion.getValue();
@@ -137,7 +195,7 @@ public class ControllerRegJugador {
                mostrarAlerta("Error", "Seleccione una posición para el bateador");
                return;
             }
-            jugador = new Bateador(nombre, fechaNacimiento,  altura, numero, null, posicion);
+            jugador = new Bateador(nombre, fechaNacimiento,  altura, numero, ruta, posicion);
          } else {
             String tipoLanzador = cmbTipoLanzador.getValue();
             String manoDominante = rdbIzquierda.isSelected() ? "Izquierda" : "Derecha";
@@ -151,12 +209,14 @@ public class ControllerRegJugador {
             }
 
             boolean esZurdo = rdbIzquierda.isSelected();
-            jugador = new Pitcher(nombre, fechaNacimiento, altura, numero, null,
+            jugador = new Pitcher(nombre, fechaNacimiento, altura, numero, ruta,
                   tipoLanzador, esZurdo, tiposSeleccionados);
          }
 
          // Asignar jugador al equipo (tanto bateadores como pitchers)
          equipoJugador.addJugador(jugador);
+
+
          limpiarFormulario();
          mostrarAlerta("Éxito", "Jugador registrado correctamente");
 
@@ -168,10 +228,11 @@ public class ControllerRegJugador {
    }
 
    private void cancelarRegistro() {
-      limpiarFormulario();
-      //((Stage) btnCancelar.getScene().getWindow()).close();
+      Stage stage = (Stage) btnCancelar.getScene().getWindow();
+      stage.close();
    }
 
+   
    private void limpiarFormulario() {
       txtNombre.clear();
       calFecNacim.setValue(null);
@@ -182,6 +243,12 @@ public class ControllerRegJugador {
       listViewTiposPicheos.getSelectionModel().clearSelection();
       rdbIzquierda.setSelected(false);
       rdbDerecha.setSelected(false);
+      restorePane();
+   }
+
+   private void restorePane() {
+      stackFoto.setStyle(stackPane);
+      lblFoto.setVisible(true);
    }
 
    private void mostrarAlerta(String titulo, String mensaje) {
@@ -237,4 +304,5 @@ public class ControllerRegJugador {
          return nombre;
       }
    }
+
 }

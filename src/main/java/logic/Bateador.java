@@ -14,6 +14,7 @@ public class Bateador extends Jugador implements Serializable {
     public Bateador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String imagenRoute, String posicion) {
         super(nombre, fNacimiento, altura, numJugador, imagenRoute);
         this.posicion = posicion;
+        this.stats = null;
     }
 
     public String getPosicion() {
@@ -21,6 +22,9 @@ public class Bateador extends Jugador implements Serializable {
     }
 
     public EstadisticasBateador getStats() {
+        if (stats == null) {
+            stats = new EstadisticasBateador(0, 0, 0, 0, 0);
+        }
         return stats;
     }
 

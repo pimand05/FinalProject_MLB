@@ -12,6 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import logic.*;
 
+import java.io.File;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -22,6 +24,10 @@ public class ControllerStatsJugador {
    private Pane contenedorBateador;
    @FXML
    private Pane contenedorPitcher;
+   @FXML
+   private Pane paneBateador;
+   @FXML
+   private Pane panePitcher;
 
    // Componentes para bateador
    @FXML
@@ -86,6 +92,8 @@ public class ControllerStatsJugador {
    private TableColumn<PitcherStatsRow, Float> colEfectivas;
    @FXML
    private ImageView fotoPitcher;
+   @FXML
+   private ImageView logoEquipoP;
 
    // Datos
    private ObservableList<BateadorStatsRow> statsBateadorData = FXCollections.observableArrayList();
@@ -149,13 +157,21 @@ public class ControllerStatsJugador {
       tablaStatsPitcher.setItems(statsPitcherData);
    }
 
+   /*
    public void mostrarJugador(Jugador jugador) {
+      Equipo equipo = serie.buscarEquipoDelJugador(jugador);
+      aplicarEstilosEquipo(equipo);
+
       if (jugador instanceof Bateador) {
          mostrarBateador((Bateador) jugador);
       } else if (jugador instanceof Pitcher) {
          mostrarPitcher((Pitcher) jugador);
       }
+
+      cargarLogoEquipo(equipo); // Carga el logo del equipo
+      cargarFotoJugador(jugador); // Carga la foto del jugador
    }
+    */
 
    private void mostrarBateador(Bateador bateador) {
       contenedorBateador.setVisible(true);
@@ -170,7 +186,7 @@ public class ControllerStatsJugador {
             bateador.getPosicion()));
 
       fechaNacBateador.setText(" " + formatFecha(bateador.getfNacimiento()));
-      edadBateador.setText(String.format("%d años", calcularEdad(bateador.getfNacimiento())));
+      edadBateador.setText(String.format("%d años", bateador.getEdad()));
       alturaBateador.setText(String.format("%.2f m", bateador.getAltura()));
 
       EstadisticasBateador stats = bateador.getStats();
@@ -179,7 +195,6 @@ public class ControllerStatsJugador {
       homeRunsBateador.setText(String.valueOf(stats.getHomeRuns()));
 
       cargarStatsBateador(stats);
-      //cargarLogoEquipo(bateador.getEquipo());
    }
 
    private void mostrarPitcher(Pitcher pitcher) {
@@ -194,7 +209,7 @@ public class ControllerStatsJugador {
             pitcher.getTipoDeLanzador()));
 
       fechaNacimPit.setText(" " + formatFecha(pitcher.getfNacimiento()));
-      edadPitcher.setText(String.format("%d años", calcularEdad(pitcher.getfNacimiento())));
+      edadPitcher.setText(String.format("%d", pitcher.getEdad()));
       alturaPitcher.setText(String.format("%.2f m", pitcher.getAltura()));
 
       EstadisticasPitcher stats = pitcher.getStats();
@@ -229,9 +244,81 @@ public class ControllerStatsJugador {
       return fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
    }
 
+   /*
    private int calcularEdad(LocalDate fechaNacimiento) {
       return Period.between(fechaNacimiento, LocalDate.now()).getYears();
    }
+    */
+
+   /*
+   private void aplicarEstilosEquipo(Equipo equipo) {
+      if (equipo == null) return;
+
+      String colorPrincipal = equipo.getColorPrimario();
+      String colorSecundario = equipo.getColorSecundario();
+
+      // Estilo para el fondo
+      String estiloContenedor = String.format(
+            "-fx-background-color: linear-gradient(to bottom, %s, %s);" +
+                  "-fx-border-color: %s;" +
+                  "-fx-border-width: 3px;" +
+                  "-fx-border-radius: 10;" +
+                  "-fx-background-radius: 10;",
+            colorPrincipal, colorSecundario, colorSecundario
+      );
+
+      paneBateador.setStyle(estiloContenedor);
+      panePitcher.setStyle(estiloContenedor);
+   }
+
+   private void cargarLogoEquipo(Equipo equipo) {
+      try {
+         String nombreLogo = equipo.getNombre();
+         Image logo = new Image(
+               getClass().getResourceAsStream("/logos/" + nombreLogo + ".png"),
+               100, 100, true, true
+         );
+
+         logoEquipo.setImage(logo);
+         //logoEquipoP.setImage(logo);
+
+      } catch (Exception e) {
+         //Image logoDefault = new Image("/logos/default.png");
+      }
+   }
+
+   private void cargarFotoJugador(Jugador jugador) {
+      Image foto = obtenerImagenJugador(jugador);
+
+      if (jugador instanceof Bateador) {
+         fotoBateador.setImage(foto);
+      } else {
+         fotoPitcher.setImage(foto);
+      }
+   }
+
+   private Image obtenerImagenJugador(Jugador jugador) {
+      try {
+         if (jugador.getImagenRoute() != null) {
+            File archivo = new File(jugador.getImagenRoute());
+            if (archivo.exists()) {
+               return new Image(archivo.toURI().toString(), 150, 150, true, true);
+            }
+         }
+
+         // 2. Intento: Buscar en recursos por nombre
+         String nombreArchivo = "jugador_" + jugador.getNombre() + ".png";
+         InputStream is = getClass().getResourceAsStream("/fotos/" + nombreArchivo);
+         if (is != null) {
+            return new Image(is, 150, 150, true, true);
+         }
+
+      } catch (Exception e) {
+         System.err.println("Error cargando foto: " + e.getMessage());
+      }
+      return null;
+   }
+    */
 
    // Clases internas para las filas de la tabla
    public static class BateadorStatsRow {

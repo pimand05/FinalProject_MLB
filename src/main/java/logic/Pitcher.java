@@ -17,6 +17,7 @@ public class Pitcher extends Jugador  implements Serializable {
         this.tipoDeLanzador = tipoDeLanzador;
         this.esZurdo = esZurdo;
         this.listaPicheos = listaPicheos;
+        this.stats = null;
     }
 
     public String getTipoDeLanzador() {
@@ -32,6 +33,9 @@ public class Pitcher extends Jugador  implements Serializable {
     }
 
     public EstadisticasPitcher getStats() {
+        if (stats == null) {
+            stats = new EstadisticasPitcher(0, 0, 0, 0, 0);
+        }
         return stats;
     }
 

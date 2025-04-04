@@ -73,7 +73,8 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openJugadores(ActionEvent event) {
-        AppMain.app.openNewStage(Paths.JUGADORES, "Registrar Equipo", false, Paths.ICONMAIN,true);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        AppMain.app.changeScene(stage, Paths.JUGADORES, "Registrar Equipo", false);
     }
 
     @FXML

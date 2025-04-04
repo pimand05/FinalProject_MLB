@@ -66,22 +66,28 @@ public class SerieMundial implements Serializable {
     }
 
 
-    // Método para iniciar una nueva temporada
-    public void iniciarNuevaTemporada(LocalDate fechaInicio) {
+    public Temporada getTemporadaActual() {
+        // Si no hay temporadas, crea una nueva automáticamente
+        if (temporadas.isEmpty()) {
+            return iniciarNuevaTemporada(LocalDate.now());
+        }
+        // Verifica el índice actual
+        if (temporadaActualIndex >= 0 && temporadaActualIndex < temporadas.size()) {
+            return temporadas.get(temporadaActualIndex);
+        }
+        // Si el índice es inválido, usa la última temporada
+        return temporadas.get(temporadas.size() - 1);
+    }
+
+    public Temporada iniciarNuevaTemporada(LocalDate fechaInicio) {
         if (equipos.size() < 2) {
             throw new IllegalStateException("Se necesitan al menos 2 equipos para generar un calendario");
         }
 
         Temporada nuevaTemporada = new Temporada(equipos, fechaInicio);
         temporadas.add(nuevaTemporada);
-        temporadaActualIndex = temporadas.size() - 1;  // Establece como temporada actual
-    }
-
-    public Temporada getTemporadaActual() {
-        if (temporadaActualIndex >= 0 && temporadaActualIndex < temporadas.size()) {
-            return temporadas.get(temporadaActualIndex);
-        }
-        return null;
+        temporadaActualIndex = temporadas.size() - 1;  // Asegura que el índice apunte a la nueva temporada
+        return nuevaTemporada;
     }
 
     // Métodos de Búsqueda

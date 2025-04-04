@@ -1,11 +1,9 @@
 package logic;
 
 import utility.LesionTipo;
-
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Lesion implements Serializable {
+public class Lesion {
     private LesionTipo tipo;
     private LocalDate fecInicio;
     private LocalDate finEstimada;

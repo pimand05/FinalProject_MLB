@@ -1,11 +1,14 @@
 package logic;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Equipo  implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -347,7 +350,7 @@ public class Equipo  implements Serializable {
         }
     }
 
-    public void getLogo() {
-        this.logo = new Image(rutaLogo);
+    public Image getLogo(String ruta) {
+        return new Image(new File(ruta).toURI().toString());
     }
 }

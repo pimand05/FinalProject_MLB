@@ -46,6 +46,7 @@ public class ControllerCalendario {
    @FXML private Button btnMesSiguiente;
    @FXML private Button btnJugar;
    @FXML private Button btnTablaPosiciones;
+   @FXML private SplitPane splitPane;
 
    private Temporada temporada;
    private ObservableList<Partido> todosPartidos;
@@ -56,53 +57,56 @@ public class ControllerCalendario {
    SerieMundial serie = SerieMundial.getInstance();
 
    public void initialize() {
-      // Configurar formato de fecha
+      configurarUI();
+
+      Temporada temporadaActual = serie.getTemporadaActual();
+      if (temporadaActual == null) {
+         throw new IllegalStateException("No se pudo obtener o crear una temporada");
+      }
+      setTemporada(temporadaActual);
+
+
+      splitPane.setDividerPositions(0.7);
+      // Bloquear el divisor
+      splitPane.getDividers().get(0).positionProperty().addListener((obs, oldVal, newVal) -> {
+         Platform.runLater(() -> splitPane.setDividerPositions(0.7));
+      });
+   }
+
+   private void configurarUI() {
+      // Configuración de la fecha
       fechaActualLabel.setText(fechaActual.format(
             DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy")));
 
-      // Configurar los botones para cambiar de mes
+      // Botones de navegación
       btnMesAnterior.setOnAction(e -> cambiarMes(-1));
       btnMesSiguiente.setOnAction(e -> cambiarMes(1));
 
-      // Configurar combo box de equipos
-      filtroEquipo.setCellFactory(new Callback<ListView<Equipo>, ListCell<Equipo>>() {
+      // Combobox de equipos
+      filtroEquipo.setCellFactory(column -> new ListCell<Equipo>() {
          @Override
-         public ListCell<Equipo> call(ListView<Equipo> param) {
-            return new ListCell<Equipo>() {
-               @Override
-               protected void updateItem(Equipo equipo, boolean empty) {
-                  super.updateItem(equipo, empty);
-                  if (empty || equipo == null) {
-                     setText("");
-                  } else {
-                     setText(equipo.getNombre());
-                  }
-               }
-            };
-         }
-      });
-
-      filtroEquipo.setButtonCell(new ListCell<Equipo>() {
-         @Override protected void updateItem(Equipo equipo, boolean empty) {
+         protected void updateItem(Equipo equipo, boolean empty) {
             super.updateItem(equipo, empty);
             setText(empty || equipo == null ? "" : equipo.getNombre());
          }
       });
 
-      colLocal.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Partido, String>, ObservableValue<String>>() {
+      filtroEquipo.setButtonCell(new ListCell<Equipo>() {
          @Override
-         public ObservableValue<String> call(TableColumn.CellDataFeatures<Partido, String> cellData) {
-            return new SimpleStringProperty(cellData.getValue().getEquipoLocal().getNombre());
+         protected void updateItem(Equipo equipo, boolean empty) {
+            super.updateItem(equipo, empty);
+            setText(empty || equipo == null ? "" : equipo.getNombre());
          }
       });
 
-      colVisitante.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Partido, String>, ObservableValue<String>>() {
-         @Override
-         public ObservableValue<String> call(TableColumn.CellDataFeatures<Partido, String> cellData) {
-            return new SimpleStringProperty(cellData.getValue().getEquipoVisitante().getNombre());
-         }
-      });
-      // Configurar listeners para filtros
+      // Columnas de la tabla
+      colLocal.setCellValueFactory(cellData ->
+            new SimpleStringProperty(cellData.getValue().getEquipoLocal().getNombre()));
+
+      colVisitante.setCellValueFactory(cellData ->
+            new SimpleStringProperty(cellData.getValue().getEquipoVisitante().getNombre()));
+
+      // Filtros
       configurarFiltros();
    }
 
@@ -183,7 +187,7 @@ public class ControllerCalendario {
          List<Partido> partidosHoy = partidosPorFecha.get(hoy);
 
          if (partidosHoy != null && !partidosHoy.isEmpty()) {
-            Partido partidoAHoy = partidosHoy.get(0);  // O usa selección del usuario
+            Partido partidoAHoy = partidosHoy.get(0);
             abrirSimuladorPartido(partidoAHoy);
          }
       });
