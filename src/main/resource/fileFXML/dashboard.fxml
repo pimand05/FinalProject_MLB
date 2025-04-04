@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="650.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerDashboard">
    <children>
       <BorderPane layoutX="301.0" layoutY="242.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -71,7 +70,12 @@
             </HBox>
          </top>
          <center>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="192.0" prefWidth="877.0" />
+                  <Pane prefHeight="7.0" prefWidth="877.0" />
+               </children>
+            </VBox>
          </center>
       </BorderPane>
    </children>

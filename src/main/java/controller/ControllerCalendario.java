@@ -55,7 +55,6 @@ public class ControllerCalendario {
    private LocalDate fechaActual = LocalDate.now();
 
    SerieMundial serie = SerieMundial.getInstance();
-
    public void initialize() {
       configurarUI();
 
