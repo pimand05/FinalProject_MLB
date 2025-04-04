@@ -179,6 +179,10 @@ public class ControllerRegJugador {
             return;
          }
 
+         if (equipoJugador.getJugadores() == null) {
+            equipoJugador.setJugadores(new ArrayList<>());
+         }
+
          String ruta = Paths.FOLDERJUGADOR;
 
          // Crear jugador según tipo seleccionado

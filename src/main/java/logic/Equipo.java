@@ -43,6 +43,7 @@ public class Equipo  implements Serializable {
         this.colorSecundario = colorSecundario;
         this.historia = historia;
         this.rutaLogo = rutaLogo;
+        this.jugadores = new ArrayList<>();
     }
 
     //Getters y Setters
