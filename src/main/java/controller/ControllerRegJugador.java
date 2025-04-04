@@ -1,17 +1,11 @@
 package controller;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -24,9 +18,7 @@ import utility.Paths;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ControllerRegJugador {
@@ -179,32 +171,41 @@ public class ControllerRegJugador {
             return;
          }
 
+         // Inicializar lista de jugadores si es null
          if (equipoJugador.getJugadores() == null) {
             equipoJugador.setJugadores(new ArrayList<>());
          }
 
-         //String ruta = Paths.FOLDERJUGADOR;
-
-         // Crear jugador según tipo seleccionado
-         Jugador jugador;
+         // Obtener datos básicos del jugador
          String nombre = txtNombre.getText();
          float altura = Float.parseFloat(txtAltura.getText());
          LocalDate fechaNacimiento = calFecNacim.getValue();
          int numero = spnNumero.getValue();
-         String ruta = Paths.getJugadoresFolderForEquipo(equipoJugador.getNombre(), nombre);
-         String rutaImagen = GuardarImagen.guardar(imagenTemporal, "foto_" + nombre.trim().replaceAll("\\s+", "_"), ruta);
-         //ruta = GuardarImagen.guardar(imagenTemporal, "foto_"+nombre.trim().replaceAll("\\s+", "_"),Paths.FOLDERJUGADOR+nombre.trim().replaceAll("\\s+", "_"));
 
+         // Manejo de la imagen
+         String rutaImagen;
+         String rutaDestino = Paths.getJugadoresFolderForEquipo(equipoJugador.getNombre(), nombre);
+
+         if (imagenTemporal != null) {
+            rutaImagen = GuardarImagen.guardar(
+                  imagenTemporal,
+                  "foto_" + nombre.trim().replaceAll("\\s+", "_"),
+                  rutaDestino
+            );
+         } else {
+            rutaImagen = "/picture/Icons/DefaultFoto.png";
+         }
+
+         Jugador jugador;
          if (rbBateador.isSelected()) {
             String posicion = cmbPosicion.getValue();
             if (posicion == null) {
                mostrarAlerta("Error", "Seleccione una posición para el bateador");
                return;
             }
-            jugador = new Bateador(nombre, fechaNacimiento,  altura, numero, ruta, posicion);
+            jugador = new Bateador(nombre, fechaNacimiento, altura, numero, rutaImagen, posicion);
          } else {
             String tipoLanzador = cmbTipoLanzador.getValue();
-            String manoDominante = rdbIzquierda.isSelected() ? "Izquierda" : "Derecha";
             ArrayList<String> tiposSeleccionados = new ArrayList<>(
                   listViewTiposPicheos.getSelectionModel().getSelectedItems()
             );
@@ -215,13 +216,11 @@ public class ControllerRegJugador {
             }
 
             boolean esZurdo = rdbIzquierda.isSelected();
-            jugador = new Pitcher(nombre, fechaNacimiento, altura, numero, ruta,
+            jugador = new Pitcher(nombre, fechaNacimiento, altura, numero, rutaImagen,
                   tipoLanzador, esZurdo, tiposSeleccionados);
          }
 
-         // Asignar jugador al equipo (tanto bateadores como pitchers)
          equipoJugador.addJugador(jugador);
-
 
          limpiarFormulario();
          mostrarAlerta("Éxito", "Jugador registrado correctamente");
@@ -230,6 +229,7 @@ public class ControllerRegJugador {
          mostrarAlerta("Error", "Altura debe ser un número válido");
       } catch (Exception e) {
          mostrarAlerta("Error", "Ocurrió un error al registrar el jugador: " + e.getMessage());
+         e.printStackTrace();
       }
    }
 
