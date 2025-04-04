@@ -12,12 +12,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import logic.Jugador;
+import logic.SerieMundial;
 import utility.Paths;
 
 public class ControllerJugadores {
 
     @FXML
-    public Button btnCrearJugador;
+    private Button btnCrearJugador;
+
     @FXML
     private TableView<Jugador> tableView;
 
@@ -36,20 +38,7 @@ public class ControllerJugadores {
     @FXML
     private TextField searchBar;
 
-
-    /*void search(ActionEvent event) {
-        tableView.setItems(searchList(searchBar.getText()));
-    }*/
-
-    /*private ObservableList<Jugador> searchList(String text) {
-        ObservableList<Jugador> filteredList = FXCollections.observableArrayList();
-        for (Jugador jugador : getPlayers()) {
-            if (String.valueOf(player.getNumber()).contains(text) || player.getName().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(player);
-            }
-        }
-        return filteredList;
-    }*/
+    private ObservableList<Jugador> jugadoresObservable;
 
     @FXML
     public void initialize() {
@@ -57,7 +46,25 @@ public class ControllerJugadores {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         positionColumn.setCellValueFactory(new PropertyValueFactory<>("position"));
         equipoColumn.setCellValueFactory(new PropertyValueFactory<>("equipo"));
-        //tableView.setItems(getPlayers());
+
+        jugadoresObservable = FXCollections.observableArrayList(SerieMundial.getInstance().getJugadores());
+        tableView.setItems(jugadoresObservable);
+    }
+
+    @FXML
+    private void search(ActionEvent event) {
+        tableView.setItems(searchList(searchBar.getText()));
+    }
+
+    private ObservableList<Jugador> searchList(String text) {
+        ObservableList<Jugador> filteredList = FXCollections.observableArrayList();
+        for (Jugador jugador : jugadoresObservable) {
+            if (String.valueOf(jugador.getNumJugador()).contains(text) ||
+                    jugador.getNombre().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(jugador);
+            }
+        }
+        return filteredList;
     }
 
     public void openCrearJugador(ActionEvent actionEvent) {

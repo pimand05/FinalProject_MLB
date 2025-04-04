@@ -66,8 +66,9 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openEquipo(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        AppMain.app.changeScene(stage,Paths.EQUIPOS, "Registrar Equipo", false);
+        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //AppMain.app.changeScene(stage,Paths.EQUIPOS, "Registrar Equipo", false);
+        AppMain.app.openNewStage( Paths.EQUIPOS, "Registrar Equipo", false, Paths.ICONMAIN,true);
 
     }
 
@@ -79,8 +80,9 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openTorneo(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        AppMain.app.changeScene(stage,Paths.CALENDARIO, "Calendario", true);
+        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //AppMain.app.changeScene(stage,Paths.CALENDARIO, "Calendario", true);
+        AppMain.app.openNewStage( Paths.CALENDARIO, "Calendario", true, Paths.ICONMAIN,true);
 
     }
 

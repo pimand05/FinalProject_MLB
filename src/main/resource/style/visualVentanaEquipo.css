@@ -1,59 +1,71 @@
-
 #nameColumn{
-    -fx-background-color: rgb(98, 95, 95);
+    -fx-background-color: rgb(161, 161, 164);
     -fx-text-fill: black;
-    -fx-font-size: 32px;
+    -fx-font-size: 26px;
     -fx-text: black;
-    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-color: rgb(250, 250, 250);
     -fx-padding: -1px;
 }
 
 #imageColumn{
-    -fx-background-color: rgb(98, 95, 95);
+    -fx-background-color: rgb(161, 161, 164);
     -fx-text-fill: black;
-    -fx-font-size: 32px;
+    -fx-font-size: 26px;
     -fx-text: black;
-    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-color: rgb(250, 250, 250);
     -fx-padding: -1px;
 }
 
 #estadioColumn{
-    -fx-background-color: rgb(98, 95, 95);
+    -fx-background-color: rgb(161, 161, 164);
     -fx-text-fill: black;
-    -fx-font-size: 32px;
+    -fx-font-size: 26px;
     -fx-text: black;
-    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-color: rgb(250, 250, 250);
     -fx-padding: -1px;
 }
 
 #ciudadColumn{
-    -fx-background-color: rgb(98, 95, 95);
+    -fx-background-color: rgb(161, 161, 164);
     -fx-text-fill: black;
-    -fx-font-size: 32px;
+    -fx-font-size: 26px;
     -fx-text: black;
-    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-color: rgb(250, 250, 250);
     -fx-padding: -1px;
 }
 
-.table-view .column-header .label {
-    -fx-text-fill: white;
-    -fx-background-color: rgb(5, 11, 37);
-    -fx-border-color: rgb(0, 0, 0);
+#numeroColumn{
+    -fx-background-color: rgb(161, 161, 164);
+    -fx-text-fill: black;
+    -fx-font-size: 26px;
+    -fx-text: black;
+    -fx-border-color: rgb(250, 250, 250);
+    -fx-padding: -1px;
 }
 
+/*Diseno de la */
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-background-color: rgb(161, 161, 164);
+    -fx-border-color: rgb(250, 250, 250);
+}
+
+/*Diseno de la boton*/
 .buttonEquipo{
     -fx-background-color: rgba(118, 24, 155, 0.59);
     -fx-text-fill: white;
     -fx-border-color: #ffffff;
 }
 
+/*Diseno de la tabla predeterminado*/
 .custom-tableView{
-    -fx-background-color: rgb(5, 11, 37);
+    -fx-background-color: rgb(161, 161, 164);
     -fx-text-fill: black;
     -fx-font-size: 22px;
     -fx-border-color: rgb(255, 255, 255);
 }
 
+/*Diseno de Panel de busqueda*/
 #panelSearch{
     -fx-background-color: rgb(255, 255, 255);
     -fx-text-fill: black;
@@ -61,34 +73,15 @@
     -fx-border-color: rgb(255, 255, 255);
 }
 
-/* Visual Predertminado Se va a cambiar*/
-.root{
-    -fx-background-color: linear-gradient(to right, #18329b, #000000);
-}
+/*Diseno label de la tabla*/
 .label{
     -fx-font-size: 20px;
     -fx-font-family: "Arial";
     -fx-text-fill:"white";
 }
 
-#titleLabel{
-    -fx-font-size: 60px;
-}
-
-#labelPag{
-    -fx-font-size: 60px;
-    -fx-translate-x: -50px;
-}
-#background{
-    -fx-background-color: linear-gradient(to right, #18329b, #000000);
-
-}
-
-#background2{
-    -fx-background-color: linear-gradient(to right, #000000, #000000);
-}
-
-#myLabel{
+/*Diseno titulo ventana*/
+.titulo{
     -fx-font-size: 50px;
     -fx-translate-x: -60px;
     -fx-font-family: "Arial";
@@ -96,28 +89,20 @@
     -fx-stroke-width: 20px;
 }
 
-
-
-.custom-tableView{
+/*Fondo de la ventana principal*/
+#background{
     -fx-background-color: linear-gradient(to right, #18329b, #000000);
-    -fx-text-fill: black;
-    -fx-font-size: 22px;
-    -fx-border-color: rgb(255, 255, 255);
+
+}
+/*Color del fondo de la tabla osea fondo negro*/
+#background2{
+    -fx-background-color: #131313;
 }
 
+/*Color del texto del encabezado de la tabla*/
 .table-view .column-header .label {
     -fx-text-fill: black;
+    -fx-font-weight: bold;
 }
 
-#anchorPlayer{
-    -fx-background-color: linear-gradient(to right, #18329b, #000000);
-}
-
-#labelJugador{
-    -fx-font-size: 50px;
-    -fx-translate-x: 45px;
-    -fx-font-family: "Arial Black";
-    -fx-text-fill:"white";
-    -fx-stroke-width: 20px;
-}
 

@@ -6,14 +6,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import logic.Equipo;
+import logic.SerieMundial;
 import utility.Paths;
 
 import java.net.URL;
@@ -25,18 +27,6 @@ import java.util.ResourceBundle;
 public class ControllerEquipos implements Initializable {
     @FXML
     public Button btnCrearEquipo;
-
-    /*private final ObservableList<Team> equipos = FXCollections.observableArrayList(
-            new Team("Yankees", "New York", "Yankee Stadium"), new Team("Mets", "New York", "Citi Field"),
-            new Team("Red Sox", "Boston", "Fenway Park"), new Team("Giants", "San Francisco", "Oracle Park"),
-            new Team("Cowboys", "Dallas", "AT&T Stadium"), new Team("Packers", "Green Bay", "Lambeau Field"),
-            new Team("Bears", "Chicago", "Soldier Field"), new Team("Lakers", "Los Angeles", "Staples Center"),
-            new Team("Celtics", "Boston", "TD Garden"), new Team("Heat", "Miami", "FTX Arena"),
-            new Team("Warriors", "San Francisco", "Chase Center"), new Team("Bulls", "Chicago", "United Center"),
-            new Team("Clippers", "Los Angeles", "Staples Center"), new Team("Dodgers", "Los Angeles", "Dodger Stadium"),
-            new Team("Yankees", "New York", "Yankee Stadium"), new Team("Mets", "New York", "Citi Field"),
-            new Team("Red Sox", "Boston", "Fenway Park"), new Team("Giants", "San Francisco", "Oracle Park")
-    );*/
 
     @FXML
     private TextField searchBar;
@@ -57,18 +47,97 @@ public class ControllerEquipos implements Initializable {
     private TableColumn<Equipo, String> estadioColumn;
 
     @FXML
-    /*void search(ActionEvent event) {
-        tableView.setItems(searchList(searchBar.getText()));
-    }*/
+    private TableColumn<Equipo, String> numeroColumn;
+
+    @FXML
+    void search(ActionEvent event) {
+        String searchText = searchBar.getText().trim();
+        if (searchText.isEmpty()) {
+            // Si el campo está vacío, restaura la lista completa de equipos
+            resetTableView();
+        } else {
+            // Si hay texto para buscar, filtra la lista
+            tableView.setItems(searchList(searchText));
+        }
+    }
+
+    // Método para restaurar la vista original de la tabla
+    private void resetTableView() {
+        ObservableList<Equipo> equiposObservable = FXCollections.observableArrayList(
+                SerieMundial.getInstance().getEquipos());
+        tableView.setItems(equiposObservable);
+        // Forzar un refresco de la tabla
+        tableView.refresh();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        imageColumn.setCellValueFactory(new PropertyValueFactory<>("imagePath"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        imageColumn.setCellValueFactory(new PropertyValueFactory<>("rutaLogo"));
         ciudadColumn.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         estadioColumn.setCellValueFactory(new PropertyValueFactory<>("estadio"));
+        numeroColumn.setCellValueFactory(new PropertyValueFactory<>("numero"));
 
-        //tableView.setItems(equipos);
+
+        // Configuración para la columna de número
+        numeroColumn.setCellFactory(new Callback<TableColumn<Equipo, String>, TableCell<Equipo, String>>() {
+            @Override
+            public TableCell<Equipo, String> call(TableColumn<Equipo, String> column) {
+                return new TableCell<Equipo, String>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setText(null);
+                        } else {
+                            // Mostrar el número de fila + 1
+                            setText(String.valueOf(getIndex() + 1));
+                            setAlignment(Pos.CENTER);
+                        }
+                    }
+                };
+            }
+        });
+
+        // Configuración del cell factory para que siempre muestre la imagen default
+        imageColumn.setCellFactory(new Callback<TableColumn<Equipo, String>, TableCell<Equipo, String>>() {
+            @Override
+            public TableCell<Equipo, String> call(TableColumn<Equipo, String> column) {
+                return new TableCell<Equipo, String>() {
+                    private final ImageView imageView = new ImageView();
+
+                    @Override
+                    protected void updateItem(String ruta, boolean empty) {
+                        super.updateItem(ruta, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            try {
+                                // Crear una nueva instancia de ImageView por cada actualización
+                                ImageView newImageView = new ImageView();
+                                Image defaultImage = new Image(getClass().getResource("/Picture/DefaultIcon.png").toExternalForm());
+                                newImageView.setImage(defaultImage);
+                                newImageView.setFitWidth(50);
+                                newImageView.setFitHeight(50);
+                                // Centrar la imagen
+                                setGraphic(newImageView);
+                                setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                                setAlignment(Pos.CENTER);
+                            } catch (Exception e) {
+                                System.out.println("Error al cargar la imagen por defecto.");
+                                e.printStackTrace();
+                                setGraphic(null);
+                            }
+                        }
+                    }
+                };
+            }
+        });
+
+        // Cargar datos iniciales
+        resetTableView();
 
         tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleRowClick);
     }
@@ -81,18 +150,28 @@ public class ControllerEquipos implements Initializable {
     }
 
     public void openCrearEquipo(ActionEvent actionEvent) {
-        AppMain.app.loadStage(new Stage(), Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
+        Stage stage = new Stage();
+        AppMain.app.loadStage(stage, Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
+
+        // Agregar un listener para cuando la ventana se cierre usando una clase anónima
+        stage.setOnHidden(new javafx.event.EventHandler<javafx.stage.WindowEvent>() {
+            @Override
+            public void handle(javafx.stage.WindowEvent event) {
+                // Refrescar la tabla cuando se cierra la ventana de crear equipo
+                resetTableView();
+            }
+        });
     }
 
-    /*private ObservableList<Equipo> searchList(String searchWords) {
+    private ObservableList<Equipo> searchList(String searchWords) {
         List<String> searchWordsArray = Arrays.asList(searchWords.trim().split(" "));
         ObservableList<Equipo> result = FXCollections.observableArrayList();
 
-        for (Equipo team : equipos) {
+        for (Equipo team : SerieMundial.getInstance().getEquipos()) {
             boolean matchesAllWords = true;
 
             for (String word : searchWordsArray) {
-                if (!team.getName().toLowerCase().contains(word.toLowerCase())) {
+                if (!team.getNombre().toLowerCase().contains(word.toLowerCase())) {
                     matchesAllWords = false;
                     break;
                 }
@@ -103,6 +182,6 @@ public class ControllerEquipos implements Initializable {
             }
         }
         return result;
-    }*/
+    }
 
 }

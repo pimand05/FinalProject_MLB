@@ -61,6 +61,14 @@ public class Equipo  implements Serializable {
     public void setEstadio(String estadio) {
         this.estadio = estadio;
     }
+    //Implemente Getters y Setters para ciudad
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
 
     public Boolean getCalificado() {
         return calificado;
