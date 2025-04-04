@@ -1,0 +1,22 @@
+{
+  "temporadas": [],
+  "jugadores": [],
+  "equipos": [
+    {
+      "nombre": "fgdffg",
+      "estadio": "fdgdfg",
+      "ciudad": "fdgdfgfd",
+      "historia": "",
+      "juegosGanados": 0,
+      "juegosPerdidos": 0,
+      "colorPrimario": "0x80334dff",
+      "colorSecundario": "0xe64d4dff",
+      "rutaLogo": "src/main/Resource/Picture/DefaultIcon.png",
+      "jugadores": [],
+      "bateadorActualIndex": 1,
+      "lineup": {},
+      "relevistas": []
+    }
+  ],
+  "temporadaActualIndex": -1
+}

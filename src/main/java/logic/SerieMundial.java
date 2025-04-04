@@ -2,6 +2,7 @@ package logic;
 
 import utility.Paths;
 import utility.Persistencia;
+import utility.PersistenciaJSON;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -28,7 +29,7 @@ public class SerieMundial implements Serializable {
 
     public static SerieMundial getInstance() {
         if (instance == null) {
-            instance = Persistencia.cargarObjeto(Paths.INSTANCIA);
+            instance = PersistenciaJSON.cargarJson(Paths.INSTANCIA,SerieMundial.class);
             if (instance == null)
                 instance = new SerieMundial();
         }
@@ -54,7 +55,7 @@ public class SerieMundial implements Serializable {
 
     // Método para guardar la instancia de SerieMundial
     public void guardar() {
-        Persistencia.guardarObjeto(this, Paths.INSTANCIA);
+        PersistenciaJSON.guardarJson(this, Paths.INSTANCIA);
     }
 
 //    public void addJugador(Jugador j) {

@@ -15,7 +15,7 @@ public class Paths {
     public static final String EQUIPOS = "/fileFXML/Equipos.fxml";
 
 
-    public static final String INSTANCIA = "src/main/Resource/Text/instancia.dar";
+    public static final String INSTANCIA = "src/main/Resource/Text/instancia.json";
 
 
     //Equipo

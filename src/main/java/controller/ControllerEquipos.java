@@ -26,29 +26,15 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerEquipos implements Initializable {
-    @FXML
-    public Button btnCrearEquipo;
 
-    @FXML
-    private TextField searchBar;
-
-    @FXML
-    private TableView<Equipo> tableView;
-
-    @FXML
-    private TableColumn<Equipo, String> nameColumn;
-
-    @FXML
-    private TableColumn<Equipo, String> imageColumn;
-
-    @FXML
-    private TableColumn<Equipo, String> ciudadColumn;
-
-    @FXML
-    private TableColumn<Equipo, String> estadioColumn;
-
-    @FXML
-    private TableColumn<Equipo, String> numeroColumn;
+    @FXML public Button btnCrearEquipo;
+    @FXML private TextField searchBar;
+    @FXML private TableView<Equipo> tableView;
+    @FXML private TableColumn<Equipo, String> nameColumn;
+    @FXML private TableColumn<Equipo, String> imageColumn;
+    @FXML private TableColumn<Equipo, String> ciudadColumn;
+    @FXML private TableColumn<Equipo, String> estadioColumn;
+    @FXML private TableColumn<Equipo, String> numeroColumn;
 
     @FXML
     void search(ActionEvent event) {
