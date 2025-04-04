@@ -1,6 +1,7 @@
 package controller;
 
 import application.AppMain;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -140,6 +141,10 @@ public class ControllerEquipos implements Initializable {
         resetTableView();
 
         tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleRowClick);
+
+        tableView.prefHeightProperty().bind(
+                Bindings.size(tableView.getItems()).multiply(60).add(10)
+        );
     }
 
     private void handleRowClick(MouseEvent event) {
