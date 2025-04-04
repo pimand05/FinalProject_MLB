@@ -99,6 +99,36 @@
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []
+    },
+    {
+      "nombre": "tercero",
+      "estadio": "tercero",
+      "ciudad": "tercero",
+      "historia": "tercero",
+      "juegosGanados": 0,
+      "juegosPerdidos": 0,
+      "colorPrimario": "0xffffffff",
+      "colorSecundario": "0xffffffff",
+      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
+      "jugadores": [],
+      "bateadorActualIndex": 1,
+      "lineup": {},
+      "relevistas": []
+    },
+    {
+      "nombre": "Segundo",
+      "estadio": "Segundo",
+      "ciudad": "Segundo",
+      "historia": "Segundo",
+      "juegosGanados": 0,
+      "juegosPerdidos": 0,
+      "colorPrimario": "0xffffffff",
+      "colorSecundario": "0xffffffff",
+      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
+      "jugadores": [],
+      "bateadorActualIndex": 1,
+      "lineup": {},
+      "relevistas": []
     }
   ],
   "temporadaActualIndex": -1
