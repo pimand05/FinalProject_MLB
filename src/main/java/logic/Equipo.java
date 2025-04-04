@@ -359,7 +359,7 @@ public class Equipo  implements Serializable {
         }
     }
 
-    public Image getLogo(String ruta) {
-        return new Image(new File(ruta).toURI().toString());
+    public Image getLogo() {
+        return new Image(new File(rutaLogo).toURI().toString());
     }
 }

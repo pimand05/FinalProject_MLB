@@ -102,8 +102,9 @@ public abstract class Jugador implements Serializable {
     // Método abstracto que debe implementar cada subclase
     public abstract void actualizarEstadisticas(Partido partido);
 
-    public void getfoto() {
+    public Image getfoto() {
         this.foto = new Image(imagenRoute);
+        return foto;
     }
 }
 
