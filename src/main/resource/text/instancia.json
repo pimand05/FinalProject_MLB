@@ -69,6 +69,36 @@
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []
+    },
+    {
+      "nombre": "Dormir",
+      "estadio": "Ahora",
+      "ciudad": "Sueno",
+      "historia": "ss",
+      "juegosGanados": 0,
+      "juegosPerdidos": 0,
+      "colorPrimario": "0xffffffff",
+      "colorSecundario": "0xffffffff",
+      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
+      "jugadores": [],
+      "bateadorActualIndex": 1,
+      "lineup": {},
+      "relevistas": []
+    },
+    {
+      "nombre": "Vamono",
+      "estadio": "Ta tarde ya",
+      "ciudad": "Buena noche",
+      "historia": "a",
+      "juegosGanados": 0,
+      "juegosPerdidos": 0,
+      "colorPrimario": "0xffffffff",
+      "colorSecundario": "0xffffffff",
+      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
+      "jugadores": [],
+      "bateadorActualIndex": 1,
+      "lineup": {},
+      "relevistas": []
     }
   ],
   "temporadaActualIndex": -1
