@@ -39,8 +39,11 @@
                   <TableColumn id="numeroColumn" fx:id="numeroColumn" prefWidth="62.0" text="#" />
                         <TableColumn fx:id="nameColumn" prefWidth="393.0" text="EQUIPOS" />
                         <TableColumn id="estadioColumn" fx:id="estadioColumn" prefWidth="340.0" text="ESTADIO" />
-                        <TableColumn id="ciudadColumn" fx:id="ciudadColumn" prefWidth="194.0" text="CIUDAD" />
+                        <TableColumn id="ciudadColumn" fx:id="ciudadColumn" prefWidth="212.0" text="CIUDAD" />
                     </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
                 </TableView>
             </children></Pane>
         <Label fx:id="myLabel" layoutX="533.0" layoutY="44.0" styleClass="titulo" stylesheets="@../style/visualVentanaEquipo.css" text="EQUIPOS">

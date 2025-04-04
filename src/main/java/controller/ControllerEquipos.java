@@ -67,6 +67,13 @@ public class ControllerEquipos implements Initializable {
         ObservableList<Equipo> equiposObservable = FXCollections.observableArrayList(
                 SerieMundial.getInstance().getEquipos());
         tableView.setItems(equiposObservable);
+
+        // Configuramos un tamaño fijo para cada fila
+        tableView.setFixedCellSize(60);
+// Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
+        tableView.prefHeightProperty().bind(
+                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
+        );
         // Forzar un refresco de la tabla
         tableView.refresh();
     }
@@ -142,8 +149,11 @@ public class ControllerEquipos implements Initializable {
 
         tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleRowClick);
 
+        // Configuramos un tamaño fijo para cada fila
+        tableView.setFixedCellSize(60);
+// Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
         tableView.prefHeightProperty().bind(
-                Bindings.size(tableView.getItems()).multiply(60).add(10)
+                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
         );
     }
 
