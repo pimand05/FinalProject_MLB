@@ -19,7 +19,7 @@
                     <children>
                         <ImageView fitHeight="175.0" fitWidth="177.0" layoutX="-50.0" layoutY="-42.0">
                             <image>
-                                <Image url="@../picture/search.png" />
+                                <Image url="@../picture/Icons/search.png" />
                             </image>
                         </ImageView>
                         <TextField fx:id="searchBar" layoutX="76.0" layoutY="3.0" onAction="#search" prefHeight="85.0" prefWidth="565.0" promptText="Ingrese un Equipo">

@@ -13,13 +13,13 @@
    <children>
       <ImageView fitHeight="655.0" fitWidth="1198.0" layoutX="148.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../picture/Posiciones.png" />
+            <Image url="@../picture/Icons/Posiciones.png" />
          </image></ImageView>
       <Pane fx:id="panelSS" layoutX="295.0" layoutY="197.0" prefHeight="101.0" prefWidth="200.0" styleClass="containe_baseball" stylesheets="@../style/Posiciones.css">
          <children>
             <ImageView fx:id="ImageSS" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -61,7 +61,7 @@
          <children>
             <ImageView fx:id="Image3B" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -103,7 +103,7 @@
          <children>
             <ImageView fx:id="Image1B" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -145,7 +145,7 @@
          <children>
             <ImageView fx:id="ImageLF" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -187,7 +187,7 @@
          <children>
             <ImageView fx:id="ImageCF" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -229,7 +229,7 @@
          <children>
             <ImageView fx:id="ImageRF" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -271,7 +271,7 @@
          <children>
             <ImageView fx:id="ImageP" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -313,7 +313,7 @@
          <children>
             <ImageView fx:id="ImageC" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">
@@ -355,7 +355,7 @@
          <children>
             <ImageView fx:id="Image2B" fitHeight="80.0" fitWidth="61.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/PersonIcon.png" />
+                  <Image url="@../picture/Icons/PersonIcon.png" />
                </image>
             </ImageView>
             <HBox layoutX="62.0" layoutY="28.0" prefHeight="72.0" prefWidth="138.0" spacing="10.0">

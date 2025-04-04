@@ -168,7 +168,7 @@
                <children>
                   <ImageView fitHeight="47.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../picture/TeamIcon.png" />
+                        <Image url="@../picture/Icons/TeamIcon.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" text="Registro de Equipo">
