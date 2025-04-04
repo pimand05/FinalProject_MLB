@@ -15,7 +15,7 @@ public abstract class Jugador implements Serializable {
     protected ArrayList<Lesion> historialLesiones;
     protected int numJugador;
     protected String imagenRoute;
-    protected transient Image image;
+    protected transient Image foto;
     protected Lesion lesion;
 
     public Jugador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String imagenRoute) {
@@ -67,7 +67,7 @@ public abstract class Jugador implements Serializable {
     }
 
     public Image getImagenRoute() {
-        return image;
+        return foto;
     }
 
     public void setImagenRoute(String imagenRoute) {
@@ -75,7 +75,7 @@ public abstract class Jugador implements Serializable {
     }
 
     public void setImage(String imagenRoute) {
-        this.image = new Image(imagenRoute);
+        this.foto = new Image(imagenRoute);
     }
 
     // Método para calcular edad
@@ -85,5 +85,9 @@ public abstract class Jugador implements Serializable {
 
     // Método abstracto que debe implementar cada subclase
     public abstract void actualizarEstadisticas(Partido partido);
+
+    public void getfoto() {
+        this.foto = new Image(imagenRoute);
+    }
 }
 

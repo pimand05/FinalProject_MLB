@@ -22,6 +22,7 @@ public class AppMain extends Application {
     public static AppMain app;
     public static boolean video = false;
     private Stage stage;
+
     //Funcion para iniciar la aplicación (default).
     @Override
     public void start(Stage primaryStage) {
@@ -37,26 +38,6 @@ public class AppMain extends Application {
 
     // Método reutilizable para cargar y mostrar una vista en el Stage que se le pase.
     public void loadStage(Stage stage, String fxmlPath, String title, boolean resizable, String pathImage) {
-         /*
-         if (video) {
-             // Crear botones personalizados
-             ButtonType siButton = new ButtonType("Si", ButtonBar.ButtonData.OK_DONE);
-             ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-             // Crear el alert usando esos botones
-             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                     "Si no desea ver el video, se cargará la vista principal.",
-                     siButton, noButton);
-             alert.setTitle("Video");
-             alert.setHeaderText("¿Desea ver el video de introducción cuando inicie la aplicación?");
-
-             // Mostrar el alert y procesar la respuesta
-             Optional<ButtonType> response = alert.showAndWait();
-             if (response.isPresent() && response.get() == noButton) {
-                 video = false;
-             }
-         }
-          */
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             AnchorPane pane = loader.load();
@@ -148,7 +129,7 @@ public class AppMain extends Application {
 
         // Configurar el contenedor para el video
         StackPane videoPane = new StackPane(mediaView);
-        Scene videoScene = new Scene(videoPane, 800, 600);
+        Scene videoScene = new Scene(videoPane, 1200, 800);
         Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(Paths.ICONMAIN)));
         stage.getIcons().add(icon);
 

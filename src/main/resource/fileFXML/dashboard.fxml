@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerDashboard">
+   <children>
+      <BorderPane layoutX="301.0" layoutY="242.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Separator prefHeight="0.0" prefWidth="0.0" />
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="82.0">
+                     <children>
+                        <ImageView fitHeight="74.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../picture/DashBoardIcon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </StackPane>
+                  <Pane prefHeight="200.0" prefWidth="10.0" />
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="649.0">
+                     <children>
+                        <Label text="DASHBOARD - SERIE MUNDIAL">
+                           <font>
+                              <Font name="Apple Braille" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label text="¡Bienvenidos! En este espacio podras ver un resumen de como va la liga">
+                           <font>
+                              <Font name="Apple Braille" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="200.0" prefWidth="10.0" />
+                  <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="107.0">
+                     <children>
+                        <Label text="Fecha:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label text="3/03/2025">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

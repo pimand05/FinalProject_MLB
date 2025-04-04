@@ -28,7 +28,7 @@
           <top>
               <VBox spacing="10" styleClass="header-container">
                   <HBox alignment="CENTER" spacing="20.0">
-                  <ImageView fx:id="homeIcon" fitHeight="50.0" fitWidth="62.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" translateX="-200.0" x="10.0">
+                  <ImageView fx:id="homeIcon" fitHeight="50.0" fitWidth="62.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" translateX="-150.0" x="10.0">
                      <image>
                         <Image url="@../picture/HomeIconWhie.png" />
                      </image>
