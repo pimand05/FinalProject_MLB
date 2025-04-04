@@ -35,6 +35,40 @@
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []
+    },
+    {
+      "nombre": "nuevi",
+      "estadio": "nuevi",
+      "ciudad": "nuevi",
+      "historia": "nuevi",
+      "juegosGanados": 0,
+      "juegosPerdidos": 0,
+      "colorPrimario": "0xffffffff",
+      "colorSecundario": "0xffffffff",
+      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
+      "jugadores": [
+        {
+          "tipo": "Bateador",
+          "posicion": "1B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "nuevi",
+          "fNacimiento": "2025-04-07",
+          "altura": 35.0,
+          "numJugador": 1,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-04",
+            "finEstimada": "2025-04-04",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        }
+      ],
+      "bateadorActualIndex": 1,
+      "lineup": {},
+      "relevistas": []
     }
   ],
   "temporadaActualIndex": -1
