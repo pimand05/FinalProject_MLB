@@ -1,202 +1,1918 @@
 {
-  "temporadas": [],
-  "jugadores": [],
-  "equipos": [
+  "temporadas": [
     {
-      "nombre": "New York Mets",
-      "estadio": "CityField",
-      "ciudad": "New York",
-      "historia": "Los New York Mets son un equipo de béisbol profesional fundado en 1962 como parte de una expansión de la Liga Nacional, con el objetivo de llenar el vacío dejado por la partida de los Brooklyn Dodgers y los New York Giants a la costa oeste. Su historia comenzó con temporadas difíciles, incluyendo una desastrosa campaña inaugural con solo 40 victorias. Sin embargo, rápidamente se ganaron una base de fanáticos leales gracias a su carácter de “underdogs” y a su icónica sede en el Shea Stadium. En 1969, protagonizaron una de las sorpresas más grandes del béisbol al ganar la Serie Mundial contra los Baltimore Orioles, ganándose el apodo de “Miracle Mets”.\n\nA lo largo de las décadas, los Mets han tenido altibajos marcados. En 1986, lograron otra gran hazaña al conquistar su segundo título de Serie Mundial, con un equipo lleno de talento como Dwight Gooden, Darryl Strawberry y el inolvidable juego 6 ante los Red Sox. Han tenido apariciones adicionales en la Serie Mundial en 2000 (la llamada “Subway Series” frente a los Yankees) y en 2015, aunque sin conseguir el título. El equipo ha sido símbolo de perseverancia, y su historia refleja tanto momentos épicos como etapas de reconstrucción, siempre bajo la mirada apasionada de sus fanáticos neoyorquinos.",
-      "juegosGanados": 0,
-      "juegosPerdidos": 0,
-      "jonrones": 0,
-      "colorPrimario": "0x0000ffff",
-      "colorSecundario": "0xcc6633ff",
-      "rutaLogo": "/picture/New_York_Mets/logo_New_York_Mets.png",
-      "jugadores": [
+      "partidos": [
         {
-          "tipo": "Bateador",
-          "posicion": "1B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Pete Alonso",
-          "fNacimiento": "1994-12-07",
-          "altura": 1.91,
-          "numJugador": 20,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
+          "jugadorTipoLesionMap": {},
+          "fecha": "2025-04-06",
+          "equipoLocal": {
+            "nombre": "Mets de Nueva York",
+            "estadio": "Citi Field",
+            "ciudad": "Nueva York",
+            "historia": "Los Mets de Nueva York, fundados en 1962, son una de las franquicias más emblemáticas de la Liga Nacional. Conocidos por su fiel afición y sus intensas rivalidades, han logrado dos títulos de Serie Mundial en 1969 y 1986. A lo largo de los años, han contado con leyendas del béisbol y continúan siendo un equipo competitivo en el Este de la Liga Nacional.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x002d72ff",
+            "colorSecundario": "0xff5910ff",
+            "rutaLogo": "/picture/New_York_Mets/logo_Mets.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Lindor",
+                "fNacimiento": "1993-11-14",
+                "altura": 1.8,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Pete Alonso",
+                "fNacimiento": "1994-12-07",
+                "altura": 1.9,
+                "numJugador": 20,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jeff McNeil",
+                "fNacimiento": "1992-04-08",
+                "altura": 1.85,
+                "numJugador": 1,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brett Baty",
+                "fNacimiento": "1999-11-13",
+                "altura": 1.9,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Álvarez",
+                "fNacimiento": "2001-11-19",
+                "altura": 1.83,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Starling Marte",
+                "fNacimiento": "1988-10-09",
+                "altura": 1.88,
+                "numJugador": 6,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brandon Nimmo",
+                "fNacimiento": "1993-03-27",
+                "altura": 1.88,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "DJ Stewart",
+                "fNacimiento": "1993-11-30",
+                "altura": 1.83,
+                "numJugador": 29,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Mark Vientos",
+                "fNacimiento": "1999-12-11",
+                "altura": 1.93,
+                "numJugador": 27,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Kodai Senga",
+                "fNacimiento": "1993-01-30",
+                "altura": 1.85,
+                "numJugador": 34,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "José Quintana",
+                "fNacimiento": "1989-01-24",
+                "altura": 1.85,
+                "numJugador": 62,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "equipoVisitante": {
+            "nombre": "Padres de San Diego",
+            "estadio": "Petco Park",
+            "ciudad": "San Diego",
+            "historia": "Los Padres de San Diego, fundados en 1969 como parte de la expansión de la Liga Nacional, han sido una franquicia con una base de fanáticos fieles y una rica historia en la ciudad del sol. Aunque han enfrentado muchos desafíos competitivos a lo largo de los años, han tenido momentos destacados como las apariciones en la Serie Mundial de 1984 y 1998. En los últimos años, el equipo ha renovado su imagen con jóvenes talentos y una visión competitiva.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x994d00ff",
+            "colorSecundario": "0xcccc33ff",
+            "rutaLogo": "/picture/San_Diego_Padres/logo_Padres.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Fernando Tatis Jr.",
+                "fNacimiento": "1999-01-02",
+                "altura": 1.9,
+                "numJugador": 23,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Manny Machado",
+                "fNacimiento": "1992-07-06",
+                "altura": 1.91,
+                "numJugador": 13,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Juan Soto",
+                "fNacimiento": "1998-10-25",
+                "altura": 1.85,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Ha-Seong Kim",
+                "fNacimiento": "1995-10-17",
+                "altura": 1.78,
+                "numJugador": 7,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jake Cronenworth",
+                "fNacimiento": "1994-01-21",
+                "altura": 1.83,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Luis Campusano",
+                "fNacimiento": "1998-09-29",
+                "altura": 1.83,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Trent Grisham",
+                "fNacimiento": "1996-11-01",
+                "altura": 1.85,
+                "numJugador": 2,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Matt Carpenter",
+                "fNacimiento": "1985-11-26",
+                "altura": 1.9,
+                "numJugador": 14,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "José Azocar",
+                "fNacimiento": "1996-05-11",
+                "altura": 1.82,
+                "numJugador": 28,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Yu Darvish",
+                "fNacimiento": "1986-08-16",
+                "altura": 1.96,
+                "numJugador": 11,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "Blake Snell",
+                "fNacimiento": "1992-12-04",
+                "altura": 1.93,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "estadio": "Citi Field",
+          "partidoTerminado": false,
+          "inningActual": 1,
+          "esTopInning": true,
+          "outs": 0,
+          "strikes": 0,
+          "bolas": 0,
+          "bases": [
+            false,
+            false,
+            false
+          ],
+          "hitsLocal": 0,
+          "hitsVisitante": 0,
+          "homeRunsLocal": 0,
+          "homeRunsVisitante": 0,
+          "carrerasLocal": 0,
+          "carrerasVisitante": 0,
+          "erroresLocal": 0,
+          "erroresVisitante": 0,
+          "carrerasPorInning": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
         },
         {
-          "tipo": "Pitcher",
-          "esZurdo": false,
-          "turnos": 0,
-          "nombre": "Francisco Lindor",
-          "fNacimiento": "1993-11-14",
-          "altura": 1.78,
-          "numJugador": 12,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "RF",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Juan Soto",
-          "fNacimiento": "1998-10-25",
-          "altura": 1.85,
-          "numJugador": 22,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "CF",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Brandon Nimmo",
-          "fNacimiento": "1993-03-27",
-          "altura": 1.88,
-          "numJugador": 9,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "RF",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Starling Marte",
-          "fNacimiento": "1988-10-09",
-          "altura": 1.83,
-          "numJugador": 6,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "3B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Brett Baty",
-          "fNacimiento": "1999-11-13",
-          "altura": 1.91,
-          "numJugador": 7,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "C",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Francisco Álvarez",
-          "fNacimiento": "2001-11-19",
-          "altura": 1.78,
-          "numJugador": 4,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "2B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Jeff McNeil",
-          "fNacimiento": "1992-04-08",
-          "altura": 1.85,
-          "numJugador": 1,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "CF",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "José Siri",
-          "fNacimiento": "1995-07-22",
-          "altura": 1.88,
-          "numJugador": 19,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Pitcher",
-          "esZurdo": false,
-          "turnos": 0,
-          "nombre": "Kodai Senga",
-          "fNacimiento": "1993-01-30",
-          "altura": 1.85,
-          "numJugador": 34,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-05",
-            "finEstimada": "2025-04-05",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
+          "jugadorTipoLesionMap": {},
+          "fecha": "2025-04-05",
+          "equipoLocal": {
+            "nombre": "Padres de San Diego",
+            "estadio": "Petco Park",
+            "ciudad": "San Diego",
+            "historia": "Los Padres de San Diego, fundados en 1969 como parte de la expansión de la Liga Nacional, han sido una franquicia con una base de fanáticos fieles y una rica historia en la ciudad del sol. Aunque han enfrentado muchos desafíos competitivos a lo largo de los años, han tenido momentos destacados como las apariciones en la Serie Mundial de 1984 y 1998. En los últimos años, el equipo ha renovado su imagen con jóvenes talentos y una visión competitiva.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x994d00ff",
+            "colorSecundario": "0xcccc33ff",
+            "rutaLogo": "/picture/San_Diego_Padres/logo_Padres.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Fernando Tatis Jr.",
+                "fNacimiento": "1999-01-02",
+                "altura": 1.9,
+                "numJugador": 23,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Manny Machado",
+                "fNacimiento": "1992-07-06",
+                "altura": 1.91,
+                "numJugador": 13,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Juan Soto",
+                "fNacimiento": "1998-10-25",
+                "altura": 1.85,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Ha-Seong Kim",
+                "fNacimiento": "1995-10-17",
+                "altura": 1.78,
+                "numJugador": 7,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jake Cronenworth",
+                "fNacimiento": "1994-01-21",
+                "altura": 1.83,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Luis Campusano",
+                "fNacimiento": "1998-09-29",
+                "altura": 1.83,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Trent Grisham",
+                "fNacimiento": "1996-11-01",
+                "altura": 1.85,
+                "numJugador": 2,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Matt Carpenter",
+                "fNacimiento": "1985-11-26",
+                "altura": 1.9,
+                "numJugador": 14,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "José Azocar",
+                "fNacimiento": "1996-05-11",
+                "altura": 1.82,
+                "numJugador": 28,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Yu Darvish",
+                "fNacimiento": "1986-08-16",
+                "altura": 1.96,
+                "numJugador": 11,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "Blake Snell",
+                "fNacimiento": "1992-12-04",
+                "altura": 1.93,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "equipoVisitante": {
+            "nombre": "Mets de Nueva York",
+            "estadio": "Citi Field",
+            "ciudad": "Nueva York",
+            "historia": "Los Mets de Nueva York, fundados en 1962, son una de las franquicias más emblemáticas de la Liga Nacional. Conocidos por su fiel afición y sus intensas rivalidades, han logrado dos títulos de Serie Mundial en 1969 y 1986. A lo largo de los años, han contado con leyendas del béisbol y continúan siendo un equipo competitivo en el Este de la Liga Nacional.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x002d72ff",
+            "colorSecundario": "0xff5910ff",
+            "rutaLogo": "/picture/New_York_Mets/logo_Mets.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Lindor",
+                "fNacimiento": "1993-11-14",
+                "altura": 1.8,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Pete Alonso",
+                "fNacimiento": "1994-12-07",
+                "altura": 1.9,
+                "numJugador": 20,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jeff McNeil",
+                "fNacimiento": "1992-04-08",
+                "altura": 1.85,
+                "numJugador": 1,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brett Baty",
+                "fNacimiento": "1999-11-13",
+                "altura": 1.9,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Álvarez",
+                "fNacimiento": "2001-11-19",
+                "altura": 1.83,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Starling Marte",
+                "fNacimiento": "1988-10-09",
+                "altura": 1.88,
+                "numJugador": 6,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brandon Nimmo",
+                "fNacimiento": "1993-03-27",
+                "altura": 1.88,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "DJ Stewart",
+                "fNacimiento": "1993-11-30",
+                "altura": 1.83,
+                "numJugador": 29,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Mark Vientos",
+                "fNacimiento": "1999-12-11",
+                "altura": 1.93,
+                "numJugador": 27,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Kodai Senga",
+                "fNacimiento": "1993-01-30",
+                "altura": 1.85,
+                "numJugador": 34,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "José Quintana",
+                "fNacimiento": "1989-01-24",
+                "altura": 1.85,
+                "numJugador": 62,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "estadio": "Petco Park",
+          "partidoTerminado": false,
+          "inningActual": 1,
+          "esTopInning": true,
+          "outs": 0,
+          "strikes": 0,
+          "bolas": 0,
+          "bases": [
+            false,
+            false,
+            false
+          ],
+          "hitsLocal": 0,
+          "hitsVisitante": 0,
+          "homeRunsLocal": 0,
+          "homeRunsVisitante": 0,
+          "carrerasLocal": 0,
+          "carrerasVisitante": 0,
+          "erroresLocal": 0,
+          "erroresVisitante": 0,
+          "carrerasPorInning": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
         }
       ],
-      "bateadorActualIndex": 1,
-      "lineup": {},
-      "relevistas": []
+      "fechaInicio": "2025-04-05",
+      "fechaFin": "2025-04-05",
+      "activa": true
     },
+    {
+      "partidos": [
+        {
+          "jugadorTipoLesionMap": {},
+          "fecha": "2025-04-06",
+          "equipoLocal": {
+            "nombre": "Mets de Nueva York",
+            "estadio": "Citi Field",
+            "ciudad": "Nueva York",
+            "historia": "Los Mets de Nueva York, fundados en 1962, son una de las franquicias más emblemáticas de la Liga Nacional. Conocidos por su fiel afición y sus intensas rivalidades, han logrado dos títulos de Serie Mundial en 1969 y 1986. A lo largo de los años, han contado con leyendas del béisbol y continúan siendo un equipo competitivo en el Este de la Liga Nacional.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x002d72ff",
+            "colorSecundario": "0xff5910ff",
+            "rutaLogo": "/picture/New_York_Mets/logo_Mets.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Lindor",
+                "fNacimiento": "1993-11-14",
+                "altura": 1.8,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Pete Alonso",
+                "fNacimiento": "1994-12-07",
+                "altura": 1.9,
+                "numJugador": 20,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jeff McNeil",
+                "fNacimiento": "1992-04-08",
+                "altura": 1.85,
+                "numJugador": 1,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brett Baty",
+                "fNacimiento": "1999-11-13",
+                "altura": 1.9,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Álvarez",
+                "fNacimiento": "2001-11-19",
+                "altura": 1.83,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Starling Marte",
+                "fNacimiento": "1988-10-09",
+                "altura": 1.88,
+                "numJugador": 6,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brandon Nimmo",
+                "fNacimiento": "1993-03-27",
+                "altura": 1.88,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "DJ Stewart",
+                "fNacimiento": "1993-11-30",
+                "altura": 1.83,
+                "numJugador": 29,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Mark Vientos",
+                "fNacimiento": "1999-12-11",
+                "altura": 1.93,
+                "numJugador": 27,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Kodai Senga",
+                "fNacimiento": "1993-01-30",
+                "altura": 1.85,
+                "numJugador": 34,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "José Quintana",
+                "fNacimiento": "1989-01-24",
+                "altura": 1.85,
+                "numJugador": 62,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "equipoVisitante": {
+            "nombre": "Padres de San Diego",
+            "estadio": "Petco Park",
+            "ciudad": "San Diego",
+            "historia": "Los Padres de San Diego, fundados en 1969 como parte de la expansión de la Liga Nacional, han sido una franquicia con una base de fanáticos fieles y una rica historia en la ciudad del sol. Aunque han enfrentado muchos desafíos competitivos a lo largo de los años, han tenido momentos destacados como las apariciones en la Serie Mundial de 1984 y 1998. En los últimos años, el equipo ha renovado su imagen con jóvenes talentos y una visión competitiva.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x994d00ff",
+            "colorSecundario": "0xcccc33ff",
+            "rutaLogo": "/picture/San_Diego_Padres/logo_Padres.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Fernando Tatis Jr.",
+                "fNacimiento": "1999-01-02",
+                "altura": 1.9,
+                "numJugador": 23,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Manny Machado",
+                "fNacimiento": "1992-07-06",
+                "altura": 1.91,
+                "numJugador": 13,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Juan Soto",
+                "fNacimiento": "1998-10-25",
+                "altura": 1.85,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Ha-Seong Kim",
+                "fNacimiento": "1995-10-17",
+                "altura": 1.78,
+                "numJugador": 7,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jake Cronenworth",
+                "fNacimiento": "1994-01-21",
+                "altura": 1.83,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Luis Campusano",
+                "fNacimiento": "1998-09-29",
+                "altura": 1.83,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Trent Grisham",
+                "fNacimiento": "1996-11-01",
+                "altura": 1.85,
+                "numJugador": 2,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Matt Carpenter",
+                "fNacimiento": "1985-11-26",
+                "altura": 1.9,
+                "numJugador": 14,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "José Azocar",
+                "fNacimiento": "1996-05-11",
+                "altura": 1.82,
+                "numJugador": 28,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Yu Darvish",
+                "fNacimiento": "1986-08-16",
+                "altura": 1.96,
+                "numJugador": 11,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "Blake Snell",
+                "fNacimiento": "1992-12-04",
+                "altura": 1.93,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "estadio": "Citi Field",
+          "partidoTerminado": false,
+          "inningActual": 1,
+          "esTopInning": true,
+          "outs": 0,
+          "strikes": 0,
+          "bolas": 0,
+          "bases": [
+            false,
+            false,
+            false
+          ],
+          "hitsLocal": 0,
+          "hitsVisitante": 0,
+          "homeRunsLocal": 0,
+          "homeRunsVisitante": 0,
+          "carrerasLocal": 0,
+          "carrerasVisitante": 0,
+          "erroresLocal": 0,
+          "erroresVisitante": 0,
+          "carrerasPorInning": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "jugadorTipoLesionMap": {},
+          "fecha": "2025-04-05",
+          "equipoLocal": {
+            "nombre": "Padres de San Diego",
+            "estadio": "Petco Park",
+            "ciudad": "San Diego",
+            "historia": "Los Padres de San Diego, fundados en 1969 como parte de la expansión de la Liga Nacional, han sido una franquicia con una base de fanáticos fieles y una rica historia en la ciudad del sol. Aunque han enfrentado muchos desafíos competitivos a lo largo de los años, han tenido momentos destacados como las apariciones en la Serie Mundial de 1984 y 1998. En los últimos años, el equipo ha renovado su imagen con jóvenes talentos y una visión competitiva.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x994d00ff",
+            "colorSecundario": "0xcccc33ff",
+            "rutaLogo": "/picture/San_Diego_Padres/logo_Padres.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Fernando Tatis Jr.",
+                "fNacimiento": "1999-01-02",
+                "altura": 1.9,
+                "numJugador": 23,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Manny Machado",
+                "fNacimiento": "1992-07-06",
+                "altura": 1.91,
+                "numJugador": 13,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Juan Soto",
+                "fNacimiento": "1998-10-25",
+                "altura": 1.85,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Ha-Seong Kim",
+                "fNacimiento": "1995-10-17",
+                "altura": 1.78,
+                "numJugador": 7,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jake Cronenworth",
+                "fNacimiento": "1994-01-21",
+                "altura": 1.83,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Luis Campusano",
+                "fNacimiento": "1998-09-29",
+                "altura": 1.83,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Trent Grisham",
+                "fNacimiento": "1996-11-01",
+                "altura": 1.85,
+                "numJugador": 2,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Matt Carpenter",
+                "fNacimiento": "1985-11-26",
+                "altura": 1.9,
+                "numJugador": 14,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "José Azocar",
+                "fNacimiento": "1996-05-11",
+                "altura": 1.82,
+                "numJugador": 28,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Yu Darvish",
+                "fNacimiento": "1986-08-16",
+                "altura": 1.96,
+                "numJugador": 11,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "Blake Snell",
+                "fNacimiento": "1992-12-04",
+                "altura": 1.93,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "equipoVisitante": {
+            "nombre": "Mets de Nueva York",
+            "estadio": "Citi Field",
+            "ciudad": "Nueva York",
+            "historia": "Los Mets de Nueva York, fundados en 1962, son una de las franquicias más emblemáticas de la Liga Nacional. Conocidos por su fiel afición y sus intensas rivalidades, han logrado dos títulos de Serie Mundial en 1969 y 1986. A lo largo de los años, han contado con leyendas del béisbol y continúan siendo un equipo competitivo en el Este de la Liga Nacional.",
+            "juegosGanados": 0,
+            "juegosPerdidos": 0,
+            "jonrones": 0,
+            "colorPrimario": "0x002d72ff",
+            "colorSecundario": "0xff5910ff",
+            "rutaLogo": "/picture/New_York_Mets/logo_Mets.png",
+            "jugadores": [
+              {
+                "tipo": "Bateador",
+                "posicion": "SS",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Lindor",
+                "fNacimiento": "1993-11-14",
+                "altura": 1.8,
+                "numJugador": 12,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "1B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Pete Alonso",
+                "fNacimiento": "1994-12-07",
+                "altura": 1.9,
+                "numJugador": 20,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "2B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Jeff McNeil",
+                "fNacimiento": "1992-04-08",
+                "altura": 1.85,
+                "numJugador": 1,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "3B",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brett Baty",
+                "fNacimiento": "1999-11-13",
+                "altura": 1.9,
+                "numJugador": 22,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "C",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Francisco Álvarez",
+                "fNacimiento": "2001-11-19",
+                "altura": 1.83,
+                "numJugador": 4,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "LF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Starling Marte",
+                "fNacimiento": "1988-10-09",
+                "altura": 1.88,
+                "numJugador": 6,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "CF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Brandon Nimmo",
+                "fNacimiento": "1993-03-27",
+                "altura": 1.88,
+                "numJugador": 9,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "RF",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "DJ Stewart",
+                "fNacimiento": "1993-11-30",
+                "altura": 1.83,
+                "numJugador": 29,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Bateador",
+                "posicion": "DH",
+                "turnos": 0,
+                "lesionado": false,
+                "nombre": "Mark Vientos",
+                "fNacimiento": "1999-12-11",
+                "altura": 1.93,
+                "numJugador": 27,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": false,
+                "turnos": 0,
+                "nombre": "Kodai Senga",
+                "fNacimiento": "1993-01-30",
+                "altura": 1.85,
+                "numJugador": 34,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              },
+              {
+                "tipo": "Pitcher",
+                "esZurdo": true,
+                "turnos": 0,
+                "nombre": "José Quintana",
+                "fNacimiento": "1989-01-24",
+                "altura": 1.85,
+                "numJugador": 62,
+                "imagenRoute": "/picture/Icons/DefaultFoto.png",
+                "lesion": {
+                  "tipo": "NINGUNA",
+                  "fecInicio": "2025-04-05",
+                  "finEstimada": "2025-04-05",
+                  "diasRecuperacion": 1,
+                  "activa": false
+                }
+              }
+            ],
+            "bateadorActualIndex": 1,
+            "lineup": {},
+            "relevistas": []
+          },
+          "estadio": "Petco Park",
+          "partidoTerminado": false,
+          "inningActual": 1,
+          "esTopInning": true,
+          "outs": 0,
+          "strikes": 0,
+          "bolas": 0,
+          "bases": [
+            false,
+            false,
+            false
+          ],
+          "hitsLocal": 0,
+          "hitsVisitante": 0,
+          "homeRunsLocal": 0,
+          "homeRunsVisitante": 0,
+          "carrerasLocal": 0,
+          "carrerasVisitante": 0,
+          "erroresLocal": 0,
+          "erroresVisitante": 0,
+          "carrerasPorInning": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ],
+      "fechaInicio": "2025-04-05",
+      "fechaFin": "2025-04-05",
+      "activa": true
+    }
+  ],
+  "jugadores": [],
+  "equipos": [
     {
       "nombre": "Padres de San Diego",
       "estadio": "Petco Park",
@@ -216,7 +1932,7 @@
           "lesionado": false,
           "nombre": "Fernando Tatis Jr.",
           "fNacimiento": "1999-01-02",
-          "altura": 1.90,
+          "altura": 1.9,
           "numJugador": 23,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
@@ -342,7 +2058,7 @@
           "lesionado": false,
           "nombre": "Matt Carpenter",
           "fNacimiento": "1985-11-26",
-          "altura": 1.90,
+          "altura": 1.9,
           "numJugador": 14,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
@@ -409,7 +2125,220 @@
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []
+    },
+    {
+      "nombre": "Mets de Nueva York",
+      "estadio": "Citi Field",
+      "ciudad": "Nueva York",
+      "historia": "Los Mets de Nueva York, fundados en 1962, son una de las franquicias más emblemáticas de la Liga Nacional. Conocidos por su fiel afición y sus intensas rivalidades, han logrado dos títulos de Serie Mundial en 1969 y 1986. A lo largo de los años, han contado con leyendas del béisbol y continúan siendo un equipo competitivo en el Este de la Liga Nacional.",
+      "juegosGanados": 0,
+      "juegosPerdidos": 0,
+      "jonrones": 0,
+      "colorPrimario": "0x002d72ff",
+      "colorSecundario": "0xff5910ff",
+      "rutaLogo": "/picture/New_York_Mets/logo_Mets.png",
+      "jugadores": [
+        {
+          "tipo": "Bateador",
+          "posicion": "SS",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Francisco Lindor",
+          "fNacimiento": "1993-11-14",
+          "altura": 1.8,
+          "numJugador": 12,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "1B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Pete Alonso",
+          "fNacimiento": "1994-12-07",
+          "altura": 1.9,
+          "numJugador": 20,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "2B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Jeff McNeil",
+          "fNacimiento": "1992-04-08",
+          "altura": 1.85,
+          "numJugador": 1,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "3B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Brett Baty",
+          "fNacimiento": "1999-11-13",
+          "altura": 1.9,
+          "numJugador": 22,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "C",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Francisco Álvarez",
+          "fNacimiento": "2001-11-19",
+          "altura": 1.83,
+          "numJugador": 4,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "LF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Starling Marte",
+          "fNacimiento": "1988-10-09",
+          "altura": 1.88,
+          "numJugador": 6,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "CF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Brandon Nimmo",
+          "fNacimiento": "1993-03-27",
+          "altura": 1.88,
+          "numJugador": 9,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "RF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "DJ Stewart",
+          "fNacimiento": "1993-11-30",
+          "altura": 1.83,
+          "numJugador": 29,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "DH",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Mark Vientos",
+          "fNacimiento": "1999-12-11",
+          "altura": 1.93,
+          "numJugador": 27,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Pitcher",
+          "esZurdo": false,
+          "turnos": 0,
+          "nombre": "Kodai Senga",
+          "fNacimiento": "1993-01-30",
+          "altura": 1.85,
+          "numJugador": 34,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Pitcher",
+          "esZurdo": true,
+          "turnos": 0,
+          "nombre": "José Quintana",
+          "fNacimiento": "1989-01-24",
+          "altura": 1.85,
+          "numJugador": 62,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        }
+      ],
+      "bateadorActualIndex": 1,
+      "lineup": {},
+      "relevistas": []
     }
   ],
-  "temporadaActualIndex": -1
+  "temporadaActualIndex": 1
 }
