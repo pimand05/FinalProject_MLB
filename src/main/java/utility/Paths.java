@@ -13,6 +13,7 @@ public class Paths {
     public static final String STATSJUGADORES = "/fileFXML/StatsJugadores.fxml";
     public static final String JUGADORES = "/fileFXML/Jugadores.fxml";
     public static final String EQUIPOS = "/fileFXML/Equipos.fxml";
+    public static final String INFOEQUIPO = "/fileFXML/InfoEquipo.fxml";
 
 
     public static final String INSTANCIA = "src/main/resource/text/instancia.json";

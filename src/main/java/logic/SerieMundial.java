@@ -18,7 +18,8 @@ public class SerieMundial implements Serializable {
     ArrayList<Temporada> temporadas;
     ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
-    private int temporadaActualIndex;  // Para llevar control de la temporada actual
+    private int temporadaActualIndex;// Para llevar control de la temporada actual
+    private Equipo equipoSeleccionado;
 
     private SerieMundial() {
         temporadas = new ArrayList<>();
@@ -185,7 +186,13 @@ public class SerieMundial implements Serializable {
        return pitchers;
     }
 
+    public Equipo getEquipoSeleccionado() {
+        return equipoSeleccionado;
 
+    }
+    public void setEquipoSeleccionado(Equipo equipo) {
+        this.equipoSeleccionado = equipo;
+    }
     // En caso de filtrar una x cantidad de jugadores (OPCIONAL)
 //    public List<Pitcher> obtenerTopPitchers(int cantidad) {
 //        List<Pitcher> ordenados = ordenarPitchersPorEfectividad();

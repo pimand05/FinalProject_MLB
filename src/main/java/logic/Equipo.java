@@ -17,6 +17,7 @@ public class Equipo  implements Serializable {
     private Boolean calificado;
     private int juegosGanados;
     private int juegosPerdidos;
+    private int jonrones;
     private String  colorPrimario;
     private String colorSecundario;
     private String rutaLogo;
@@ -149,6 +150,18 @@ public class Equipo  implements Serializable {
         return relevistas;
     }
 
+    public void setRelevistas(List<Pitcher> relevistas) {
+        this.relevistas = relevistas;
+    }
+
+    public String getHistoria() {
+        return historia;
+    }
+
+    public void setHistoria(String historia) {
+        this.historia = historia;
+    }
+
     //metodos
 
     public void setJuegosjugados(ArrayList<Partido> partidosJugados) {
@@ -261,7 +274,7 @@ public class Equipo  implements Serializable {
         for (int i = 0; i < 9; i++) {
             lineup.put(i+1, bateadores.get(i));
         }
-        bateadorActualIndex = 1; // Resetear el índice
+        bateadorActualIndex = 1;
     }
 
     public void agregarRelevista(Pitcher pitcher) {

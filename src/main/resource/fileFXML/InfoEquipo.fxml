@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPlayer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1157.0" stylesheets="@../style/visualVentanaInfo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerInfoEquipo">
+    <Label fx:id="labelJugador" layoutX="74.0" layoutY="28.0" styleClass="titulo" stylesheets="@../style/visualVentanaInfo.css" text="(NOMBRE EQUIPO) ">
+        <font>
+            <Font name="Arial Black" size="20.0" />
+        </font></Label>
+    <TableView fx:id="tableView" focusTraversable="false" layoutX="45.0" layoutY="506.0" prefHeight="289.0" prefWidth="706.0" styleClass="custom-tableView" stylesheets="@../style/visualVentanaInfo.css">
+        <columns>
+            <TableColumn id="numeroColumn" fx:id="numberColumn" prefWidth="59.0" text="#" />
+            <TableColumn id="nameColumn" fx:id="nameColumn" prefWidth="308.0" text="NOMBRE" />
+            <TableColumn id="posicionColumn" fx:id="positionColumn" prefWidth="248.0" text="POSICION" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+    <TextArea fx:id="textAreaHistoria" editable="false" layoutX="46.0" layoutY="118.0" prefHeight="335.0" prefWidth="700.0" wrapText="true">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </TextArea>
+    <TableView fx:id="tableView2" layoutX="780.0" prefHeight="361.0" prefWidth="377.0" stylesheets="@../style/visualVentanaInfo.css">
+        <columns>
+            <TableColumn id="nameColumn" fx:id="categoriaColumn" prefWidth="252.0" text="Categoría" />
+            <TableColumn id="posicionColumn" fx:id="valorColumn" prefWidth="114.0" text="Valor" />
+        </columns>
+    </TableView>
+</AnchorPane>

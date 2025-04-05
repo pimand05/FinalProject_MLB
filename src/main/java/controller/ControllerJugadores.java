@@ -1,16 +1,18 @@
 package controller;
 
 import application.AppMain;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import logic.Equipo;
 import logic.Jugador;
 import logic.SerieMundial;
@@ -37,19 +39,90 @@ public class ControllerJugadores {
     private TableColumn<Jugador, String> equipoColumn;
 
     @FXML
+    private TableColumn<Jugador, String> fotoColumn;
+
+    @FXML
     private TextField searchBar;
 
     private ObservableList<Jugador> jugadoresObservable;
 
     @FXML
     public void initialize() {
-        numberColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        positionColumn.setCellValueFactory(new PropertyValueFactory<>("position"));
+        numberColumn.setCellValueFactory(new PropertyValueFactory<>("numJugador"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        positionColumn.setCellValueFactory(new PropertyValueFactory<>("posicion"));
         equipoColumn.setCellValueFactory(new PropertyValueFactory<>("equipo"));
+        fotoColumn.setCellValueFactory(new PropertyValueFactory<>("foto"));
 
-        jugadoresObservable = FXCollections.observableArrayList(SerieMundial.getInstance().getJugadores());
+        jugadoresObservable = FXCollections.observableArrayList();
+
+        for (Equipo equipo : SerieMundial.getInstance().getEquipos()) {
+            for (Jugador jugador : equipo.getJugadores()) {
+                jugador.setEquipo(equipo.getNombre()); // Asignar equipo al jugador
+                jugadoresObservable.add(jugador);
+            }
+        }
+
+
+        /*fotoColumn.setCellFactory(new Callback<TableColumn<Jugador, String>, TableCell<Jugador, String>>() {
+            @Override
+            public TableCell<Jugador, String> call(TableColumn<Jugador, String> column) {
+                return new TableCell<Jugador, String>() {
+                    @Override
+                    protected void updateItem(String ruta, boolean empty) {
+                        super.updateItem(ruta, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            try {
+                                Jugador jugador = getTableView().getItems().get(getIndex());
+
+                                ImageView newImageView = new ImageView();
+
+                                if (jugador.getImagenRoute() != null) {
+                                    newImageView.setImage(jugador.getImagenRoute());
+                                } else {
+                                    Image defaultImage = new Image(getClass().getResource("/picture.Icons/DefaultIcon.png").toExternalForm());
+                                    newImageView.setImage(defaultImage);
+                                }
+
+                                newImageView.setFitWidth(50);
+                                newImageView.setFitHeight(50);
+
+                                setGraphic(newImageView);
+                                setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                                setAlignment(Pos.CENTER);
+                            } catch (Exception e) {
+                                System.out.println("Error al cargar la imagen: " + e.getMessage());
+                                e.printStackTrace();
+                                setGraphic(null);
+                            }
+                        }
+                    }
+                };
+            }
+        });*/
+
+        resetTableView();
+
+        tableView.setFixedCellSize(60);
+        tableView.prefHeightProperty().bind(
+                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
+        );
+    }
+
+    // Método para restaurar la vista original de la tabla
+    private void resetTableView() {
         tableView.setItems(jugadoresObservable);
+
+        tableView.setFixedCellSize(60);
+
+        tableView.prefHeightProperty().bind(
+                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
+        );
+
+        tableView.refresh();
     }
 
     @FXML

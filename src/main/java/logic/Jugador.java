@@ -18,6 +18,7 @@ public abstract class Jugador implements Serializable {
     protected String imagenRoute;
     protected transient Image foto;
     protected Lesion lesion;
+    protected String Equipo;
 
     public Jugador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String imagenRoute) {
         this.nombre = nombre;
@@ -81,6 +82,16 @@ public abstract class Jugador implements Serializable {
 
 
 
+    public String getEquipo() {
+        return Equipo;
+    }
+
+    public void setEquipo(String equipo) {
+        this.Equipo = equipo;
+    }
+
+
+
     // Metodos para manejar las lesiones
     public boolean puedeJugar() {
         return lesion == null || !lesion.isActiva();
@@ -89,6 +100,7 @@ public abstract class Jugador implements Serializable {
     public void aplicarLesion(LesionTipo tipo) {
         this.lesion = new Lesion(tipo);
     }
+
 
     public void curarLesion() {
         if (lesion != null) {

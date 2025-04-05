@@ -9,6 +9,7 @@
       "historia": "Los New York Mets son un equipo de béisbol profesional fundado en 1962 como parte de una expansión de la Liga Nacional, con el objetivo de llenar el vacío dejado por la partida de los Brooklyn Dodgers y los New York Giants a la costa oeste. Su historia comenzó con temporadas difíciles, incluyendo una desastrosa campaña inaugural con solo 40 victorias. Sin embargo, rápidamente se ganaron una base de fanáticos leales gracias a su carácter de “underdogs” y a su icónica sede en el Shea Stadium. En 1969, protagonizaron una de las sorpresas más grandes del béisbol al ganar la Serie Mundial contra los Baltimore Orioles, ganándose el apodo de “Miracle Mets”.\n\nA lo largo de las décadas, los Mets han tenido altibajos marcados. En 1986, lograron otra gran hazaña al conquistar su segundo título de Serie Mundial, con un equipo lleno de talento como Dwight Gooden, Darryl Strawberry y el inolvidable juego 6 ante los Red Sox. Han tenido apariciones adicionales en la Serie Mundial en 2000 (la llamada “Subway Series” frente a los Yankees) y en 2015, aunque sin conseguir el título. El equipo ha sido símbolo de perseverancia, y su historia refleja tanto momentos épicos como etapas de reconstrucción, siempre bajo la mirada apasionada de sus fanáticos neoyorquinos.",
       "juegosGanados": 0,
       "juegosPerdidos": 0,
+      "jonrones": 0,
       "colorPrimario": "0x0000ffff",
       "colorSecundario": "0xcc6633ff",
       "rutaLogo": "/picture/New_York_Mets/logo_New_York_Mets.png",
@@ -29,7 +30,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Pitcher",
@@ -46,7 +48,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Bateador",
@@ -64,7 +67,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Bateador",
@@ -82,7 +86,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Bateador",
@@ -100,7 +105,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Bateador",
@@ -118,7 +124,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Bateador",
@@ -136,7 +143,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Bateador",
@@ -154,7 +162,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Bateador",
@@ -172,7 +181,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         },
         {
           "tipo": "Pitcher",
@@ -189,7 +199,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "New York Mets"
         }
       ],
       "bateadorActualIndex": 1,
@@ -203,6 +214,7 @@
       "historia": "Los Padres de San Diego, fundados en 1969 como parte de la expansión de la Liga Nacional, han sido una franquicia con una base de fanáticos fieles y una rica historia en la ciudad del sol. Aunque han enfrentado muchos desafíos competitivos a lo largo de los años, han tenido momentos destacados como las apariciones en la Serie Mundial de 1984 y 1998. En los últimos años, el equipo ha renovado su imagen con jóvenes talentos y una visión competitiva.",
       "juegosGanados": 0,
       "juegosPerdidos": 0,
+      "jonrones": 0,
       "colorPrimario": "0x994d00ff",
       "colorSecundario": "0xcccc33ff",
       "rutaLogo": "/picture/San_Diego_Padres/logo_Padres.png",
@@ -214,7 +226,7 @@
           "lesionado": false,
           "nombre": "Fernando Tatis Jr.",
           "fNacimiento": "1999-01-02",
-          "altura": 1.90,
+          "altura": 1.9,
           "numJugador": 23,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
@@ -223,7 +235,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -241,7 +254,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -259,7 +273,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -277,7 +292,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -295,7 +311,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -313,7 +330,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -331,7 +349,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -340,7 +359,7 @@
           "lesionado": false,
           "nombre": "Matt Carpenter",
           "fNacimiento": "1985-11-26",
-          "altura": 1.90,
+          "altura": 1.9,
           "numJugador": 14,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
@@ -349,7 +368,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Bateador",
@@ -367,7 +387,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Pitcher",
@@ -384,7 +405,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         },
         {
           "tipo": "Pitcher",
@@ -401,7 +423,8 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          }
+          },
+          "Equipo": "Padres de San Diego"
         }
       ],
       "bateadorActualIndex": 1,

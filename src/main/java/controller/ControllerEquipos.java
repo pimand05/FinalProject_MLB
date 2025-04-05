@@ -6,8 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -40,10 +42,8 @@ public class ControllerEquipos implements Initializable {
     void search(ActionEvent event) {
         String searchText = searchBar.getText().trim();
         if (searchText.isEmpty()) {
-            // Si el campo está vacío, restaura la lista completa de equipos
             resetTableView();
         } else {
-            // Si hay texto para buscar, filtra la lista
             tableView.setItems(searchList(searchText));
         }
     }
@@ -54,15 +54,13 @@ public class ControllerEquipos implements Initializable {
                 SerieMundial.getInstance().getEquipos());
         tableView.setItems(equiposObservable);
 
-        // Configuramos un tamaño fijo para cada fila
+
         tableView.setFixedCellSize(60);
 
-        // Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
         tableView.prefHeightProperty().bind(
                 Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
         );
 
-        // Forzar un refresco de la tabla
         tableView.refresh();
     }
 
@@ -73,6 +71,7 @@ public class ControllerEquipos implements Initializable {
         ciudadColumn.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         estadioColumn.setCellValueFactory(new PropertyValueFactory<>("estadio"));
         numeroColumn.setCellValueFactory(new PropertyValueFactory<>("numero"));
+
 
 
         // Configuración para la columna de número
@@ -113,7 +112,7 @@ public class ControllerEquipos implements Initializable {
                             try {
                                 // Crear una nueva instancia de ImageView por cada actualización
                                 ImageView newImageView = new ImageView();
-                                Image defaultImage = new Image(getClass().getResource("/Picture/DefaultIcon.png").toExternalForm());
+                                Image defaultImage = new Image(getClass().getResource("/picture.Icons/DefaultIcon.png").toExternalForm());
                                 newImageView.setImage(defaultImage);
                                 newImageView.setFitWidth(50);
                                 newImageView.setFitHeight(50);
@@ -132,49 +131,56 @@ public class ControllerEquipos implements Initializable {
             }
         });
 
-        // Cargar datos iniciales
         resetTableView();
+
         tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleRowClick);
 
-        // Configuramos un tamaño fijo para cada fila
+
         tableView.setFixedCellSize(60);
 
-        // Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
         tableView.prefHeightProperty().bind(
                 Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
         );
-
     }
 
     private void handleRowClick(MouseEvent event) {
         Equipo selectedTeam = tableView.getSelectionModel().getSelectedItem();
-        if (selectedTeam != null) {
+        if (selectedTeam != null && event.getClickCount() == 2) { // Detect double-click
             System.out.println("Equipo seleccionado: " + selectedTeam.getNombre());
+
+            try {
+
+                SerieMundial.getInstance().setEquipoSeleccionado(selectedTeam);
+
+                Stage infoStage = new Stage();
+                AppMain.app.loadStage(infoStage, Paths.INFOEQUIPO, "Información de " + selectedTeam.getNombre(),
+                        false, Paths.ICONMAIN);
+
+            } catch (Exception e) {
+                System.out.println("Error al abrir la ventana de información: " + e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 
     public void openCrearEquipo(ActionEvent actionEvent) {
-       //Stage stage = (Stage) btnCrearEquipo.getScene().getWindow();
-        //AppMain.app.loadStage(stage,Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN, true);
-        AppMain.app.openNewStage(Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN, true);
+        Stage stage = new Stage();
+        AppMain.app.loadStage(stage, Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
 
-        /*
-        // Agregar un listener para cuando la ventana se cierre usando una clase anónima
-       stage.setOnHidden(new javafx.event.EventHandler<javafx.stage.WindowEvent>() {
+
+        stage.setOnHidden(new javafx.event.EventHandler<javafx.stage.WindowEvent>() {
             @Override
             public void handle(javafx.stage.WindowEvent event) {
-                // Refrescar la tabla cuando se cierra la ventana de crear equipo
+
                 resetTableView();
             }
         });
-
-         */
-
     }
 
     private ObservableList<Equipo> searchList(String searchWords) {
         List<String> searchWordsArray = Arrays.asList(searchWords.trim().split(" "));
         ObservableList<Equipo> result = FXCollections.observableArrayList();
+
         for (Equipo team : SerieMundial.getInstance().getEquipos()) {
             boolean matchesAllWords = true;
 
@@ -191,6 +197,4 @@ public class ControllerEquipos implements Initializable {
         }
         return result;
     }
-
-
 }
