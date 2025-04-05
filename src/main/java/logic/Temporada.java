@@ -82,7 +82,6 @@ public class Temporada implements Serializable {
                 diasUsados++;
             }
         }
-
         Collections.shuffle(calendario);
         return calendario;
     }

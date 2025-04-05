@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="451.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegJugador">
+<AnchorPane prefHeight="451.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegJugador">
     <children>
         <BorderPane prefHeight="451.0" prefWidth="919.0" style="-fx-background-color: white;">
             <center>

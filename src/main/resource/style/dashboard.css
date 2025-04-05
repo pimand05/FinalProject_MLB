@@ -1,0 +1,34 @@
+.anchorPane{
+
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 90% 100%, /* Diagonal: sup. izq → inf. der */
+            #ffffff 10%,            /* Blanco en la esquina inicial */
+            #cccccc 15%,            /* Empieza a oscurecer a gris claro */
+            #888888 30%,            /* Gris medio extendido */
+            #000000 100%            /* Negro al final */
+    );
+}
+
+.pane{
+    -fx-background-color: #000000;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);
+}
+
+.container-dash{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 8, 0, -4, 4);
+}
+
+.container-Image{
+    -fx-background-color: #000000;
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-radius: 1000; /* Hace que sea circular */
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-max-width: 50px;
+    -fx-max-height: 50px;
+}

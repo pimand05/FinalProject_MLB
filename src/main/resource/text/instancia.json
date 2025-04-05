@@ -3,128 +3,137 @@
   "jugadores": [],
   "equipos": [
     {
-      "nombre": "s",
-      "estadio": "s",
-      "ciudad": "s",
-      "historia": "s",
+      "nombre": "New York Mets",
+      "estadio": "CityField",
+      "ciudad": "New York",
+      "historia": "Los New York Mets son un equipo de béisbol profesional fundado en 1962 como parte de una expansión de la Liga Nacional, con el objetivo de llenar el vacío dejado por la partida de los Brooklyn Dodgers y los New York Giants a la costa oeste. Su historia comenzó con temporadas difíciles, incluyendo una desastrosa campaña inaugural con solo 40 victorias. Sin embargo, rápidamente se ganaron una base de fanáticos leales gracias a su carácter de “underdogs” y a su icónica sede en el Shea Stadium. En 1969, protagonizaron una de las sorpresas más grandes del béisbol al ganar la Serie Mundial contra los Baltimore Orioles, ganándose el apodo de “Miracle Mets”.\n\nA lo largo de las décadas, los Mets han tenido altibajos marcados. En 1986, lograron otra gran hazaña al conquistar su segundo título de Serie Mundial, con un equipo lleno de talento como Dwight Gooden, Darryl Strawberry y el inolvidable juego 6 ante los Red Sox. Han tenido apariciones adicionales en la Serie Mundial en 2000 (la llamada “Subway Series” frente a los Yankees) y en 2015, aunque sin conseguir el título. El equipo ha sido símbolo de perseverancia, y su historia refleja tanto momentos épicos como etapas de reconstrucción, siempre bajo la mirada apasionada de sus fanáticos neoyorquinos.",
       "juegosGanados": 0,
       "juegosPerdidos": 0,
-      "colorPrimario": "0xffffffff",
-      "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
+      "colorPrimario": "0x0000ffff",
+      "colorSecundario": "0xcc6633ff",
+      "rutaLogo": "src/main/Resource/Picture/New_York_Mets/logo_New_York_Mets.png",
       "jugadores": [
+        {
+          "tipo": "Bateador",
+          "posicion": "1B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Pete Alonso",
+          "fNacimiento": "1994-12-07",
+          "altura": 1.91,
+          "numJugador": 20,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Pitcher",
+          "esZurdo": false,
+          "turnos": 0,
+          "nombre": "Francisco Lindor",
+          "fNacimiento": "1993-11-14",
+          "altura": 1.78,
+          "numJugador": 12,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "RF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Juan Soto",
+          "fNacimiento": "1998-10-25",
+          "altura": 1.85,
+          "numJugador": 22,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "CF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Brandon Nimmo",
+          "fNacimiento": "1993-03-27",
+          "altura": 1.88,
+          "numJugador": 9,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "RF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Starling Marte",
+          "fNacimiento": "1988-10-09",
+          "altura": 1.83,
+          "numJugador": 6,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "3B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Brett Baty",
+          "fNacimiento": "1999-11-13",
+          "altura": 1.91,
+          "numJugador": 7,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
         {
           "tipo": "Bateador",
           "posicion": "C",
           "turnos": 0,
           "lesionado": false,
-          "nombre": "seba",
-          "fNacimiento": "2025-04-04",
-          "altura": 2.0,
-          "numJugador": 1,
+          "nombre": "Francisco Álvarez",
+          "fNacimiento": "2001-11-19",
+          "altura": 1.78,
+          "numJugador": 4,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
             "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        }
-      ],
-      "bateadorActualIndex": 1,
-      "lineup": {},
-      "relevistas": []
-    },
-    {
-      "nombre": "nuevi",
-      "estadio": "nuevi",
-      "ciudad": "nuevi",
-      "historia": "nuevi",
-      "juegosGanados": 0,
-      "juegosPerdidos": 0,
-      "colorPrimario": "0xffffffff",
-      "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
-      "jugadores": [
-        {
-          "tipo": "Bateador",
-          "posicion": "1B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "nuevi",
-          "fNacimiento": "2025-04-07",
-          "altura": 35.0,
-          "numJugador": 1,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        }
-      ],
-      "bateadorActualIndex": 1,
-      "lineup": {},
-      "relevistas": []
-    },
-    {
-      "nombre": "Dormir",
-      "estadio": "Ahora",
-      "ciudad": "Sueno",
-      "historia": "ss",
-      "juegosGanados": 0,
-      "juegosPerdidos": 0,
-      "colorPrimario": "0xffffffff",
-      "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
-      "jugadores": [],
-      "bateadorActualIndex": 1,
-      "lineup": {},
-      "relevistas": []
-    },
-    {
-      "nombre": "Vamono",
-      "estadio": "Ta tarde ya",
-      "ciudad": "Buena noche",
-      "historia": "a",
-      "juegosGanados": 0,
-      "juegosPerdidos": 0,
-      "colorPrimario": "0xffffffff",
-      "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
-      "jugadores": [],
-      "bateadorActualIndex": 1,
-      "lineup": {},
-      "relevistas": []
-    },
-    {
-      "nombre": "tercero",
-      "estadio": "tercero",
-      "ciudad": "tercero",
-      "historia": "tercero",
-      "juegosGanados": 0,
-      "juegosPerdidos": 0,
-      "colorPrimario": "0xffffffff",
-      "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
-      "jugadores": [
-        {
-          "tipo": "Bateador",
-          "posicion": "1B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Alejandro",
-          "fNacimiento": "2025-04-22",
-          "altura": 1.67,
-          "numJugador": 3,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
           }
@@ -134,33 +143,50 @@
           "posicion": "2B",
           "turnos": 0,
           "lesionado": false,
-          "nombre": "Diego",
-          "fNacimiento": "2025-04-16",
-          "altura": 1.67,
+          "nombre": "Jeff McNeil",
+          "fNacimiento": "1992-04-08",
+          "altura": 1.85,
           "numJugador": 1,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
             "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
           }
         },
         {
           "tipo": "Bateador",
-          "posicion": "3B",
+          "posicion": "CF",
           "turnos": 0,
           "lesionado": false,
-          "nombre": "Robert",
-          "fNacimiento": "2025-04-23",
-          "altura": 1.7,
-          "numJugador": 1,
+          "nombre": "José Siri",
+          "fNacimiento": "1995-07-22",
+          "altura": 1.88,
+          "numJugador": 19,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
             "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Pitcher",
+          "esZurdo": false,
+          "turnos": 0,
+          "nombre": "Kodai Senga",
+          "fNacimiento": "1993-01-30",
+          "altura": 1.85,
+          "numJugador": 34,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
           }
@@ -171,71 +197,16 @@
       "relevistas": []
     },
     {
-      "nombre": "Segundo",
-      "estadio": "Segundo",
-      "ciudad": "Segundo",
-      "historia": "Segundo",
+      "nombre": "f",
+      "estadio": "fdf",
+      "ciudad": "fdf",
+      "historia": "",
       "juegosGanados": 0,
       "juegosPerdidos": 0,
       "colorPrimario": "0xffffffff",
       "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/Icons/DefaultIcon.png",
-      "jugadores": [
-        {
-          "tipo": "Bateador",
-          "posicion": "3B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Miguel",
-          "fNacimiento": "2025-04-07",
-          "altura": 1.67,
-          "numJugador": 3,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "2B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Matias",
-          "fNacimiento": "2025-04-08",
-          "altura": 1.8,
-          "numJugador": 1,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        },
-        {
-          "tipo": "Bateador",
-          "posicion": "1B",
-          "turnos": 0,
-          "lesionado": false,
-          "nombre": "Santiago",
-          "fNacimiento": "2025-04-22",
-          "altura": 1.8,
-          "numJugador": 1,
-          "imagenRoute": "/picture/Icons/DefaultFoto.png",
-          "lesion": {
-            "tipo": "NINGUNA",
-            "fecInicio": "2025-04-04",
-            "finEstimada": "2025-04-04",
-            "diasRecuperacion": 1,
-            "activa": false
-          }
-        }
-      ],
+      "rutaLogo": "src/main/resource/picture/f/logo_f.png",
+      "jugadores": [],
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []

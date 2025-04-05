@@ -31,7 +31,6 @@ public class AppMain extends Application {
         if (video) {
             playIntroVideo(primaryStage);
         } else {
-            // Carga la primera vista en la ventana principal.
             loadStage(primaryStage, Paths.MAIN, "SERIE MUNDIAL", true, Paths.ICONMAIN);
         }
     }

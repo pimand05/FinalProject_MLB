@@ -12,9 +12,11 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 
 public class PersistenciaJSON {
+
+    // Ruta del archivo JSON
     private static final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter()) // Adaptador de fechas
-            .registerTypeAdapterFactory(AdaptadorJugador.get())    // Adaptador de jerarquía Jugador
+            .registerTypeAdapter(LocalDate.class,new LocalDateAdapter()) // Adaptador de fechas
+            .registerTypeAdapterFactory(AdaptadorJugador.get())          // Adaptador de jerarquía Jugador
             .setPrettyPrinting()
             .create();
 

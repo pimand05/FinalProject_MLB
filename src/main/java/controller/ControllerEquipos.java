@@ -56,10 +56,12 @@ public class ControllerEquipos implements Initializable {
 
         // Configuramos un tamaño fijo para cada fila
         tableView.setFixedCellSize(60);
-// Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
+
+        // Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
         tableView.prefHeightProperty().bind(
                 Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
         );
+
         // Forzar un refresco de la tabla
         tableView.refresh();
     }
@@ -132,15 +134,16 @@ public class ControllerEquipos implements Initializable {
 
         // Cargar datos iniciales
         resetTableView();
-
         tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleRowClick);
 
         // Configuramos un tamaño fijo para cada fila
         tableView.setFixedCellSize(60);
-// Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
+
+        // Vinculamos la altura preferida de la TableView al número de filas más el espacio para el encabezado (30 px)
         tableView.prefHeightProperty().bind(
                 Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
         );
+
     }
 
     private void handleRowClick(MouseEvent event) {
@@ -151,23 +154,27 @@ public class ControllerEquipos implements Initializable {
     }
 
     public void openCrearEquipo(ActionEvent actionEvent) {
-        Stage stage = new Stage();
-        AppMain.app.loadStage(stage, Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
+       //Stage stage = (Stage) btnCrearEquipo.getScene().getWindow();
+        //AppMain.app.loadStage(stage,Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN, true);
+        AppMain.app.openNewStage(Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN, true);
 
+        /*
         // Agregar un listener para cuando la ventana se cierre usando una clase anónima
-        stage.setOnHidden(new javafx.event.EventHandler<javafx.stage.WindowEvent>() {
+       stage.setOnHidden(new javafx.event.EventHandler<javafx.stage.WindowEvent>() {
             @Override
             public void handle(javafx.stage.WindowEvent event) {
                 // Refrescar la tabla cuando se cierra la ventana de crear equipo
                 resetTableView();
             }
         });
+
+         */
+
     }
 
     private ObservableList<Equipo> searchList(String searchWords) {
         List<String> searchWordsArray = Arrays.asList(searchWords.trim().split(" "));
         ObservableList<Equipo> result = FXCollections.observableArrayList();
-
         for (Equipo team : SerieMundial.getInstance().getEquipos()) {
             boolean matchesAllWords = true;
 
@@ -184,5 +191,6 @@ public class ControllerEquipos implements Initializable {
         }
         return result;
     }
+
 
 }

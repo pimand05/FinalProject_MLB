@@ -13,66 +13,183 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="650.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerDashboard">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1250.0" styleClass="anchorPane" stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerDashboard">
    <children>
       <BorderPane layoutX="301.0" layoutY="242.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="94.0" prefWidth="923.0" spacing="10.0" styleClass="container-dash" stylesheets="@../style/dashboard.css" BorderPane.alignment="CENTER">
                <children>
                   <Separator prefHeight="0.0" prefWidth="0.0" />
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="82.0">
                      <children>
-                        <ImageView fitHeight="74.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ImageIcon" fitHeight="74.0" fitWidth="82.0" onMouseClicked="#openHome" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../picture/Icons/DashBoardIcon.png" />
+                              <Image url="@../picture/icons/DashBoardIcon.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </StackPane>
-                  <Pane prefHeight="200.0" prefWidth="10.0" />
-                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="649.0">
+                  <Pane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="1.0" styleClass="pane" stylesheets="@../style/dashboard.css" />
+                  <VBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="148.0" prefWidth="876.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="DASHBOARD - SERIE MUNDIAL">
+                        <TextFlow maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="117.0" prefWidth="775.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD - ">
+                                 <font>
+                                    <Font name="Baskerville Bold" size="48.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#3535ff" strokeType="OUTSIDE" strokeWidth="0.0" text="SERIE">
+                                 <font>
+                                    <Font name="Baskerville Bold" size="48.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#da3333" strokeType="OUTSIDE" strokeWidth="0.0" text=" MUNDIAL" wrappingWidth="777.3540649414062">
+                                 <font>
+                                    <Font name="Baskerville Bold" size="48.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </TextFlow>
+                        <Label text="¡Bienvenidos! En este espacio podras ver un resumen de como va la liga" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font name="Apple Braille" size="40.0" />
-                           </font>
-                        </Label>
-                        <Label text="¡Bienvenidos! En este espacio podras ver un resumen de como va la liga">
-                           <font>
-                              <Font name="Apple Braille" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <Pane prefHeight="200.0" prefWidth="10.0" />
-                  <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="107.0">
-                     <children>
-                        <Label text="Fecha:">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <Label text="3/03/2025">
-                           <font>
-                              <Font size="14.0" />
+                              <Font name="Georgia Italic" size="20.0" />
                            </font>
                         </Label>
                      </children>
                      <padding>
-                        <Insets right="10.0" />
+                        <Insets bottom="10.0" />
                      </padding>
                   </VBox>
+                  <VBox alignment="BASELINE_LEFT" prefHeight="100.0" prefWidth="202.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextFlow prefHeight="200.0" prefWidth="200.0" textAlignment="RIGHT">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha:" textAlignment="RIGHT" />
+                           </children>
+                        </TextFlow>
+                        <TextFlow prefHeight="107.0" prefWidth="212.0" textAlignment="RIGHT">
+                           <children>
+                              <Text fx:id="txtDia" strokeType="OUTSIDE" strokeWidth="0.0" text="03">
+                                 <font>
+                                    <Font name="Avenir Light Oblique" size="14.0" />
+                                 </font></Text>
+                              <Text fx:id="txtMes" strokeType="OUTSIDE" strokeWidth="0.0" text=" de abril del ">
+                                 <font>
+                                    <Font name="Avenir Light Oblique" size="14.0" />
+                                 </font></Text>
+                              <Text fx:id="txtYear" strokeType="OUTSIDE" strokeWidth="0.0" text="2025">
+                                 <font>
+                                    <Font name="Avenir Light Oblique" size="14.0" />
+                                 </font></Text>
+                           </children>
+                           <opaqueInsets>
+                              <Insets bottom="10.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="2.0" right="5.0" />
+                           </padding>
+                        </TextFlow>
+                     </children>
+                     <padding>
+                        <Insets bottom="2.0" top="20.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
                </children>
+               <BorderPane.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
             </HBox>
          </top>
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="636.0" prefWidth="1212.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="192.0" prefWidth="877.0" />
+                  <HBox prefHeight="325.0" prefWidth="1240.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <BorderPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="310.0" styleClass="container-dash" HBox.hgrow="ALWAYS">
+                           <top>
+                              <Label text="Bateadores Con Mas HR" BorderPane.alignment="TOP_CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font></Label>
+                           </top>
+                           <left>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="TOP_CENTER">
+                                 <children>
+                                    <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" styleClass="container-Image" stylesheets="@../style/dashboard.css" VBox.vgrow="ALWAYS" />
+                                    <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" styleClass="container-Image" stylesheets="@../style/dashboard.css" VBox.vgrow="ALWAYS" />
+                                    <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" styleClass="container-Image" stylesheets="@../style/dashboard.css" VBox.vgrow="ALWAYS" />
+                                    <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" styleClass="container-Image" stylesheets="@../style/dashboard.css" VBox.vgrow="ALWAYS" />
+                                    <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" styleClass="container-Image" stylesheets="@../style/dashboard.css" VBox.vgrow="ALWAYS" />
+                                 </children>
+                              </VBox>
+                           </left>
+                           <center>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="28.0" BorderPane.alignment="TOP_CENTER">
+                                 <children>
+                                    <Label text="Juan Soto">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font></Label>
+                                    <Label text="Juan Soto">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Juan Soto">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Juan Soto">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Juan Soto">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </center>
+                           <right>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label text="Label">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font></Label>
+                                 </children>
+                              </VBox>
+                           </right>
+                        </BorderPane>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin></HBox>
                   <Pane prefHeight="7.0" prefWidth="877.0" />
                </children>
             </VBox>

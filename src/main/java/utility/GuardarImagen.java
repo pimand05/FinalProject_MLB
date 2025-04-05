@@ -1,6 +1,7 @@
 package utility;
 
 import javafx.scene.control.Alert;
+import javafx.scene.shape.Path;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -29,8 +30,10 @@ public class GuardarImagen {
                 alert.setHeaderText("Error al leer la imagen");
                 alert.setContentText("El archivo seleccionado no es una imagen válida.");
                 alert.showAndWait();
+                return null;
             }
-            ImageIO.write(Objects.requireNonNull(bufferedImage), "png", destination);
+
+            ImageIO.write(bufferedImage, "png", destination);
 
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -38,7 +41,11 @@ public class GuardarImagen {
             alert.setHeaderText("Error al guardar la imagen");
             alert.setContentText("No se pudo guardar la imagen. Asegúrate de que el archivo sea una imagen válida.");
             alert.showAndWait();
+            return null;
         }
-        return destination.getAbsolutePath();
+
+         //retornar la ruta relativa desde /resources
+        String relativePath = destination.getPath().replace(Paths.RUTA, "");
+        return relativePath.replace("\\", "/"); // por si esta en Windows
     }
 }

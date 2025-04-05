@@ -193,7 +193,7 @@ public class ControllerRegJugador {
                   rutaDestino
             );
          } else {
-            rutaImagen = "/picture/Icons/DefaultFoto.png";
+            rutaImagen = "/picture/icons/DefaultFoto.png";
          }
 
          Jugador jugador;

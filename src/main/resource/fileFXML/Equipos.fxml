@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1157.0" styleClass="root" stylesheets="@../style/visualVentanaEquipo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEquipos">
+<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1157.0" styleClass="root" stylesheets="@../style/visualVentanaEquipo.css" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerEquipos">
     <children>
         <Pane fx:id="background2" layoutY="123.0" prefHeight="675.0" prefWidth="1157.0" stylesheets="@../style/visualVentanaEquipo.css" AnchorPane.bottomAnchor="0.0">
             <children>
@@ -19,7 +19,7 @@
                     <children>
                         <ImageView fitHeight="175.0" fitWidth="177.0" layoutX="-50.0" layoutY="-42.0">
                             <image>
-                                <Image url="@../picture/Icons/search.png" />
+                                <Image url="@../picture/icons/search.png" />
                             </image>
                         </ImageView>
                         <TextField fx:id="searchBar" layoutX="76.0" layoutY="3.0" onAction="#search" prefHeight="85.0" prefWidth="565.0" promptText="Ingrese un Equipo">
