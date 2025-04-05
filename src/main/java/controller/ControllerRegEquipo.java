@@ -87,6 +87,7 @@ public class ControllerRegEquipo implements Initializable {
                     ruta
             );
             SerieMundial.getInstance().addEquipo(equipo);
+            equipo.getLogo();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro exitoso");

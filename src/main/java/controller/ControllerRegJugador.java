@@ -240,6 +240,7 @@ public class ControllerRegJugador {
          }
 
          equipoJugador.addJugador(jugador);
+         jugador.getfoto();
          limpiarFormulario();
          mostrarAlerta("Éxito", "Jugador registrado correctamente");
 

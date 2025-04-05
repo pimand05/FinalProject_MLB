@@ -30,8 +30,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Pitcher",
@@ -48,8 +47,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Bateador",
@@ -67,8 +65,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Bateador",
@@ -86,8 +83,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Bateador",
@@ -105,8 +101,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Bateador",
@@ -124,8 +119,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Bateador",
@@ -143,8 +137,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Bateador",
@@ -162,8 +155,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Bateador",
@@ -181,8 +173,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         },
         {
           "tipo": "Pitcher",
@@ -199,8 +190,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "New York Mets"
+          }
         }
       ],
       "bateadorActualIndex": 1,
@@ -226,7 +216,7 @@
           "lesionado": false,
           "nombre": "Fernando Tatis Jr.",
           "fNacimiento": "1999-01-02",
-          "altura": 1.9,
+          "altura": 1.90,
           "numJugador": 23,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
@@ -235,8 +225,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -254,8 +243,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -273,8 +261,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -292,8 +279,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -311,8 +297,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -330,8 +315,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -349,8 +333,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -359,7 +342,7 @@
           "lesionado": false,
           "nombre": "Matt Carpenter",
           "fNacimiento": "1985-11-26",
-          "altura": 1.9,
+          "altura": 1.90,
           "numJugador": 14,
           "imagenRoute": "/picture/Icons/DefaultFoto.png",
           "lesion": {
@@ -368,8 +351,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Bateador",
@@ -387,8 +369,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Pitcher",
@@ -405,8 +386,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         },
         {
           "tipo": "Pitcher",
@@ -423,8 +403,7 @@
             "finEstimada": "2025-04-05",
             "diasRecuperacion": 1,
             "activa": false
-          },
-          "Equipo": "Padres de San Diego"
+          }
         }
       ],
       "bateadorActualIndex": 1,

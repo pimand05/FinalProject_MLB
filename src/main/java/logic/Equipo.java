@@ -446,7 +446,8 @@ public class Equipo  implements Serializable {
     }
 
 
-    public Image getLogo() {
-        return new Image(new File(rutaLogo).toURI().toString());
+    public void getLogo() {
+        Image img = new Image(Objects.requireNonNull(getClass().getResource(rutaLogo)).toExternalForm());
+        this.logo = img;
     }
 }

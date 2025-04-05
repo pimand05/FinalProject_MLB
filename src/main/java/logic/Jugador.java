@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Jugador implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -116,9 +117,9 @@ public abstract class Jugador implements Serializable {
     // Método abstracto que debe implementar cada subclase
     public abstract void actualizarEstadisticas(Partido partido);
 
-    public Image getfoto() {
-        this.foto = new Image(imagenRoute);
-        return foto;
+    public void getfoto() {
+        Image img = new Image(Objects.requireNonNull(getClass().getResource(imagenRoute)).toExternalForm());
+        this.foto = img;
     }
 }
 
