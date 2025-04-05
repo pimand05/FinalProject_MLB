@@ -79,7 +79,7 @@ public class ControllerSimulador {
    }
 
    private void configurarControles() {
-      btnIniciar.setOnAction(e -> iniciarSimulacion());
+      btnIniciar.setOnAction(e -> iniciarSimulador());
       btnPausar.setOnAction(e -> pausarSimulacion());
    }
 
@@ -108,7 +108,7 @@ public class ControllerSimulador {
    }
 
    @FXML
-   private void iniciarSimulacion() {
+   private void iniciarSimulador() {
       if (partido == null || partido.isPartidoTerminado()) return;
       if (timeline != null && timeline.getStatus() == Animation.Status.RUNNING) return;
 

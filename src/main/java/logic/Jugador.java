@@ -79,6 +79,8 @@ public abstract class Jugador implements Serializable {
         this.foto = new Image(imagenRoute);
     }
 
+
+
     // Metodos para manejar las lesiones
     public boolean puedeJugar() {
         return lesion == null || !lesion.isActiva();

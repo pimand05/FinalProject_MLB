@@ -17,18 +17,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerCalendario">
+<AnchorPane prefHeight="696.0" prefWidth="1129.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerCalendario">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../style/Calendario.css">
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="1143.0" stylesheets="@../style/Calendario.css">
       
           <!-- Top: Título y filtros -->
           <top>
               <VBox spacing="10" styleClass="header-container">
                   <HBox alignment="CENTER" spacing="20.0">
-                  <ImageView fx:id="homeIcon" fitHeight="50.0" fitWidth="62.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" translateX="-200.0" x="10.0">
+                  <ImageView fx:id="homeIcon" fitHeight="46.0" fitWidth="43.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" translateX="-200.0" x="10.0">
                      <image>
                         <Image url="@../picture/icons/HomeIconWhie.png" />
                      </image>
@@ -55,7 +54,7 @@
       
           <!-- Center: Calendario y detalles -->
           <center>
-              <SplitPane dividerPositions="0.5">
+              <SplitPane fx:id="splitPane" dividerPositions="0.552">
                   <!-- Left: Vista de calendario -->
                   <ScrollPane>
                       <GridPane fx:id="calendarioGrid" styleClass="calendar-grid" />
@@ -64,7 +63,7 @@
                       <children>
       
                           <!-- Right: Tabla de partidos -->
-                          <TableView fx:id="partidosTable" prefHeight="444.0" prefWidth="446.0" styleClass="partidos-table">
+                          <TableView fx:id="partidosTable" prefHeight="516.0" prefWidth="397.0" styleClass="partidos-table">
                               <columns>
                                   <TableColumn fx:id="colFecha" text="Fecha">
                                       <cellValueFactory>
@@ -89,12 +88,13 @@
                                   </TableColumn>
                               </columns>
                           </TableView>
-                          <Pane prefHeight="56.0" prefWidth="446.0">
-                              <children>
-                                  <Button fx:id="btnJugar" layoutX="122.0" layoutY="14.0" mnemonicParsing="false" onAction="#iniciarSimulador" text="Jugar Partido" />
-                                  <Button fx:id="btnTablaPosiciones" layoutX="223.0" layoutY="14.0" mnemonicParsing="false" onAction="#mostrarTablaPosiciones" text="Tabla De Posiciones" />
-                              </children>
-                          </Pane>
+                     <HBox alignment="CENTER" prefHeight="57.0" prefWidth="482.0" style="-fx-spacing: 20;">
+                        <children>
+                           <Button fx:id="btnIniciarTemp" mnemonicParsing="false" text="Iniciar Temporada" />
+                                  <Button fx:id="btnJugar" mnemonicParsing="false" text="Jugar Partido" />
+                                  <Button fx:id="btnTablaPosiciones" mnemonicParsing="false" onAction="#mostrarTablaPosiciones" text="Tabla De Posiciones" />
+                        </children>
+                     </HBox>
                       </children>
                   </VBox>
               </SplitPane>

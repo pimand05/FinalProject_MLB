@@ -10,23 +10,23 @@
     <children>
         <BorderPane prefHeight="451.0" prefWidth="919.0" style="-fx-background-color: white;">
             <center>
-                <Pane prefHeight="362.0" prefWidth="954.0" style="-fx-border-radius: 20;" BorderPane.alignment="CENTER">
+                <Pane prefHeight="362.0" prefWidth="922.0" style="-fx-border-radius: 20;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label layoutX="312.0" layoutY="40.0" prefHeight="17.0" prefWidth="65.0" text="Nombre:" />
-                        <Label layoutX="312.0" layoutY="82.0" prefHeight="17.0" prefWidth="113.0" text="Fecha Nacimiento:" />
-                        <Label layoutX="312.0" layoutY="128.0" text="Número:" />
-                        <RadioButton fx:id="rbBateador" layoutX="424.0" layoutY="167.0" mnemonicParsing="false" text="Bateador" />
-                        <RadioButton fx:id="rbPitcher" layoutX="513.0" layoutY="167.0" mnemonicParsing="false" text="Pitcher" />
-                        <TextField fx:id="txtNombre" layoutX="369.0" layoutY="36.0" prefHeight="25.0" prefWidth="209.0" />
-                        <DatePicker fx:id="calFecNacim" layoutX="418.0" layoutY="78.0" prefHeight="25.0" prefWidth="160.0" promptText="D/M/YYYY" />
-                        <Spinner fx:id="spnNumero" layoutX="369.0" layoutY="125.0" prefHeight="25.0" prefWidth="79.0" />
-                        <Pane fx:id="infoBateador" layoutX="312.0" layoutY="214.0" prefHeight="46.0" prefWidth="276.0">
+                        <Label layoutX="341.0" layoutY="39.0" prefHeight="17.0" prefWidth="65.0" text="Nombre:" />
+                        <Label layoutX="341.0" layoutY="81.0" prefHeight="17.0" prefWidth="113.0" text="Fecha Nacimiento:" />
+                        <Label layoutX="340.0" layoutY="128.0" text="Número:" />
+                        <RadioButton fx:id="rbBateador" layoutX="454.0" layoutY="166.0" mnemonicParsing="false" text="Bateador" />
+                        <RadioButton fx:id="rbPitcher" layoutX="542.0" layoutY="166.0" mnemonicParsing="false" text="Pitcher" />
+                        <TextField fx:id="txtNombre" layoutX="398.0" layoutY="35.0" prefHeight="25.0" prefWidth="213.0" />
+                        <DatePicker fx:id="calFecNacim" layoutX="454.0" layoutY="77.0" prefHeight="25.0" prefWidth="158.0" promptText="D/M/YYYY" />
+                        <Spinner fx:id="spnNumero" layoutX="398.0" layoutY="124.0" prefHeight="25.0" prefWidth="74.0" />
+                        <Pane fx:id="infoBateador" layoutX="340.0" layoutY="214.0" prefHeight="46.0" prefWidth="276.0">
                             <children>
                                 <Label layoutY="10.0" prefHeight="17.0" prefWidth="80.0" text="Posición:" />
                                 <ComboBox fx:id="cmbPosicion" layoutX="110.0" layoutY="6.0" prefHeight="25.0" prefWidth="159.0" />
                             </children>
                         </Pane>
-                        <Pane fx:id="infoPitcher" layoutX="310.0" layoutY="216.0" prefHeight="117.0" prefWidth="281.0">
+                        <Pane fx:id="infoPitcher" layoutX="337.0" layoutY="215.0" prefHeight="117.0" prefWidth="281.0">
                             <children>
                                 <Label layoutX="1.0" layoutY="9.0" prefHeight="17.0" prefWidth="128.0" text="Tipo de Lanzador:" />
                                 <Label layoutY="50.0" prefHeight="17.0" prefWidth="128.0" text="Mano Dominante:" />
@@ -47,12 +47,12 @@
                                 <ComboBox fx:id="cmbTipoLanzador" layoutX="113.0" layoutY="4.0" prefHeight="25.0" prefWidth="159.0" />
                             </children>
                         </Pane>
-                        <Label layoutX="309.0" layoutY="167.0" prefHeight="17.0" prefWidth="106.0" text="Posición Principal:" />
-                        <Label layoutX="465.0" layoutY="129.0" text="Altura (m):" />
-                        <TextField fx:id="txtAltura" layoutX="526.0" layoutY="125.0" prefHeight="25.0" prefWidth="52.0" />
-                        <VBox layoutX="632.0" layoutY="28.0" prefHeight="312.0" prefWidth="256.0">
+                        <Label layoutX="340.0" layoutY="166.0" prefHeight="17.0" prefWidth="106.0" text="Posición Principal:" />
+                        <Label layoutX="487.0" layoutY="128.0" text="Altura (m):" />
+                        <TextField fx:id="txtAltura" layoutX="549.0" layoutY="124.0" prefHeight="25.0" prefWidth="61.0" />
+                        <VBox layoutX="33.0" layoutY="28.0" prefHeight="312.0" prefWidth="256.0">
                             <children>
-                                <TableView fx:id="tablaEquipos" prefHeight="274.0" prefWidth="256.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);;">
+                                <TableView fx:id="tablaEquipos" prefHeight="274.0" prefWidth="256.0" styleClass="tabla-moderna" stylesheets="@../style/Registro.css">
                                     <columns>
                                         <TableColumn fx:id="colLogo" prefWidth="75.0" text="Logo" />
                                         <TableColumn fx:id="colEquipo" prefWidth="180.0" text="Nombre" />
@@ -65,10 +65,10 @@
                                 </Pane>
                             </children>
                         </VBox>
-                        <Region layoutX="305.0" layoutY="202.0" prefHeight="200.0" prefWidth="47.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 290;" />
-                        <Region layoutX="452.0" layoutY="181.0" maxHeight="70.0" prefHeight="70.0" prefWidth="300.0" rotate="90.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 320;" />
-                        <Region layoutX="129.0" layoutY="181.0" maxHeight="70.0" prefHeight="70.0" prefWidth="300.0" rotate="90.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 320;" />
-                        <VBox layoutX="45.0" layoutY="26.0" prefHeight="312.0" prefWidth="206.0">
+                        <Region layoutX="329.0" layoutY="202.0" prefHeight="1.0" prefWidth="280.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 290;" />
+                        <Region layoutX="473.0" layoutY="176.0" maxHeight="70.0" prefHeight="70.0" prefWidth="300.0" rotate="90.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 320;" />
+                        <Region layoutX="150.0" layoutY="184.0" maxHeight="70.0" prefHeight="70.0" prefWidth="300.0" rotate="90.0" style="-fx-background-color: linear-gradient(to right, #3331c2, #121144); -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 320;" />
+                        <VBox layoutX="663.0" layoutY="25.0" prefHeight="312.0" prefWidth="206.0">
                             <children>
                                 <Pane prefHeight="58.0" prefWidth="256.0">
                                     <children>
@@ -99,8 +99,8 @@
             <bottom>
                 <HBox prefHeight="43.0" prefWidth="662.0" style="-fx-alignment: center_right; -fx-spacing: 10; -fx-padding: 5 5 5 70; -fx-border-color: linear-gradient(to right, #3331c2, #121144);" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="btnRegistrar" mnemonicParsing="false" style="-fx-padding: 4 16; -fx-background-radius: 20; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Registrar" />
-                        <Button fx:id="btnCancelar" cancelButton="true" mnemonicParsing="false" style="-fx-padding: 4 16; -fx-border-radius: 20; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);;" text="Cancelar" />
+                        <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#registrarJugador" style="-fx-padding: 4 16; -fx-background-radius: 20; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);" text="Registrar" />
+                        <Button fx:id="btnCancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelarRegistro" style="-fx-padding: 4 16; -fx-border-radius: 20; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);;" text="Cancelar" />
                     </children>
                 </HBox>
             </bottom>

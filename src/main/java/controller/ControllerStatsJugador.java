@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import logic.*;
 
@@ -99,7 +100,13 @@ public class ControllerStatsJugador {
    private ObservableList<BateadorStatsRow> statsBateadorData = FXCollections.observableArrayList();
    private ObservableList<PitcherStatsRow> statsPitcherData = FXCollections.observableArrayList();
 
+   private Jugador jugador;
    SerieMundial serie = SerieMundial.getInstance();
+
+   public void setJugador(Jugador jugador) {
+      this.jugador = jugador;
+      mostrarJugador(jugador);
+   }
 
    public void initialize() {
       configurarTablas();
@@ -157,7 +164,6 @@ public class ControllerStatsJugador {
       tablaStatsPitcher.setItems(statsPitcherData);
    }
 
-   /*
    public void mostrarJugador(Jugador jugador) {
       Equipo equipo = serie.buscarEquipoDelJugador(jugador);
       aplicarEstilosEquipo(equipo);
@@ -168,10 +174,9 @@ public class ControllerStatsJugador {
          mostrarPitcher((Pitcher) jugador);
       }
 
-      cargarLogoEquipo(equipo); // Carga el logo del equipo
-      cargarFotoJugador(jugador); // Carga la foto del jugador
+      //cargarLogoEquipo(equipo); // Carga el logo del equipo
+      //cargarFotoJugador(jugador); // Carga la foto del jugador
    }
-    */
 
    private void mostrarBateador(Bateador bateador) {
       contenedorBateador.setVisible(true);
@@ -244,33 +249,39 @@ public class ControllerStatsJugador {
       return fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
    }
 
-   /*
-   private int calcularEdad(LocalDate fechaNacimiento) {
-      return Period.between(fechaNacimiento, LocalDate.now()).getYears();
-   }
-    */
 
-   /*
    private void aplicarEstilosEquipo(Equipo equipo) {
       if (equipo == null) return;
 
-      String colorPrincipal = equipo.getColorPrimario();
-      String colorSecundario = equipo.getColorSecundario();
+      try {
+         String colorStr = equipo.getColorPrimario().toString();
 
-      // Estilo para el fondo
-      String estiloContenedor = String.format(
-            "-fx-background-color: linear-gradient(to bottom, %s, %s);" +
-                  "-fx-border-color: %s;" +
-                  "-fx-border-width: 3px;" +
-                  "-fx-border-radius: 10;" +
-                  "-fx-background-radius: 10;",
-            colorPrincipal, colorSecundario, colorSecundario
-      );
+         if (colorStr.startsWith("0x") || colorStr.startsWith("0X")) {
+            colorStr = colorStr.substring(2);
+         }
 
-      paneBateador.setStyle(estiloContenedor);
-      panePitcher.setStyle(estiloContenedor);
+         while (colorStr.length() < 8) {
+            colorStr = "0" + colorStr;
+         }
+
+         String colorHex = "#" + colorStr;
+
+         if (colorHex.startsWith("#FF")) {
+            colorHex = "#" + colorHex.substring(3);
+         }
+
+         String estilo = "-fx-background-color: " + colorHex;
+
+         paneBateador.setStyle(estilo);
+         panePitcher.setStyle(estilo);
+      } catch (Exception e) {
+         System.err.println("Error al aplicar color: " + e.getMessage());
+         paneBateador.setStyle("-fx-background-color: #670000");
+         panePitcher.setStyle("-fx-background-color: #670000");
+      }
    }
 
+   /*
    private void cargarLogoEquipo(Equipo equipo) {
       try {
          String nombreLogo = equipo.getNombre();

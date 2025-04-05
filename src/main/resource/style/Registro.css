@@ -74,7 +74,8 @@
 }
 
 .tabla-moderna .table-row-cell:filled:selected {
-    -fx-background-color: #e0e0ff;
+    -fx-background-color: #3f3dc4 !important;
+    -fx-text-fill: white !important;
 }
 
 .tabla-moderna .table-row-cell:odd:filled {

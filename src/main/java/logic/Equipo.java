@@ -5,10 +5,8 @@ import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Equipo  implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -83,16 +81,16 @@ public class Equipo  implements Serializable {
         return juegosGanados;
     }
 
-    public void setJuegosGanados(int juegosGanados) {
-        this.juegosGanados = juegosGanados;
-    }
-
     public int getJuegosPerdidos() {
         return juegosPerdidos;
     }
 
-    public void setJuegosPerdidos(int juegosPerdidos) {
-        this.juegosPerdidos = juegosPerdidos;
+    public void incrementarJuegosGanados() {
+        this.juegosGanados++;
+    }
+
+    public void incrementarJuegosPerdidos() {
+        this.juegosPerdidos++;
     }
 
     public ArrayList<Jugador> getJugadores() {
@@ -187,7 +185,7 @@ public class Equipo  implements Serializable {
 
     public Bateador getBateadorActual() {
         if (lineup.isEmpty()) {
-            throw new IllegalStateException("El lineup no ha sido configurado");
+            throw new IllegalStateException("El lineup no ha sido configurado ");
         }
         return lineup.get(bateadorActualIndex);
     }
@@ -196,19 +194,56 @@ public class Equipo  implements Serializable {
         bateadorActualIndex = (bateadorActualIndex % 9) + 1;
     }
 
+
     public Pitcher getPitcherActual() {
-        if (pitcherActual == null || pitcherActual.getStats().getEntradasLanzadas() > 100) {
-            cambiarPitcher();
+        if (pitcherActual == null ||
+              (pitcherActual.getStats() != null &&
+                    pitcherActual.getStats().getEntradasLanzadas() > 100)) {
+
+            try {
+                cambiarPitcher();
+            } catch (IllegalStateException e) {
+                if (pitcherActual != null) {
+                    System.out.println("¡" + pitcherActual.getNombre() + " continúa lanzando por falta de opciones!");
+                    return pitcherActual;
+                }
+                throw e;
+            }
         }
         return pitcherActual;
     }
 
-    private void cambiarPitcher() {
-        if (!relevistas.isEmpty()) {
-            pitcherActual = relevistas.remove(0);
-        } else {
-            throw new IllegalStateException("No hay relevistas disponibles");
+    public void cambiarPitcher() {
+        // Filtrar relevistas disponibles
+        List<Pitcher> disponibles = relevistas.stream()
+              .filter(Objects::nonNull)
+              .sorted(Comparator.comparingInt(p -> p.getTipoDeLanzador().equals("Cerrador") ? 0 : 1))
+              .collect(Collectors.toList());
+
+        if (!disponibles.isEmpty()) {
+            Pitcher nuevoPitcher = disponibles.get(0);
+            relevistas.remove(nuevoPitcher);
+
+            if (pitcherActual != null) {
+                relevistas.add(pitcherActual);
+            }
+
+            pitcherActual = nuevoPitcher;
+            System.out.println("Nuevo pitcher: " + nuevoPitcher.getNombre());
+            return;
         }
+
+        List<Pitcher> todosPitchers = getPitchers().stream()
+              .filter(p -> p != pitcherActual)
+              .collect(Collectors.toList());
+
+        if (!todosPitchers.isEmpty()) {
+            pitcherActual = todosPitchers.get(0);
+            System.out.println("Pitcher de emergencia: " + pitcherActual.getNombre());
+            return;
+        }
+
+        throw new IllegalStateException("No hay pitchers disponibles (lesionados/cansados)");
     }
 
     public void configurarLineup(List<Bateador> bateadores) {
@@ -338,26 +373,65 @@ public class Equipo  implements Serializable {
     }
 
     public void configurarEquipo() {
-        List<Bateador> bateadores = getBateadores();
-        List<Pitcher> pitchers = getPitchers();
+        // Filtrar bateadores disponibles
+        List<Bateador> bateadoresDisponibles = new ArrayList<>();
+        List<Bateador> todosBateadores = getBateadores();
 
-        if (bateadores.size() < 9) {
-            throw new IllegalStateException("No hay suficientes bateadores (se necesitan al menos 9)");
+        for (Bateador bateador : todosBateadores) {
+            if (!bateador.getLesion().isActiva()) {
+                bateadoresDisponibles.add(bateador);
+            }
         }
 
-        if (pitchers.isEmpty()) {
-            throw new IllegalStateException("No hay pitchers en el equipo");
+        // Filtrar pitchers disponibles
+        List<Pitcher> pitchersDisponibles = new ArrayList<>();
+        List<Pitcher> todosPitchers = getPitchers();
+
+        for (Pitcher pitcher : todosPitchers) {
+            if (!pitcher.getLesion().isActiva()) {
+                pitchersDisponibles.add(pitcher);
+            }
         }
 
-        // Configurar lineup con los primeros 9 bateadores
-        configurarLineup(bateadores.subList(0, 9));
+        // Verificar disponibilidad de bateadores
+        if (bateadoresDisponibles.size() < 9) {
+            int totalBateadores = todosBateadores.size();
+            int lesionados = totalBateadores - bateadoresDisponibles.size();
+            int faltantes = 9 - bateadoresDisponibles.size();
 
-        // Configurar pitchers (el primero como abridor, los demás como relevistas)
-        pitcherActual = pitchers.get(0);
-        if (pitchers.size() > 1) {
-            relevistas.addAll(pitchers.subList(1, pitchers.size()));
+            throw new IllegalStateException(
+                  "No hay suficientes bateadores disponibles. Faltan " + faltantes +
+                        " (Total: " + totalBateadores +
+                        ", Lesionados: " + lesionados + ")"
+            );
+        }
+
+        // Verificar disponibilidad de pitchers
+        if (pitchersDisponibles.isEmpty()) {
+            int totalPitchers = todosPitchers.size();
+            int lesionados = totalPitchers - pitchersDisponibles.size();
+
+            throw new IllegalStateException(
+                  "No hay pitchers disponibles (Total: " + totalPitchers +
+                        ", Lesionados: " + lesionados + ")"
+            );
+        }
+
+        // Configurar lineup con los primeros 9 bateadores disponibles
+        List<Bateador> lineup = bateadoresDisponibles.subList(0, 9);
+        configurarLineup(lineup);
+
+        // Configurar pitchers
+        pitcherActual = pitchersDisponibles.get(0);
+
+        if (pitchersDisponibles.size() > 1) {
+            relevistas.clear();
+            for (int i = 1; i < pitchersDisponibles.size(); i++) {
+                relevistas.add(pitchersDisponibles.get(i));
+            }
         }
     }
+
 
     public Image getLogo() {
         return new Image(new File(rutaLogo).toURI().toString());

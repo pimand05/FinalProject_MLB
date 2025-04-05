@@ -18,6 +18,7 @@ import utility.Paths;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class ControllerRegJugador {
    @FXML private TableColumn<rowEquipo, String> colEquipo;
    @FXML private TableColumn<rowEquipo, Image> colLogo;
 
+   private ControllerJugadores controllerJugadores;
    private ToggleGroup posicionGroup;
    private ToggleGroup manoGroup;
 
@@ -133,6 +135,12 @@ public class ControllerRegJugador {
       // Seleccionar bateador por defecto
       rbBateador.setSelected(true);
 
+      tablaEquipos.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+         if (newVal != null) {
+            selecEquipo();
+         }
+      });
+
       // Configurar botones
       btnRegistrar.setOnAction(e -> registrarJugador());
       btnCancelar.setOnAction(e -> cancelarRegistro());
@@ -145,18 +153,21 @@ public class ControllerRegJugador {
 
       if (filaSeleccionada == null) {
          mostrarAlerta("Error", "Ningún equipo seleccionado");
+         return null;
       }
 
       for (Equipo equipo : serie.getEquipos()) {
          if (equipo.getNombre().equals(filaSeleccionada.getNombre())) {
+            actualizarSpinner(equipo);
             return equipo;
          }
       }
 
-      mostrarAlerta("Error", "Equipo no encontrado en los registros");
+      //mostrarAlerta("Error", "Equipo no encontrado en los registros");
       return null;
    }
 
+   @FXML
    private void registrarJugador() {
       try {
          // Validar campos obligatorios
@@ -181,6 +192,14 @@ public class ControllerRegJugador {
          float altura = Float.parseFloat(txtAltura.getText());
          LocalDate fechaNacimiento = calFecNacim.getValue();
          int numero = spnNumero.getValue();
+         if (equipoJugador.getJugadores() != null) {
+            for (Jugador j : equipoJugador.getJugadores()) {
+               if (j.getNumJugador() == numero) {
+                  mostrarAlerta("Error", "El número " + numero + " ya está ocupado en este equipo");
+                  return;
+               }
+            }
+         }
 
          // Manejo de la imagen
          String rutaImagen;
@@ -221,7 +240,6 @@ public class ControllerRegJugador {
          }
 
          equipoJugador.addJugador(jugador);
-
          limpiarFormulario();
          mostrarAlerta("Éxito", "Jugador registrado correctamente");
 
@@ -233,22 +251,25 @@ public class ControllerRegJugador {
       }
    }
 
+   @FXML
    private void cancelarRegistro() {
       Stage stage = (Stage) btnCancelar.getScene().getWindow();
       stage.close();
    }
 
-   
+
    private void limpiarFormulario() {
       txtNombre.clear();
       calFecNacim.setValue(null);
       spnNumero.getValueFactory().setValue(1);
       rbBateador.setSelected(true);
+      txtAltura.clear();
       cmbPosicion.setValue(null);
       cmbTipoLanzador.setValue(null);
       listViewTiposPicheos.getSelectionModel().clearSelection();
       rdbIzquierda.setSelected(false);
       rdbDerecha.setSelected(false);
+      tablaEquipos.getSelectionModel().clearSelection();
       restorePane();
    }
 
@@ -292,6 +313,47 @@ public class ControllerRegJugador {
       // Asignar la lista convertida a la tabla
       tablaEquipos.setItems(listaEquipos);
    }
+
+   @FXML
+   public void actualizarSpinner(Equipo equipoSeleccionado) {
+      if (equipoSeleccionado == null) {
+         spnNumero.setDisable(true);
+         return;
+      }
+
+      List<Jugador> jugadores = equipoSeleccionado.getJugadores();
+      List<Integer> numerosOcupados = new ArrayList<>();
+
+      // Obtener los números ocupados por los jugadores del equipo
+      if (jugadores != null) {
+         for (Jugador jugador : jugadores) {
+            numerosOcupados.add(jugador.getNumJugador());
+         }
+      }
+
+      // Crear la lista de números disponibles (del 1 al 99) que no estén ocupados
+      List<Integer> numerosDisponibles = new ArrayList<>();
+      for (int i = 1; i <= 99; i++) {
+         if (!numerosOcupados.contains(i)) {
+            numerosDisponibles.add(i);
+         }
+      }
+
+      // Configurar el Spinner con los valores disponibles
+      if (!numerosDisponibles.isEmpty()) {
+         SpinnerValueFactory<Integer> valueFactory =
+               new SpinnerValueFactory.ListSpinnerValueFactory<>(
+                     FXCollections.observableArrayList(numerosDisponibles)
+               );
+         spnNumero.setValueFactory(valueFactory);
+         spnNumero.getValueFactory().setValue(numerosDisponibles.get(0));
+         spnNumero.setDisable(false);
+      } else {
+         spnNumero.setDisable(true);
+         mostrarAlerta("Advertencia", "No hay números disponibles en este equipo (todos del 1 al 99 están ocupados)");
+      }
+   }
+
 
    // Clase interna para representar filas de la tabla
    public static class rowEquipo {

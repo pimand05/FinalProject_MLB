@@ -3,23 +3,19 @@ package controller;
 import application.AppMain;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import logic.Equipo;
 import logic.Partido;
 import logic.SerieMundial;
@@ -46,6 +42,7 @@ public class ControllerCalendario {
    @FXML private Button btnMesSiguiente;
    @FXML private Button btnJugar;
    @FXML private Button btnTablaPosiciones;
+   @FXML private Button btnIniciarTemp;
    @FXML private SplitPane splitPane;
 
    private Temporada temporada;
@@ -55,34 +52,30 @@ public class ControllerCalendario {
    private LocalDate fechaActual = LocalDate.now();
 
    SerieMundial serie = SerieMundial.getInstance();
+
    public void initialize() {
       configurarUI();
 
-      Temporada temporadaActual = serie.getTemporadaActual();
-      if (temporadaActual == null) {
-         throw new IllegalStateException("No se pudo obtener o crear una temporada");
-      }
-      setTemporada(temporadaActual);
+      // temporadaActual = serie.getTemporadaActual();
+      //setTemporada(temporadaActual);
 
+      // Ajuste de SplitPane
+      splitPane.setDividerPositions(0.561);
+      Platform.runLater(() -> splitPane.setDividerPositions(0.561));
 
-      splitPane.setDividerPositions(0.7);
-      // Bloquear el divisor
-      splitPane.getDividers().get(0).positionProperty().addListener((obs, oldVal, newVal) -> {
-         Platform.runLater(() -> splitPane.setDividerPositions(0.7));
-      });
+      // Inicializa botones
+      configurarBotonIniciarTemporada();
+      configurarBotonJugar();
+      mostrarTablaPosiciones();
    }
 
    private void configurarUI() {
-      // Configuración de la fecha
-      fechaActualLabel.setText(fechaActual.format(
-            DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy")));
+      fechaActualLabel.setText(fechaActual.format(DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy")));
 
-      // Botones de navegación
       btnMesAnterior.setOnAction(e -> cambiarMes(-1));
       btnMesSiguiente.setOnAction(e -> cambiarMes(1));
 
-      // Combobox de equipos
-      filtroEquipo.setCellFactory(column -> new ListCell<Equipo>() {
+      filtroEquipo.setCellFactory(column -> new ListCell<>() {
          @Override
          protected void updateItem(Equipo equipo, boolean empty) {
             super.updateItem(equipo, empty);
@@ -90,7 +83,7 @@ public class ControllerCalendario {
          }
       });
 
-      filtroEquipo.setButtonCell(new ListCell<Equipo>() {
+      filtroEquipo.setButtonCell(new ListCell<>() {
          @Override
          protected void updateItem(Equipo equipo, boolean empty) {
             super.updateItem(equipo, empty);
@@ -98,38 +91,91 @@ public class ControllerCalendario {
          }
       });
 
-      // Columnas de la tabla
-      colLocal.setCellValueFactory(cellData ->
-            new SimpleStringProperty(cellData.getValue().getEquipoLocal().getNombre()));
+      colLocal.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEquipoLocal().getNombre()));
+      colVisitante.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEquipoVisitante().getNombre()));
 
-      colVisitante.setCellValueFactory(cellData ->
-            new SimpleStringProperty(cellData.getValue().getEquipoVisitante().getNombre()));
-
-      // Filtros
       configurarFiltros();
+   }
+
+   private void configurarBotonIniciarTemporada() {
+      btnIniciarTemp.setOnAction(e -> {
+         Temporada nuevaTemporada = serie.iniciarNuevaTemporada(LocalDate.now());
+         setTemporada(nuevaTemporada);
+         actualizarEstadoBotones();
+      });
+
+      actualizarEstadoBotones();
+   }
+
+
+   private void configurarBotonJugar() {
+      btnJugar.setOnAction(e -> {
+         LocalDate hoy = LocalDate.now();
+         List<Partido> partidosHoy = partidosPorFecha.get(hoy);
+
+         if (partidosHoy != null && !partidosHoy.isEmpty()) {
+            Partido partido = partidosHoy.get(0);
+            if (!partido.isPartidoTerminado()) {
+               abrirSimuladorPartido(partido);
+            } else {
+               mostrarAlerta("El partido de hoy ya ha finalizado");
+            }
+         } else {
+            mostrarAlerta("No hay partidos programados para hoy");
+         }
+      });
+
+      // Verificar estado del botón al cambiar de día
+      fechaActualLabel.textProperty().addListener((obs, oldVal, newVal) -> {
+         actualizarEstadoBotonJugar();
+      });
+   }
+
+   private void actualizarEstadoBotones() {
+      boolean hayTemporada = temporada != null && !temporada.getPartidos().isEmpty();
+      btnIniciarTemp.setDisable(hayTemporada);
+      actualizarEstadoBotonJugar();
+   }
+
+   private void actualizarEstadoBotonJugar() {
+      if (temporada == null || temporada.getPartidos().isEmpty()) {
+         btnJugar.setDisable(true);
+         return;
+      }
+
+      LocalDate hoy = LocalDate.now();
+      List<Partido> partidosHoy = partidosPorFecha.get(hoy);
+
+      boolean hayPartidosHoy = partidosHoy != null && !partidosHoy.isEmpty();
+      boolean partidoFinalizado = hayPartidosHoy && partidosHoy.get(0).isPartidoTerminado();
+
+      btnJugar.setDisable(!hayPartidosHoy || partidoFinalizado);
    }
 
    public void setTemporada(Temporada temporada) {
       this.temporada = temporada;
-      this.todosPartidos = FXCollections.observableArrayList(temporada.getPartidos());
-      this.partidosFiltrados = new FilteredList<>(todosPartidos);
 
-      partidosTable.setItems(partidosFiltrados);
+      if (temporada != null) {
+         this.todosPartidos = FXCollections.observableArrayList(temporada.getPartidos());
+         this.partidosFiltrados = new FilteredList<>(todosPartidos);
+         partidosTable.setItems(partidosFiltrados);
 
-      List<Equipo> equiposUnicos = new ArrayList<>();
-
-      for (Partido partido : temporada.getPartidos()) {
-         if (!equiposUnicos.contains(partido.getEquipoLocal())) {
-            equiposUnicos.add(partido.getEquipoLocal());
+         Set<Equipo> equiposUnicosSet = new HashSet<>();
+         for (Partido partido : temporada.getPartidos()) {
+            equiposUnicosSet.add(partido.getEquipoLocal());
+            equiposUnicosSet.add(partido.getEquipoVisitante());
          }
-         if (!equiposUnicos.contains(partido.getEquipoVisitante())) {
-            equiposUnicos.add(partido.getEquipoVisitante());
-         }
+
+         filtroEquipo.setItems(FXCollections.observableArrayList(new ArrayList<>(equiposUnicosSet)));
+      } else {
+         this.todosPartidos = FXCollections.observableArrayList();
+         this.partidosFiltrados = new FilteredList<>(todosPartidos);
+         partidosTable.setItems(partidosFiltrados);
+         filtroEquipo.setItems(FXCollections.observableArrayList());
       }
 
-      filtroEquipo.setItems(FXCollections.observableArrayList(equiposUnicos));
-
       generarVistaCalendario();
+      actualizarEstadoBotones();
    }
 
    private void configurarFiltros() {
@@ -138,36 +184,18 @@ public class ControllerCalendario {
    }
 
    private void aplicarFiltros() {
-      Predicate<Partido> filtro = new Predicate<Partido>() {
-         @Override
-         public boolean test(Partido p) {
-            return true;
-         }
-      };
+      Predicate<Partido> filtro = p -> true;
 
-      // Filtro por fecha
       if (filtroFecha.getValue() != null) {
-         final LocalDate fechaFiltro = filtroFecha.getValue();
-         Predicate<Partido> filtroFechaPredicate = new Predicate<Partido>() {
-            @Override
-            public boolean test(Partido p) {
-               return p.getFecha().equals(fechaFiltro);
-            }
-         };
-         filtro = filtro.and(filtroFechaPredicate);
+         LocalDate fechaFiltro = filtroFecha.getValue();
+         filtro = filtro.and(p -> p.getFecha().equals(fechaFiltro));
       }
 
-      // Filtro por equipo
       if (filtroEquipo.getValue() != null) {
-         final Equipo equipoFiltro = filtroEquipo.getValue();
-         Predicate<Partido> filtroEquipoPredicate = new Predicate<Partido>() {
-            @Override
-            public boolean test(Partido p) {
-               return p.getEquipoLocal().equals(equipoFiltro) ||
-                     p.getEquipoVisitante().equals(equipoFiltro);
-            }
-         };
-         filtro = filtro.and(filtroEquipoPredicate);
+         Equipo equipoFiltro = filtroEquipo.getValue();
+         filtro = filtro.and(p ->
+               p.getEquipoLocal().equals(equipoFiltro) ||
+                     p.getEquipoVisitante().equals(equipoFiltro));
       }
 
       partidosFiltrados.setPredicate(filtro);
@@ -177,35 +205,19 @@ public class ControllerCalendario {
    private void handleLimpiarFiltros() {
       filtroFecha.setValue(null);
       filtroEquipo.setValue(null);
+      aplicarFiltros();
    }
 
    @FXML
-   private void iniciarSimulador() {
-      btnJugar.setOnAction(e -> {
-         LocalDate hoy = LocalDate.now();
-         List<Partido> partidosHoy = partidosPorFecha.get(hoy);
-
-         if (partidosHoy != null && !partidosHoy.isEmpty()) {
-            Partido partidoAHoy = partidosHoy.get(0);
-            abrirSimuladorPartido(partidoAHoy);
-         }
-      });
+   private void mostrarTablaPosiciones() {
+      btnTablaPosiciones.setOnAction(e -> abrirTablaPosiciones());
    }
-
-   @FXML
-   private void mostrarTablaPosiciones(){
-      btnTablaPosiciones.setOnAction(e -> {
-         abrirTablaPosiciones();
-      });
-   }
-
 
    private void generarVistaCalendario() {
       calendarioGrid.getChildren().clear();
       calendarioGrid.setMaxWidth(250);
       calendarioGrid.setMaxHeight(200);
 
-      // Cabecera con días de la semana
       String[] diasSemana = {"Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"};
       for (int i = 0; i < 7; i++) {
          Label diaLabel = new Label(diasSemana[i]);
@@ -216,7 +228,7 @@ public class ControllerCalendario {
       LocalDate hoy = LocalDate.now();
       LocalDate primerDiaMes = fechaActual.withDayOfMonth(1);
       int diasEnMes = fechaActual.lengthOfMonth();
-      int diaSemanaInicio = primerDiaMes.getDayOfWeek().getValue() - 1; // Lunes=0
+      int diaSemanaInicio = primerDiaMes.getDayOfWeek().getValue() - 1;
 
       int fila = 1;
       int columna = diaSemanaInicio;
@@ -231,15 +243,16 @@ public class ControllerCalendario {
          LocalDate fechaCelda = fechaActual.withDayOfMonth(dia);
 
          List<Partido> partidosDia = new ArrayList<>();
-         for (Partido partido : temporada.getPartidos()) {
-            if (partido.getFecha().equals(fechaCelda)) {
-               partidosDia.add(partido);
+         if (temporada != null) {
+            for (Partido partido : temporada.getPartidos()) {
+               if (partido.getFecha().equals(fechaCelda)) {
+                  partidosDia.add(partido);
+               }
             }
          }
 
          partidosPorFecha.put(fechaCelda, partidosDia);
 
-         // Resaltar el día actual
          if (fechaCelda.equals(hoy)) {
             celda.getStyleClass().add("calendar-cell-today");
             diaLabel.getStyleClass().add("calendar-day-today");
@@ -248,12 +261,10 @@ public class ControllerCalendario {
             diaLabel.getStyleClass().add("calendar-day");
          }
 
-         // Mostrar partidos (solo información, sin botones)
          for (Partido partido : partidosDia) {
             Label equiposLabel = new Label(
                   partido.getEquipoLocal().getNombre() + " vs " +
                         partido.getEquipoVisitante().getNombre());
-
             equiposLabel.getStyleClass().add("partido-label");
             celda.getChildren().add(equiposLabel);
          }
@@ -278,7 +289,6 @@ public class ControllerCalendario {
          stage.setTitle("Simulador de Partido");
          stage.show();
       } catch (IOException e) {
-         // Manejo más detallado del error
          System.err.println("Error al cargar el simulador: " + e.getMessage());
          e.printStackTrace();
       }
@@ -290,10 +300,7 @@ public class ControllerCalendario {
          Parent root = loader.load();
 
          ControllerTablaPosiciones controller = loader.getController();
-
-         List<Equipo> equipos = serie.getEquipos();
-
-         controller.actualizarTabla(equipos);
+         controller.actualizarTabla(serie.getEquipos());
 
          Stage stage = new Stage();
          stage.setScene(new Scene(root));
@@ -305,26 +312,21 @@ public class ControllerCalendario {
       }
    }
 
-   private ArrayList<Partido> filtrarPartidosHoy() {
-      ArrayList<Partido> partidosHoy = new ArrayList<>();
-      LocalDate hoy = LocalDate.now();
-
-      for (Partido partido : temporada.getPartidos()) {
-         if (partido.getFecha().equals(hoy)) {
-            partidosHoy.add(partido);
-         }
-      }
-
-      return partidosHoy;
-   }
-
    private void cambiarMes(int incremento) {
-      // Cambiar el mes sumando o restando el valor de incremento
       fechaActual = fechaActual.plusMonths(incremento);
       generarVistaCalendario();
+      actualizarEstadoBotonJugar();
    }
 
    public void goHome(MouseEvent mouseEvent) {
-        AppMain.app.loadHomeStage();
+      AppMain.app.loadHomeStage();
+   }
+
+   private void mostrarAlerta(String mensaje) {
+      Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+      alerta.setTitle("Información");
+      alerta.setHeaderText(null);
+      alerta.setContentText(mensaje);
+      alerta.showAndWait();
    }
 }

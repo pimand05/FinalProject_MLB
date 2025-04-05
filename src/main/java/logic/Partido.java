@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Partido  implements Serializable{
+public class Partido implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -430,6 +430,7 @@ public class Partido  implements Serializable{
         }
     }
 }
+
 */
 
 package logic;
@@ -438,12 +439,15 @@ import utility.COMENTARIOS;
 import utility.InningKey;
 import utility.LesionTipo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
 
-public class Partido {
-    // Constantes para rangos de acciones
+public class Partido implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private static final int STRIKE_MIN = 1;
     private static final int STRIKE_MAX = 15;  // 32% probabilidad (antes 40%)
     private static final int BALL_MIN = 16;
@@ -491,14 +495,19 @@ public class Partido {
     private int[][] carrerasPorInning = new int[2][9]; // [0] = visitante, [1] = local
 
     // Registro del juego
-    private final Map<InningKey, List<String>> comentariosPorInning = new HashMap<>();
-    private final List<String> resumenPartido = new ArrayList<>();
-    private final List<String> comentariosTemporales = new ArrayList<>();
+    //private final Map<InningKey, List<String>> comentariosPorInning = new HashMap<>();
+    //private final List<String> resumenPartido = new ArrayList<>();
+    //private final List<String> comentariosTemporales = new ArrayList<>();
+
+    private final transient Map<InningKey, List<String>> comentariosPorInning = new HashMap<>();
+    private final transient List<String> resumenPartido = new ArrayList<>();
+    private final transient List<String> comentariosTemporales = new ArrayList<>();
 
     public Partido(LocalDate fecha, String estadio, Equipo equipoLocal, Equipo equipoVisitante) {
         if (fecha == null || equipoLocal == null || equipoVisitante == null) {
             throw new IllegalArgumentException("Fecha, estadio y equipos no pueden ser nulos");
         }
+
         this.fecha = fecha;
         this.estadio = estadio;
         this.equipoLocal = equipoLocal;
@@ -526,9 +535,11 @@ public class Partido {
         return equipoVisitante;
     }
 
+    /*
     public Resultado getResultado() {
         return resultado;
     }
+    */
 
     public boolean isPartidoTerminado() {
         return partidoTerminado;
@@ -616,6 +627,10 @@ public class Partido {
 
         Equipo equipoAlBat = esTopInning ? equipoVisitante : equipoLocal;
         Equipo equipoDefensor = esTopInning ? equipoLocal : equipoVisitante;
+
+        if (equipoAlBat.getLineup() == null || equipoAlBat.getLineup().isEmpty()) {
+            equipoAlBat.configurarEquipo();
+        }
 
         Bateador bateador = (Bateador) equipoAlBat.getBateadorActual();
         Pitcher pitcher = equipoDefensor.getPitcherActual();
@@ -870,6 +885,15 @@ public class Partido {
         this.resultado = new Resultado(carrerasLocal, carrerasVisitante);
         resumenPartido.add("\nResultado final: " + equipoLocal.getNombre() + " " + carrerasLocal +
               " - " + carrerasVisitante + " " + equipoVisitante.getNombre());
+
+        if (carrerasLocal > carrerasVisitante) {
+            equipoLocal.incrementarJuegosGanados();
+            equipoVisitante.incrementarJuegosPerdidos();
+        } else {
+            equipoVisitante.incrementarJuegosGanados();
+            equipoLocal.incrementarJuegosPerdidos();
+        }
+
     }
 
     private void verificarLesion(Jugador jugador) {

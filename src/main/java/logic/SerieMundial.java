@@ -29,12 +29,13 @@ public class SerieMundial implements Serializable {
 
     public static SerieMundial getInstance() {
         if (instance == null) {
-            instance = PersistenciaJSON.cargarJson(Paths.INSTANCIA,SerieMundial.class);
+            instance = PersistenciaJSON.cargarJson(Paths.INSTANCIA, SerieMundial.class);
             if (instance == null)
                 instance = new SerieMundial();
         }
         return instance;
     }
+
 
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
@@ -92,6 +93,16 @@ public class SerieMundial implements Serializable {
     }
 
     // Métodos de Búsqueda
+
+    // Obtener todos los jugadores de todos los equipos
+    public ArrayList<Jugador> getTodosLosJugadores() {
+        ArrayList<Jugador> todosLosJugadores = new ArrayList<>();
+        for (Equipo equipo : equipos) {
+            todosLosJugadores.addAll(equipo.getJugadores());
+        }
+        return todosLosJugadores;
+    }
+
     public Equipo buscarEquipoPorNombre(String nombreBuscado) {
         for (Equipo equipo : equipos) {
             if (equipo.getNombre().equalsIgnoreCase(nombreBuscado)) {
