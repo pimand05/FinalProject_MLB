@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="991.0" style="-fx-background-color: #03030B;" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerSimulador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="991.0" style="-fx-background-color: #03030B;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerSimulador">
     <children>
         <Pane prefHeight="735.0" prefWidth="991.0">
             <children>
@@ -145,7 +145,7 @@
 
                         <VBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="33.0" prefHeight="139.0" prefWidth="100.0" style="-fx-spacing: 20;">
                             <children>
-                                <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#iniciarSimulacion" prefHeight="26.0" prefWidth="94.0" text="[▶] Iniciar" />
+                                <Button fx:id="btnIniciar" mnemonicParsing="false" onAction="#iniciarSimulador" prefHeight="26.0" prefWidth="94.0" text="[▶] Iniciar" />
                                 <Button fx:id="btnPausar" mnemonicParsing="false" onAction="#pausarSimulacion" prefHeight="26.0" prefWidth="94.0" text="[⏸] Pausar" />
                                 <Button fx:id="btnReanudar" mnemonicParsing="false" onAction="#reanudarSimulacion" prefHeight="26.0" prefWidth="94.0" text="[↻] Reanudar" />
                             </children>
