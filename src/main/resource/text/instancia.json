@@ -197,31 +197,213 @@
       "relevistas": []
     },
     {
-      "nombre": "CibaoFutbol",
-      "estadio": "Pucmm",
-      "ciudad": "Santiago",
-      "historia": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum egestas est, quis vehicula neque condimentum sed. Duis vulputate ex at turpis faucibus ornare. Etiam consectetur eget odio non luctus. Proin a eros quis dui viverra iaculis. Duis vulputate ipsum quis ipsum lacinia sollicitudin. Vivamus tincidunt maximus neque et auctor. Donec vitae scelerisque nunc, nec tristique lorem. Duis egestas aliquam tempus. Aliquam arcu risus, elementum a enim at, tincidunt commodo augue. Nunc et arcu vel massa fringilla commodo vitae id nisl. Morbi pretium gravida odio consectetur volutpat.",
+      "nombre": "Padres de San Diego",
+      "estadio": "Petco Park",
+      "ciudad": "San Diego",
+      "historia": "Los Padres de San Diego, fundados en 1969 como parte de la expansión de la Liga Nacional, han sido una franquicia con una base de fanáticos fieles y una rica historia en la ciudad del sol. Aunque han enfrentado muchos desafíos competitivos a lo largo de los años, han tenido momentos destacados como las apariciones en la Serie Mundial de 1984 y 1998. En los últimos años, el equipo ha renovado su imagen con jóvenes talentos y una visión competitiva.",
       "juegosGanados": 0,
       "juegosPerdidos": 0,
-      "colorPrimario": "0x993300ff",
-      "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/CibaoFutbol/logo_CibaoFutbol.png",
-      "jugadores": [],
-      "bateadorActualIndex": 1,
-      "lineup": {},
-      "relevistas": []
-    },
-    {
-      "nombre": "Maria",
-      "estadio": "Maria",
-      "ciudad": "Maria",
-      "historia": "",
-      "juegosGanados": 0,
-      "juegosPerdidos": 0,
-      "colorPrimario": "0xffffffff",
-      "colorSecundario": "0xffffffff",
-      "rutaLogo": "src/main/resource/picture/icons/DefaultIcon.png",
-      "jugadores": [],
+      "colorPrimario": "0x994d00ff",
+      "colorSecundario": "0xcccc33ff",
+      "rutaLogo": "/picture/San_Diego_Padres/logo_Padres.png",
+      "jugadores": [
+        {
+          "tipo": "Bateador",
+          "posicion": "SS",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Fernando Tatis Jr.",
+          "fNacimiento": "1999-01-02",
+          "altura": 1.90,
+          "numJugador": 23,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "3B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Manny Machado",
+          "fNacimiento": "1992-07-06",
+          "altura": 1.91,
+          "numJugador": 13,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "LF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Juan Soto",
+          "fNacimiento": "1998-10-25",
+          "altura": 1.85,
+          "numJugador": 22,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "2B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Ha-Seong Kim",
+          "fNacimiento": "1995-10-17",
+          "altura": 1.78,
+          "numJugador": 7,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "1B",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Jake Cronenworth",
+          "fNacimiento": "1994-01-21",
+          "altura": 1.83,
+          "numJugador": 9,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "C",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Luis Campusano",
+          "fNacimiento": "1998-09-29",
+          "altura": 1.83,
+          "numJugador": 12,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "CF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Trent Grisham",
+          "fNacimiento": "1996-11-01",
+          "altura": 1.85,
+          "numJugador": 2,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "DH",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "Matt Carpenter",
+          "fNacimiento": "1985-11-26",
+          "altura": 1.90,
+          "numJugador": 14,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Bateador",
+          "posicion": "RF",
+          "turnos": 0,
+          "lesionado": false,
+          "nombre": "José Azocar",
+          "fNacimiento": "1996-05-11",
+          "altura": 1.82,
+          "numJugador": 28,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Pitcher",
+          "esZurdo": false,
+          "turnos": 0,
+          "nombre": "Yu Darvish",
+          "fNacimiento": "1986-08-16",
+          "altura": 1.96,
+          "numJugador": 11,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        },
+        {
+          "tipo": "Pitcher",
+          "esZurdo": true,
+          "turnos": 0,
+          "nombre": "Blake Snell",
+          "fNacimiento": "1992-12-04",
+          "altura": 1.93,
+          "numJugador": 4,
+          "imagenRoute": "/picture/Icons/DefaultFoto.png",
+          "lesion": {
+            "tipo": "NINGUNA",
+            "fecInicio": "2025-04-05",
+            "finEstimada": "2025-04-05",
+            "diasRecuperacion": 1,
+            "activa": false
+          }
+        }
+      ],
       "bateadorActualIndex": 1,
       "lineup": {},
       "relevistas": []
