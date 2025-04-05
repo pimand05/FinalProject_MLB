@@ -12,7 +12,7 @@
       "jonrones": 0,
       "colorPrimario": "0x0000ffff",
       "colorSecundario": "0xcc6633ff",
-      "rutaLogo": "src/main/resource/picture/New_York_Mets/logo_New_York_Mets.png",
+      "rutaLogo": "/picture/New_York_Mets/logo_New_York_Mets.png",
       "jugadores": [
         {
           "tipo": "Bateador",
