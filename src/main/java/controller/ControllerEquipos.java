@@ -41,6 +41,7 @@ public class ControllerEquipos implements Initializable {
     @FXML private TableColumn<Equipo, String> ciudadColumn;
     @FXML private TableColumn<Equipo, String> estadioColumn;
     @FXML private TableColumn<Equipo, String> numeroColumn;
+    public static boolean adminMode = false;
 
     private final ObservableList<Equipo> data = FXCollections.observableArrayList();
 
@@ -56,8 +57,7 @@ public class ControllerEquipos implements Initializable {
 
     // Método para restaurar la vista original de la tabla
     private void resetTableView() {
-        ObservableList<Equipo> equiposObservable = FXCollections.observableArrayList(
-                SerieMundial.getInstance().getEquipos());
+        ObservableList<Equipo> equiposObservable = FXCollections.observableArrayList(SerieMundial.getInstance().getEquipos());
         tableView.setItems(equiposObservable);
 
 
@@ -153,6 +153,10 @@ public class ControllerEquipos implements Initializable {
 
         resetTableView();
 
+        if(adminMode == false){
+            btnCrearEquipo.setVisible(false);
+        }
+
         tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleRowClick);
 
 
@@ -191,29 +195,6 @@ public class ControllerEquipos implements Initializable {
                     }
                 });
 
-                // Create "Modificar" menu item
-                MenuItem modificar = new MenuItem("Modificar");
-                modificar.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent e) {
-                        System.out.println("Modificando equipo: " + selectedTeam.getNombre());
-
-                        try {
-                            SerieMundial.getInstance().setEquipoSeleccionado(selectedTeam);
-                            Stage editStage = new Stage();
-                            AppMain.app.loadStage(editStage, Paths.EDITAREQUIPO,
-                                    "Modificar Equipo: " + selectedTeam.getNombre(),
-                                    false, Paths.ICONMAIN);
-
-                            // Refresh the table after the edit window is closed
-                            editStage.setOnHidden(event -> resetTableView());
-                        } catch (Exception ex) {
-                            System.out.println("Error al abrir la ventana de modificación: " + ex.getMessage());
-                            ex.printStackTrace();
-                        }
-                    }
-                });
-
                 // Create "Eliminar equipo" menu item
                 MenuItem deleteItem = new MenuItem("Eliminar equipo");
                 deleteItem.setOnAction(new EventHandler<ActionEvent>() {
@@ -241,7 +222,7 @@ public class ControllerEquipos implements Initializable {
                     }
                 });
 
-                contextMenu.getItems().addAll(infoItem, modificar, deleteItem);
+                contextMenu.getItems().addAll(infoItem, deleteItem);
                 contextMenu.show(tableView, event.getScreenX(), event.getScreenY());
             }
             // Handle double-click to open info window (keep existing behavior)
@@ -291,17 +272,27 @@ public class ControllerEquipos implements Initializable {
     }
 
     public void openCrearEquipo(ActionEvent actionEvent) {
-        Stage stage = new Stage();
-        AppMain.app.loadStage(stage, Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
-        stage.setAlwaysOnTop(true);
+
+        if(adminMode == false){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText(null);
+            alert.setContentText("No tienes permisos para crear un equipo.");
+            alert.showAndWait();
+            return;
+        }else {
+            Stage stage = new Stage();
+            AppMain.app.loadStage(stage, Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
+            stage.setAlwaysOnTop(true);
 
 
-        stage.setOnHidden(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                resetTableView();
-            }
-        });
+            stage.setOnHidden(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    resetTableView();
+                }
+            });
+        }
     }
 
     private ObservableList<Equipo> searchList(String searchWords) {

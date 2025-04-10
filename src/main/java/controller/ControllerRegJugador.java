@@ -245,6 +245,8 @@ public class ControllerRegJugador {
          limpiarFormulario();
          mostrarAlerta("Éxito", "Jugador registrado correctamente");
 
+         Stage stage = (Stage) btnRegistrar.getScene().getWindow();
+
       } catch (NumberFormatException e) {
          mostrarAlerta("Error", "Altura debe ser un número válido");
       } catch (Exception e) {

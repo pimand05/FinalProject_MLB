@@ -16,6 +16,8 @@ public class Paths {
     public static final String INFOEQUIPO = "/fileFXML/InfoEquipo.fxml";
     public static final String DASHBOARD = "/fileFXML/dashboard.fxml";
     public static final String ABOUT = "/fileFXML/about.fxml";
+    public static final String CONFIGURACION = "/fileFXML/Configuracion.fxml";
+    public static final String LOGIN = "/fileFXML/Login.fxml";
 
 
     public static final String INSTANCIA = "src/main/resource/text/instancia.json";

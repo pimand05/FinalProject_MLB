@@ -87,7 +87,7 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openSettings(ActionEvent event) {
-
+        AppMain.app.openNewStage( Paths.CONFIGURACION, "Settings", false, Paths.ICONMAIN,true);
     }
 
     @Override

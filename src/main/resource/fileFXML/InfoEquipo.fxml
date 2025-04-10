@@ -4,6 +4,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -12,7 +13,7 @@
         <font>
             <Font name="Arial Black" size="20.0" />
         </font></Label>
-    <TableView fx:id="tableView" focusTraversable="false" layoutX="46.0" layoutY="488.0" prefHeight="289.0" prefWidth="700.0" styleClass="custom-tableView" stylesheets="@../style/visualVentanaInfo.css">
+    <TableView fx:id="tableView" focusTraversable="false" layoutX="46.0" layoutY="488.0" prefHeight="310.0" prefWidth="700.0" styleClass="custom-tableView" stylesheets="@../style/visualVentanaInfo.css">
         <columns>
             <TableColumn id="numeroColumn" fx:id="numberColumn" prefWidth="88.0" text="#" />
             <TableColumn id="fotoColumn" fx:id="fotoColumn" prefWidth="103.0" text="FOTO" />
@@ -35,4 +36,5 @@
             <TableColumn id="posicionColumn" fx:id="valorColumn" editable="false" prefWidth="123.0" resizable="false" text="Valor" />
         </columns>
     </TableView>
+   <ImageView fx:id="logoImageView" fitHeight="101.0" fitWidth="126.0" layoutX="516.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
 </AnchorPane>

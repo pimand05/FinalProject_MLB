@@ -6,40 +6,36 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="447.0" prefWidth="655.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <left>
-        <VBox alignment="CENTER" prefWidth="250" spacing="20.0" style="-fx-background-color: #1c1c1c;">
+<AnchorPane prefHeight="447.0" prefWidth="655.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerLogin">
+        <VBox alignment="CENTER" prefHeight="447.0" prefWidth="250" spacing="20.0" style="-fx-background-color: #1c1c1c;">
             <ImageView fitHeight="100" fitWidth="100">
                 <image>
                     <Image url="@../picture/icons/mlb.png" />
                 </image>
             </ImageView>
         </VBox>
-    </left>
 
-    <center>
-        <VBox alignment="CENTER" spacing="20.0" style="-fx-padding: 50;">
+
+        <VBox alignment="CENTER" layoutX="250.0" spacing="20.0" style="-fx-padding: 50;">
             <VBox alignment="CENTER" spacing="10">
                 <Label style="-fx-font-size: 32px; -fx-font-weight: bold;" text="Bienvenido" />
-                <Label style="-fx-font-size: 16px;" text="Acceso a tu cuenta" />
+                <Label style="-fx-font-size: 16px;" text="Acceso a tu cuenta de Admin" />
             </VBox>
 
             <VBox spacing="10" style="-fx-padding: 20 0 0 0;">
                 <Label text="Usuario" />
-                <TextField promptText="Username" text="admin" />
+                <TextField fx:id="usuarioTextField" prefHeight="167.0" prefWidth="305.0" promptText="admin" />
 
                 <Label text="Contrasena" />
-                <PasswordField promptText="Password" text="*****" />
+                <PasswordField fx:id="contraTextField" promptText="Password" />
             </VBox>
 
-            <Button prefHeight="38.0" prefWidth="151.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-padding: 10 40;" text="Login" />
+            <Button fx:id="botonLogin" onAction="#setBotonLogin" prefHeight="38.0" prefWidth="151.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-padding: 10 40;" text="Login" />
 
             <HBox alignment="CENTER" spacing="10" />
-         <Button layoutX="137.0" layoutY="334.0" prefHeight="38.0" prefWidth="151.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-padding: 10 40;" text="Sign Up" />
         </VBox>
-    </center>
-</BorderPane>
+</AnchorPane>

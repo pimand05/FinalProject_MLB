@@ -54,6 +54,10 @@ public class ControllerInfoEquipo implements Initializable {
     @FXML
     private Label labelJugador;
 
+    @FXML
+    private ImageView logoImageView;
+
+
     private ObservableList<Jugador> jugadoresObservable;
     private ObservableList<Estadistica> estadisticasObservable;
 
@@ -70,38 +74,65 @@ public class ControllerInfoEquipo implements Initializable {
         positionColumn.setCellValueFactory(new PropertyValueFactory<>("posicion"));
         equipoColumn.setCellValueFactory(new PropertyValueFactory<>("equipo"));
         fotoColumn.setCellValueFactory(new PropertyValueFactory<>("foto"));
+        Image logo = new Image(getClass().getResourceAsStream("/picture/icons/DefaultIcon.png"));
+        logoImageView.setImage(logo);
+
 
         fotoColumn.setCellFactory(new Callback<TableColumn<Jugador, String>, TableCell<Jugador, String>>() {
             @Override
             public TableCell<Jugador, String> call(TableColumn<Jugador, String> column) {
                 return new TableCell<Jugador, String>() {
+                    private final ImageView imageView = new ImageView();
                     @Override
                     protected void updateItem(String ruta, boolean empty) {
                         super.updateItem(ruta, empty);
-
                         if (empty) {
                             setGraphic(null);
                         } else {
                             try {
-                                Jugador jugador = getTableView().getItems().get(getIndex());
+                                System.out.println("Intentando cargar foto: " + ruta);
 
-                                ImageView newImageView = new ImageView();
-
-                                if (jugador.getImagenRoute() != null) {
-                                  //  newImageView.setImage(jugador.getImagenRoute());
-                                } else {
-                                    Image defaultImage = new Image(getClass().getResource("/picture/icons/DefaultFoto.png").toExternalForm());
-                                    newImageView.setImage(defaultImage);
+                                Jugador jugador = null;
+                                if (getIndex() >= 0 && getIndex() < getTableView().getItems().size()) {
+                                    jugador = getTableView().getItems().get(getIndex());
                                 }
 
-                                newImageView.setFitWidth(50);
-                                newImageView.setFitHeight(50);
+                                Image image = null;
+                                if (jugador != null) {
+                                    image = jugador.getFoto();
+                                }
 
-                                setGraphic(newImageView);
-                                setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-                                setAlignment(Pos.CENTER);
+                                if (image == null || image.isError()) {
+                                    String defaultPath = "/picture/icons/DefaultFoto.png";
+
+                                    try {
+                                        URL resource = getClass().getResource(defaultPath);
+                                        if (resource != null) {
+                                            System.out.println("Recurso encontrado en: " + resource);
+                                            image = new Image(resource.toExternalForm(), 50, 50, true, true);
+                                        } else {
+                                            System.out.println("Recurso no encontrado: " + defaultPath);
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error cargando imagen por defecto: " + e.getMessage());
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                if (image != null && !image.isError()) {
+                                    imageView.setImage(image);
+                                    imageView.setFitWidth(50);
+                                    imageView.setFitHeight(50);
+                                    imageView.setPreserveRatio(true);
+                                    setGraphic(imageView);
+                                    setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                                    setAlignment(Pos.CENTER);
+                                } else {
+                                    setGraphic(null);
+                                    System.out.println("No se pudo cargar ninguna imagen");
+                                }
                             } catch (Exception e) {
-                                System.out.println("Error al cargar la imagen: " + e.getMessage());
+                                System.out.println("Error general al cargar la imagen: " + e.getMessage());
                                 e.printStackTrace();
                                 setGraphic(null);
                             }

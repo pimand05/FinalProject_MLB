@@ -12,6 +12,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Callback;
@@ -20,19 +22,43 @@ import logic.Jugador;
 import logic.SerieMundial;
 import utility.Paths;
 
+import java.util.function.Consumer;
+
+
 public class ControllerJugadores {
 
-    @FXML private Button btnCrearJugador;
-    @FXML private TableView<Jugador> tableView;
-    @FXML private TableColumn<Jugador, Integer> numberColumn;
-    @FXML private TableColumn<Jugador, String> nameColumn;
-    @FXML private TableColumn<Jugador, String> positionColumn;
-    @FXML private TableColumn<Jugador, String> equipoColumn;
-    @FXML private TableColumn<Jugador, String> fotoColumn;
-    @FXML private TextField searchBar;
+    @FXML
+    private Button btnCrearJugador;
+    @FXML
+    private TableView<Jugador> tableView;
+    @FXML
+    private TableColumn<Jugador, Integer> numberColumn;
+    @FXML
+    private TableColumn<Jugador, String> nameColumn;
+    @FXML
+    private TableColumn<Jugador, String> positionColumn;
+    @FXML
+    private TableColumn<Jugador, String> equipoColumn;
+    @FXML
+    private TableColumn<Jugador, String> fotoColumn;
+    @FXML
+    private TextField searchBar;
 
     private ObservableList<Jugador> jugadoresObservable;
+    public static boolean adminMode = false;
 
+    // Método para restaurar la vista original de la tabla
+    private void resetTableView() {
+        ObservableList<Jugador> jugadoresObservable = FXCollections.observableArrayList(SerieMundial.getInstance().getTodosLosJugadores());
+        tableView.setItems(jugadoresObservable);
+
+        tableView.setFixedCellSize(60);
+        tableView.setPrefHeight(10 * tableView.getFixedCellSize() + 55);
+
+        tableView.refresh();
+    }
+
+    // Método para inicializar la tabla y cargar los datos
     @FXML
     public void initialize() {
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("numJugador"));
@@ -49,6 +75,8 @@ public class ControllerJugadores {
         });
         equipoColumn.setCellValueFactory(new PropertyValueFactory<>("equipo"));
         fotoColumn.setCellValueFactory(new PropertyValueFactory<>("ImageRoute"));
+
+        tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleRowClick);
 
         jugadoresObservable = FXCollections.observableArrayList();
 
@@ -67,6 +95,7 @@ public class ControllerJugadores {
             public TableCell<Jugador, String> call(TableColumn<Jugador, String> column) {
                 return new TableCell<Jugador, String>() {
                     private final ImageView imageView = new ImageView();
+
                     @Override
                     protected void updateItem(String ruta, boolean empty) {
                         super.updateItem(ruta, empty);
@@ -106,22 +135,101 @@ public class ControllerJugadores {
 
         resetTableView();
 
+        if (adminMode == false) {
+            btnCrearJugador.setVisible(false);
+        }
+
         tableView.setFixedCellSize(60);
         tableView.setPrefHeight(10 * tableView.getFixedCellSize() + 55);
     }
 
-    // Método para restaurar la vista original de la tabla
-    private void resetTableView() {
-        tableView.setItems(jugadoresObservable);
+    private void handleRowClick(MouseEvent mouseEvent) {
+        final Jugador selectedPlayer = tableView.getSelectionModel().getSelectedItem();
 
-        tableView.setFixedCellSize(60);
-        tableView.setPrefHeight(10 * tableView.getFixedCellSize() + 55);
+        if (selectedPlayer != null) {
+            // Handle right-click with context menu
+            if (mouseEvent.getButton() == MouseButton.SECONDARY) {
+                ContextMenu contextMenu = new ContextMenu();
 
-        tableView.refresh();
+                // Create "Ver información" menu item
+                MenuItem infoItem = new MenuItem("Ver información");
+                /*infoItem.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        System.out.println("Jugador seleccionado: " + selectedPlayer.getNombre());
+
+                        try {
+                            SerieMundial.getInstance().setJugadorSeleccionado(selectedPlayer);
+                            Stage infoStage = new Stage();
+                            AppMain.app.loadStage(infoStage, Paths.INFOJUGADOR,
+                                    "Información de " + selectedPlayer.getNombre(),
+                                    false, Paths.ICONMAIN);
+                        } catch (Exception ex) {
+                            System.out.println("Error al abrir la ventana de información: " + ex.getMessage());
+                            ex.printStackTrace();
+                        }
+                    }
+                });*/
+
+                //Create "Eliminar jugador" menu item
+                MenuItem deleteItem = new MenuItem("Eliminar jugador");
+                deleteItem.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmación");
+                        alert.setHeaderText("Eliminar jugador");
+                        alert.setContentText("¿Está seguro que desea eliminar a " + selectedPlayer.getNombre() + "?");
+
+                        ButtonType buttonTypeYes = new ButtonType("Sí");
+                        ButtonType buttonTypeNo = new ButtonType("No");
+
+                        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+                        alert.showAndWait().ifPresent(new Consumer<ButtonType>() {
+                            @Override
+                            public void accept(ButtonType buttonType) {
+                                if (buttonType == buttonTypeYes) {
+                                    // Get the player's team
+                                    Equipo equipo = SerieMundial.getInstance().buscarEquipoPorNombre(selectedPlayer.getEquipo());
+                                    if (equipo != null) {
+                                        equipo.getJugadores().remove(selectedPlayer);
+                                        resetTableView();
+                                        jugadoresObservable.remove(selectedPlayer);
+                                        tableView.refresh();
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
+
+                contextMenu.getItems().addAll(infoItem, deleteItem);
+                contextMenu.show(tableView, mouseEvent.getScreenX(), mouseEvent.getScreenY());
+            }
+
+
+            // Handle double-click to open info window
+            /*else if (mouseEvent.getButton() == MouseButton.PRIMARY && mouseEvent.getClickCount() == 2) {
+                System.out.println("Jugador seleccionado: " + selectedPlayer.getNombre());
+
+                try {
+                    SerieMundial.getInstance().setJugadorSeleccionado(selectedPlayer);
+                    Stage infoStage = new Stage();
+                    AppMain.app.loadStage(infoStage, Paths.INFOJUGADOR,
+                            "Información de " + selectedPlayer.getNombre(),
+                            false, Paths.ICONMAIN);
+                } catch (Exception e) {
+                    System.out.println("Error al abrir la ventana de información: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }*/
+        }
     }
 
     @FXML
     private void search(ActionEvent event) {
+        resetTableView();
         tableView.setItems(searchList(searchBar.getText()));
     }
 
@@ -138,13 +246,9 @@ public class ControllerJugadores {
 
     public void openCrearJugador(ActionEvent actionEvent) {
         Stage stage = new Stage();
-        AppMain.app.loadStage(new Stage(), Paths.REGJUGADOR, "Crear Jugador", false, Paths.ICONMAIN);
+        AppMain.app.openNewStage(Paths.REGJUGADOR, "Registrar Jugador", false, Paths.ICONMAIN, true);
+        stage.setAlwaysOnTop(true);
+        resetTableView();
 
-        stage.setOnHidden(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                resetTableView();
-            }
-        });
     }
 }
