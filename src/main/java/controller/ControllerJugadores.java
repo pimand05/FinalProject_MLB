@@ -83,7 +83,7 @@ public class ControllerJugadores {
                                 ImageView newImageView = new ImageView();
 
                                 if (jugador.getImagenRoute() != null) {
-                                    newImageView.setImage(jugador.getImagenRoute());
+                                    //newImageView.setImage(jugador.getImagenRoute());
                                 } else {
                                     Image defaultImage = new Image(getClass().getResource("/picture/icons/DefaultFoto.png").toExternalForm());
                                     newImageView.setImage(defaultImage);

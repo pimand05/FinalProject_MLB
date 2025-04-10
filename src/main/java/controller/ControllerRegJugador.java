@@ -240,6 +240,7 @@ public class ControllerRegJugador {
          }
 
          equipoJugador.addJugador(jugador);
+         SerieMundial.getInstance().loadJugadores();
          jugador.getfoto();
          limpiarFormulario();
          mostrarAlerta("Éxito", "Jugador registrado correctamente");

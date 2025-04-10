@@ -69,8 +69,8 @@ public abstract class Jugador implements Serializable {
         this.numJugador = numJugador;
     }
 
-    public Image getImagenRoute() {
-        return foto;
+    public String getImagenRoute() {
+        return imagenRoute;
     }
 
     public void setImagenRoute(String imagenRoute) {
@@ -118,8 +118,7 @@ public abstract class Jugador implements Serializable {
     public abstract void actualizarEstadisticas(Partido partido);
 
     public void getfoto() {
-        Image img = new Image(Objects.requireNonNull(getClass().getResource(imagenRoute)).toExternalForm());
-        this.foto = img;
+        this.foto = new Image(Objects.requireNonNull(getClass().getResource(imagenRoute)).toExternalForm());
     }
 }
 

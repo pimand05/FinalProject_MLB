@@ -77,8 +77,12 @@ public class EstadisticasBateador implements Serializable  {
         juegosJugados++;
     }
 
-    public void calcularPromedioBateo() {
-        promedioBateo = hits / juegosJugados;
+    public Float calcularPromedioBateo() {
+        if (juegosJugados == 0) {
+            return 0f;
+        }
+        promedioBateo = (float) (hits + homeRuns) / juegosJugados;
+        promedioBateo = Math.round(promedioBateo * 1000f) / 1000f;
+        return promedioBateo;
     }
-
 }

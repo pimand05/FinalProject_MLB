@@ -16,7 +16,7 @@ public class SerieMundial implements Serializable {
     private static SerieMundial instance = null;
     private static final long serialVersionUID = 1L;
     ArrayList<Temporada> temporadas;
-    ArrayList<Jugador> jugadores;
+    transient ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
     private int temporadaActualIndex;// Para llevar control de la temporada actual
     private Equipo equipoSeleccionado;
@@ -112,6 +112,34 @@ public class SerieMundial implements Serializable {
         }
         return null;
     }
+
+    public ArrayList<Bateador> getBateadores() {
+        ArrayList<Bateador> bateadores = new ArrayList<>();
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Bateador) {
+                bateadores.add((Bateador) jugador);
+            }
+        }
+        return bateadores;
+    }
+
+    public ArrayList<Pitcher> getPitchers() {
+        ArrayList<Pitcher> pitchers = new ArrayList<>();
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Pitcher) {
+                pitchers.add((Pitcher) jugador);
+            }
+        }
+        return pitchers;
+    }
+
+    public void loadJugadores() {
+       for (Equipo jugador : equipos) {
+          jugadores.addAll(jugador.getJugadores());
+       }
+    }
+
+
 
     public Jugador buscarJugadorPorNombre(String nombreBuscado) {
         for (Jugador jugador: jugadores) {

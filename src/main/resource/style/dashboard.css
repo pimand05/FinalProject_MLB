@@ -22,10 +22,10 @@
 }
 
 .container-ImageCircular{
-    -fx-background-color: #000000;
+    -fx-background-color: #ffffff;
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
+    -fx-background-position: center center;
     -fx-background-radius: 1000; /* Hace que sea circular */
     -fx-min-width: 50px;
     -fx-min-height: 50px;

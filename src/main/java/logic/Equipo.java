@@ -13,8 +13,8 @@ public class Equipo  implements Serializable {
     private String ciudad;
     private String historia;
     private Boolean calificado;
-    private int juegosGanados;
-    private int juegosPerdidos;
+    private int juegosGanados = 0;
+    private int juegosPerdidos = 0;
     private int jonrones;
     private String  colorPrimario;
     private String colorSecundario;
@@ -44,6 +44,34 @@ public class Equipo  implements Serializable {
     }
 
     //Getters y Setters
+    public void setLogo(Image logo) {
+        this.logo = logo;
+    }
+
+    public String getRutaLogo() {
+        return rutaLogo;
+    }
+
+    public void setRutaLogo(String rutaLogo) {
+        this.rutaLogo = rutaLogo;
+    }
+
+    public int getJonrones() {
+        return jonrones;
+    }
+
+    public void setJonrones(int jonrones) {
+        this.jonrones = jonrones;
+    }
+
+    public void setJuegosPerdidos(int juegosPerdidos) {
+        this.juegosPerdidos = juegosPerdidos;
+    }
+
+    public void setJuegosGanados(int juegosGanados) {
+        this.juegosGanados = juegosGanados;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -490,5 +518,12 @@ public class Equipo  implements Serializable {
             System.out.println("Excepción al cargar el logo: " + e.getMessage());
             return null;
         }
+    }
+
+    public Float getRG() {
+        if (partidosJugados == null || partidosJugados.isEmpty()) {
+            return 100f;
+        }
+        return (float) getCarrerasTotales() /partidosJugados.size();
     }
 }

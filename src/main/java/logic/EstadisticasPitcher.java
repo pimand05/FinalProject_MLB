@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class EstadisticasPitcher implements Serializable  {
     private static final long serialVersionUID = 1L;
-    private int entradasLanzadas;
-    private int ponchesLanzados;
-    private int juegosJugados;
-    private int basePorBola;
-    private int carrerasLimpiasPermitidas;
-    private float efectivas;
+    private int entradasLanzadas = 0;
+    private int ponchesLanzados = 0;
+    private int juegosJugados = 0;
+    private int basePorBola = 0;
+    private int carrerasLimpiasPermitidas = 0;
+    private float efectivas = 0.0f;
 
     //Constructor
     public EstadisticasPitcher(int entradasLanzadas, int ponchesLanzados, int juegosJugados, int carrerasLimpiasPermitidas, float efectivas) {
@@ -79,6 +79,10 @@ public class EstadisticasPitcher implements Serializable  {
     }
 
     public Float calcularERA() {
+        if (entradasLanzadas == 0) {
+            // Evitamos la división por cero
+            return 0f;
+        }
         return (carrerasLimpiasPermitidas / (float) entradasLanzadas) * 9;
     }
 }

@@ -61,39 +61,36 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openDashboard(ActionEvent event) {
-
+        AppMain.app.changeScene(AppMain.app.getStage(),Paths.DASHBOARD, "DASHBOARD", true,-25);
     }
 
     @FXML
     void openEquipo(ActionEvent event) {
-        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        //AppMain.app.changeScene(stage,Paths.EQUIPOS, "Registrar Equipo", false);
         AppMain.app.openNewStage( Paths.EQUIPOS, "Registrar Equipo", false, Paths.ICONMAIN,true);
 
     }
 
     @FXML
     void openJugadores(ActionEvent event) {
-        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        //AppMain.app.changeScene(stage, Paths.JUGADORES, "Registrar Equipo", false);
         AppMain.app.openNewStage( Paths.JUGADORES, "Registrar Jugador", false, Paths.ICONMAIN,true);
     }
 
     @FXML
     void openTorneo(ActionEvent event) {
-        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        //AppMain.app.changeScene(stage,Paths.CALENDARIO, "Calendario", true);
-        AppMain.app.openNewStage( Paths.CALENDARIO, "Calendario", true, Paths.ICONMAIN,true);
+        AppMain.app.changeScene(AppMain.app.getStage(),Paths.CALENDARIO, "Calendario", true,25);
+    }
+
+    @FXML
+    void openSettings(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         slideMenu.setTranslateX(-500);
-            btnOpenMenu.setVisible(true);
-            btnMenuClose.setVisible(false);
+        btnOpenMenu.setVisible(true);
+        btnMenuClose.setVisible(false);
 
     }
-
 
 }

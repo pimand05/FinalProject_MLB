@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="798.0" prefWidth="1321.0" styleClass="Container_Main" stylesheets="@../style/ViewMain.css" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMainView">
+<AnchorPane prefHeight="798.0" prefWidth="1321.0" styleClass="Container_Main" stylesheets="@../style/ViewMain.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMainView">
    <children>
       <BorderPane layoutX="377.0" layoutY="200.0" prefHeight="1130.0" prefWidth="673.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -63,7 +63,7 @@
          <children>
             <VBox alignment="TOP_CENTER" layoutY="-5.0" prefHeight="803.0" prefWidth="423.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="421.0" spacing="200.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="421.0" spacing="200.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css">
                      <children>
                         <StackPane fx:id="btnMenuClose" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeMenu" prefHeight="48.0" prefWidth="66.0" styleClass="Stack_Image" stylesheets="@../style/ViewMain.css">
                            <children>
@@ -77,11 +77,6 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </StackPane>
-                        <ImageView fitHeight="74.0" fitWidth="71.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" translateY="5.0">
-                           <image>
-                              <Image url="@../picture/icons/BaseballIcon.png" />
-                           </image>
-                        </ImageView>
                      </children></HBox>
                   <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openTorneo" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Torneo" textFill="WHITE">
                      <font>
@@ -94,8 +89,11 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openEquipo" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Equipo" textFill="WHITE">
+                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openEquipo" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Equipos" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="36.0" />
                      </font>
@@ -106,6 +104,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openJugadores" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text=" Jugadores" textFill="WHITE">
                      <font>
@@ -118,6 +119,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openDashboard" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Dashboard" textFill="WHITE">
                      <font>
@@ -130,6 +134,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openAbout" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="   About" textFill="WHITE">
                      <font>
@@ -142,6 +149,24 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" minHeight="-Infinity" minWidth="-Infinity" onAction="#openSettings" prefHeight="80.0" prefWidth="354.0" styleClass="menu-button" stylesheets="@../style/MenuExpand.css" text="  Settings" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="74.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../picture/icons/SettingIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                </children>
             </VBox>

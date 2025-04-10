@@ -1,6 +1,7 @@
 package controller;
 
 import application.AppMain;
+import com.sun.tools.javac.Main;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -9,6 +10,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -20,6 +22,7 @@ import logic.Equipo;
 import logic.Partido;
 import logic.SerieMundial;
 import logic.Temporada;
+import utility.Paths;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -319,7 +322,7 @@ public class ControllerCalendario {
    }
 
    public void goHome(MouseEvent mouseEvent) {
-      AppMain.app.loadHomeStage();
+      AppMain.app.changeScene(AppMain.app.getStage(), Paths.MAIN, "SERIE MUNDIAL", true,0);
    }
 
    private void mostrarAlerta(String mensaje) {

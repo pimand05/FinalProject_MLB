@@ -108,6 +108,7 @@ public class ControllerPosiciones implements Initializable {
     }
 
 
+    /*
     private void addJugadoresAutomaticamente(Equipo equipo) {
         Bateador bateador = null;
         Pitcher pitcher = null;
@@ -190,6 +191,8 @@ public class ControllerPosiciones implements Initializable {
                 break;
         }
     }
+
+     */
 
     private Image getImageRoute(Bateador bateador, Pitcher pitcher) {
         String nombre = null;
