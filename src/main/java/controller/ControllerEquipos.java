@@ -190,7 +190,6 @@ public class ControllerEquipos implements Initializable {
             if (event.getButton() == MouseButton.SECONDARY) {
                 ContextMenu contextMenu = new ContextMenu();
 
-                // Create "Ver información" menu item
                 MenuItem infoItem = new MenuItem("Ver información");
                 infoItem.setOnAction(new EventHandler<ActionEvent>() {
                     @Override

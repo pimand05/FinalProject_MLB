@@ -128,7 +128,7 @@ public class AppMain extends Application {
     }
 
     private void playIntroVideo(Stage stage) {
-        String videoPath = Objects.requireNonNull(getClass().getResource(Paths.VIDEOINTRO2)).toExternalForm();
+        String videoPath = Objects.requireNonNull(getClass().getResource(Paths.VIDEOINTRO)).toExternalForm();
         Media media = new Media(videoPath);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         MediaView mediaView = new MediaView(mediaPlayer);
