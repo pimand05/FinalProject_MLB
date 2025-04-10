@@ -10,9 +10,11 @@ import java.net.Socket;
 import java.nio.file.Files;
 
 public class Cliente {
+
     public static void backUp() {
         File json = new File(Paths.INSTANCIA); // Ejemplo de JSON
-        try (Socket socket = new Socket("192.168.0.0", 5000);
+        final String ip = "192.168.0.0";
+        try (Socket socket = new Socket(ip, 5000);
              DataOutputStream dos = new DataOutputStream(socket.getOutputStream())) {
 
             byte[] jsonBytes = Files.readAllBytes(json.toPath());

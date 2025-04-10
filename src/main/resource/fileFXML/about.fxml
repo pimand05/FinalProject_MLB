@@ -54,50 +54,24 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="281.0" prefWidth="910.0" spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="277.0" prefWidth="268.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <StackPane fx:id="sebastianFoto" prefHeight="243.0" prefWidth="299.0" VBox.vgrow="ALWAYS" />
-                              <TextFlow prefHeight="72.0" prefWidth="299.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sebastian Diaz (El maestro -&gt;)" textAlignment="CENTER" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </TextFlow>
-                           </children>
-                        </VBox>
+                        <StackPane fx:id="sebastianFoto" prefHeight="243.0" prefWidth="299.0" />
                         <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="2.0" styleClass="pane" stylesheets="@../style/aboutStyle.css" HBox.hgrow="ALWAYS" />
-                        <VBox alignment="TOP_CENTER" prefHeight="279.0" prefWidth="243.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <StackPane fx:id="manuelFoto" prefHeight="231.0" prefWidth="300.0" />
-                              <TextFlow prefHeight="17.0" prefWidth="300.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Manuel Pimentel (El capi)" textAlignment="CENTER" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </TextFlow>
-                           </children>
-                        </VBox>
+                        <StackPane fx:id="sebastianFoto1" prefHeight="243.0" prefWidth="299.0" />
                         <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="2.0" styleClass="pane" stylesheets="@../style/aboutStyle.css" HBox.hgrow="ALWAYS" />
-                        <VBox alignment="TOP_CENTER" prefHeight="277.0" prefWidth="212.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <StackPane fx:id="mariafoto" prefHeight="273.0" prefWidth="293.0" />
-                              <TextFlow prefHeight="80.0" prefWidth="414.0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maria Jose (The brain)" textAlignment="CENTER" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </TextFlow>
-                           </children>
-                        </VBox>
+                        <StackPane fx:id="sebastianFoto2" prefHeight="243.0" prefWidth="299.0" />
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="180.0">
+                     <children>
+                        <Label text="Sebastian Diaz (The master -&gt;)" />
+                        <Label text="Manuel Pimentel (El Capi)" />
+                        <Label text="Maria Jose (The Brain)" />
+                     </children>
+                     <padding>
+                        <Insets left="70.0" />
                      </padding>
                   </HBox>
                </children>
