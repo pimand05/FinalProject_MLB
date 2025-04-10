@@ -40,6 +40,7 @@ public class ControllerConfiguracion {
 
     }
 
+    @FXML
     private void updateVideoConfig(ActionEvent event) {
 
         if (comboBox.getValue().equals("ACTIVO")) {

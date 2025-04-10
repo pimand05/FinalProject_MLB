@@ -74,7 +74,7 @@ public class ControllerInfoEquipo implements Initializable {
         positionColumn.setCellValueFactory(new PropertyValueFactory<>("posicion"));
         equipoColumn.setCellValueFactory(new PropertyValueFactory<>("equipo"));
         fotoColumn.setCellValueFactory(new PropertyValueFactory<>("foto"));
-        Image logo = new Image(getClass().getResourceAsStream("/picture/icons/DefaultIcon.png"));
+        Image logo = equipo.getLogo();
         logoImageView.setImage(logo);
 
 
