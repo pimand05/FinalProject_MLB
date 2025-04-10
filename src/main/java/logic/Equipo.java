@@ -1,9 +1,7 @@
 package logic;
 
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -304,6 +302,30 @@ public class Equipo  implements Serializable {
         return total;
     }
 
+    public int getJonronesTotales() {
+        int total = 0;
+        for (Bateador b : lineup.values()) {
+            total += b.getStats().getHomeRuns();
+        }
+        return total;
+    }
+
+    public float getPromedioBateo() {
+        float total = 0;
+        for (Bateador b : lineup.values()) {
+            total += b.getStats().getPromedioBateo();
+        }
+        return total / lineup.size();
+    }
+
+    public float getERA() {
+        float total = 0;
+        for (Pitcher p : relevistas) {
+            total += p.getStats().calcularERA();
+        }
+        return total / relevistas.size();
+    }
+
     public Bateador cambiarBateadorLesionado() {
         int intentos = 0;
         int indiceInicial = bateadorActualIndex;
@@ -446,8 +468,27 @@ public class Equipo  implements Serializable {
     }
 
 
-    public void getLogo() {
-        Image img = new Image(Objects.requireNonNull(getClass().getResource(rutaLogo)).toExternalForm());
-        this.logo = img;
+    public Image getLogo() {
+        try {
+            // Verificar si la ruta comienza con '/'
+            String rutaCompleta = this.rutaLogo;
+            if (!rutaCompleta.startsWith("/")) {
+                rutaCompleta = "/" + rutaCompleta;
+            }
+
+            Image img = new Image(Objects.requireNonNull(getClass().getResourceAsStream(rutaCompleta)));
+
+            // Verificar si la imagen se cargó correctamente
+            if (img.isError()) {
+                System.out.println("Error al cargar la imagen: " + rutaCompleta);
+                return null;
+            }
+
+            this.logo = img;
+            return img;
+        } catch (Exception e) {
+            System.out.println("Excepción al cargar el logo: " + e.getMessage());
+            return null;
+        }
     }
 }

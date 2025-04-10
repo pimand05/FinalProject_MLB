@@ -193,6 +193,16 @@ public class SerieMundial implements Serializable {
     public void setEquipoSeleccionado(Equipo equipo) {
         this.equipoSeleccionado = equipo;
     }
+
+    public void eliminarEquipo(Equipo selectedTeam) {
+        if (equipos.contains(selectedTeam)) {
+            equipos.remove(selectedTeam);
+            // Eliminar jugadores asociados al equipo
+            for (Jugador jugador : selectedTeam.getJugadores()) {
+                jugadores.remove(jugador);
+            }
+        }
+    }
     // En caso de filtrar una x cantidad de jugadores (OPCIONAL)
 //    public List<Pitcher> obtenerTopPitchers(int cantidad) {
 //        List<Pitcher> ordenados = ordenarPitchersPorEfectividad();
