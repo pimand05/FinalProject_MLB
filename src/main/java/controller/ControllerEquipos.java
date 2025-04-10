@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -41,6 +42,7 @@ public class ControllerEquipos implements Initializable {
     @FXML private TableColumn<Equipo, String> ciudadColumn;
     @FXML private TableColumn<Equipo, String> estadioColumn;
     @FXML private TableColumn<Equipo, String> numeroColumn;
+    @FXML private StackPane iconBotton;
     public static boolean adminMode = false;
 
     private final ObservableList<Equipo> data = FXCollections.observableArrayList();
@@ -67,8 +69,23 @@ public class ControllerEquipos implements Initializable {
         tableView.refresh();
     }
 
+    @FXML
+    void openHome(MouseEvent event) {
+        AppMain.app.changeScene(AppMain.app.getStage(), Paths.MAIN, "SERIE MUNDIAL", true,0);
+    }
+
+    private void setIconImage() {
+        iconBotton.setStyle("-fx-background-image: url('" + Paths.ICONEQUIPO + "');" +
+                "-fx-background-size: 75% 75%; " +
+                "-fx-background-repeat: no-repeat; " +
+                "-fx-background-position: center;");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //setIconImage();
+
+
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("rutaLogo"));
         ciudadColumn.setCellValueFactory(new PropertyValueFactory<>("ciudad"));

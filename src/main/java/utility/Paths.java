@@ -13,6 +13,7 @@ public class Paths {
     public static final String STATSJUGADORES = "/fileFXML/StatsJugadores.fxml";
     public static final String JUGADORES = "/fileFXML/Jugadores.fxml";
     public static final String EQUIPOS = "/fileFXML/Equipos.fxml";
+    public static final String EQUIPOS2 = "/fileFXML/Equipos2.fxml";
     public static final String INFOEQUIPO = "/fileFXML/InfoEquipo.fxml";
     public static final String DASHBOARD = "/fileFXML/dashboard.fxml";
     public static final String ABOUT = "/fileFXML/about.fxml";
@@ -40,6 +41,7 @@ public class Paths {
 
     //MainApp
     public static final String ICONMAIN = "/picture/icons/BaseballIcon.png";
+    public static final String ICONEQUIPO = "/picture/icons/TeamIcon.png";
     public static final String ICONABOUT = "/picture/icons/InformationIcon.png";
     public static final String ICONABOUTWH = "/picture/icons/IconInformationWhite.png";
     public static final String TROFEOICON = "/picture/icons/TrofeoIcon.png";
