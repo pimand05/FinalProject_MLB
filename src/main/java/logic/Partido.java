@@ -632,6 +632,7 @@ public class Partido implements Serializable {
             equipoAlBat.configurarEquipo();
         }
 
+
         Bateador bateador = (Bateador) equipoAlBat.getBateadorActual();
         Pitcher pitcher = equipoDefensor.getPitcherActual();
 
@@ -666,6 +667,10 @@ public class Partido implements Serializable {
         bolas = 0;
         limpiarBases();
 
+        Equipo equipoDefensor = esTopInning ? equipoLocal : equipoVisitante;
+        Pitcher pitcher = equipoDefensor.getPitcherActual();
+        pitcher.getStats().incrementarEntradasLanzadas();
+
         if (esTopInning) {
             esTopInning = false;
 
@@ -686,9 +691,9 @@ public class Partido implements Serializable {
         } else if (accion >= BALL_MIN && accion <= BALL_MAX) {
             procesarBola(bateador, pitcher, esLocal);
         } else if (accion >= HIT_MIN && accion <= HIT_MAX) {
-            procesarHit(bateador, esLocal);
+            procesarHit(bateador, esLocal, pitcher);
         } else if (accion >= HOMERUN_MIN && accion <= HOMERUN_MAX) {
-            procesarHomeRun(bateador, esLocal);
+            procesarHomeRun(bateador, esLocal, pitcher);
         } else if (accion >= ERROR_MIN && accion <= ERROR_MAX) {
             procesarError(esLocal);
         } else if (accion >= FLY_OUT_MIN && accion <= FLY_OUT_MAX) {
@@ -704,9 +709,9 @@ public class Partido implements Serializable {
         pitcher.getStats().incrementarponchesLanzados();
         strikes++;
 
-        if (outs % 3 == 0) {
-            pitcher.getStats().incrementarEntradasLanzadas();
-        }
+//        if (outs % 3 == 0) {
+//            pitcher.getStats().incrementarEntradasLanzadas();
+//        }
 
         if (strikes >= 3) {
             outs++;
@@ -731,10 +736,6 @@ public class Partido implements Serializable {
             bolas = 0;
             strikes = 0;
 
-            if (carreras > 0) {
-                pitcher.getStats().incrementarCarrerasLimpiasPermitidas();
-            }
-
             agregarComentario(String.format("%s %s", bateador.getNombre(), COMENTARIOS.BASExBOLA.getMensaje()));
 
             // Pasa el siguiente bateador
@@ -746,7 +747,7 @@ public class Partido implements Serializable {
 
     }
 
-    private void procesarHit(Bateador bateador, boolean esLocal) {
+    private void procesarHit(Bateador bateador, boolean esLocal, Pitcher pitcher) {
         bateador.incrementTurnos();
         bateador.getStats().incrementarHits();
 
@@ -762,15 +763,17 @@ public class Partido implements Serializable {
 
         if (carreras > 0) {
             bateador.getStats().incrementarCarreras();
+            pitcher.getStats().incrementarCarrerasLimpiasPermitidas();
         }
 
         agregarComentario(String.format("%s %s", bateador.getNombre(), COMENTARIOS.HIT.getMensaje()));
     }
 
-    private void procesarHomeRun(Bateador bateador, boolean esLocal) {
+    private void procesarHomeRun(Bateador bateador, boolean esLocal, Pitcher pitcher) {
         bateador.incrementTurnos();
         bateador.getStats().incrementarHomeRuns();
         bateador.getStats().incrementarCarreras();
+        pitcher.getStats().incrementarCarrerasLimpiasPermitidas();
 
         if (esLocal) {
             homeRunsLocal++;
@@ -971,6 +974,7 @@ public class Partido implements Serializable {
 
         if (carrerasLocal > carrerasVisitante) {
             return equipoLocal;
+
         } else if (carrerasVisitante > carrerasLocal) {
             return equipoVisitante;
         } else {

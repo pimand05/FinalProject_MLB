@@ -104,7 +104,6 @@ public class ControllerJugadores {
             }
         });
 
-
         resetTableView();
 
         tableView.setFixedCellSize(60);

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="451.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegJugador">
+<AnchorPane prefHeight="451.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegJugador">
     <children>
         <BorderPane prefHeight="451.0" prefWidth="919.0" style="-fx-background-color: white;">
             <center>
@@ -54,8 +54,7 @@
                             <children>
                                 <TableView fx:id="tablaEquipos" prefHeight="274.0" prefWidth="256.0" styleClass="tabla-moderna" stylesheets="@../style/Registro.css">
                                     <columns>
-                                        <TableColumn fx:id="colLogo" prefWidth="75.0" text="Logo" />
-                                        <TableColumn fx:id="colEquipo" prefWidth="180.0" text="Nombre" />
+                                        <TableColumn fx:id="colEquipo" prefWidth="254.0" resizable="false" text="Nombre" />
                                     </columns>
                                 </TableView>
                                 <Pane prefHeight="38.0" prefWidth="256.0">

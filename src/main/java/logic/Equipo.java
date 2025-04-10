@@ -36,8 +36,6 @@ public class Equipo  implements Serializable {
     transient SerieMundial serie = SerieMundial.getInstance();
 
     //Constructor
-
-
     public Equipo(String nombre, String estadio, String ciudad, String historia, String colorPrimario, String colorSecundario, String rutaLogo) {
         this.nombre = nombre;
         this.estadio = estadio;

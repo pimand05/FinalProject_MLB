@@ -132,6 +132,14 @@ public class ControllerSimulador {
       double velocidadInicial = 1.0;
       sliderVelocidad.setValue(velocidadInicial);
 
+      partido.getEquipoLocal().getJugadores().stream()
+            .filter(j -> j instanceof Bateador)
+            .forEach(j -> ((Bateador) j).getStats().incrementarJuegosJugados());
+
+      partido.getEquipoVisitante().getJugadores().stream()
+            .filter(j -> j instanceof Bateador)
+            .forEach(j -> ((Bateador) j).getStats().incrementarJuegosJugados());
+
       timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
          partido.simularSiguienteJugada();
          actualizarInterfazCompleta();
@@ -143,8 +151,7 @@ public class ControllerSimulador {
             btnReanudar.setDisable(true);
             sliderVelocidad.setDisable(true);
 
-            System.out.println(partido.getEquipoLocal().getJuegosGanados());
-            System.out.println(partido.getEquipoVisitante().getJuegosGanados());
+            SerieMundial.getInstance().loadJugadores();
 
             Equipo campeon = SerieMundial.getInstance().detectarCampeon(partido);
 
