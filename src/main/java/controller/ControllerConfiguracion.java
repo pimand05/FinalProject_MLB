@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 //import jdk.internal.icu.text.NormalizerBase;
+import logic.Cliente;
 import logic.SerieMundial;
 import utility.Paths;
 
@@ -58,6 +59,6 @@ public class ControllerConfiguracion {
 
     @FXML
     private void backup(ActionEvent event) {
-
+        Cliente.backUp();
     }
 }

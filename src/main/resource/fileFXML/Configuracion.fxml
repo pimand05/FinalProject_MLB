@@ -22,7 +22,7 @@
       </Pane>
       <Label id="labelIntro" layoutX="14.0" layoutY="65.0" prefHeight="31.0" prefWidth="115.0" text="Ver Intro" textAlignment="CENTER" />
       <ComboBox fx:id="comboBox" layoutX="136.0" layoutY="68.0" prefWidth="150.0" />
-      <Button layoutX="136.0" layoutY="144.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Backup" />
+      <Button layoutX="136.0" layoutY="144.0" mnemonicParsing="false" onAction="#backup" prefHeight="25.0" prefWidth="150.0" text="Backup" />
       <Label fx:id="labelAdmin" layoutX="14.0" layoutY="112.0" prefHeight="17.0" prefWidth="150.0" text="Ingresar como Admin" />
       <Button fx:id="botonAdmin" layoutX="136.0" layoutY="108.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="25.0" prefWidth="150.0" text="INGRESAR" />
       <Label layoutX="14.0" layoutY="148.0" prefHeight="17.0" prefWidth="115.0" text="Realizar Backup" />
