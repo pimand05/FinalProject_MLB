@@ -17,6 +17,7 @@ public class SerieMundial implements Serializable {
     private int temporadaActualIndex;// Para llevar control de la temporada actual
     transient private Equipo equipoSeleccionado;
     private HashMap<String,String> passwordMap;
+    private boolean video = false;
 
     private SerieMundial() {
         temporadas = new ArrayList<>();
@@ -46,6 +47,14 @@ public class SerieMundial implements Serializable {
 
     public HashMap<String,String> getPasswordMap() {
         return passwordMap;
+    }
+
+    public boolean getVideo() {
+        return video;
+    }
+
+    public void setVideo(boolean video) {
+        this.video = video;
     }
 
     public void setPasswordMap(HashMap<String,String> passwordMap) {

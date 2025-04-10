@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import logic.SerieMundial;
 import utility.Paths;
 
 import java.net.URL;
@@ -56,7 +57,7 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openAbout(ActionEvent event) {
-
+        AppMain.app.changeScene(AppMain.app.getStage(),Paths.ABOUT, "ABOUT", true,0);
     }
 
     @FXML

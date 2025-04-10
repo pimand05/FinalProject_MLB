@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class AppMain extends Application {
     public static AppMain app;
-    public static boolean video = false;
+    public static boolean video = SerieMundial.getInstance().getVideo();
     private Stage stage;
 
     //Funcion para iniciar la aplicación (default).

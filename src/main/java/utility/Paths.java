@@ -15,6 +15,7 @@ public class Paths {
     public static final String EQUIPOS = "/fileFXML/Equipos.fxml";
     public static final String INFOEQUIPO = "/fileFXML/InfoEquipo.fxml";
     public static final String DASHBOARD = "/fileFXML/dashboard.fxml";
+    public static final String ABOUT = "/fileFXML/about.fxml";
 
 
     public static final String INSTANCIA = "src/main/resource/text/instancia.json";
@@ -37,9 +38,15 @@ public class Paths {
 
     //MainApp
     public static final String ICONMAIN = "/picture/icons/BaseballIcon.png";
+    public static final String ICONABOUT = "/picture/icons/InformationIcon.png";
+    public static final String ICONABOUTWH = "/picture/icons/IconInformationWhite.png";
     public static final String TROFEOICON = "/picture/icons/TrofeoIcon.png";
     public static final String VIDEOINTRO = "/video/VideoIntro.mp4";
     public static final String VIDEOINTRO2 = "/video/VideoIntro2.mp4";
 
+
+    public static final String SEBAFOTO = "/picture/icons/pictureAbout/SebastianAbout.jpg";
+    public static final String MANUELFOTO = "/picture/icons/pictureAbout/ManuelFoto.JPG";
+    public static final String MARIAFOTO = "/picture/icons/pictureAbout/MariaFoto.JPG";
 
 }
