@@ -248,7 +248,6 @@ public class ControllerJugadores {
         Stage stage = new Stage();
         AppMain.app.openNewStage(Paths.REGJUGADOR, "Registrar Jugador", false, Paths.ICONMAIN, true);
         stage.setAlwaysOnTop(true);
-        resetTableView();
 
     }
 }

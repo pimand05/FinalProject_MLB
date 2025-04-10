@@ -62,7 +62,7 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openDashboard(ActionEvent event) {
-        AppMain.app.changeScene(AppMain.app.getStage(),Paths.DASHBOARD, "DASHBOARD", true,-25);
+        AppMain.app.changeScene(AppMain.app.getStage(),Paths.DASHBOARD, "DASHBOARD", true,0);
     }
 
     @FXML
