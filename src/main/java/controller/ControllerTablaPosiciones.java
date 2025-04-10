@@ -1,11 +1,14 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import logic.Equipo;
+import logic.SerieMundial;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -16,10 +19,16 @@ public class ControllerTablaPosiciones {
    @FXML private TableColumn<FilaTablaPosiciones, Integer> colGanados;
    @FXML private TableColumn<FilaTablaPosiciones, Integer> colPerdidos;
    @FXML private TableColumn<FilaTablaPosiciones, String> colDiferencia;
+   @FXML private Label infoGanar;
 
    @FXML
    public void initialize() {
       configurarColumnas();
+      configurarLabel();
+   }
+
+   private void configurarLabel() {
+      infoGanar.setText("Debe ganar " + SerieMundial.getInstance().calcularVictoriasParaCampeonato() + " partidos para ganar el campeonato");
    }
 
    private void configurarColumnas() {

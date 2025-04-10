@@ -7,8 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Temporada implements Serializable {
-
-    private static Temporada instance = null;
+    //private static Temporada instance = null;
     private static final long serialVersionUID = 1L;
     private ArrayList<Partido> partidos;
     private LocalDate fechaInicio;

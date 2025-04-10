@@ -74,6 +74,18 @@ public class EstadisticasPitcher implements Serializable  {
         return (float) ponchesLanzados / entradasLanzadas;
     }
 
+    public void incrementarEntradasLanzadas() {
+        entradasLanzadas++;
+    }
+
+    public void incrementarBasesPorBola() {
+        basePorBola++;
+    }
+
+    public void incrementarCarrerasLimpiasPermitidas() {
+        carrerasLimpiasPermitidas++;
+    }
+
     public void incrementarponchesLanzados() {
         ponchesLanzados++; //crear metodo para incrementar ponches lanzados
     }

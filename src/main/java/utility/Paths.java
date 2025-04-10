@@ -35,6 +35,7 @@ public class Paths {
 
     //MainApp
     public static final String ICONMAIN = "/picture/icons/BaseballIcon.png";
+    public static final String TROFEOICON = "/picture/icons/TrofeoIcon.png";
     public static final String VIDEOINTRO = "/video/VideoIntro.mp4";
     public static final String VIDEOINTRO2 = "/video/VideoIntro2.mp4";
 

@@ -6,10 +6,7 @@ import utility.PersistenciaJSON;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class SerieMundial implements Serializable {
 
@@ -39,14 +36,22 @@ public class SerieMundial implements Serializable {
 
 
     public ArrayList<Jugador> getJugadores() {
-        return jugadores;
+        ArrayList<Jugador> todos = new ArrayList<>();
+        for (Equipo equipo : equipos) {
+            todos.addAll(equipo.getJugadores());
+        }
+        return todos;
     }
+
 
     public ArrayList<Temporada> getCalendarios() {
         return temporadas;
     }
 
     public ArrayList<Equipo> getEquipos() {
+        if (equipos == null) {
+            throw new IllegalStateException("La lista de equipos no ha sido inicializada");
+        }
         return equipos;
     }
 
@@ -64,9 +69,16 @@ public class SerieMundial implements Serializable {
 //        jugadores.add(j);
 //    }
 
+//    public void addEquipo(Equipo e) {
+//        equipos.add(e);
+//    }
+
     public void addEquipo(Equipo e) {
-        equipos.add(e);
+        if (!equipos.contains(e)) {
+            equipos.add(e);
+        }
     }
+
 
 
     public Temporada getTemporadaActual() {
@@ -83,9 +95,11 @@ public class SerieMundial implements Serializable {
     }
 
     public Temporada iniciarNuevaTemporada(LocalDate fechaInicio) {
+        /*(
         if (equipos.size() < 2) {
             throw new IllegalStateException("Se necesitan al menos 2 equipos para generar un calendario");
         }
+         */
 
         Temporada nuevaTemporada = new Temporada(equipos, fechaInicio);
         temporadas.add(nuevaTemporada);
@@ -93,8 +107,34 @@ public class SerieMundial implements Serializable {
         return nuevaTemporada;
     }
 
-    // Métodos de Búsqueda
+    public int calcularVictoriasParaCampeonato() {
+        int totalEquipos = this.getEquipos().size();
+        // Fórmula para torneo todos contra todos (ida y vuelta)
+        int totalPartidos = totalEquipos * (totalEquipos - 1);
+        return totalPartidos;
+        //return (int) Math.ceil(totalPartidos * 0.6); // 60% de victorias para asegurar
+    }
 
+    public Equipo detectarCampeon(Partido partidoActual) {
+        int victoriasNecesarias = this.calcularVictoriasParaCampeonato();
+        Equipo posibleGanador = null;
+
+        // Verificar ambos equipos del partido
+        for (Equipo equipo : Arrays.asList(
+              partidoActual.getEquipoLocal(),
+              partidoActual.getEquipoVisitante())) {
+
+            if (equipo.getJuegosGanados() >= victoriasNecesarias) {
+                // Si ya alcanzó las victorias necesarias, ese equipo es el campeón
+                posibleGanador = equipo;
+                break;  // No es necesario continuar verificando más equipos
+            }
+        }
+        return posibleGanador;
+    }
+
+
+    // Métodos de Búsqueda
     // Obtener todos los jugadores de todos los equipos
     public ArrayList<Jugador> getTodosLosJugadores() {
         ArrayList<Jugador> todosLosJugadores = new ArrayList<>();
@@ -211,7 +251,7 @@ public class SerieMundial implements Serializable {
 //                return Float.compare(p2.getStats().getEfectivas, p1.getStats().getEfectivas());
 //            }
 //        });
-       return pitchers;
+        return pitchers;
     }
 
     public Equipo getEquipoSeleccionado() {
@@ -231,6 +271,7 @@ public class SerieMundial implements Serializable {
             }
         }
     }
+
     // En caso de filtrar una x cantidad de jugadores (OPCIONAL)
 //    public List<Pitcher> obtenerTopPitchers(int cantidad) {
 //        List<Pitcher> ordenados = ordenarPitchersPorEfectividad();
@@ -253,7 +294,4 @@ public class SerieMundial implements Serializable {
 //        }
 //        return lista.subList(0, cantidad);
 //    }
-
-
-
 }

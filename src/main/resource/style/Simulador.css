@@ -1,0 +1,14 @@
+.label-hover {
+    -fx-cursor: hand; /* Cambia el cursor al pasar por encima */
+    -fx-text-fill: white; /* Color normal del texto */
+    -fx-background-color: transparent; /* Fondo transparente por defecto */
+    -fx-padding: 4px 8px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-transition: all 0.3s ease; /* Transición suave */
+}
+
+.label-hover:hover {
+    -fx-background-color: #3498db; /* Color al hacer hover */
+    -fx-text-fill: black; /* Cambia el color del texto en hover */
+}

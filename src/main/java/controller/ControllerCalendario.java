@@ -9,14 +9,15 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import logic.Equipo;
 import logic.Partido;
@@ -26,9 +27,11 @@ import utility.Paths;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.logging.Logger;
 
 import static utility.Paths.SIMULADOR;
 import static utility.Paths.TABLAPOSICIONES;
@@ -38,7 +41,7 @@ public class ControllerCalendario {
    @FXML private TableView<Partido> partidosTable;
    @FXML private DatePicker filtroFecha;
    @FXML private ComboBox<Equipo> filtroEquipo;
-   @FXML private Label fechaActualLabel;
+   //@FXML private Label fechaActualLabel;
    @FXML private TableColumn<Partido, String> colLocal;
    @FXML private TableColumn<Partido, String> colVisitante;
    @FXML private Button btnMesAnterior;
@@ -56,24 +59,33 @@ public class ControllerCalendario {
 
    SerieMundial serie = SerieMundial.getInstance();
 
+   private static final Logger LOGGER = Logger.getLogger(ControllerCalendario.class.getName());
+
    public void initialize() {
-      configurarUI();
+      try {
+         Temporada temporadaActual = serie.getTemporadaActual();
+         configurarUI();
+         if (temporadaActual != null && !temporadaActual.getPartidos().isEmpty()) {
+            setTemporada(temporadaActual);
+         } else {
 
-      // temporadaActual = serie.getTemporadaActual();
-      //setTemporada(temporadaActual);
+            LOGGER.info("Inicializando vista sin temporada");
+         }
 
-      // Ajuste de SplitPane
-      splitPane.setDividerPositions(0.561);
-      Platform.runLater(() -> splitPane.setDividerPositions(0.561));
+         configurarBotonJugar();
+         actualizarEstadoBotones();
+         mostrarTablaPosiciones();
 
-      // Inicializa botones
-      configurarBotonIniciarTemporada();
-      configurarBotonJugar();
-      mostrarTablaPosiciones();
+         LOGGER.info("Inicialización completada exitosamente");
+      } catch (Exception e) {
+         LOGGER.severe("Error durante la inicialización: " + e.getMessage());
+         e.printStackTrace();
+         mostrarAlerta("Error al cargar el calendario: " + e.getMessage());
+      }
    }
 
    private void configurarUI() {
-      fechaActualLabel.setText(fechaActual.format(DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy")));
+      //fechaActualLabel.setText(fechaActual.format(DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy")));
 
       btnMesAnterior.setOnAction(e -> cambiarMes(-1));
       btnMesSiguiente.setOnAction(e -> cambiarMes(1));
@@ -121,7 +133,7 @@ public class ControllerCalendario {
             if (!partido.isPartidoTerminado()) {
                abrirSimuladorPartido(partido);
             } else {
-               mostrarAlerta("El partido de hoy ya ha finalizado");
+               mostrarResultadosPartido(partido);
             }
          } else {
             mostrarAlerta("No hay partidos programados para hoy");
@@ -129,10 +141,40 @@ public class ControllerCalendario {
       });
 
       // Verificar estado del botón al cambiar de día
-      fechaActualLabel.textProperty().addListener((obs, oldVal, newVal) -> {
-         actualizarEstadoBotonJugar();
-      });
+//      fechaActualLabel.textProperty().addListener((obs, oldVal, newVal) -> {
+//         actualizarEstadoBotonJugar();
+//      });
    }
+
+
+   private void mostrarResultadosPartido(Partido partido) {
+      Dialog<Void> dialog = new Dialog<>();
+      dialog.setTitle("Resultados del Partido");
+
+      Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+      stage.getIcons().add(new Image(Paths.ICONMAIN));
+
+      dialog.getDialogPane().setPrefSize(300, 100);
+
+      dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+
+      VBox contenido = new VBox(10);
+      contenido.setPadding(new Insets(15));
+      contenido.setAlignment(Pos.CENTER_LEFT);
+
+      Label titulo = new Label(partido.getEquipoLocal().getNombre() + " vs " + partido.getEquipoVisitante().getNombre());
+      titulo.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+
+      Label resultado = new Label("Resultado: " + partido.getCarrerasLocal() + " - " + partido.getCarrerasVisitante());
+      resultado.setStyle("-fx-font-size: 14px;");
+
+      contenido.getChildren().addAll(titulo, resultado);
+
+      dialog.getDialogPane().setContent(contenido);
+
+      dialog.showAndWait();
+   }
+
 
    private void actualizarEstadoBotones() {
       boolean hayTemporada = temporada != null && !temporada.getPartidos().isEmpty();
@@ -143,17 +185,28 @@ public class ControllerCalendario {
    private void actualizarEstadoBotonJugar() {
       if (temporada == null || temporada.getPartidos().isEmpty()) {
          btnJugar.setDisable(true);
+         btnJugar.setText("Sin partidos");
          return;
       }
 
       LocalDate hoy = LocalDate.now();
       List<Partido> partidosHoy = partidosPorFecha.get(hoy);
 
-      boolean hayPartidosHoy = partidosHoy != null && !partidosHoy.isEmpty();
-      boolean partidoFinalizado = hayPartidosHoy && partidosHoy.get(0).isPartidoTerminado();
-
-      btnJugar.setDisable(!hayPartidosHoy || partidoFinalizado);
+      if (partidosHoy == null || partidosHoy.isEmpty()) {
+         btnJugar.setDisable(true);
+         btnJugar.setText("Sin partidos");
+      } else {
+         Partido partido = partidosHoy.get(0);
+         if (partido.isPartidoTerminado()) {
+            btnJugar.setDisable(false);
+            btnJugar.setText("Ver Resultados");
+         } else {
+            btnJugar.setDisable(false);
+            btnJugar.setText("Jugar Partido");
+         }
+      }
    }
+
 
    public void setTemporada(Temporada temporada) {
       this.temporada = temporada;
@@ -170,6 +223,10 @@ public class ControllerCalendario {
          }
 
          filtroEquipo.setItems(FXCollections.observableArrayList(new ArrayList<>(equiposUnicosSet)));
+
+         generarVistaCalendario();
+         actualizarEstadoBotones();
+
       } else {
          this.todosPartidos = FXCollections.observableArrayList();
          this.partidosFiltrados = new FilteredList<>(todosPartidos);
@@ -180,6 +237,7 @@ public class ControllerCalendario {
       generarVistaCalendario();
       actualizarEstadoBotones();
    }
+
 
    private void configurarFiltros() {
       filtroFecha.valueProperty().addListener((obs, oldVal, newVal) -> aplicarFiltros());
@@ -218,8 +276,21 @@ public class ControllerCalendario {
 
    private void generarVistaCalendario() {
       calendarioGrid.getChildren().clear();
-      calendarioGrid.setMaxWidth(250);
-      calendarioGrid.setMaxHeight(200);
+      calendarioGrid.getColumnConstraints().clear();
+      calendarioGrid.getRowConstraints().clear();
+
+      for (int i = 0; i < 7; i++) {
+         ColumnConstraints column = new ColumnConstraints();
+         column.setHalignment(HPos.CENTER);
+         column.setPercentWidth(100 / 7.0);
+         calendarioGrid.getColumnConstraints().add(column);
+      }
+
+      for (int i = 0; i < 6; i++) {
+         RowConstraints row = new RowConstraints();
+         row.setVgrow(Priority.ALWAYS);
+         calendarioGrid.getRowConstraints().add(row);
+      }
 
       String[] diasSemana = {"Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"};
       for (int i = 0; i < 7; i++) {
@@ -239,6 +310,8 @@ public class ControllerCalendario {
       for (int dia = 1; dia <= diasEnMes; dia++) {
          VBox celda = new VBox(3);
          celda.setPadding(new Insets(2));
+         celda.setMaxHeight(Double.MAX_VALUE);
+         celda.setMaxWidth(Double.MAX_VALUE);
 
          Label diaLabel = new Label(String.valueOf(dia));
          celda.getChildren().add(diaLabel);
@@ -278,6 +351,7 @@ public class ControllerCalendario {
          if (columna == 0) fila++;
       }
    }
+
 
    private void abrirSimuladorPartido(Partido partido) {
       try {

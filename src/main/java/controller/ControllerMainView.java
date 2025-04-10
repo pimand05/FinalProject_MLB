@@ -66,12 +66,16 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openEquipo(ActionEvent event) {
+        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //AppMain.app.changeScene(stage,Paths.EQUIPOS, "Registrar Equipo", false);
         AppMain.app.openNewStage( Paths.EQUIPOS, "Registrar Equipo", false, Paths.ICONMAIN,true);
 
     }
 
     @FXML
     void openJugadores(ActionEvent event) {
+        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //AppMain.app.changeScene(stage, Paths.JUGADORES, "Registrar Equipo", false);
         AppMain.app.openNewStage( Paths.JUGADORES, "Registrar Jugador", false, Paths.ICONMAIN,true);
     }
 
@@ -92,5 +96,6 @@ public class ControllerMainView implements Initializable {
         btnMenuClose.setVisible(false);
 
     }
+
 
 }

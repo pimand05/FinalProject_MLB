@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import logic.*;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.InputStream;
 import java.time.LocalDate;
@@ -173,9 +174,6 @@ public class ControllerStatsJugador {
       } else if (jugador instanceof Pitcher) {
          mostrarPitcher((Pitcher) jugador);
       }
-
-      //cargarLogoEquipo(equipo); // Carga el logo del equipo
-      //cargarFotoJugador(jugador); // Carga la foto del jugador
    }
 
    private void mostrarBateador(Bateador bateador) {
@@ -199,6 +197,9 @@ public class ControllerStatsJugador {
       carrerasBateador.setText(String.valueOf(stats.getCarreras()));
       homeRunsBateador.setText(String.valueOf(stats.getHomeRuns()));
 
+      //fotoBateador.setImage(bateador.getfoto());
+      logoEquipo.setImage(equipoBateador.getLogo());
+
       cargarStatsBateador(stats);
    }
 
@@ -221,6 +222,9 @@ public class ControllerStatsJugador {
       labelEraPit.setText(String.format("%.2f", stats.calcularERA()));
       labelPonchesPit.setText(String.valueOf(stats.getPonchesLanzados()));
       labelCarrerasLimpias.setText(String.valueOf(stats.getCarrerasLimpiasPermitidas()));
+
+      //fotoPitcher.setImage(pitcher.getfoto());
+      logoEquipoP.setImage(equipoPitcher.getLogo());
 
       cargarStatsPitcher(stats);
    }

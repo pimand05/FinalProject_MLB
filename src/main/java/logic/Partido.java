@@ -499,9 +499,9 @@ public class Partido implements Serializable {
     //private final List<String> resumenPartido = new ArrayList<>();
     //private final List<String> comentariosTemporales = new ArrayList<>();
 
-    private final transient Map<InningKey, List<String>> comentariosPorInning = new HashMap<>();
-    private final transient List<String> resumenPartido = new ArrayList<>();
-    private final transient List<String> comentariosTemporales = new ArrayList<>();
+    private transient Map<InningKey, List<String>> comentariosPorInning = new HashMap<>();
+    private transient List<String> resumenPartido = new ArrayList<>();
+    private transient List<String> comentariosTemporales = new ArrayList<>();
 
     public Partido(LocalDate fecha, String estadio, Equipo equipoLocal, Equipo equipoVisitante) {
         if (fecha == null || equipoLocal == null || equipoVisitante == null) {
@@ -638,6 +638,7 @@ public class Partido implements Serializable {
         verificarLesion(bateador);
         verificarLesion(pitcher);
 
+
         if (bateador.getLesion().isActiva() || pitcher.getLesion().isActiva()) {
             manejarLesionDuranteJugada();
             return; // Terminar el turno si hubo lesión
@@ -653,6 +654,8 @@ public class Partido implements Serializable {
         // Verificar si es el final del partido (9 innings completos)
         if (inningActual > 9 && carrerasLocal != carrerasVisitante) {
             partidoTerminado = true;
+            equipoLocal.setPartidosJugados();
+            equipoVisitante.setPartidosJugados();
             determinarResultado();
         }
     }
@@ -701,6 +704,10 @@ public class Partido implements Serializable {
         pitcher.getStats().incrementarponchesLanzados();
         strikes++;
 
+        if (outs % 3 == 0) {
+            pitcher.getStats().incrementarEntradasLanzadas();
+        }
+
         if (strikes >= 3) {
             outs++;
             strikes = 0;
@@ -717,11 +724,16 @@ public class Partido implements Serializable {
         bolas++;
 
         if (bolas >= 4) {
+            pitcher.getStats().incrementarBasesPorBola();
             int carreras = avanzarCorredores(1, esLocal);
             bases[0] = true;
             registrarCarreras(carreras, esLocal);
             bolas = 0;
             strikes = 0;
+
+            if (carreras > 0) {
+                pitcher.getStats().incrementarCarrerasLimpiasPermitidas();
+            }
 
             agregarComentario(String.format("%s %s", bateador.getNombre(), COMENTARIOS.BASExBOLA.getMensaje()));
 
@@ -748,17 +760,24 @@ public class Partido implements Serializable {
         bases[0] = true;
         registrarCarreras(carreras, esLocal);
 
+        if (carreras > 0) {
+            bateador.getStats().incrementarCarreras();
+        }
+
         agregarComentario(String.format("%s %s", bateador.getNombre(), COMENTARIOS.HIT.getMensaje()));
     }
 
     private void procesarHomeRun(Bateador bateador, boolean esLocal) {
         bateador.incrementTurnos();
         bateador.getStats().incrementarHomeRuns();
+        bateador.getStats().incrementarCarreras();
 
         if (esLocal) {
             homeRunsLocal++;
+            equipoLocal.incrementarJonrones();
         } else {
             homeRunsVisitante++;
+            equipoVisitante.incrementarJonrones();
         }
 
         int carreras = 1 + contarCorredores();
@@ -872,19 +891,26 @@ public class Partido implements Serializable {
     }
 
     private void agregarComentario(String comentario) {
+        if (comentariosTemporales == null) {
+            comentariosTemporales = new ArrayList<>();
+        }
         comentariosTemporales.add(comentario);
+        if (resumenPartido == null) {
+            resumenPartido = new ArrayList<>();
+        }
         resumenPartido.add(comentario);
     }
 
     private void guardarComentariosInning(int inning, String mitadInning) {
+        if (comentariosPorInning == null) {
+            comentariosPorInning = new HashMap<>();
+        }
         comentariosPorInning.put(new InningKey(inning, mitadInning), new ArrayList<>(comentariosTemporales));
         comentariosTemporales.clear();
     }
 
     private void determinarResultado() {
-        this.resultado = new Resultado(carrerasLocal, carrerasVisitante);
-        resumenPartido.add("\nResultado final: " + equipoLocal.getNombre() + " " + carrerasLocal +
-              " - " + carrerasVisitante + " " + equipoVisitante.getNombre());
+        this.resultado = new Resultado(hitsLocal, hitsVisitante, carrerasLocal, carrerasVisitante, homeRunsLocal, homeRunsVisitante);
 
         if (carrerasLocal > carrerasVisitante) {
             equipoLocal.incrementarJuegosGanados();
@@ -940,6 +966,20 @@ public class Partido implements Serializable {
         }
     }
 
+    public Equipo getEquipoGanador() {
+        if (!isPartidoTerminado()) return null;
+
+        if (carrerasLocal > carrerasVisitante) {
+            return equipoLocal;
+        } else if (carrerasVisitante > carrerasLocal) {
+            return equipoVisitante;
+        } else {
+            return null;
+        }
+    }
+
+
+    /*
     public class Resultado {
         private final int carrerasLocal;
         private final int carrerasVisitante;
@@ -976,4 +1016,6 @@ public class Partido implements Serializable {
                   carrerasVisitante + " " + equipoVisitante.getNombre();
         }
     }
+
+     */
 }

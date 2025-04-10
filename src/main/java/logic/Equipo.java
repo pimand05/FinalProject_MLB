@@ -1,7 +1,9 @@
 package logic;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,13 +23,16 @@ public class Equipo  implements Serializable {
     private String rutaLogo;
     private transient Image logo;
     private ArrayList<Jugador> jugadores;
-    private ArrayList<Partido> partidosJugados;
+    //private ArrayList<Partido> partidosJugados;
+    private int partidosJugados;
 
     //Manejos de los Partidos
     private int bateadorActualIndex = 1;
     private Pitcher pitcherActual;
     private HashMap<Integer, Bateador> lineup = new HashMap<>();
     private List<Pitcher> relevistas = new ArrayList<>();
+
+    SerieMundial serie = SerieMundial.getInstance();
 
     //Constructor
 
@@ -128,7 +133,11 @@ public class Equipo  implements Serializable {
         this.jugadores = jugadores;
     }
 
-    public ArrayList<Partido> getPartidosJugados() {
+//    public ArrayList<Partido> getPartidosJugados() {
+//        return partidosJugados;
+//    }
+
+    public int getPartidosJugados() {
         return partidosJugados;
     }
 
@@ -190,8 +199,12 @@ public class Equipo  implements Serializable {
 
     //metodos
 
-    public void setJuegosjugados(ArrayList<Partido> partidosJugados) {
-        this.partidosJugados = partidosJugados;
+//    public void setJuegosjugados(ArrayList<Partido> partidosJugados) {
+//        this.partidosJugados = partidosJugados;
+//    }
+
+    public void incrementarJonrones() {
+        jonrones++;
     }
 
     public void addJugador(Jugador jugador) {
@@ -202,8 +215,12 @@ public class Equipo  implements Serializable {
         jugadores.remove(jugador);
     }
 
-    public void addPartido(Partido partido) {
-        partidosJugados.add(partido);
+//    public void addPartido(Partido partido) {
+//        partidosJugados.add(partido);
+//    }
+
+    public void setPartidosJugados() {
+        this.partidosJugados ++;
     }
 
     public Jugador getJugador(int turno) {
@@ -214,9 +231,9 @@ public class Equipo  implements Serializable {
         this.lineup = lineup;
     }
 
-    public void setPartidosJugados(ArrayList<Partido> partidosJugados) {
-        this.partidosJugados = partidosJugados;
-    }
+//    public void setPartidosJugados(ArrayList<Partido> partidosJugados) {
+//        this.partidosJugados = partidosJugados;
+//    }
 
 //    public HashMap<Integer, Bateador> getLineup() {
 //        return lineup;
@@ -495,35 +512,27 @@ public class Equipo  implements Serializable {
         }
     }
 
+    public int getJuegosPorJugar(int totalEquipos) {
+        System.out.println("[DEBUG] Calculando juegos por jugar para: " + this.getNombre());
+        int result = totalEquipos - 1 - (this.getJuegosGanados() + this.getJuegosPerdidos());
+        System.out.println("Resultado: " + result);
+        return result;
+    }
 
+//    public void getLogo() {
+//        Image img = new Image(Objects.requireNonNull(getClass().getResource(rutaLogo)).toExternalForm());
+//        this.logo = img;
+//    }
     public Image getLogo() {
-        try {
-            // Verificar si la ruta comienza con '/'
-            String rutaCompleta = this.rutaLogo;
-            if (!rutaCompleta.startsWith("/")) {
-                rutaCompleta = "/" + rutaCompleta;
-            }
-
-            Image img = new Image(Objects.requireNonNull(getClass().getResourceAsStream(rutaCompleta)));
-
-            // Verificar si la imagen se cargó correctamente
-            if (img.isError()) {
-                System.out.println("Error al cargar la imagen: " + rutaCompleta);
-                return null;
-            }
-
-            this.logo = img;
-            return img;
-        } catch (Exception e) {
-            System.out.println("Excepción al cargar el logo: " + e.getMessage());
-            return null;
-        }
+        Image img = new Image(Objects.requireNonNull(getClass().getResource(rutaLogo)).toExternalForm());
+        this.logo = img;
+        return img;
     }
 
     public Float getRG() {
-        if (partidosJugados == null || partidosJugados.isEmpty()) {
+        if (partidosJugados == 0) {
             return 100f;
         }
-        return (float) getCarrerasTotales() /partidosJugados.size();
+        return (float) getCarrerasTotales() /partidosJugados;
     }
 }
