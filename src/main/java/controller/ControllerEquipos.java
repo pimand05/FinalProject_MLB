@@ -5,6 +5,7 @@ import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,8 +15,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 import logic.Equipo;
 import logic.SerieMundial;
@@ -26,6 +31,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
+
 
 public class ControllerEquipos implements Initializable {
 
@@ -37,6 +44,8 @@ public class ControllerEquipos implements Initializable {
     @FXML private TableColumn<Equipo, String> ciudadColumn;
     @FXML private TableColumn<Equipo, String> estadioColumn;
     @FXML private TableColumn<Equipo, String> numeroColumn;
+
+    private final ObservableList<Equipo> data = FXCollections.observableArrayList();
 
     @FXML
     void search(ActionEvent event) {
@@ -56,10 +65,7 @@ public class ControllerEquipos implements Initializable {
 
 
         tableView.setFixedCellSize(60);
-
-        tableView.prefHeightProperty().bind(
-                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
-        );
+        tableView.setPrefHeight(4 * tableView.getFixedCellSize() + 55);
 
         tableView.refresh();
     }
@@ -95,34 +101,47 @@ public class ControllerEquipos implements Initializable {
             }
         });
 
-        // Configuración del cell factory para que siempre muestre la imagen default
+        // Modificación para la columna de imágenes en ControllerEquipos
         imageColumn.setCellFactory(new Callback<TableColumn<Equipo, String>, TableCell<Equipo, String>>() {
             @Override
             public TableCell<Equipo, String> call(TableColumn<Equipo, String> column) {
                 return new TableCell<Equipo, String>() {
-                    private final ImageView imageView = new ImageView();
-
                     @Override
                     protected void updateItem(String ruta, boolean empty) {
                         super.updateItem(ruta, empty);
 
-                        if (empty) {
+                        if (empty || getIndex() < 0 || getIndex() >= getTableView().getItems().size()) {
                             setGraphic(null);
                         } else {
+                            Equipo equipo = getTableView().getItems().get(getIndex());
+                            Image logo = null;
+
+                            // Intentar obtener el logo usando el método getLogo de Equipo
                             try {
-                                // Crear una nueva instancia de ImageView por cada actualización
-                                ImageView newImageView = new ImageView();
-                                Image defaultImage = new Image(getClass().getResource("/picture.Icons/DefaultIcon.png").toExternalForm());
-                                newImageView.setImage(defaultImage);
-                                newImageView.setFitWidth(50);
-                                newImageView.setFitHeight(50);
-                                // Centrar la imagen
-                                setGraphic(newImageView);
+                                logo = equipo.getLogo();
+                            } catch (Exception e) {
+                                System.out.println("Error al cargar la imagen con getLogo(): " + e.getMessage());
+                            }
+
+                            // Si no se pudo cargar, usar la imagen por defecto
+                            if (logo == null || logo.isError()) {
+                                try {
+                                    logo = new Image(getClass().getResourceAsStream("/picture/icons/DefaultIcon.png"));
+                                } catch (Exception e) {
+                                    System.out.println("No se pudo cargar la imagen por defecto: " + e.getMessage());
+                                }
+                            }
+
+                            if (logo != null && !logo.isError()) {
+                                ImageView imageView = new ImageView(logo);
+                                imageView.setFitWidth(50);
+                                imageView.setFitHeight(50);
+                                imageView.setPreserveRatio(true);
+
+                                setGraphic(imageView);
                                 setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
                                 setAlignment(Pos.CENTER);
-                            } catch (Exception e) {
-                                System.out.println("Error al cargar la imagen por defecto.");
-                                e.printStackTrace();
+                            } else {
                                 setGraphic(null);
                             }
                         }
@@ -137,41 +156,148 @@ public class ControllerEquipos implements Initializable {
 
 
         tableView.setFixedCellSize(60);
+        tableView.setPrefHeight(4 * tableView.getFixedCellSize() + 55);
+        tableView.refresh();
 
-        tableView.prefHeightProperty().bind(
-                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
-        );
     }
 
     private void handleRowClick(MouseEvent event) {
-        Equipo selectedTeam = tableView.getSelectionModel().getSelectedItem();
-        if (selectedTeam != null && event.getClickCount() == 2) { // Detect double-click
-            System.out.println("Equipo seleccionado: " + selectedTeam.getNombre());
+        final Equipo selectedTeam = tableView.getSelectionModel().getSelectedItem();
 
-            try {
+        if (selectedTeam != null) {
+            // Handle right-click with context menu
+            if (event.getButton() == MouseButton.SECONDARY) {
+                ContextMenu contextMenu = new ContextMenu();
 
-                SerieMundial.getInstance().setEquipoSeleccionado(selectedTeam);
 
-                Stage infoStage = new Stage();
-                AppMain.app.loadStage(infoStage, Paths.INFOEQUIPO, "Información de " + selectedTeam.getNombre(),
-                        false, Paths.ICONMAIN);
+                // Create "Ver información" menu item
+                MenuItem infoItem = new MenuItem("Ver información");
+                infoItem.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        System.out.println("Equipo seleccionado: " + selectedTeam.getNombre());
 
-            } catch (Exception e) {
-                System.out.println("Error al abrir la ventana de información: " + e.getMessage());
-                e.printStackTrace();
+                        try {
+                            SerieMundial.getInstance().setEquipoSeleccionado(selectedTeam);
+                            Stage infoStage = new Stage();
+                            AppMain.app.loadStage(infoStage, Paths.INFOEQUIPO,
+                                    "Información de " + selectedTeam.getNombre(),
+                                    false, Paths.ICONMAIN);
+                        } catch (Exception ex) {
+                            System.out.println("Error al abrir la ventana de información: " + ex.getMessage());
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+
+                // Create "Modificar" menu item
+                MenuItem modificar = new MenuItem("Modificar");
+                modificar.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        System.out.println("Modificando equipo: " + selectedTeam.getNombre());
+
+                        try {
+                            SerieMundial.getInstance().setEquipoSeleccionado(selectedTeam);
+                            Stage editStage = new Stage();
+                            AppMain.app.loadStage(editStage, Paths.EDITAREQUIPO,
+                                    "Modificar Equipo: " + selectedTeam.getNombre(),
+                                    false, Paths.ICONMAIN);
+
+                            // Refresh the table after the edit window is closed
+                            editStage.setOnHidden(event -> resetTableView());
+                        } catch (Exception ex) {
+                            System.out.println("Error al abrir la ventana de modificación: " + ex.getMessage());
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+
+                // Create "Eliminar equipo" menu item
+                MenuItem deleteItem = new MenuItem("Eliminar equipo");
+                deleteItem.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmación");
+                        alert.setHeaderText("Eliminar equipo");
+                        alert.setContentText("¿Está seguro que desea eliminar el equipo " + selectedTeam.getNombre() + "?");
+
+                        ButtonType buttonTypeYes = new ButtonType("Sí");
+                        ButtonType buttonTypeNo = new ButtonType("No");
+
+                        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+                        alert.showAndWait().ifPresent(new Consumer<ButtonType>() {
+                            @Override
+                            public void accept(ButtonType buttonType) {
+                                if (buttonType == buttonTypeYes) {
+                                    SerieMundial.getInstance().eliminarEquipo(selectedTeam);
+                                    resetTableView();
+                                }
+                            }
+                        });
+                    }
+                });
+
+                contextMenu.getItems().addAll(infoItem, modificar, deleteItem);
+                contextMenu.show(tableView, event.getScreenX(), event.getScreenY());
             }
+            // Handle double-click to open info window (keep existing behavior)
+            else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                System.out.println("Equipo seleccionado: " + selectedTeam.getNombre());
+
+                try {
+                    SerieMundial.getInstance().setEquipoSeleccionado(selectedTeam);
+                    Stage infoStage = new Stage();
+                    AppMain.app.loadStage(infoStage, Paths.INFOEQUIPO,
+                            "Información de " + selectedTeam.getNombre(),
+                            false, Paths.ICONMAIN);
+                } catch (Exception e) {
+                    System.out.println("Error al abrir la ventana de información: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void eliminarEquipo(ActionEvent actionEvent) {
+        Equipo selectedTeam = tableView.getSelectionModel().getSelectedItem();
+        if (selectedTeam != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmación");
+            alert.setHeaderText("Eliminar equipo");
+            alert.setContentText("¿Está seguro que desea eliminar el equipo " + selectedTeam.getNombre() + "?");
+
+            ButtonType buttonTypeYes = new ButtonType("Sí");
+            ButtonType buttonTypeNo = new ButtonType("No");
+
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+            alert.showAndWait().ifPresent(buttonType -> {
+                if (buttonType == buttonTypeYes) {
+                    SerieMundial.getInstance().eliminarEquipo(selectedTeam);
+                    resetTableView();
+                }
+            });
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, selecciona un equipo para eliminar.");
+            alert.showAndWait();
         }
     }
 
     public void openCrearEquipo(ActionEvent actionEvent) {
         Stage stage = new Stage();
         AppMain.app.loadStage(stage, Paths.RGEQUIPO, "Crear Equipo", false, Paths.ICONMAIN);
+        stage.setAlwaysOnTop(true);
 
 
-        stage.setOnHidden(new javafx.event.EventHandler<javafx.stage.WindowEvent>() {
+        stage.setOnHidden(new EventHandler<WindowEvent>() {
             @Override
-            public void handle(javafx.stage.WindowEvent event) {
-
+            public void handle(WindowEvent event) {
                 resetTableView();
             }
         });

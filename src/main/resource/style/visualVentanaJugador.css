@@ -1,101 +1,118 @@
-#background{
-    -fx-background-color: #111111;
-}
-
-#nameColumn{
-    -fx-background-color: rgb(161, 161, 164);
-    -fx-text-fill: black;
-    -fx-font-size: 26px;
-    -fx-text: black;
-    -fx-border-color: rgb(250, 250, 250);
-    -fx-padding: -1px;
-}
-
-#posicionColumn{
-    -fx-background-color: rgb(161, 161, 164);
-    -fx-text-fill: black;
-    -fx-font-size: 26px;
-    -fx-text: black;
-    -fx-border-color: rgb(250, 250, 250);
-    -fx-padding: -1px;
-}
-
-#fotoColumn{
-    -fx-background-color: rgb(161, 161, 164);
-    -fx-text-fill: black;
-    -fx-font-size: 26px;
-    -fx-text: black;
-    -fx-border-color: rgb(250, 250, 250);
-    -fx-padding: -1px;
-}
-
-#equipoColumn{
-    -fx-background-color: rgb(161, 161, 164);
-    -fx-text-fill: black;
-    -fx-font-size: 26px;
-    -fx-text: black;
-    -fx-border-color: rgb(250, 250, 250);
-    -fx-padding: -1px;
-}
-
-#numeroColumn{
-    -fx-background-color: rgb(161, 161, 164);
-    -fx-text-fill: black;
-    -fx-font-size: 26px;
-    -fx-text: black;
-    -fx-border-color: rgb(250, 250, 250);
-    -fx-padding: -1px;
-}
-
-.table-view .column-header .label {
-    -fx-text-fill: white;
-    -fx-background-color: rgb(161, 161, 164);
-    -fx-border-color: rgb(250, 250, 250);
-}
-
-.custom-tableView{
-    -fx-background-color: rgb(161, 161, 164);
-    -fx-text-fill: black;
-    -fx-font-size: 22px;
-    -fx-border-color: rgb(255, 255, 255);
-}
-
-.panelSearch{
+/*Diseno de Panel de busqueda*/
+#panelSearch{
     -fx-background-color: rgb(255, 255, 255);
     -fx-text-fill: black;
     -fx-font-size: 22px;
     -fx-border-color: rgb(255, 255, 255);
 }
 
-.buttonEquipo{
-    -fx-background-color: rgba(96, 176, 107, 0.59);
-    -fx-text-fill: white;
-    -fx-border-color: #ffffff;
-    -fx-font-size: 20px;
-    -fx-font-family: "Arial Black";
-    -fx-text-fill:"white";
-}
-
-
-/* Visual Predertminado Se va a cambiar*/
-.root{
-    -fx-background-color: linear-gradient(to right, #18329b, #000000);
-}
-
+/*Diseno label de la tabla*/
 .label{
     -fx-font-size: 20px;
     -fx-font-family: "Arial";
     -fx-text-fill:"white";
 }
 
-.table-view .column-header .label {
-    -fx-text-fill: black;
-}
-
-#labelJugador{
+/*Diseno titulo ventana*/
+.titulo{
     -fx-font-size: 50px;
-    -fx-translate-x: 45px;
-    -fx-font-family: "Arial Black";
+    -fx-translate-x: -60px;
+    -fx-font-family: "Arial";
     -fx-text-fill:"white";
     -fx-stroke-width: 20px;
 }
+
+/*Fondo de la ventana principal*/
+#background{
+    -fx-background-color: linear-gradient(to right, #18329b, #000000);
+
+}
+/*Color del fondo de la tabla osea fondo negro*/
+#background2{
+    -fx-background-color: #131313;
+}
+
+/*Color del texto del encabezado de la tabla*/
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+/* Fuente general */
+.root {
+    -fx-background-color: linear-gradient(to right, #18329b, #000000);
+    -fx-font-family: "Verdana", "Geneva", "Tahoma", sans-serif;
+}
+
+/* Tabla */
+.table-view {
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);
+    -fx-table-cell-border-color: transparent;
+}
+
+/* Encabezado */
+.table-view .column-header-background {
+    -fx-background-color: #16a085;
+}
+
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-padding: 12px;
+    -fx-font-size: 16px;
+    -fx-alignment: CENTER;
+}
+
+/* Fila normal */
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-padding: 2px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease-in-out;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-translate-y: 0;
+}
+
+/* 🎆 Efecto hover fuerte: celda sale de la tabla */
+.table-row-cell:hover {
+    -fx-background-color: #fdfdfd;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 20, 0.3, 6, 6);
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-translate-y: -1px; /* la levanta */
+}
+
+/* Celda interna */
+.table-cell {
+    -fx-padding: 12px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Botón personalizado */
+.buttonEquipo {
+    -fx-background-color: #16a085;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-font-size: 25px;
+    -fx-font-family: "Arial";
+    -fx-stroke-width: 20px;
+}
+
+/* Panel de búsqueda */
+#panelSearch {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-border-color: white;
+}
+
+
+
+

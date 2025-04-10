@@ -3,6 +3,7 @@ package controller;
 import application.AppMain;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -12,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 import logic.Equipo;
 import logic.Jugador;
@@ -64,7 +66,7 @@ public class ControllerJugadores {
         }
 
 
-        /*fotoColumn.setCellFactory(new Callback<TableColumn<Jugador, String>, TableCell<Jugador, String>>() {
+        fotoColumn.setCellFactory(new Callback<TableColumn<Jugador, String>, TableCell<Jugador, String>>() {
             @Override
             public TableCell<Jugador, String> call(TableColumn<Jugador, String> column) {
                 return new TableCell<Jugador, String>() {
@@ -83,7 +85,7 @@ public class ControllerJugadores {
                                 if (jugador.getImagenRoute() != null) {
                                     newImageView.setImage(jugador.getImagenRoute());
                                 } else {
-                                    Image defaultImage = new Image(getClass().getResource("/picture.Icons/DefaultIcon.png").toExternalForm());
+                                    Image defaultImage = new Image(getClass().getResource("/picture/icons/DefaultFoto.png").toExternalForm());
                                     newImageView.setImage(defaultImage);
                                 }
 
@@ -102,14 +104,12 @@ public class ControllerJugadores {
                     }
                 };
             }
-        });*/
+        });
 
         resetTableView();
 
         tableView.setFixedCellSize(60);
-        tableView.prefHeightProperty().bind(
-                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
-        );
+        tableView.setPrefHeight(10 * tableView.getFixedCellSize() + 55);
     }
 
     // Método para restaurar la vista original de la tabla
@@ -117,10 +117,7 @@ public class ControllerJugadores {
         tableView.setItems(jugadoresObservable);
 
         tableView.setFixedCellSize(60);
-
-        tableView.prefHeightProperty().bind(
-                Bindings.size(tableView.getItems()).multiply(tableView.getFixedCellSize()).add(55)
-        );
+        tableView.setPrefHeight(10 * tableView.getFixedCellSize() + 55);
 
         tableView.refresh();
     }
@@ -142,6 +139,14 @@ public class ControllerJugadores {
     }
 
     public void openCrearJugador(ActionEvent actionEvent) {
+        Stage stage = new Stage();
         AppMain.app.loadStage(new Stage(), Paths.REGJUGADOR, "Crear Jugador", false, Paths.ICONMAIN);
+
+        stage.setOnHidden(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                resetTableView();
+            }
+        });
     }
 }

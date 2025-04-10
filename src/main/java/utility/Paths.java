@@ -25,6 +25,8 @@ public class Paths {
     public static final String FOLDEREQUIPO = "src/main/resource/picture/";
     public static final String FOLDERJUGADOR = "src/main/resource/picture/";
     public static final String EQUIPODF = "src/main/resource/picture/icons/DefaultIcon.png";
+    public static final String EDITAREQUIPO = "/fileFXML/editarEquipo.fxml";
+
 
     public static String getJugadoresFolderForEquipo(String nombreEquipo, String nombreJugador) {
         return "src/main/Resource/Picture/" + nombreEquipo.trim().replaceAll("\s+", "_") + "/Jugadores/" + nombreJugador.trim().replaceAll("\s+", "_");

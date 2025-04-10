@@ -9,8 +9,10 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import logic.Equipo;
 import logic.SerieMundial;
+import controller.ControllerEquipos;
 import utility.GuardarImagen;
 import utility.Paths;
 
@@ -93,7 +95,14 @@ public class ControllerRegEquipo implements Initializable {
             alert.setTitle("Registro exitoso");
             alert.setHeaderText(null);
             alert.setContentText("El equipo ha sido registrado exitosamente.");
+            // Set the alert to appear on top of the registration window
+            alert.initOwner(btnRegistrar.getScene().getWindow());
+
+            // Show and wait for the alert to be dismissed
             alert.showAndWait();
+
+            // Close the registration window
+            ((Stage) btnRegistrar.getScene().getWindow()).close();
             clean();
         }
     }
