@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerStatsJugador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerStatsJugador">
     <children>
         <Pane fx:id="contenedorBateador" layoutY="-1.0" prefHeight="544.0" prefWidth="770.0">
             <children>
@@ -38,7 +35,7 @@
                         <TableColumn fx:id="colAvgBateador" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="AVG" />
                     </columns>
                 </TableView>
-                <Pane layoutX="-1.0" layoutY="180.0" prefHeight="92.0" prefWidth="486.0" style="-fx-border-color: #8f2228;">
+                <Pane layoutX="-1.0" layoutY="180.0" prefHeight="92.0" prefWidth="486.0" style="-fx-border-color: gray;">
                     <children>
                         <Label layoutX="107.0" layoutY="29.0" text="AVG">
                             <font>
@@ -55,8 +52,8 @@
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Line endX="1.999969482421875" endY="51.0" layoutX="183.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
-                        <Line endX="1.999969482421875" endY="51.0" layoutX="308.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="183.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#909090" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="308.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#909090" />
                         <Label fx:id="avgBateador" layoutX="99.0" layoutY="49.0" text="00.00">
                             <font>
                                 <Font size="18.0" />
@@ -74,7 +71,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="484.0" layoutY="180.0" prefHeight="46.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                <Pane layoutX="484.0" layoutY="180.0" prefHeight="46.0" prefWidth="286.0" style="-fx-border-color: #a1a1a1;">
                     <children>
                         <Label fx:id="fechaNacBateador" layoutX="112.0" layoutY="13.0" text="xx/xx/xxxx">
                             <font>
@@ -83,9 +80,9 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="484.0" layoutY="225.0" prefHeight="47.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                <Pane layoutX="484.0" layoutY="225.0" prefHeight="47.0" prefWidth="286.0" style="-fx-border-color: #a1a1a1;">
                     <children>
-                        <Line endX="1.999969482421875" endY="51.0" layoutX="141.0" layoutY="-5.0" startX="2.20001220703125" startY="5.4000091552734375" stroke="#8f2228" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="141.0" layoutY="-5.0" startX="2.20001220703125" startY="5.4000091552734375" stroke="#a1a1a1" />
                         <Label fx:id="edadBateador" layoutX="50.0" layoutY="13.0" text="xx años">
                             <font>
                                 <Font size="14.0" />
@@ -115,7 +112,7 @@
                             </font>
                         </Label>
                   <ImageView fx:id="logoEquipoP" fitHeight="75.0" fitWidth="67.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="fotoPitcher" fitHeight="150.0" fitWidth="200.0" layoutX="102.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="fotoPitcher" fitHeight="150.0" fitWidth="200.0" layoutX="102.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </Pane>
                 <TableView fx:id="tablaStatsPitcher" layoutX="197.0" layoutY="328.0" prefHeight="92.0" prefWidth="377.0" stylesheets="@../style/Tablas.css">
@@ -127,7 +124,7 @@
                         <TableColumn fx:id="colCarrerasLimp" prefWidth="75.0" style="-fx-background-color: LIGHTGRAY;" text="ER" />
                     </columns>
                 </TableView>
-                <Pane layoutX="-1.0" layoutY="180.0" prefHeight="92.0" prefWidth="486.0" style="-fx-border-color: #8f2228;">
+                <Pane layoutX="-1.0" layoutY="180.0" prefHeight="92.0" prefWidth="486.0" style="-fx-border-color: #a1a1a1;">
                     <children>
                         <Label layoutX="107.0" layoutY="29.0" text="ERA">
                             <font>
@@ -144,8 +141,8 @@
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Line endX="1.999969482421875" endY="51.0" layoutX="183.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
-                        <Line endX="1.999969482421875" endY="51.0" layoutX="308.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#8f2228" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="183.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#a1a1a1" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="308.0" layoutY="29.0" startX="1.999969482421875" startY="-14.599990844726562" stroke="#a1a1a1" />
                         <Label fx:id="labelEraPit" layoutX="98.0" layoutY="49.0" text="00.00">
                             <font>
                                 <Font size="18.0" />
@@ -163,7 +160,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="484.0" layoutY="180.0" prefHeight="46.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                <Pane layoutX="484.0" layoutY="180.0" prefHeight="46.0" prefWidth="286.0" style="-fx-border-color: gray;">
                     <children>
                         <Label fx:id="fechaNacimPit" layoutX="112.0" layoutY="13.0" text="xx/xx/xxxx">
                             <font>
@@ -172,9 +169,9 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="484.0" layoutY="225.0" prefHeight="47.0" prefWidth="286.0" style="-fx-border-color: #8f2228;">
+                <Pane layoutX="484.0" layoutY="225.0" prefHeight="47.0" prefWidth="286.0" style="-fx-border-color: gray;">
                     <children>
-                        <Line endX="1.999969482421875" endY="51.0" layoutX="141.0" layoutY="-5.0" startX="2.20001220703125" startY="5.4000091552734375" stroke="#8f2228" />
+                        <Line endX="1.999969482421875" endY="51.0" layoutX="141.0" layoutY="-5.0" startX="2.20001220703125" startY="5.4000091552734375" stroke="#a8a8a8" />
                         <Label fx:id="edadPitcher" layoutX="50.0" layoutY="13.0" text="xx años">
                             <font>
                                 <Font size="14.0" />

@@ -16,6 +16,7 @@ public class SerieMundial implements Serializable {
     ArrayList<Equipo>  equipos;
     private int temporadaActualIndex;// Para llevar control de la temporada actual
     transient private Equipo equipoSeleccionado;
+    transient private Jugador jugadorSeleccionado;
     private HashMap<String,String> passwordMap;
     private boolean video = false;
 
@@ -284,6 +285,14 @@ public class SerieMundial implements Serializable {
     }
     public void setEquipoSeleccionado(Equipo equipo) {
         this.equipoSeleccionado = equipo;
+    }
+
+    public Jugador getJugadorSeleccionado() {
+        return jugadorSeleccionado;
+    }
+
+    public void setJugadorSeleccionado(Jugador jugadorSeleccionado) {
+        this.jugadorSeleccionado = jugadorSeleccionado;
     }
 
     public void eliminarEquipo(Equipo selectedTeam) {

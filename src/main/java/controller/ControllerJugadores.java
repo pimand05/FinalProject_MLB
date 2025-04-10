@@ -153,7 +153,7 @@ public class ControllerJugadores {
 
                 // Create "Ver información" menu item
                 MenuItem infoItem = new MenuItem("Ver información");
-                /*infoItem.setOnAction(new EventHandler<ActionEvent>() {
+                infoItem.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
                         System.out.println("Jugador seleccionado: " + selectedPlayer.getNombre());
@@ -161,7 +161,7 @@ public class ControllerJugadores {
                         try {
                             SerieMundial.getInstance().setJugadorSeleccionado(selectedPlayer);
                             Stage infoStage = new Stage();
-                            AppMain.app.loadStage(infoStage, Paths.INFOJUGADOR,
+                            AppMain.app.loadStage(infoStage, Paths.STATSJUGADORES,
                                     "Información de " + selectedPlayer.getNombre(),
                                     false, Paths.ICONMAIN);
                         } catch (Exception ex) {
@@ -169,7 +169,7 @@ public class ControllerJugadores {
                             ex.printStackTrace();
                         }
                     }
-                });*/
+                });
 
                 //Create "Eliminar jugador" menu item
                 MenuItem deleteItem = new MenuItem("Eliminar jugador");
@@ -210,20 +210,20 @@ public class ControllerJugadores {
 
 
             // Handle double-click to open info window
-            /*else if (mouseEvent.getButton() == MouseButton.PRIMARY && mouseEvent.getClickCount() == 2) {
+            else if (mouseEvent.getButton() == MouseButton.PRIMARY && mouseEvent.getClickCount() == 2) {
                 System.out.println("Jugador seleccionado: " + selectedPlayer.getNombre());
 
                 try {
                     SerieMundial.getInstance().setJugadorSeleccionado(selectedPlayer);
                     Stage infoStage = new Stage();
-                    AppMain.app.loadStage(infoStage, Paths.INFOJUGADOR,
+                    AppMain.app.loadStage(infoStage, Paths.STATSJUGADORES,
                             "Información de " + selectedPlayer.getNombre(),
                             false, Paths.ICONMAIN);
                 } catch (Exception e) {
                     System.out.println("Error al abrir la ventana de información: " + e.getMessage());
                     e.printStackTrace();
                 }
-            }*/
+            }
         }
     }
 

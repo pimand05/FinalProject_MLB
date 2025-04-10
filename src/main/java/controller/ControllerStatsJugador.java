@@ -104,12 +104,17 @@ public class ControllerStatsJugador {
    private Jugador jugador;
    SerieMundial serie = SerieMundial.getInstance();
 
-   public void setJugador(Jugador jugador) {
-      this.jugador = jugador;
+   public void setJugador() {
+      Jugador jugador = serie.getJugadorSeleccionado();
       mostrarJugador(jugador);
    }
 
    public void initialize() {
+      Jugador jugador = serie.getJugadorSeleccionado();
+      if (jugador != null) {
+         mostrarJugador(jugador);
+      }
+
       configurarTablas();
    }
 
@@ -197,7 +202,7 @@ public class ControllerStatsJugador {
       carrerasBateador.setText(String.valueOf(stats.getCarreras()));
       homeRunsBateador.setText(String.valueOf(stats.getHomeRuns()));
 
-      //fotoBateador.setImage(bateador.getfoto());
+      fotoBateador.setImage(bateador.getfoto());
       logoEquipo.setImage(equipoBateador.getLogo());
 
       cargarStatsBateador(stats);
@@ -223,7 +228,7 @@ public class ControllerStatsJugador {
       labelPonchesPit.setText(String.valueOf(stats.getPonchesLanzados()));
       labelCarrerasLimpias.setText(String.valueOf(stats.getCarrerasLimpiasPermitidas()));
 
-      //fotoPitcher.setImage(pitcher.getfoto());
+      fotoPitcher.setImage(pitcher.getfoto());
       logoEquipoP.setImage(equipoPitcher.getLogo());
 
       cargarStatsPitcher(stats);
