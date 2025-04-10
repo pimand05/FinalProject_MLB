@@ -59,6 +59,7 @@ public class Pitcher extends Jugador  implements Serializable {
         this.turnos = turnos;
     }
 
+
     @Override
     public void actualizarEstadisticas(Partido partido) {
     }

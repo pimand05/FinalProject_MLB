@@ -56,6 +56,8 @@ public class Bateador extends Jugador implements Serializable {
         this.lesionado = lesionado;
     }
 
+
+
     @Override
     public void actualizarEstadisticas(Partido partido) {
 

@@ -49,8 +49,11 @@ public class Equipo  implements Serializable {
     }
 
     //Getters y Setters
-    public void setLogo(Image logo) {
-        this.logo = logo;
+    public Image getImagen() {
+        if (logo == null) {
+            logo = new Image(Objects.requireNonNull(getClass().getResource(rutaLogo)).toExternalForm());
+        }
+        return logo;
     }
 
     public String getRutaLogo() {
@@ -277,7 +280,7 @@ public class Equipo  implements Serializable {
               .collect(Collectors.toList());
 
         if (!disponibles.isEmpty()) {
-            Pitcher nuevoPitcher = disponibles.get(0);
+            Pitcher nuevoPitcher = disponibles.getFirst();
             relevistas.remove(nuevoPitcher);
 
             if (pitcherActual != null) {

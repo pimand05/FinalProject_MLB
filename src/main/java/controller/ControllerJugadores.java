@@ -22,29 +22,14 @@ import utility.Paths;
 
 public class ControllerJugadores {
 
-    @FXML
-    private Button btnCrearJugador;
-
-    @FXML
-    private TableView<Jugador> tableView;
-
-    @FXML
-    private TableColumn<Jugador, Integer> numberColumn;
-
-    @FXML
-    private TableColumn<Jugador, String> nameColumn;
-
-    @FXML
-    private TableColumn<Jugador, String> positionColumn;
-
-    @FXML
-    private TableColumn<Jugador, String> equipoColumn;
-
-    @FXML
-    private TableColumn<Jugador, String> fotoColumn;
-
-    @FXML
-    private TextField searchBar;
+    @FXML private Button btnCrearJugador;
+    @FXML private TableView<Jugador> tableView;
+    @FXML private TableColumn<Jugador, Integer> numberColumn;
+    @FXML private TableColumn<Jugador, String> nameColumn;
+    @FXML private TableColumn<Jugador, String> positionColumn;
+    @FXML private TableColumn<Jugador, String> equipoColumn;
+    @FXML private TableColumn<Jugador, String> fotoColumn;
+    @FXML private TextField searchBar;
 
     private ObservableList<Jugador> jugadoresObservable;
 
@@ -52,9 +37,18 @@ public class ControllerJugadores {
     public void initialize() {
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("numJugador"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        positionColumn.setCellValueFactory(new PropertyValueFactory<>("posicion"));
+        positionColumn.setCellValueFactory(cellData -> {
+            Jugador jugador = cellData.getValue();
+            if (jugador instanceof logic.Bateador bateador) {
+                return new javafx.beans.property.SimpleStringProperty(bateador.getPosicion());
+            } else if (jugador instanceof logic.Pitcher pitcher) {
+                return new javafx.beans.property.SimpleStringProperty(pitcher.getTipoDeLanzador());
+            } else {
+                return new javafx.beans.property.SimpleStringProperty("N/A");
+            }
+        });
         equipoColumn.setCellValueFactory(new PropertyValueFactory<>("equipo"));
-        fotoColumn.setCellValueFactory(new PropertyValueFactory<>("foto"));
+        fotoColumn.setCellValueFactory(new PropertyValueFactory<>("ImageRoute"));
 
         jugadoresObservable = FXCollections.observableArrayList();
 
@@ -66,33 +60,40 @@ public class ControllerJugadores {
         }
 
 
+        fotoColumn.setCellValueFactory(new PropertyValueFactory<>("imagenRoute")); // O el campo que uses
+
         fotoColumn.setCellFactory(new Callback<TableColumn<Jugador, String>, TableCell<Jugador, String>>() {
             @Override
             public TableCell<Jugador, String> call(TableColumn<Jugador, String> column) {
                 return new TableCell<Jugador, String>() {
+                    private final ImageView imageView = new ImageView();
                     @Override
                     protected void updateItem(String ruta, boolean empty) {
                         super.updateItem(ruta, empty);
-
-                        if (empty) {
+                        if (empty || ruta == null || ruta.isEmpty()) {
+                            // Si no hay imagen, no mostramos nada o mostramos una imagen por defecto.
                             setGraphic(null);
                         } else {
                             try {
+                                // Obtenemos el jugador de la fila actual.
                                 Jugador jugador = getTableView().getItems().get(getIndex());
 
-                                ImageView newImageView = new ImageView();
+                                // Intentamos obtener la imagen ya cargada en el jugador.
+                                Image image = jugador.getFoto();
 
-                                if (jugador.getImagenRoute() != null) {
-                                    //newImageView.setImage(jugador.getImagenRoute());
+                                // Si no se ha cargado o hay error, se carga la imagen por defecto.
+                                if (image == null || image.isError()) {
+                                    image = new Image(getClass().getResource("/picture/icons/DefaultFoto.png")
+                                            .toExternalForm(), 50, 50, true, true);
                                 } else {
-                                    Image defaultImage = new Image(getClass().getResource("/picture/icons/DefaultFoto.png").toExternalForm());
-                                    newImageView.setImage(defaultImage);
+                                    // Opcional: podemos redimensionar la imagen existente
+                                    // O instanciar un nuevo ImageView con las dimensiones deseadas.
                                 }
 
-                                newImageView.setFitWidth(50);
-                                newImageView.setFitHeight(50);
-
-                                setGraphic(newImageView);
+                                imageView.setImage(image);
+                                imageView.setFitWidth(50);
+                                imageView.setFitHeight(50);
+                                setGraphic(imageView);
                                 setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
                                 setAlignment(Pos.CENTER);
                             } catch (Exception e) {
@@ -105,6 +106,7 @@ public class ControllerJugadores {
                 };
             }
         });
+
 
         resetTableView();
 

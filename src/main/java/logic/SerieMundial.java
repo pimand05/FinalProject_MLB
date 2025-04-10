@@ -1,7 +1,6 @@
 package logic;
 
 import utility.Paths;
-import utility.Persistencia;
 import utility.PersistenciaJSON;
 
 import java.io.Serializable;

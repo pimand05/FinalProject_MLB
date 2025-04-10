@@ -25,7 +25,8 @@ public class Paths {
     //Equipo
     public static final String FOLDEREQUIPO = "src/main/resource/picture/";
     public static final String FOLDERJUGADOR = "src/main/resource/picture/";
-    public static final String EQUIPODF = "src/main/resource/picture/icons/DefaultIcon.png";
+    public static final String EQUIPODF = "/picture/icons/DefaultIcon.png";
+    public static final String JUGADORDF = "/picture/icons/DefaultFoto.png";
     public static final String EDITAREQUIPO = "/fileFXML/editarEquipo.fxml";
 
 

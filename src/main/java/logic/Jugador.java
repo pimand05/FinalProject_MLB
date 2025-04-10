@@ -109,6 +109,22 @@ public abstract class Jugador implements Serializable {
         }
     }
 
+    public void setHistorialLesiones(ArrayList<Lesion> historialLesiones) {
+        this.historialLesiones = historialLesiones;
+    }
+
+    public Image getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Image foto) {
+        this.foto = foto;
+    }
+
+    public void setLesion(Lesion lesion) {
+        this.lesion = lesion;
+    }
+
     // Método para calcular edad
     public int getEdad() {
         return Period.between(fNacimiento, LocalDate.now()).getYears();
@@ -119,6 +135,10 @@ public abstract class Jugador implements Serializable {
 
     public void getfoto() {
         this.foto = new Image(Objects.requireNonNull(getClass().getResource(imagenRoute)).toExternalForm());
+    }
+
+    public Image getImagen() {
+        return foto = new Image(Objects.requireNonNull(getClass().getResource(imagenRoute)).toExternalForm());
     }
 }
 

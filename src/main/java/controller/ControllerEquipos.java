@@ -27,10 +27,7 @@ import logic.SerieMundial;
 import utility.Paths;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.function.Consumer;
 
 
@@ -76,7 +73,6 @@ public class ControllerEquipos implements Initializable {
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("rutaLogo"));
         ciudadColumn.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         estadioColumn.setCellValueFactory(new PropertyValueFactory<>("estadio"));
-        numeroColumn.setCellValueFactory(new PropertyValueFactory<>("numero"));
 
 
 
@@ -102,6 +98,7 @@ public class ControllerEquipos implements Initializable {
         });
 
         // Modificación para la columna de imágenes en ControllerEquipos
+        // Configuración para la columna de imágenes
         imageColumn.setCellFactory(new Callback<TableColumn<Equipo, String>, TableCell<Equipo, String>>() {
             @Override
             public TableCell<Equipo, String> call(TableColumn<Equipo, String> column) {
@@ -110,45 +107,49 @@ public class ControllerEquipos implements Initializable {
                     protected void updateItem(String ruta, boolean empty) {
                         super.updateItem(ruta, empty);
 
+                        // Comprueba si la celda está vacía o no hay item
                         if (empty || getIndex() < 0 || getIndex() >= getTableView().getItems().size()) {
                             setGraphic(null);
-                        } else {
-                            Equipo equipo = getTableView().getItems().get(getIndex());
-                            Image logo = null;
+                            return;
+                        }
 
-                            // Intentar obtener el logo usando el método getLogo de Equipo
+                        // Obtén el equipo de la fila actual
+                        Equipo equipo = getTableView().getItems().get(getIndex());
+                        Image logo = null;
+
+                        // Intenta obtener el logo usando el método getLogo() definido en Equipo
+                        try {
+                            logo = equipo.getLogo();
+                        } catch (Exception e) {
+                            System.out.println("Error al cargar la imagen con getLogo(): " + e.getMessage());
+                        }
+
+                        // Si no se pudo cargar la imagen, usa una imagen por defecto
+                        if (logo == null || logo.isError()) {
                             try {
-                                logo = equipo.getLogo();
+                                logo = new Image(Objects.requireNonNull(getClass().getResource(Paths.EQUIPODF)).toExternalForm());
                             } catch (Exception e) {
-                                System.out.println("Error al cargar la imagen con getLogo(): " + e.getMessage());
+                                System.out.println("No se pudo cargar la imagen por defecto: " + e.getMessage());
                             }
+                        }
 
-                            // Si no se pudo cargar, usar la imagen por defecto
-                            if (logo == null || logo.isError()) {
-                                try {
-                                    logo = new Image(getClass().getResourceAsStream("/picture/icons/DefaultIcon.png"));
-                                } catch (Exception e) {
-                                    System.out.println("No se pudo cargar la imagen por defecto: " + e.getMessage());
-                                }
-                            }
-
-                            if (logo != null && !logo.isError()) {
-                                ImageView imageView = new ImageView(logo);
-                                imageView.setFitWidth(50);
-                                imageView.setFitHeight(50);
-                                imageView.setPreserveRatio(true);
-
-                                setGraphic(imageView);
-                                setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-                                setAlignment(Pos.CENTER);
-                            } else {
-                                setGraphic(null);
-                            }
+                        // Si se obtuvo una imagen válida, crea un ImageView para mostrarla
+                        if (logo != null && !logo.isError()) {
+                            ImageView imageView = new ImageView(logo);
+                            imageView.setFitWidth(50);
+                            imageView.setFitHeight(50);
+                            imageView.setPreserveRatio(true);
+                            setGraphic(imageView);
+                            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                            setAlignment(Pos.CENTER);
+                        } else {
+                            setGraphic(null);
                         }
                     }
                 };
             }
         });
+
 
         resetTableView();
 
