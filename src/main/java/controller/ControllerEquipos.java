@@ -83,7 +83,7 @@ public class ControllerEquipos implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //setIconImage();
+        setIconImage();
 
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));

@@ -67,9 +67,8 @@ public class ControllerMainView implements Initializable {
 
     @FXML
     void openEquipo(ActionEvent event) {
-        //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        //AppMain.app.changeScene(stage,Paths.EQUIPOS, "Registrar Equipo", false);
-        AppMain.app.openNewStage( Paths.EQUIPOS, "Registrar Equipo", false, Paths.ICONMAIN,true);
+       // AppMain.app.openNewStage( Paths.EQUIPOS2, "Equipo", false, Paths.ICONMAIN,true);
+        AppMain.app.changeScene(AppMain.app.getStage(),Paths.EQUIPOS2, "EQUIPO", true,0);
 
     }
 
@@ -77,7 +76,7 @@ public class ControllerMainView implements Initializable {
     void openJugadores(ActionEvent event) {
         //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         //AppMain.app.changeScene(stage, Paths.JUGADORES, "Registrar Equipo", false);
-        AppMain.app.openNewStage( Paths.JUGADORES, "Registrar Jugador", false, Paths.ICONMAIN,true);
+        AppMain.app.openNewStage( Paths.JUGADORES, "Jugador", false, Paths.ICONMAIN,true);
     }
 
     @FXML
