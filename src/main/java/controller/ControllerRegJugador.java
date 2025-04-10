@@ -50,7 +50,6 @@ public class ControllerRegJugador {
    //Elementos Tabla
    @FXML private TableView<rowEquipo> tablaEquipos;
    @FXML private TableColumn<rowEquipo, String> colEquipo;
-   //@FXML private TableColumn<rowEquipo, Image> colLogo;
 
    private ControllerJugadores controllerJugadores;
    private ToggleGroup posicionGroup;

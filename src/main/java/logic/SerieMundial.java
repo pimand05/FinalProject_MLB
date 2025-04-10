@@ -90,21 +90,11 @@ public class SerieMundial implements Serializable {
         PersistenciaJSON.guardarJson(this, Paths.INSTANCIA);
     }
 
-//    public void addJugador(Jugador j) {
-//        jugadores.add(j);
-//    }
-
-//    public void addEquipo(Equipo e) {
-//        equipos.add(e);
-//    }
-
     public void addEquipo(Equipo e) {
         if (!equipos.contains(e)) {
             equipos.add(e);
         }
     }
-
-
 
     public Temporada getTemporadaActual() {
         // Si no hay temporadas, crea una nueva automáticamente
@@ -120,11 +110,6 @@ public class SerieMundial implements Serializable {
     }
 
     public Temporada iniciarNuevaTemporada(LocalDate fechaInicio) {
-        /*(
-        if (equipos.size() < 2) {
-            throw new IllegalStateException("Se necesitan al menos 2 equipos para generar un calendario");
-        }
-         */
 
         Temporada nuevaTemporada = new Temporada(equipos, fechaInicio);
         temporadas.add(nuevaTemporada);
@@ -137,7 +122,6 @@ public class SerieMundial implements Serializable {
         // Fórmula para torneo todos contra todos (ida y vuelta)
         int totalPartidos = totalEquipos * (totalEquipos - 1);
         return totalPartidos;
-        //return (int) Math.ceil(totalPartidos * 0.6); // 60% de victorias para asegurar
     }
 
     public Equipo detectarCampeon(Partido partidoActual) {
@@ -270,12 +254,6 @@ public class SerieMundial implements Serializable {
                 pitchers.add((Pitcher)j);
             }
         }
-
-//        Collections.sort(pitchers, new Comparator<Pitcher>() {
-//            public int compare(Pitcher p1, Pitcher p2) {
-//                return Float.compare(p2.getStats().getEfectivas, p1.getStats().getEfectivas());
-//            }
-//        });
         return pitchers;
     }
 
@@ -311,26 +289,4 @@ public class SerieMundial implements Serializable {
         }
     }
 
-    // En caso de filtrar una x cantidad de jugadores (OPCIONAL)
-//    public List<Pitcher> obtenerTopPitchers(int cantidad) {
-//        List<Pitcher> ordenados = ordenarPitchersPorEfectividad();
-//        return aplicarFiltroCantidad(ordenados, cantidad);
-//    }
-//
-//    public List<Bateador> obtenerTopBateadoresCarreras(int cantidad) {
-//        List<Bateador> ordenados = ordenarBateadoresPorCarreras();
-//        return aplicarFiltroCantidad(ordenados, cantidad);
-//    }
-//
-//    public List<Bateador> obtenerTopBateadoresAvg(int cantidad) {
-//        List<Bateador> ordenados = ordenarBateadoresPorAvg();
-//        return aplicarFiltroCantidad(ordenados, cantidad);
-//    }
-//
-//    private <T> List<T> aplicarFiltroCantidad(List<T> lista, int cantidad) {
-//        if (cantidad <= 0 || cantidad >= lista.size()) {
-//            return lista;
-//        }
-//        return lista.subList(0, cantidad);
-//    }
 }

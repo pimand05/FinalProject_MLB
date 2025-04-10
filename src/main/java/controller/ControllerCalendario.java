@@ -41,7 +41,6 @@ public class ControllerCalendario {
    @FXML private TableView<Partido> partidosTable;
    @FXML private DatePicker filtroFecha;
    @FXML private ComboBox<Equipo> filtroEquipo;
-   //@FXML private Label fechaActualLabel;
    @FXML private TableColumn<Partido, String> colLocal;
    @FXML private TableColumn<Partido, String> colVisitante;
    @FXML private Button btnMesAnterior;
@@ -85,7 +84,6 @@ public class ControllerCalendario {
    }
 
    private void configurarUI() {
-      //fechaActualLabel.setText(fechaActual.format(DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy")));
 
       btnMesAnterior.setOnAction(e -> cambiarMes(-1));
       btnMesSiguiente.setOnAction(e -> cambiarMes(1));
@@ -140,10 +138,6 @@ public class ControllerCalendario {
          }
       });
 
-      // Verificar estado del botón al cambiar de día
-//      fechaActualLabel.textProperty().addListener((obs, oldVal, newVal) -> {
-//         actualizarEstadoBotonJugar();
-//      });
    }
 
 

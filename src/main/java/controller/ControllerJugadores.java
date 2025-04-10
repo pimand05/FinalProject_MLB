@@ -147,7 +147,6 @@ public class ControllerJugadores {
         final Jugador selectedPlayer = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedPlayer != null) {
-            // Handle right-click with context menu
             if (mouseEvent.getButton() == MouseButton.SECONDARY) {
                 ContextMenu contextMenu = new ContextMenu();
 
@@ -208,8 +207,6 @@ public class ControllerJugadores {
                 contextMenu.show(tableView, mouseEvent.getScreenX(), mouseEvent.getScreenY());
             }
 
-
-            // Handle double-click to open info window
             else if (mouseEvent.getButton() == MouseButton.PRIMARY && mouseEvent.getClickCount() == 2) {
                 System.out.println("Jugador seleccionado: " + selectedPlayer.getNombre());
 

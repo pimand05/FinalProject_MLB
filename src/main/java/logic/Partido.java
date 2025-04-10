@@ -494,11 +494,6 @@ public class Partido implements Serializable {
     private int erroresVisitante = 0;
     private int[][] carrerasPorInning = new int[2][9]; // [0] = visitante, [1] = local
 
-    // Registro del juego
-    //private final Map<InningKey, List<String>> comentariosPorInning = new HashMap<>();
-    //private final List<String> resumenPartido = new ArrayList<>();
-    //private final List<String> comentariosTemporales = new ArrayList<>();
-
     private transient Map<InningKey, List<String>> comentariosPorInning = new HashMap<>();
     private transient List<String> resumenPartido = new ArrayList<>();
     private transient List<String> comentariosTemporales = new ArrayList<>();
@@ -534,12 +529,6 @@ public class Partido implements Serializable {
     public Equipo getEquipoVisitante() {
         return equipoVisitante;
     }
-
-    /*
-    public Resultado getResultado() {
-        return resultado;
-    }
-    */
 
     public boolean isPartidoTerminado() {
         return partidoTerminado;
@@ -708,10 +697,6 @@ public class Partido implements Serializable {
         bateador.incrementTurnos();
         pitcher.getStats().incrementarponchesLanzados();
         strikes++;
-
-//        if (outs % 3 == 0) {
-//            pitcher.getStats().incrementarEntradasLanzadas();
-//        }
 
         if (strikes >= 3) {
             outs++;
@@ -981,45 +966,4 @@ public class Partido implements Serializable {
             return null;
         }
     }
-
-
-    /*
-    public class Resultado {
-        private final int carrerasLocal;
-        private final int carrerasVisitante;
-
-        public Resultado(int carrerasLocal, int carrerasVisitante) {
-            this.carrerasLocal = carrerasLocal;
-            this.carrerasVisitante = carrerasVisitante;
-        }
-
-        public boolean esVictoriaLocal() {
-            return carrerasLocal > carrerasVisitante;
-        }
-
-        // SON ESTOS METODOS NECESARIOS???
-        public Equipo getEquipoGanador() {
-            return esVictoriaLocal() ? equipoLocal : equipoVisitante;
-        }
-
-        public Equipo getEquipoPerdedor() {
-            return esVictoriaLocal() ? equipoVisitante : equipoLocal;
-        }
-
-        public int getCarrerasGanador() {
-            return esVictoriaLocal() ? carrerasLocal : carrerasVisitante;
-        }
-
-        public int getCarrerasPerdedor() {
-            return esVictoriaLocal() ? carrerasVisitante : carrerasLocal;
-        }
-
-        @Override
-        public String toString() {
-            return equipoLocal.getNombre() + " " + carrerasLocal + " - " +
-                  carrerasVisitante + " " + equipoVisitante.getNombre();
-        }
-    }
-
-     */
 }

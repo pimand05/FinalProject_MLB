@@ -56,10 +56,6 @@ public class ControllerSimulador {
    private Partido partido;
    private Timeline timeline;
 
-//   public void setPartido(Partido partido) {
-//      this.partido = partido;
-//   }
-
    SerieMundial serie = SerieMundial.getInstance();
 
    @FXML
@@ -94,7 +90,6 @@ public class ControllerSimulador {
    private void configurarControlVelocidad() {
       sliderVelocidad.valueProperty().addListener((obs, oldVal, newVal) -> {
          if (timeline != null) {
-            //timeline.setRate(newVal.doubleValue());
             timeline.setRate(100.0);
          }
       });
@@ -253,15 +248,6 @@ public class ControllerSimulador {
       });
    }
 
-   /*
-   private void actualizarEstadoBases() {
-      if (partido == null) return;
-      primeraBase.setFill(partido.hayCorredorEn(1) ? Color.BLUEVIOLET : Color.WHITE);
-      segundaBase.setFill(partido.hayCorredorEn(2) ? Color.BLUEVIOLET : Color.WHITE);
-      terceraBase.setFill(partido.hayCorredorEn(3) ? Color.BLUEVIOLET : Color.WHITE);
-   }
-    */
-
    private void actualizarEstadoBases(boolean esLocal) {
       if (partido == null) return;
 
@@ -278,49 +264,6 @@ public class ControllerSimulador {
       segundaBase.setFill(partido.hayCorredorEn(2) ? colorBase : Color.WHITE);
       terceraBase.setFill(partido.hayCorredorEn(3) ? colorBase : Color.WHITE);
    }
-
-   /*
-   private void agregarNuevoPanelInning(int inning, boolean isTop) {
-      VBox inningBox = new VBox();
-      inningBox.setSpacing(5);
-      inningBox.setStyle("-fx-padding: 10; -fx-border-color: white; -fx-border-width: 1; -fx-background-color: black;");
-
-      // Título del inning
-      Label lblInning = new Label(String.format("Inning %d %s", inning, isTop ? "▲" : "▼"));
-      lblInning.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-      lblInning.setTextFill(Color.WHITE);
-
-      // VBox para comentarios (nuevos arriba)
-      VBox comentariosBox = new VBox();
-      comentariosBox.setSpacing(3);
-      comentariosBox.setStyle("-fx-padding: 5 0 0 0;");
-
-      // ScrollPane interno para cada inning
-      ScrollPane scrollComentariosInning = new ScrollPane();
-      scrollComentariosInning.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-      scrollComentariosInning.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-      scrollComentariosInning.setContent(comentariosBox);
-      scrollComentariosInning.setFitToWidth(true);
-      scrollComentariosInning.setPrefSize(770, 120);
-      scrollComentariosInning.setStyle("-fx-background: black; -fx-border-color: transparent;");
-      scrollComentariosInning.setPrefHeight(150); // Altura fija para cada panel de inning
-
-      // Agregar elementos
-      inningBox.getChildren().addAll(lblInning, scrollComentariosInning);
-
-      // Insertar al inicio del contenedor principal (innings nuevos arriba)
-      vboxComentarios.getChildren().add(0, inningBox);
-
-      // Hacer scroll al inicio para mostrar el nuevo inning
-      Platform.runLater(new Runnable() {
-         @Override
-         public void run() {
-            scrollComentarios.setVvalue(0);
-            scrollComentarios.requestLayout();
-         }
-      });
-   }
-    */
 
    private void agregarNuevoPanelInning(int inning, boolean isTop) {
       if (juegoFinalizado()) {

@@ -290,56 +290,6 @@ public class ControllerStatsJugador {
       }
    }
 
-   /*
-   private void cargarLogoEquipo(Equipo equipo) {
-      try {
-         String nombreLogo = equipo.getNombre();
-         Image logo = new Image(
-               getClass().getResourceAsStream("/logos/" + nombreLogo + ".png"),
-               100, 100, true, true
-         );
-
-         logoEquipo.setImage(logo);
-         //logoEquipoP.setImage(logo);
-
-      } catch (Exception e) {
-         //Image logoDefault = new Image("/logos/default.png");
-      }
-   }
-
-   private void cargarFotoJugador(Jugador jugador) {
-      Image foto = obtenerImagenJugador(jugador);
-
-      if (jugador instanceof Bateador) {
-         fotoBateador.setImage(foto);
-      } else {
-         fotoPitcher.setImage(foto);
-      }
-   }
-
-   private Image obtenerImagenJugador(Jugador jugador) {
-      try {
-         if (jugador.getImagenRoute() != null) {
-            File archivo = new File(jugador.getImagenRoute());
-            if (archivo.exists()) {
-               return new Image(archivo.toURI().toString(), 150, 150, true, true);
-            }
-         }
-
-         // 2. Intento: Buscar en recursos por nombre
-         String nombreArchivo = "jugador_" + jugador.getNombre() + ".png";
-         InputStream is = getClass().getResourceAsStream("/fotos/" + nombreArchivo);
-         if (is != null) {
-            return new Image(is, 150, 150, true, true);
-         }
-
-      } catch (Exception e) {
-         System.err.println("Error cargando foto: " + e.getMessage());
-      }
-      return null;
-   }
-    */
-
    // Clases internas para las filas de la tabla
    public static class BateadorStatsRow {
       private final int juegos;

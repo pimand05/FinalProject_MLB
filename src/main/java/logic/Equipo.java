@@ -135,10 +135,6 @@ public class Equipo  implements Serializable {
         this.jugadores = jugadores;
     }
 
-//    public ArrayList<Partido> getPartidosJugados() {
-//        return partidosJugados;
-//    }
-
     public int getPartidosJugados() {
         return partidosJugados;
     }
@@ -201,10 +197,6 @@ public class Equipo  implements Serializable {
 
     //metodos
 
-//    public void setJuegosjugados(ArrayList<Partido> partidosJugados) {
-//        this.partidosJugados = partidosJugados;
-//    }
-
     public void incrementarJonrones() {
         jonrones++;
     }
@@ -217,10 +209,6 @@ public class Equipo  implements Serializable {
         jugadores.remove(jugador);
     }
 
-//    public void addPartido(Partido partido) {
-//        partidosJugados.add(partido);
-//    }
-
     public void setPartidosJugados() {
         this.partidosJugados ++;
     }
@@ -232,14 +220,6 @@ public class Equipo  implements Serializable {
     public void setLineup(HashMap<Integer, Bateador> lineup) {
         this.lineup = lineup;
     }
-
-//    public void setPartidosJugados(ArrayList<Partido> partidosJugados) {
-//        this.partidosJugados = partidosJugados;
-//    }
-
-//    public HashMap<Integer, Bateador> getLineup() {
-//        return lineup;
-//    }
 
     public Bateador getBateadorActual() {
         if (lineup.isEmpty()) {

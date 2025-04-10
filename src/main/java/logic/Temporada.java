@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Temporada implements Serializable {
-    //private static Temporada instance = null;
     private static final long serialVersionUID = 1L;
     private ArrayList<Partido> partidos;
     private LocalDate fechaInicio;
@@ -43,12 +42,6 @@ public class Temporada implements Serializable {
         this.activa = false;
     }
 
-//    public static Temporada getInstance(List<Equipo> equipos, LocalDate fechaInicio) {
-//        if (instance == null) {
-//            instance = new Temporada(equipos, fechaInicio);
-//        }
-//        return instance;
-//    }
 
     public Partido getPartidoDelDia(LocalDate fecha) {
         for (Partido partido : partidos) {

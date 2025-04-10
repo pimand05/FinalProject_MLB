@@ -187,10 +187,8 @@ public class ControllerEquipos implements Initializable {
         final Equipo selectedTeam = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedTeam != null) {
-            // Handle right-click with context menu
             if (event.getButton() == MouseButton.SECONDARY) {
                 ContextMenu contextMenu = new ContextMenu();
-
 
                 // Create "Ver información" menu item
                 MenuItem infoItem = new MenuItem("Ver información");
@@ -242,7 +240,6 @@ public class ControllerEquipos implements Initializable {
                 contextMenu.getItems().addAll(infoItem, deleteItem);
                 contextMenu.show(tableView, event.getScreenX(), event.getScreenY());
             }
-            // Handle double-click to open info window (keep existing behavior)
             else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
                 System.out.println("Equipo seleccionado: " + selectedTeam.getNombre());
 
