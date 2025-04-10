@@ -1,0 +1,9 @@
+.background{
+    -fx-background-color: linear-gradient(to right, #18329b, #000000);
+
+}
+
+.pane{
+    -fx-background-radius: 10;
+    -fx-background-color: #000000;
+}

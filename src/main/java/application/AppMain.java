@@ -34,6 +34,8 @@ public class AppMain extends Application {
             playIntroVideo(primaryStage);
         } else {
             SerieMundial.getInstance().loadJugadores();
+            SerieMundial.getInstance().loadLogoEquipo();
+            SerieMundial.getInstance().loadJugadorImagen();
             loadStage(primaryStage, Paths.MAIN, "SERIE MUNDIAL", true, Paths.ICONMAIN);
         }
     }
@@ -146,6 +148,8 @@ public class AppMain extends Application {
         mediaPlayer.setOnEndOfMedia(() -> {
             stage.setFullScreen(false);
             SerieMundial.getInstance().loadJugadores();
+            SerieMundial.getInstance().loadLogoEquipo();
+            SerieMundial.getInstance().loadJugadorImagen();
             loadStage(stage, Paths.MAIN, "SERIE MUNDIAL", true, Paths.ICONMAIN);
         });
         mediaPlayer.play();

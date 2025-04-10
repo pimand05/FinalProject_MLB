@@ -15,12 +15,14 @@ public class SerieMundial implements Serializable {
     transient ArrayList<Jugador> jugadores;
     ArrayList<Equipo>  equipos;
     private int temporadaActualIndex;// Para llevar control de la temporada actual
-    private Equipo equipoSeleccionado;
+    transient private Equipo equipoSeleccionado;
+    private HashMap<String,String> passwordMap;
 
     private SerieMundial() {
         temporadas = new ArrayList<>();
         jugadores = new ArrayList<>();
         equipos = new ArrayList<>();
+        passwordMap = new HashMap<>();
         temporadaActualIndex = -1;
     }
 
@@ -42,6 +44,14 @@ public class SerieMundial implements Serializable {
         return todos;
     }
 
+    public HashMap<String,String> getPasswordMap() {
+        return passwordMap;
+    }
+
+    public void setPasswordMap(HashMap<String,String> passwordMap) {
+        this.passwordMap = passwordMap;
+    }
+
 
     public ArrayList<Temporada> getCalendarios() {
         return temporadas;
@@ -56,6 +66,12 @@ public class SerieMundial implements Serializable {
 
     public void addCalendario(Temporada c) {
         temporadas.add(c);
+    }
+
+    public void loadLogoEquipo() {
+        for (Equipo equipo : equipos) {
+            equipo.loadLogo();
+        }
     }
 
 
@@ -268,6 +284,12 @@ public class SerieMundial implements Serializable {
             for (Jugador jugador : selectedTeam.getJugadores()) {
                 jugadores.remove(jugador);
             }
+        }
+    }
+
+    public void loadJugadorImagen() {
+        for (Jugador jugador : jugadores) {
+            jugador.loadImageJugador();
         }
     }
 

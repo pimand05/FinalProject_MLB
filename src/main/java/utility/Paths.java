@@ -31,7 +31,7 @@ public class Paths {
 
 
     public static String getJugadoresFolderForEquipo(String nombreEquipo, String nombreJugador) {
-        return "src/main/Resource/Picture/" + nombreEquipo.trim().replaceAll("\s+", "_") + "/Jugadores/" + nombreJugador.trim().replaceAll("\s+", "_");
+        return "src/main/resource/picture/" + nombreEquipo.trim().replaceAll("\s+", "_") + "/jugadores/" + nombreJugador.trim().replaceAll("\s+", "_");
     }
 
     //MainApp

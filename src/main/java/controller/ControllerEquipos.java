@@ -127,7 +127,7 @@ public class ControllerEquipos implements Initializable {
                         // Si no se pudo cargar la imagen, usa una imagen por defecto
                         if (logo == null || logo.isError()) {
                             try {
-                                logo = new Image(Objects.requireNonNull(getClass().getResource(Paths.EQUIPODF)).toExternalForm());
+                                logo = new Image((getClass().getResource(Paths.EQUIPODF)).toExternalForm());
                             } catch (Exception e) {
                                 System.out.println("No se pudo cargar la imagen por defecto: " + e.getMessage());
                             }

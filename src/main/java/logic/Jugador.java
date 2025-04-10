@@ -1,8 +1,10 @@
 package logic;
 
+import com.sun.javafx.scene.control.GlobalMenuAdapter;
 import javafx.scene.image.Image;
 import utility.LesionTipo;
 
+import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -19,7 +21,7 @@ public abstract class Jugador implements Serializable {
     protected String imagenRoute;
     protected transient Image foto;
     protected Lesion lesion;
-    protected String Equipo;
+    protected transient String Equipo;
 
     public Jugador(String nombre, LocalDate fNacimiento, float altura, int numJugador, String imagenRoute) {
         this.nombre = nombre;
@@ -133,12 +135,19 @@ public abstract class Jugador implements Serializable {
     // Método abstracto que debe implementar cada subclase
     public abstract void actualizarEstadisticas(Partido partido);
 
-    public void getfoto() {
-        this.foto = new Image(Objects.requireNonNull(getClass().getResource(imagenRoute)).toExternalForm());
+    public Image getfoto() {
+        File archivo = new File(imagenRoute);
+        if (archivo.exists()) {
+            foto = new Image(archivo.toURI().toString());
+        }
+        return foto;
     }
 
-    public Image getImagen() {
-        return foto = new Image(Objects.requireNonNull(getClass().getResource(imagenRoute)).toExternalForm());
+    public void loadImageJugador() {
+        File archivo = new File(imagenRoute);
+        if (archivo.exists()) {
+            foto = new Image(archivo.toURI().toString());
+        }
     }
 }
 

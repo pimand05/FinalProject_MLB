@@ -112,8 +112,8 @@ public class ControllerSimulador {
       equipoTabVisit.setText(partido.getEquipoVisitante().getNombre());
       equipoTabLocal.setText(partido.getEquipoLocal().getNombre());
 
-      logoEquipoVis.setImage(partido.getEquipoVisitante().getLogo());
-      logoEquipoLocal.setImage(partido.getEquipoLocal().getLogo());
+      logoEquipoVis.setImage(partido.getEquipoVisitante().getImagen());
+      logoEquipoLocal.setImage(partido.getEquipoLocal().getImagen());
 
       resetearEstadisticas();
       configurarTimeline();

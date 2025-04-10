@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.io.Serializable;
+import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -32,7 +33,7 @@ public class Equipo  implements Serializable {
     private HashMap<Integer, Bateador> lineup = new HashMap<>();
     private List<Pitcher> relevistas = new ArrayList<>();
 
-    SerieMundial serie = SerieMundial.getInstance();
+    transient SerieMundial serie = SerieMundial.getInstance();
 
     //Constructor
 
@@ -420,19 +421,6 @@ public class Equipo  implements Serializable {
               .orElse(null);
     }
 
-    // buscarJugador alt
-    /*
-    public Jugador buscarJugador(String nombre) {
-        for (Jugador jugador : jugadores) {
-            if (jugador.getNombre().equalsIgnoreCase(nombre)) {
-                return jugador;
-            }
-        }
-        return null;
-    }
-     */
-
-
     // Método para obtener todos los bateadores
     public List<Bateador> getBateadores() {
         List<Bateador> bateadores = new ArrayList<>();
@@ -522,20 +510,25 @@ public class Equipo  implements Serializable {
         return result;
     }
 
-//    public void getLogo() {
-//        Image img = new Image(Objects.requireNonNull(getClass().getResource(rutaLogo)).toExternalForm());
-//        this.logo = img;
-//    }
     public Image getLogo() {
-        Image img = new Image(Objects.requireNonNull(getClass().getResource(rutaLogo)).toExternalForm());
-        this.logo = img;
-        return img;
+        File archivo = new File(rutaLogo);
+        if (archivo.exists()) {
+            logo = new Image(archivo.toURI().toString());
+        }
+        return logo;
+    }
+
+    public void loadLogo() {
+            File archivo = new File(rutaLogo);
+            if (archivo.exists()) {
+                logo = new Image(archivo.toURI().toString());
+            }
     }
 
     public Float getRG() {
         if (partidosJugados == 0) {
             return 100f;
         }
-        return (float) getCarrerasTotales() /partidosJugados;
+        return (float) getCarrerasTotales() / partidosJugados;
     }
 }

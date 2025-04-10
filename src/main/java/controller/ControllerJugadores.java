@@ -85,9 +85,6 @@ public class ControllerJugadores {
                                 if (image == null || image.isError()) {
                                     image = new Image(getClass().getResource("/picture/icons/DefaultFoto.png")
                                             .toExternalForm(), 50, 50, true, true);
-                                } else {
-                                    // Opcional: podemos redimensionar la imagen existente
-                                    // O instanciar un nuevo ImageView con las dimensiones deseadas.
                                 }
 
                                 imageView.setImage(image);
