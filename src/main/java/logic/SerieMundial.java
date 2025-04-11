@@ -19,6 +19,7 @@ public class SerieMundial implements Serializable {
     transient private Jugador jugadorSeleccionado;
     private HashMap<String,String> passwordMap;
     private boolean video = false;
+    private int contador = 1;
 
     private SerieMundial() {
         temporadas = new ArrayList<>();
@@ -60,6 +61,14 @@ public class SerieMundial implements Serializable {
 
     public void setPasswordMap(HashMap<String,String> passwordMap) {
         this.passwordMap = passwordMap;
+    }
+
+    public void contadorUp() {
+        contador++;
+    }
+
+    public int getContador() {
+        return contador;
     }
 
 

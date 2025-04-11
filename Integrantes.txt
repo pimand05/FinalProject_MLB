@@ -4,3 +4,8 @@ Sebastián Diaz - 10153715
 María José Cruz - 10154963
 
 user: admin ; password: 1234
+
+Intrucciones:
+Si desea iniciar el programa nuevamente pero con equipos ya seleccionado solo debe de eliminar la instancia actual y subir el backup
+
+OJO: debes de llamarlo instancia.JSON

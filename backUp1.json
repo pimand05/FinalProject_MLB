@@ -2399,6 +2399,5 @@
   "passwordMap": {
     "admin": "1234"
   },
-  "video": false,
-  "contador": 2
+  "video": false
 }

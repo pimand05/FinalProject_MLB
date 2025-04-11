@@ -27,7 +27,7 @@ public class Server implements Runnable {
 
 
     static class ConnectionHandler implements Runnable {
-        private static int contador = 1;
+        private int contador = SerieMundial.getInstance().getContador();
         private Socket socket;
 
         public ConnectionHandler(Socket socket) {
@@ -45,7 +45,7 @@ public class Server implements Runnable {
 
                 try (FileWriter fw = new FileWriter("backUp"+contador+".json")) {
                     fw.write(json);
-                    contador++;
+                    SerieMundial.getInstance().contadorUp();
                 }
                 System.out.println("Cliente " + socket.getInetAddress() + " envió: " + json);
 
