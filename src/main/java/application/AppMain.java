@@ -15,6 +15,7 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.SerieMundial;
+import logic.Server;
 import utility.Paths;
 
 import java.io.IOException;
@@ -24,12 +25,15 @@ public class AppMain extends Application {
     public static AppMain app;
     public static boolean video = SerieMundial.getInstance().getVideo();
     private Stage stage;
+    Thread servidorThread = new Thread(new Server());
 
     //Funcion para iniciar la aplicación (default).
     @Override
     public void start(Stage primaryStage) {
         app = this;
         this.stage = primaryStage;
+        servidorThread.setDaemon(true); // Para que el hilo se cierre al cerrar la aplicación
+        servidorThread.start();
         if (video) {
             playIntroVideo(primaryStage);
         } else {
@@ -107,7 +111,7 @@ public class AppMain extends Application {
     public  void changeScene(Stage stage, String fxmlPath, String title, boolean resizable, int restaHight) { /// aqui se cambia la escena
         try {
             double width = stage.getWidth();
-            double height = stage.getHeight()- restaHight;
+            double height = -restaHight;
             FXMLLoader loader = new FXMLLoader(AppMain.class.getResource(fxmlPath));
             AnchorPane pane = loader.load();
             Scene scene = new Scene(pane,width,height);
@@ -128,7 +132,7 @@ public class AppMain extends Application {
     }
 
     private void playIntroVideo(Stage stage) {
-        String videoPath = Objects.requireNonNull(getClass().getResource(Paths.VIDEOINTRO)).toExternalForm();
+        String videoPath = Objects.requireNonNull(getClass().getResource(Paths.VIDEOINTRO2)).toExternalForm();
         Media media = new Media(videoPath);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         MediaView mediaView = new MediaView(mediaPlayer);

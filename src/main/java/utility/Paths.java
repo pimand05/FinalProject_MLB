@@ -41,7 +41,9 @@ public class Paths {
 
     //MainApp
     public static final String ICONMAIN = "/picture/icons/BaseballIcon.png";
+    public static final String ICONSEARCH = "/picture/icons/search.png";
     public static final String ICONEQUIPO = "/picture/icons/TeamIcon.png";
+    public static final String ICONJUGADOR = "/picture/icons/PersonIcon.png";
     public static final String ICONABOUT = "/picture/icons/InformationIcon.png";
     public static final String ICONABOUTWH = "/picture/icons/IconInformationWhite.png";
     public static final String TROFEOICON = "/picture/icons/TrofeoIcon.png";

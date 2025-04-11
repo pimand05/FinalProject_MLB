@@ -76,7 +76,7 @@ public class ControllerEquipos implements Initializable {
 
     private void setIconImage() {
         iconBotton.setStyle("-fx-background-image: url('" + Paths.ICONEQUIPO + "');" +
-                "-fx-background-size: 75% 75%; " +
+                "-fx-background-size: 60% 100%; " +
                 "-fx-background-repeat: no-repeat; " +
                 "-fx-background-position: center;");
     }

@@ -25,11 +25,14 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <StackPane fx:id="iconBotton" onMouseClicked="#openHome" prefHeight="121.0" prefWidth="177.0">
+                        <StackPane fx:id="iconBotton" alignment="BOTTOM_CENTER" onMouseClicked="#openHome" prefHeight="72.0" prefWidth="93.0" styleClass="pane" stylesheets="@../style/aboutStyle.css">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></StackPane>
-                        <Separator prefHeight="0.0" prefWidth="298.0" visible="false" HBox.hgrow="ALWAYS" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                           </HBox.margin></StackPane>
+                        <Separator prefHeight="0.0" prefWidth="319.0" visible="false" HBox.hgrow="ALWAYS" />
                           <Label fx:id="myLabel" styleClass="titulo" stylesheets="@../style/visualVentanaEquipo.css" text="EQUIPOS" HBox.hgrow="ALWAYS">
                               <font>
                                   <Font name="Arial Bold" size="62.0" />
@@ -37,6 +40,9 @@
                           </Label>
                         <Separator prefHeight="0.0" prefWidth="413.0" visible="false" HBox.hgrow="ALWAYS" />
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
@@ -44,12 +50,12 @@
                            <children>
                               <HBox prefHeight="175.0" prefWidth="448.0" spacing="20.0" styleClass="context-menu" stylesheets="@../style/visualVentanaEquipo.css" StackPane.alignment="CENTER_LEFT">
                                  <children>
-                                          <ImageView fitHeight="83.0" fitWidth="104.0">
+                                          <ImageView fitHeight="83.0" fitWidth="109.0" HBox.hgrow="ALWAYS">
                                               <image>
                                                   <Image url="@../picture/icons/search.png" />
                                               </image>
                                           </ImageView>
-                                          <TextField fx:id="searchBar" onAction="#search" prefHeight="85.0" prefWidth="565.0" promptText="Ingrese un Equipo" HBox.hgrow="ALWAYS">
+                                          <TextField fx:id="searchBar" onAction="#search" prefHeight="85.0" prefWidth="565.0" promptText="Ingrese un Equipo" styleClass="text" stylesheets="@../style/aboutStyle.css" HBox.hgrow="ALWAYS">
                                               <font>
                                                   <Font name="Arial" size="45.0" />
                                               </font>
@@ -68,10 +74,13 @@
                                 <font>
                                     <Font name="Arial" size="38.0" />
                                 </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
                             </Button>
                      </children>
                      <VBox.margin>
-                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </VBox.margin>
                   </HBox>
                </children>
@@ -92,6 +101,9 @@
                <BorderPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </BorderPane.margin>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
                 </TableView>
          </center>
       </BorderPane>

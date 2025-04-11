@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -17,10 +18,9 @@
    <children>
       <BorderPane layoutX="377.0" layoutY="200.0" prefHeight="1130.0" prefWidth="673.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Separator halignment="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="15.0" visible="false" />
-                  <StackPane fx:id="btnOpenMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openMenu" prefHeight="48.0" prefWidth="66.0" styleClass="Stack_Image" stylesheets="@../style/ViewMain.css">
+                  <StackPane fx:id="btnOpenMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openMenu" prefHeight="48.0" prefWidth="66.0" styleClass="Stack_Image" stylesheets="@../style/ViewMain.css" HBox.hgrow="ALWAYS">
                      <children>
                         <ImageView fitHeight="53.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -32,25 +32,27 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </StackPane>
-                  <Separator prefHeight="5.0" prefWidth="400.0" visible="false" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="673.0" text="Serie Mundial" textAlignment="CENTER" textFill="WHITE" translateX="-15.0">
+                  <Separator prefHeight="5.0" prefWidth="400.0" visible="false" HBox.hgrow="ALWAYS" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="673.0" text="Serie Mundial" textAlignment="CENTER" textFill="WHITE" translateX="-15.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Arial Black" size="61.0" />
                      </font>
                   </Label>
-                  <Separator prefHeight="0.0" prefWidth="295.0" visible="false" />
-                  <ImageView fitHeight="83.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                  <Separator prefHeight="0.0" prefWidth="295.0" visible="false" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="83.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                      <image>
                         <Image url="@../picture/icons/Logo_MLB.png" />
                      </image></ImageView>
-                  <Separator prefHeight="1.0" prefWidth="4.0" visible="false" />
                </children>
+               <BorderPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </BorderPane.margin>
             </HBox>
          </top>
          <center>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="593.0" fitWidth="1305.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-20.0">
+                  <ImageView fitHeight="593.0" fitWidth="1305.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-20.0" HBox.hgrow="ALWAYS">
                      <image>
                         <Image url="@../picture/icons/Fondo.png" />
                      </image>

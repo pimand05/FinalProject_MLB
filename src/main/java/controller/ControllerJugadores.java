@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Callback;
@@ -27,22 +28,17 @@ import java.util.function.Consumer;
 
 public class ControllerJugadores {
 
-    @FXML
-    private Button btnCrearJugador;
-    @FXML
-    private TableView<Jugador> tableView;
-    @FXML
-    private TableColumn<Jugador, Integer> numberColumn;
-    @FXML
-    private TableColumn<Jugador, String> nameColumn;
-    @FXML
-    private TableColumn<Jugador, String> positionColumn;
-    @FXML
-    private TableColumn<Jugador, String> equipoColumn;
-    @FXML
-    private TableColumn<Jugador, String> fotoColumn;
-    @FXML
-    private TextField searchBar;
+    @FXML public Label labelJugador;
+    @FXML public StackPane iconJugador;
+    @FXML public StackPane IconSearch;
+    @FXML private Button btnCrearJugador;
+    @FXML private TableView<Jugador> tableView;
+    @FXML private TableColumn<Jugador, Integer> numberColumn;
+    @FXML private TableColumn<Jugador, String> nameColumn;
+    @FXML private TableColumn<Jugador, String> positionColumn;
+    @FXML private TableColumn<Jugador, String> equipoColumn;
+    @FXML private TableColumn<Jugador, String> fotoColumn;
+    @FXML private TextField searchBar;
 
     private ObservableList<Jugador> jugadoresObservable;
     public static boolean adminMode = false;
@@ -61,6 +57,10 @@ public class ControllerJugadores {
     // Método para inicializar la tabla y cargar los datos
     @FXML
     public void initialize() {
+
+        setIconImage();
+        setIconHome();
+
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("numJugador"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         positionColumn.setCellValueFactory(cellData -> {
@@ -246,5 +246,23 @@ public class ControllerJugadores {
         AppMain.app.openNewStage(Paths.REGJUGADOR, "Registrar Jugador", false, Paths.ICONMAIN, true);
         stage.setAlwaysOnTop(true);
 
+    }
+
+    public void openHome(MouseEvent mouseEvent) {
+        AppMain.app.changeScene(AppMain.app.getStage(), Paths.MAIN, "SERIE MUNDIAL", true,0);
+    }
+
+    private void setIconImage() {
+        IconSearch.setStyle("-fx-background-image: url('" + Paths.ICONSEARCH + "');" +
+                "-fx-background-size: 100% 100%; " +
+                "-fx-background-repeat: no-repeat; " +
+                "-fx-background-position: center;");
+    }
+
+    private void setIconHome() {
+        iconJugador.setStyle("-fx-background-image: url('" + Paths.ICONJUGADOR + "');" +
+                "-fx-background-size: 75% 75%; " +
+                "-fx-background-repeat: no-repeat; " +
+                "-fx-background-position: center;");
     }
 }

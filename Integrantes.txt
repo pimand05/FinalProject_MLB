@@ -1,0 +1,6 @@
+Integrantes:
+Manuel Pimentel - 10153656
+Sebastián Diaz - 10153715
+María José Cruz - 10154963
+
+user: admin ; password: 1234

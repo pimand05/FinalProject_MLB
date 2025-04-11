@@ -6,10 +6,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server implements Runnable {
-
-    @Override
-    public void run() {
+public class ServerJSON {
+    public static void startServer() {
         try (ServerSocket serverSocket = new ServerSocket(5000)) {
             System.out.println("Servidor: Esperando conexiones...");
 
